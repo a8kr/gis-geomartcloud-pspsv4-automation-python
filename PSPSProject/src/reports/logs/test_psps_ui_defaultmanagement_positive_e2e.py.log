@@ -1,0 +1,6 @@
+2020-11-07 22:54:44,303 :INFO : test_defaultmanagement_positive :Starting Validation
+2020-11-07 22:54:50,954 :INFO : test_defaultmanagement_positive :Clicked on Upload a file button
+2020-11-07 22:54:52,220 :INFO : test_defaultmanagement_positive :Successfully uploaded circuits: Validation success
+2020-11-07 22:54:54,981 :INFO : test_defaultmanagement_positive :Total Circuits count matched between Circuits grid & Uploaded circuits file!
+2020-11-07 22:54:55,146 :INFO : test_defaultmanagement_positive :Default Management Grid header displayed as expected
+2020-11-07 22:54:55,165 :INFO : test_defaultmanagement_positive :Save button is enabled after the valid circuit file uploaded
