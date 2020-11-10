@@ -19,5 +19,7 @@ class locators:
     dm_search_dd = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div/div/div"
     dm_close_uploadpopup = "/html/body/div[2]/div[3]/div/div[1]/button/span[1]"
     dm_validationlink = "/html/body/div[2]/div[3]/div/div[3]/span[5]/span/p/a"
+    dm_search_input = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div/div/div/input"
+
 
 

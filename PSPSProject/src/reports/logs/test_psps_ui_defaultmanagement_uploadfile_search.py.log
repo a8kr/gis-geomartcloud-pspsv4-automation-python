@@ -1,0 +1,13 @@
+2020-11-09 17:09:48,647 :INFO : test_create_version_search_positive :PSPS Landing Page displayed!!
+2020-11-09 17:09:52,826 :INFO : test_create_version_search_positive :Starting Validation
+2020-11-09 17:10:04,723 :INFO : test_create_version_search_positive :Successfully validated Search by dropdown & selected value:
+2020-11-09 17:10:06,804 :INFO : test_create_version_search_positive :Clicked on Upload a file button
+2020-11-09 17:10:07,899 :INFO : test_create_version_search_positive :Successfully uploaded circuits: Validation success
+2020-11-09 17:10:12,752 :INFO : test_create_version_search_positive :Verified search value for index:1 and value is: 424
+2020-11-09 17:10:17,024 :INFO : test_create_version_search_positive :Verified search value for index:2 and value is: 163692101
+2020-11-09 17:10:21,393 :INFO : test_create_version_search_positive :Verified search value for index:3 and value is: SALT SPRINGS 2101
+2020-11-09 17:10:25,649 :INFO : test_create_version_search_positive :Verified search value for index:4 and value is: 2427
+2020-11-09 17:10:29,885 :INFO : test_create_version_search_positive :Verified search value for index:5 and value is: Switch
+2020-11-09 17:10:29,885 :INFO : test_create_version_search_positive :All Test Cases Executed successfully 
+2020-11-09 17:10:29,885 :INFO : test_create_version_search_positive :----------------------------------------------------------------------------------------------
+2020-11-09 17:10:29,885 :INFO : test_create_version_search_positive :*************AUTOMATION EXECUTION COMPLETED*************

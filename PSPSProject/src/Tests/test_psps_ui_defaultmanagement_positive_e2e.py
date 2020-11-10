@@ -33,6 +33,7 @@ class TestDefaultManagementPositive(BaseClass):
         defmanagement = DefaultManagement(self.driver)
         uielements = UI_Element_Actions(self.driver)
         deleteFiles(downloadsfolder, ".csv")
+        var_execution_flag = ''
         final_assert = []
         log.info("Starting Validation")
         if var_os == "MAC-OS":
@@ -76,4 +77,13 @@ class TestDefaultManagementPositive(BaseClass):
             log.error("Save button is not enabled after the valid circuit file uploaded")
             final_assert.append(False)
 
+        if False in final_assert:
+            log.error("One of Test Case Execution Failed")
+        else:
+            log.info("All Test Cases Executed successfully ")
 
+        if var_execution_flag == 'fail':
+            log.error("Execution failed: Errors found in execution!!")
+            assert False
+        log.info("----------------------------------------------------------------------------------------------")
+        log.info("*************AUTOMATION EXECUTION COMPLETED*************")

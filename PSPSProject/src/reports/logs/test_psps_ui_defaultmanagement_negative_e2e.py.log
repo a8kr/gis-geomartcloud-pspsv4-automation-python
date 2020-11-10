@@ -1,144 +1,111 @@
-2020-11-09 13:19:39,709 :INFO : test_defaultmanagement_negative :Starting Validation
-2020-11-09 13:19:43,995 :INFO : test_defaultmanagement_negative :Upload file button is enabled by default in Default Management Page
-2020-11-09 13:19:44,036 :INFO : test_defaultmanagement_negative :Save button is disabled by default in Default Management Page
-2020-11-09 13:19:44,185 :INFO : test_defaultmanagement_negative :Default Management Grid header displayed as expected
-2020-11-09 13:19:46,370 :INFO : test_defaultmanagement_negative :Clicked on Upload a file button
-2020-11-09 13:19:47,517 :INFO : test_defaultmanagement_negative :Error message is displayed for incorrect file type: Allowed file is .csv and file uploaded is: circuitsset.xlsx
-2020-11-09 13:19:51,780 :INFO : test_defaultmanagement_negative :Clicked on Upload a file button
-2020-11-09 13:19:52,902 :INFO : test_defaultmanagement_negative :Error message is displayed for incorrect file type: Allowed file is .csv and file uploaded is: circuitset.txt
-2020-11-09 13:19:55,020 :INFO : test_defaultmanagement_negative :Start file validation regression
-2020-11-09 13:19:55,020 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 0
-2020-11-09 13:19:55,139 :INFO : test_defaultmanagement_negative :Validate error message in the log file: No data found
-2020-11-09 13:19:57,311 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:19:58,932 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:20:01,047 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:20:02,095 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:20:04,254 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:20:04,254 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 1
-2020-11-09 13:20:04,338 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
-2020-11-09 13:20:06,495 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:20:08,135 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:20:10,244 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:20:11,257 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:20:13,389 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:20:13,389 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 2
-2020-11-09 13:20:13,476 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
-2020-11-09 13:20:15,632 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:20:17,183 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:20:19,243 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:20:20,265 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:20:22,376 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:20:22,376 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 3
-2020-11-09 13:20:22,459 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
-2020-11-09 13:20:24,585 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:20:26,215 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:20:28,320 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:20:29,337 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:20:31,446 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:20:31,446 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 4
-2020-11-09 13:20:31,542 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
-2020-11-09 13:20:33,710 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:20:35,366 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:20:37,468 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:20:38,481 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:20:40,606 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:20:40,606 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 5
-2020-11-09 13:20:40,722 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
-2020-11-09 13:20:42,874 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:20:44,493 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:20:46,580 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:20:47,595 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:20:49,711 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:20:49,711 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 6
-2020-11-09 13:20:49,812 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
-2020-11-09 13:20:51,981 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:20:53,631 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:20:55,719 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:20:56,742 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:20:58,863 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:20:58,863 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 7
-2020-11-09 13:20:58,950 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
-2020-11-09 13:21:01,086 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:21:02,698 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:21:04,815 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:21:05,844 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:21:07,952 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:21:07,952 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 8
-2020-11-09 13:21:08,079 :INFO : test_defaultmanagement_negative :Validate error message in the log file: FIA cannot be more than 50 characters and 0-9 and ; are accepted
-2020-11-09 13:21:10,287 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:21:11,902 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:21:13,965 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:21:14,980 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-1  Error message for verified for failed file tab...
-2  Error message for verified for failed file tab...
-3  Error message for verified for failed file tab...
-4  Error message for verified for failed file tab...
-2020-11-09 13:21:17,073 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:21:17,073 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 9
-2020-11-09 13:21:17,259 :INFO : test_defaultmanagement_negative :Validate error message in the log file: Circuit Name cannot be more than 50 characters
-2020-11-09 13:21:19,465 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:21:21,073 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:21:23,152 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:21:24,162 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:21:26,240 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:21:26,240 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 10
-2020-11-09 13:21:26,337 :INFO : test_defaultmanagement_negative :Validate error message in the log file: substation cannot be more than 50 characters
-2020-11-09 13:21:28,483 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:21:30,118 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:21:32,195 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:21:33,214 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:21:35,347 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:21:35,347 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 11
-2020-11-09 13:21:35,445 :INFO : test_defaultmanagement_negative :Validate error message in the log file: substation cannot be null
-2020-11-09 13:21:37,603 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:21:39,248 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:21:41,335 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:21:42,360 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-1  Error message for verified for failed file tab...
-2020-11-09 13:21:44,486 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:21:44,486 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 12
-2020-11-09 13:21:44,598 :INFO : test_defaultmanagement_negative :Validate error message in the log file: Source Is.D type cannot be null
-2020-11-09 13:21:46,740 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:21:48,375 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:21:50,439 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:21:51,454 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:21:53,532 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:21:53,532 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 13
-2020-11-09 13:21:53,617 :INFO : test_defaultmanagement_negative :Validate error message in the log file: If Source Is.D type is Fuse or DPD or Switch then Source Is.D should have a value.
-2020-11-09 13:21:55,787 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:21:57,413 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:21:59,466 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:22:00,482 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-1  Error message for verified for failed file tab...
-2  Error message for verified for failed file tab...
-2020-11-09 13:22:02,594 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:22:02,594 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 14
-2020-11-09 13:22:02,700 :INFO : test_defaultmanagement_negative :Validate error message in the log file: Source Is.D type can only have value as Breaker, DPD, Switch and Fuse.
-2020-11-09 13:22:04,842 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:22:06,431 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:22:08,496 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:22:09,513 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:22:11,630 :INFO : test_defaultmanagement_negative :Close upload file modal
-2020-11-09 13:22:11,630 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 15
-2020-11-09 13:22:11,739 :INFO : test_defaultmanagement_negative :Validate error message in the log file: If Source Is.D type is Breaker then Source Is.D should be null.
-2020-11-09 13:22:13,870 :INFO : test_defaultmanagement_negative :Click on Upload file button
-2020-11-09 13:22:15,461 :INFO : test_defaultmanagement_negative :Validate File validation failed message
-2020-11-09 13:22:17,518 :INFO : test_defaultmanagement_negative :Click on Validation log link
-2020-11-09 13:22:18,535 :INFO : test_defaultmanagement_negative :                                       Error message
-0  Error message for verified for failed file tab...
-2020-11-09 13:22:20,610 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:31:58,501 :INFO : test_defaultmanagement_negative :Starting Validation
+2020-11-09 15:32:02,740 :INFO : test_defaultmanagement_negative :Upload file button is enabled by default in Default Management Page
+2020-11-09 15:32:02,754 :INFO : test_defaultmanagement_negative :Save button is disabled by default in Default Management Page
+2020-11-09 15:32:02,813 :INFO : test_defaultmanagement_negative :Default Management Grid header displayed as expected
+2020-11-09 15:32:04,889 :INFO : test_defaultmanagement_negative :Clicked on Upload a file button
+2020-11-09 15:32:06,126 :INFO : test_defaultmanagement_negative :Error message is displayed for incorrect file type: Allowed file is .csv and file uploaded is: circuitsset.xlsx
+2020-11-09 15:32:10,225 :INFO : test_defaultmanagement_negative :Clicked on Upload a file button
+2020-11-09 15:32:11,284 :INFO : test_defaultmanagement_negative :Error message is displayed for incorrect file type: Allowed file is .csv and file uploaded is: circuitset.txt
+2020-11-09 15:32:13,356 :INFO : test_defaultmanagement_negative :Start file validation regression
+2020-11-09 15:32:13,356 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 0
+2020-11-09 15:32:13,404 :INFO : test_defaultmanagement_negative :Validate error message in the log file: No data found
+2020-11-09 15:32:15,492 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:32:17,068 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:32:19,129 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:32:22,202 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:32:22,202 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 1
+2020-11-09 15:32:22,237 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
+2020-11-09 15:32:24,298 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:32:25,864 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:32:27,896 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:32:30,956 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:32:30,956 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 2
+2020-11-09 15:32:31,010 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
+2020-11-09 15:32:33,076 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:32:34,667 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:32:36,729 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:32:39,789 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:32:39,789 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 3
+2020-11-09 15:32:39,845 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
+2020-11-09 15:32:41,934 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:32:43,483 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:32:45,520 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:32:48,598 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:32:48,598 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 4
+2020-11-09 15:32:48,651 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
+2020-11-09 15:32:50,710 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:32:52,253 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:32:54,316 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:32:57,371 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:32:57,371 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 5
+2020-11-09 15:32:57,413 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
+2020-11-09 15:32:59,477 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:33:01,044 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:33:03,111 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:33:06,170 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:33:06,170 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 6
+2020-11-09 15:33:06,198 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
+2020-11-09 15:33:08,274 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:33:09,842 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:33:11,905 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:33:14,958 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:33:14,958 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 7
+2020-11-09 15:33:15,004 :INFO : test_defaultmanagement_negative :Validate error message in the log file: One or more required columns are missing in csv file.
+2020-11-09 15:33:17,074 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:33:18,638 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:33:20,675 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:33:23,741 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:33:23,741 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 8
+2020-11-09 15:33:23,791 :INFO : test_defaultmanagement_negative :Validate error message in the log file: FIA cannot be more than 50 characters and 0-9 and ; are accepted
+2020-11-09 15:33:25,911 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:33:27,462 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:33:29,524 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:33:32,578 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:33:32,578 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 9
+2020-11-09 15:33:32,607 :INFO : test_defaultmanagement_negative :Validate error message in the log file: Circuit Name cannot be more than 50 characters
+2020-11-09 15:33:34,681 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:33:36,255 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:33:38,316 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:33:41,378 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:33:41,378 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 10
+2020-11-09 15:33:41,419 :INFO : test_defaultmanagement_negative :Validate error message in the log file: Substation cannot be more than 50 characters
+2020-11-09 15:33:43,486 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:33:45,026 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:33:47,100 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:33:50,141 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:33:50,141 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 11
+2020-11-09 15:33:50,174 :INFO : test_defaultmanagement_negative :Validate error message in the log file: Substation cannot be null
+2020-11-09 15:33:52,238 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:33:53,796 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:33:55,830 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:33:58,888 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:33:58,888 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 12
+2020-11-09 15:33:58,919 :INFO : test_defaultmanagement_negative :Validate error message in the log file: Source Is.D type cannot be null
+2020-11-09 15:34:01,025 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:34:02,600 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:34:04,645 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:34:07,692 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:34:07,692 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 13
+2020-11-09 15:34:07,735 :INFO : test_defaultmanagement_negative :Validate error message in the log file: If Source Is.D type is Fuse or DPD or Switch then Source Is.D should have a value.
+2020-11-09 15:34:09,822 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:34:11,378 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:34:13,428 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:34:16,497 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:34:16,497 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 14
+2020-11-09 15:34:16,526 :INFO : test_defaultmanagement_negative :Validate error message in the log file: Source Is.D type can only have value as Breaker, DPD, Switch and Fuse.
+2020-11-09 15:34:18,631 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:34:20,174 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:34:22,214 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:34:25,256 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:34:25,256 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 15
+2020-11-09 15:34:25,286 :INFO : test_defaultmanagement_negative :Validate error message in the log file: If Source Is.D type is Breaker then Source Is.D should be null.
+2020-11-09 15:34:27,338 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:34:28,899 :INFO : test_defaultmanagement_negative :Validate File validation failed message
+2020-11-09 15:34:30,933 :INFO : test_defaultmanagement_negative :Click on Validation log link
+2020-11-09 15:34:33,997 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:34:33,997 :INFO : test_defaultmanagement_negative :Create cvs file from Valid_Invalid_Circuits.xlsx file tab: 17
+2020-11-09 15:34:36,229 :INFO : test_defaultmanagement_negative :Click on Upload file button
+2020-11-09 15:34:41,840 :INFO : test_defaultmanagement_negative :Close upload file modal
+2020-11-09 15:34:41,840 :INFO : test_defaultmanagement_negative :All Test Cases Executed successfully 
+2020-11-09 15:34:41,840 :INFO : test_defaultmanagement_negative :----------------------------------------------------------------------------------------------
+2020-11-09 15:34:41,841 :INFO : test_defaultmanagement_negative :*************AUTOMATION EXECUTION COMPLETED*************
