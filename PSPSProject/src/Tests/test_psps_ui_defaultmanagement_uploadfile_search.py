@@ -71,7 +71,7 @@ class TestViewEditVersion(BaseClass):
         time.sleep(0.5)
         filePath = os.path.join(testDatafolderPath, "dm_Circuits_Search_Data.xlsx")
 
-        for num in range(1, 6):
+        for num in range(1, 7):
             var_data_index = num
             var_search_input_data = readData(filePath, "Circuits_Search", 2, var_data_index)
             var_index = num + 2
