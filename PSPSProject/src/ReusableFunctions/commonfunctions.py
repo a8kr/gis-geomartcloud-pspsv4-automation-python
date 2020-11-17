@@ -2,6 +2,7 @@ import glob
 import os
 import sys
 import time
+import datetime
 
 import openpyxl
 
@@ -144,3 +145,7 @@ def wait_tillfiledownloads():
                 var_fileextn = "None"
                 time.sleep(3)
     time.sleep(3)
+
+def getCurrentTime():
+    var_now = datetime.datetime.now()
+    return (str(var_now.strftime("%Y%m%d_%H%M%S")))
