@@ -6,6 +6,7 @@ import pytest
 from PSPSProject.src.Pages.DefaultManagement import DefaultManagement
 from PSPSProject.src.Pages.HomePage import HomePage
 from PSPSProject.src.Repository.uilocators import locators
+from PSPSProject.src.Repository.statictext import textMessage
 from PSPSProject.src.ReusableFunctions.baseclass import BaseClass, exceptionRowCount
 from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, readData, getCSVrowCount
 from PSPSProject.src.ReusableFunctions.uiactions import UI_Element_Actions
@@ -72,8 +73,44 @@ class TestDefaultManagementPositive(BaseClass):
         var_flag = uielements.iselementEnabled(locators.dm_save_btn)
         if var_flag:
             log.info("Save button is enabled after the valid circuit file uploaded")
+
+            uielements.Click(locators.dm_save_btn)
+            log.info("Click on Save button")
+            while True:
+                try:
+                    var_message = uielements.getValue(locators.dm_status_message)
+                    if var_message in textMessage.upload_file_in_progress_message:
+                        continue
+                    else:
+                        break
+                except:
+                    break
+
+            var_message = uielements.getValue(locators.dm_status_message)
+            if var_message in textMessage.upload_file_successfully:
+                log.info("Message 'Default devices data uploaded successfully' validation passed")
+            else:
+                log.error("Message 'Default devices data uploaded successfully' validation failed")
+                final_assert.append(False)
+
         else:
             log.error("Save button is not enabled after the valid circuit file uploaded")
             final_assert.append(False)
+
+        # Verify message retained in the Default management screen on navigating to other pages and returning back
+        homepage.navigate_eventManagement()
+        homepage.navigate_defaultManagement()
+        var_message = uielements.getValue(locators.dm_status_message)
+        if var_message in textMessage.upload_file_successfully:
+            log.info("Verify 'Default devices data uploaded successfully' message retained page on navigating to other pages and returning passed")
+        else:
+            log.error("Verify 'Default devices data uploaded successfully' message retained page on navigating to other pages and returning failed")
+            final_assert.append(False)
+
+
+
+        log.info("*************AUTOMATION EXECUTION COMPLETED*************")
+
+
 
 
