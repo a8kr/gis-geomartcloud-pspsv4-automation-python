@@ -1,15 +1,17 @@
 import glob
 import os
+import shutil
 import sys
 import time
 import datetime
-
+import numpy as np
 import openpyxl
-
-from pathlib import Path
-
 import pandas as pd
 import xlrd
+import pytz
+from pathlib import Path
+from datetime import datetime
+from datetime import timezone
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 p = Path(os.getcwd())
@@ -149,3 +151,76 @@ def wait_tillfiledownloads():
 def getCurrentTime():
     var_now = datetime.datetime.now()
     return (str(var_now.strftime("%Y%m%d_%H%M%S")))
+
+
+# Method: deleteFiles
+# Method Desc: Delete files from folder
+# input : filePath,fileType
+# return: none
+def deleteFolder(foldername):
+    if os.path.exists(foldername) and os.path.isdir(foldername):
+        shutil.rmtree(foldername)
+
+
+# Create directory
+def create_folder(dir):
+    os.mkdir(dir)
+
+
+def comparedf(df1, df2):
+    """Identify differences between two pandas DataFrames"""
+    assert (df1.columns == df2.columns).all(), \
+        "DataFrame column names are different"
+    if any(df1.dtypes != df2.dtypes):
+        "Data Types are different, trying to convert"
+        df2 = df2.astype(df1.dtypes)
+    if df1.equals(df2):
+        return None
+    else:
+        # need to account for np.nan != np.nan returning True
+        diff_mask = (df1 != df2) & ~(df1.isnull() & df2.isnull())
+        ne_stacked = diff_mask.stack()
+        changed = ne_stacked[ne_stacked]
+        changed.index.names = ['id', 'col']
+        difference_locations = np.where(diff_mask)
+        changed_from = df1.values[difference_locations]
+        changed_to = df2.values[difference_locations]
+        return pd.DataFrame({'from': changed_from, 'to': changed_to},
+                            index=changed.index)
+
+def timezoneconversion_utc(df_datecolumn):
+    columns = []
+    for date_str in df_datecolumn:
+        columns.append(convert_datetime(date_str))
+    return columns
+
+def convert_datetime(x):
+    """This function is convert the time to PST & then UTC time zone
+
+        Args:
+            x - column values
+        Returns:
+            return date in UTC time zone otherwise return Not a Time
+    """
+    try:
+        pst = pytz.timezone('US/Pacific')
+        dt=datetime.strptime(x, '%Y-%m-%d %H:%M:%S')
+        dt_pst = pst.localize(dt)
+        dt_utc=datetime.fromtimestamp(dt_pst.timestamp(), timezone.utc)
+        return 'T'.join(str(datetime.strptime(str(dt_utc).split('+')[0], '%Y-%m-%d %H:%M:%S')).split(' '))
+    except:
+        return None
+
+
+# Method: compare_two_dataframe_coulumns
+# Method Desc: Match two data frames
+# input : dataframe1 & dataframe2
+def compare_two_columns_dataframe(df1, df2):
+    arr_mismatchdata = []
+    try:
+        for (i, j) in zip(df1, df2):
+            if i != j:
+                arr_mismatchdata.append([i, j])
+    except:
+        assert False
+    return arr_mismatchdata

@@ -1,3 +1,7 @@
 class queries:
-    # Version Info table
-    get_versionid = "select * from psps.versioninfo where versionname = '%s'"
+    # timeplace Info table
+    get_timeplace = "select * from psps.timeplace_info where timeplacename = '%s'"
+
+
+
+
