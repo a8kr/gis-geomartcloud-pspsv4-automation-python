@@ -1,0 +1,8 @@
+2020-12-07 15:00:04,681 :INFO : test_feederfedby :Starting Validation
+2020-12-07 15:01:22,564 :INFO : test_feederfedby :Starting Validation
+2020-12-07 15:01:23,502 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 15:01:23,502 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 15:01:23,502 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 15:01:38,884 :INFO : test_feederfedby :Spark session connected
+2020-12-07 15:01:44,020 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 15:01:44,373 :INFO : test_feederfedby :Feederfed by circuits found
