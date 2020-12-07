@@ -22,4 +22,31 @@ class locators:
     dm_search_input = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div/div/div/input"
 
 
+    # New time place tab
+    PSPS_List_Select_EventManagement = "/html/body/div[2]/div[3]/div[2]/ul/div[2]/div[2]/span"
+    new_time_place_new_tab = "//span[contains(text(),'NEW TIME PLACE')]"
+    new_time_place_edit_tab = "//span[contains(text(),'VIEW & EDIT TIME PLACES')]"
+    new_time_place_new_event_tab = "//span[contains(text(),'New Event')]"
+    new_time_place_edit_event_tab = "//span[contains(text(),'View & Edit Event')]"
+    new_time_place_view_psps_scope_button = "//span[@class='MuiChip-label MuiChip-labelSmall' and contains(text(),'View PSPS scope')]"
+    new_time_place_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[1]/div/div[1]"
+
+    # New time place modal
+    view_psps_scope_modal_search = "//input[@class='MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd']"
+    view_psps_scope_modal_search_clear = "//button[@class='MuiButtonBase-root MuiIconButton-root']"
+    view_psps_scope_modal_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[1]/div/div/div[2]/div/div/div/div[1]/div/div[1]"
+    view_psps_scope_modal_grid_1st_checkbox = "//div[1]/div[1]/div/span/span[1]/input"
+    view_psps_scope_modal_grid_2nd_checkbox = "//div[2]/div[1]/div/span/span[1]/input"
+    view_psps_scope_modal_next_button = "//span[contains(text(),'NEXT')]"
+    view_psps_scope_modal_cancel_button = "//span[contains(text(),'CANCEL')]"
+    view_psps_scope_modal_status_red_cross = "//div[@class='selected-scope-line-item-cross']"
+    view_psps_scope_modal_status_green_done = "//div[@class='selected-scope-line-item-done']"
+    view_psps_scope_modal_expand_icon = "//div[@class='MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd']"
+    view_psps_scope_modal_collapsed_icon = "//div[@class='MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd']"
+    view_psps_scope_modal_internal_time_place_name = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/div[1]/div/div/div/input"
+    view_psps_scope_modal_external_time_place_name = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/div[1]/div/div[2]/div/div/div/input"
+    view_psps_scope_modal_create_button = "//span[contains(text(),'CREATE')]"
+    view_psps_scope_modal_back_button = "//span[contains(text(),'BACK')]"
+    view_psps_scope_modal_status_message = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[2]/div/div/p"
+
 
