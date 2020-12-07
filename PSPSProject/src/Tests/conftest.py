@@ -1,10 +1,11 @@
 import os
 import sys
 import time
-from configparser import ConfigParser
-from pathlib import Path
 import pytest
+
 from selenium import webdriver
+from pathlib import Path
+from configparser import ConfigParser
 
 from PSPSProject.src.ReusableFunctions.baseclass import testEnvironment
 
@@ -108,7 +109,7 @@ def _capture_screenshot(name):
 
 
 # READ DATABASE DETAILS
-def config(filename='database.ini', section='postgresql'):
+def config(filename='database.ini'):
     try:
         env = testEnvironment()
         if env[0].upper() == "QA":
@@ -123,7 +124,7 @@ def config(filename='database.ini', section='postgresql'):
             section = 'postgresql-test'
     except(ValueError, Exception):
         section = 'postgresql-test'
-    parser = ConfigParser()
+    parser = ConfigParser(interpolation=None)
     parser.read(filename)
     db = {}
     if parser.has_section(section):
@@ -136,7 +137,7 @@ def config(filename='database.ini', section='postgresql'):
 
 
 # READ S3bucket DETAILS
-def s3bucketName(filename='s3bucket.ini'):
+def s3config(filename='s3bucket.ini'):
     try:
         env = testEnvironment()
         if env[0].upper() == "QA":
@@ -151,7 +152,7 @@ def s3bucketName(filename='s3bucket.ini'):
             section = 's3bucket-test'
     except(ValueError, Exception):
         section = 's3bucket-test'
-    parser = ConfigParser()
+    parser = ConfigParser(interpolation=None)
     parser.read(filename)
     s3 = {}
     if parser.has_section(section):
@@ -179,7 +180,7 @@ def APIconfig(filename='apiconfig.ini'):
             section = 'apidetails-test'
     except(ValueError, Exception):
         section = 'apidetails-test'
-    parser = ConfigParser()
+    parser = ConfigParser(interpolation=None)
     parser.read(filename)
     s3 = {}
     if parser.has_section(section):
