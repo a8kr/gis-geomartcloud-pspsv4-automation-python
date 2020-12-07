@@ -35,6 +35,7 @@ class TestDefaultManagementNegative(BaseClass):
         defmanagement = DefaultManagement(self.driver)
         uielements = UI_Element_Actions(self.driver)
         deleteFiles(downloadsfolder, ".csv")
+        var_execution_flag = ''
         final_assert = []
         log.info("Starting Validation")
         if var_os == "MAC-OS":
@@ -69,6 +70,7 @@ class TestDefaultManagementNegative(BaseClass):
         var_filename = readData(testDatafilePath, "Main", var_row, 9)
         var_filename = var_filename.split(',')
         nooffiles = len(var_filename)
+
         for i in range(nooffiles):
             uielements.Click(locators.dm_uplaodfile)
             log.info("Clicked on Upload a file button")
@@ -109,7 +111,6 @@ class TestDefaultManagementNegative(BaseClass):
             var_file_message = pd.read_csv(var_error_log, usecols=col_list)
             if open(var_error_log).read().find(var_error_message_file):
                 print("Error message for verified for failed file tab:  " + str(i) + "message: " + var_file_message)
-                log.info("Error message for verified for failed file tab:  " + str(i) + "message: " + var_file_message)
             else:
                 log.error("Error message not displayed properly: " + var_file_message)
                 final_assert.append(False)
@@ -117,6 +118,28 @@ class TestDefaultManagementNegative(BaseClass):
             uielements.Click(locators.dm_close_uploadpopup)
             log.info("Close upload file modal")
 
+        # Valid files
+        for j in range(17, 18):
+            print(j)
+            log.info("Create cvs file from Valid_Invalid_Circuits.xlsx file tab: " + str(j))
+            convertExcelToTextIndex(testDatafolderPath + '/dm_Valid_Invalid_Circuits.xlsx', j, testDatafolderPath + '/dm_Valid_Invalid_Circuits.txt')
+            convertTexttoCSV(testDatafolderPath + '/dm_Valid_Invalid_Circuits.txt', testDatafolderPath + '/dm_Valid_Invalid_Circuits.csv')
+            uielements.Click(locators.dm_uplaodfile)
+            log.info("Click on Upload file button")
+            var_uploadFileName = "dm_Valid_Invalid_Circuits.csv"
+            var_valid_message = "Validation success"
+            time.sleep(2)
+            defmanagement.dm_validatefile(testDatafolderPath, var_uploadFileName, var_valid_message)
+            uielements.Click(locators.dm_close_uploadpopup)
+            log.info("Close upload file modal")
 
+        if False in final_assert:
+            log.error("One of Test Case Execution Failed")
+        else:
+            log.info("All Test Cases Executed successfully ")
 
-
+        if var_execution_flag == 'fail':
+            log.error("Execution failed: Errors found in execution!!")
+            assert False
+        log.info("----------------------------------------------------------------------------------------------")
+        log.info("*************AUTOMATION EXECUTION COMPLETED*************")
