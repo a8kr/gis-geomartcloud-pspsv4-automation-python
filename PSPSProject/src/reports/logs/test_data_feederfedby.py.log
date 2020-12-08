@@ -6,3 +6,333 @@
 2020-12-07 15:01:38,884 :INFO : test_feederfedby :Spark session connected
 2020-12-07 15:01:44,020 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
 2020-12-07 15:01:44,373 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 16:40:51,647 :INFO : test_feederfedby :Starting Validation
+2020-12-07 16:40:52,647 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 16:40:52,648 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 16:40:52,649 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 16:41:08,766 :INFO : test_feederfedby :Spark session connected
+2020-12-07 16:41:13,170 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 16:41:13,516 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 16:42:44,907 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 16:50:00,630 :INFO : test_feederfedby :Starting Validation
+2020-12-07 16:50:01,414 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 16:50:01,415 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 16:50:01,416 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 16:50:07,050 :INFO : test_feederfedby :Spark session connected
+2020-12-07 16:50:11,457 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 16:50:11,812 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 16:51:40,131 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 16:54:39,502 :INFO : test_feederfedby :Starting Validation
+2020-12-07 16:54:40,249 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 16:54:40,250 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 16:54:40,250 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 16:54:45,916 :INFO : test_feederfedby :Spark session connected
+2020-12-07 16:54:50,320 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 16:54:50,676 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 16:56:18,346 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 16:58:50,238 :INFO : test_feederfedby :Starting Validation
+2020-12-07 16:58:51,024 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 16:58:51,024 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 16:58:51,025 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 16:58:59,265 :INFO : test_feederfedby :Spark session connected
+2020-12-07 16:59:05,630 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 16:59:06,217 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 17:01:03,109 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 17:04:12,485 :INFO : test_feederfedby :Starting Validation
+2020-12-07 17:04:13,443 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 17:04:13,443 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 17:04:13,444 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 17:04:22,874 :INFO : test_feederfedby :Spark session connected
+2020-12-07 17:04:29,268 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 17:04:29,792 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 17:06:26,106 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 17:07:48,815 :INFO : test_feederfedby :Starting Validation
+2020-12-07 17:07:49,483 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 17:07:49,483 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 17:07:49,484 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 17:08:00,171 :INFO : test_feederfedby :Spark session connected
+2020-12-07 17:08:06,914 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 17:08:07,392 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 17:10:03,449 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 17:18:05,886 :INFO : test_feederfedby :Starting Validation
+2020-12-07 17:18:06,828 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 17:18:06,828 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 17:18:06,828 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 17:18:16,748 :INFO : test_feederfedby :Spark session connected
+2020-12-07 17:18:23,510 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 17:18:24,014 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 17:20:35,935 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 17:30:37,517 :INFO : test_feederfedby :Starting Validation
+2020-12-07 17:30:38,301 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 17:30:38,302 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 17:30:38,302 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 17:30:48,484 :INFO : test_feederfedby :Spark session connected
+2020-12-07 17:30:53,362 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 17:30:53,686 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 17:32:20,363 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 17:58:36,964 :INFO : test_feederfedby :Starting Validation
+2020-12-07 17:58:37,667 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 17:58:37,668 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 17:58:37,668 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 17:58:42,188 :INFO : test_feederfedby :Spark session connected
+2020-12-07 17:58:46,117 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 17:58:46,436 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:00:09,634 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 18:02:35,332 :INFO : test_feederfedby :Starting Validation
+2020-12-07 18:02:36,060 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 18:02:36,061 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 18:02:36,061 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 18:02:40,757 :INFO : test_feederfedby :Spark session connected
+2020-12-07 18:02:44,883 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 18:02:45,204 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:04:07,133 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 18:07:01,985 :INFO : test_feederfedby :Starting Validation
+2020-12-07 18:07:02,708 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 18:07:02,708 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 18:07:02,708 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 18:07:07,418 :INFO : test_feederfedby :Spark session connected
+2020-12-07 18:07:11,513 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 18:07:11,862 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:08:37,212 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 18:10:14,978 :INFO : test_feederfedby :Feeder fed by logic completed and duplicates removed, circuits are stored in 'duplicatesremoved.csv' file
+2020-12-07 18:15:00,982 :INFO : test_feederfedby :Starting Validation
+2020-12-07 18:15:01,670 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 18:15:01,670 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 18:15:01,671 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 18:15:10,934 :INFO : test_feederfedby :Spark session connected
+2020-12-07 18:15:15,464 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 18:15:15,822 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:16:37,227 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 18:29:08,118 :INFO : test_feederfedby :Starting Validation
+2020-12-07 18:29:08,859 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 18:29:08,859 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 18:29:08,860 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 18:29:13,699 :INFO : test_feederfedby :Spark session connected
+2020-12-07 18:29:17,733 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 18:29:18,049 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:30:36,874 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 18:38:24,711 :INFO : test_feederfedby :Starting Validation
+2020-12-07 18:38:25,369 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 18:38:25,370 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 18:38:25,370 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 18:38:30,040 :INFO : test_feederfedby :Spark session connected
+2020-12-07 18:38:34,310 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 18:38:34,604 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:39:56,634 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 18:42:52,915 :INFO : test_feederfedby :Starting Validation
+2020-12-07 18:42:53,653 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 18:42:53,653 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 18:42:53,654 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 18:43:02,601 :INFO : test_feederfedby :Spark session connected
+2020-12-07 18:43:06,718 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 18:43:07,047 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:44:26,516 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 18:48:10,995 :INFO : test_feederfedby :Starting Validation
+2020-12-07 18:48:11,623 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 18:48:11,623 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 18:48:11,623 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 18:48:16,440 :INFO : test_feederfedby :Spark session connected
+2020-12-07 18:48:20,414 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 18:48:20,736 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:49:40,738 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 18:52:24,339 :INFO : test_feederfedby :Feeder fed by logic completed and duplicates removed, circuits are stored in 'duplicatesremoved.csv' file
+2020-12-07 18:53:01,306 :INFO : test_feederfedby :Expected Feeder fed by circuits are stored in 'Expected_feederfedcircuits.csv' file
+2020-12-07 18:53:38,406 :ERROR : test_feederfedby :Actual and Expected feederfed by circuits not matched
+2020-12-07 18:54:14,278 :INFO : test_feederfedby :Mismatch circuits are stored in 'mismatchedcircuits.csv' file
+2020-12-07 18:54:14,302 :INFO : test_feederfedby :Dropped all temp tables
+2020-12-07 18:54:15,449 :INFO : test_feederfedby :Spark Session closed
+2020-12-07 18:56:34,948 :INFO : test_feederfedby :Starting Validation
+2020-12-07 18:56:35,700 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 18:56:35,700 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 18:56:35,700 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 18:56:40,735 :INFO : test_feederfedby :Spark session connected
+2020-12-07 18:56:44,983 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 18:56:45,319 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 18:58:08,551 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 19:21:09,964 :INFO : test_feederfedby :Starting Validation
+2020-12-07 19:21:10,589 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 19:21:10,589 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 19:21:10,590 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 19:21:15,243 :INFO : test_feederfedby :Spark session connected
+2020-12-07 19:21:19,149 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 19:21:19,470 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 19:22:39,384 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 19:25:47,164 :ERROR : test_feederfedby :Actual and Expected feederfed by circuits not matched
+2020-12-07 19:26:57,933 :INFO : test_feederfedby :Mismatch circuits are stored in 'mismatchedcircuits.csv' file
+2020-12-07 19:26:57,948 :INFO : test_feederfedby :Dropped all temp tables
+2020-12-07 19:27:00,024 :INFO : test_feederfedby :Spark Session closed
+2020-12-07 19:38:43,253 :INFO : test_feederfedby :Starting Validation
+2020-12-07 19:38:43,981 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 19:38:43,981 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 19:38:43,981 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 19:38:48,724 :INFO : test_feederfedby :Spark session connected
+2020-12-07 19:38:52,708 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 19:38:53,041 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 19:40:16,965 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 20:04:09,575 :INFO : test_feederfedby :Starting Validation
+2020-12-07 20:04:10,292 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 20:04:10,292 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 20:04:10,292 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 20:04:18,995 :INFO : test_feederfedby :Spark session connected
+2020-12-07 20:04:22,969 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 20:04:23,250 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 20:05:46,509 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 20:10:19,335 :INFO : test_feederfedby :Starting Validation
+2020-12-07 20:10:20,385 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 20:10:20,385 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 20:10:20,385 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 20:10:25,079 :INFO : test_feederfedby :Spark session connected
+2020-12-07 20:10:29,056 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 20:10:29,413 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 20:11:49,432 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 20:37:10,132 :INFO : test_feederfedby :Starting Validation
+2020-12-07 20:37:10,850 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 20:37:10,850 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 20:37:10,850 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 20:37:15,519 :INFO : test_feederfedby :Spark session connected
+2020-12-07 20:37:19,466 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 20:37:19,772 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 20:38:39,263 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 20:40:19,062 :INFO : test_feederfedby :Starting Validation
+2020-12-07 20:40:20,236 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 20:40:20,236 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 20:40:20,236 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 20:40:24,893 :INFO : test_feederfedby :Spark session connected
+2020-12-07 20:40:28,887 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 20:40:29,241 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 20:41:49,095 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 20:45:01,308 :INFO : test_feederfedby :Starting Validation
+2020-12-07 20:45:02,068 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 20:45:02,068 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 20:45:02,068 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 20:45:06,848 :INFO : test_feederfedby :Spark session connected
+2020-12-07 20:45:10,782 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 20:45:11,161 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 20:46:30,071 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 20:50:38,825 :INFO : test_feederfedby :Starting Validation
+2020-12-07 20:50:39,595 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 20:50:39,595 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 20:50:39,595 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 20:50:44,557 :INFO : test_feederfedby :Spark session connected
+2020-12-07 20:50:48,799 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 20:50:49,285 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 20:52:07,944 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 20:57:40,792 :INFO : test_feederfedby :Starting Validation
+2020-12-07 20:57:41,563 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 20:57:41,563 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 20:57:41,563 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 20:57:46,274 :INFO : test_feederfedby :Spark session connected
+2020-12-07 20:57:50,223 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 20:57:50,524 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 20:59:09,926 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 21:02:58,758 :INFO : test_feederfedby :Starting Validation
+2020-12-07 21:02:59,523 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 21:02:59,523 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 21:02:59,523 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 21:03:04,245 :INFO : test_feederfedby :Spark session connected
+2020-12-07 21:03:08,261 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 21:03:08,577 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 21:04:30,289 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 21:13:13,449 :INFO : test_feederfedby :Starting Validation
+2020-12-07 21:13:14,168 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 21:13:14,168 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 21:13:14,168 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 21:13:18,955 :INFO : test_feederfedby :Spark session connected
+2020-12-07 21:13:23,040 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 21:13:23,348 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 21:14:45,035 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 21:18:04,322 :INFO : test_feederfedby :Starting Validation
+2020-12-07 21:18:05,063 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 21:18:05,063 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 21:18:05,063 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 21:18:09,843 :INFO : test_feederfedby :Spark session connected
+2020-12-07 21:18:13,939 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 21:18:14,308 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 21:19:32,453 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 21:22:33,936 :INFO : test_feederfedby :Dropped all temp tables
+2020-12-07 21:22:38,353 :INFO : test_feederfedby :Spark Session closed
+2020-12-07 22:11:13,755 :INFO : test_feederfedby :Starting Validation
+2020-12-07 22:11:14,456 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 22:11:14,456 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 22:11:14,456 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 22:11:23,612 :INFO : test_feederfedby :Spark session connected
+2020-12-07 22:11:27,765 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 22:11:28,112 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 22:12:48,852 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 22:18:38,114 :INFO : test_feederfedby :Starting Validation
+2020-12-07 22:18:38,847 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 22:18:38,847 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 22:18:38,847 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 22:18:43,639 :INFO : test_feederfedby :Spark session connected
+2020-12-07 22:18:47,634 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 22:18:47,978 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 22:20:10,798 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 22:31:24,997 :INFO : test_feederfedby :Starting Validation
+2020-12-07 22:31:25,733 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 22:31:25,733 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 22:31:25,733 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 22:31:30,492 :INFO : test_feederfedby :Spark session connected
+2020-12-07 22:31:34,564 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 22:31:34,872 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 22:35:18,799 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 22:38:16,680 :INFO : test_feederfedby :Starting Validation
+2020-12-07 22:38:17,666 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 22:38:17,666 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 22:38:17,666 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 22:38:22,373 :INFO : test_feederfedby :Spark session connected
+2020-12-07 22:38:26,334 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 22:38:26,713 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 22:40:01,684 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 22:42:41,373 :INFO : test_feederfedby :Starting Validation
+2020-12-07 22:42:42,091 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 22:42:42,091 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 22:42:42,091 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 22:42:46,922 :INFO : test_feederfedby :Spark session connected
+2020-12-07 22:42:50,979 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 22:42:51,341 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 22:44:11,709 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 22:48:31,086 :INFO : test_feederfedby :Starting Validation
+2020-12-07 22:48:31,789 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 22:48:31,789 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 22:48:31,789 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 22:48:36,564 :INFO : test_feederfedby :Spark session connected
+2020-12-07 22:48:40,678 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 22:48:40,992 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 22:49:59,880 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 22:54:05,073 :INFO : test_feederfedby :Starting Validation
+2020-12-07 22:54:05,691 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 22:54:05,691 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 22:54:05,691 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 22:54:10,389 :INFO : test_feederfedby :Spark session connected
+2020-12-07 22:54:14,385 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 22:54:14,717 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 22:55:34,922 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 22:56:15,087 :INFO : test_feederfedby :Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file
+2020-12-07 22:56:16,672 :ERROR : test_feederfedby :Actual and Expected feederfed by circuits not matched
+2020-12-07 22:56:18,189 :INFO : test_feederfedby :Mismatch circuits are stored in 'mismatchedcircuits.csv' file
+2020-12-07 22:56:18,205 :INFO : test_feederfedby :Dropped all temp tables
+2020-12-07 22:56:19,831 :INFO : test_feederfedby :Spark Session closed
+2020-12-07 23:24:06,147 :INFO : test_feederfedby :Starting Validation
+2020-12-07 23:24:07,848 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 23:24:07,848 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 23:24:07,848 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 23:24:12,532 :INFO : test_feederfedby :Spark session connected
+2020-12-07 23:25:01,806 :INFO : test_feederfedby :Starting Validation
+2020-12-07 23:25:03,361 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 23:25:03,361 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 23:25:03,361 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 23:25:08,053 :INFO : test_feederfedby :Spark session connected
+2020-12-07 23:25:12,025 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 23:25:12,318 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 23:26:56,976 :INFO : test_feederfedby :Starting Validation
+2020-12-07 23:26:58,286 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-07 23:26:58,286 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-07 23:26:58,286 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-07 23:27:02,900 :INFO : test_feederfedby :Spark session connected
+2020-12-07 23:27:06,897 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-07 23:27:07,240 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-07 23:28:26,961 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-07 23:29:05,153 :INFO : test_feederfedby :Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file
+2020-12-07 23:29:06,642 :INFO : test_feederfedby :Actual and Expected feederfed by circuits matched
+2020-12-07 23:29:06,657 :INFO : test_feederfedby :Dropped all temp tables
+2020-12-07 23:29:08,532 :INFO : test_feederfedby :Spark Session closed

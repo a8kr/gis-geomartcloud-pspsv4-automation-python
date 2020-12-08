@@ -54,13 +54,14 @@ class TestFeederFedBy(BaseClass):
             print("Version should take from UI")
         else:
             var_tp_array.append(timeplace)
-        '''
+
         # Download all the required data files from S3- PSPSDataSync folder
         s3 = boto3.client('s3')
         s3_resource = boto3.resource("s3")
         s3_bucketname = s3config()['pspsdatabucketname']
         BUCKET_PATH = s3config()['pspsdatasyncpath']
         profilename = s3config()['profile_name']
+        '''
         # Download feederNetwork_priugconductor parquet file
         filename = "feederNetwork_priugconductor.parquet"
         localpath = downloadsfolderPath + "\\feedernetwork_ugdata" + "\\" + filename
@@ -133,7 +134,7 @@ class TestFeederFedBy(BaseClass):
             df_timeplacecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
 
-            Actual_feederfedcircuits = spark.sql("""SELECT timeplace_foreignkey, fireindex, circuitid, circuitname, 
+            Actual_feederfedcircuits = spark.sql("""SELECT timeplace_foreignkey, circuitid, circuitname, 
             substationname, transmissionimpact,division,source_min_branch,source_max_branch,source_order_num,
             source_treelevel,additional_max_branch,additional_min_branch,additional_order_num,additional_treelevel,
             source_isolation_device,additional_isolation_device,source_isolation_device_type,
@@ -143,7 +144,8 @@ class TestFeederFedBy(BaseClass):
             tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Actual_feederfedcircuits"
             Actual_feederfedcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
                 "overwrite").save(tempfolder)
-            log.info("Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file")
+            log.info(
+                "Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file")
 
             if Actual_feederfedcircuits.count() == 0:
                 print('No feederfed by circuits found')
@@ -154,9 +156,8 @@ class TestFeederFedBy(BaseClass):
                 df_filteredcircuits = spark.sql(
                     """ SELECT * from timeplace_circuits where parentfeederfedby is null or parentfeederfedby = '' """)
                 df_filteredcircuits.createOrReplaceTempView("circuits")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\circuits"
-                df_filteredcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
-                    "overwrite").save(tempfolder)
+                # tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\circuits"
+                # df_filteredcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
 
                 # Read Feeder tables
                 feederohdataloc = downloadsfolderPath + "\\feedernetwork_ohdata" + "\\feederNetwork_priohconductor.parquet"
@@ -260,37 +261,43 @@ class TestFeederFedBy(BaseClass):
                                                     AND fv.to_feature_fcid IN ( 1003, 1005, 998, 997 )
                                                 ORDER BY fv.TREELEVEL ASC  """)
                 final_circuitTable.createOrReplaceTempView("final_circuitTable")
-                spark.sql(""" SELECT * from tempCircuitInfoTableName 
-                                    UNION
-                                    SELECT * from final_circuitTable
-                                """).createOrReplaceTempView("final_circuitTable")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederfedcircuits"
+                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederfedbycircuits"
                 final_circuitTable.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
-                log.info("Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file")
-                # Remove duplicates:
-
-                final_circuitTable = spark.sql(""" SELECT f.timeplace_foreignkey, f.fireindex, f.circuitid, f.circuitname, f.substationname, f.transmissionimpact,f.division,
-                               f.source_min_branch,f.source_max_branch,f.source_order_num,f.source_treelevel,f.additional_max_branch,f.additional_min_branch,
-                               f.additional_order_num,f.additional_treelevel,f.source_isolation_device,f.additional_isolation_device,f.source_isolation_device_type,
-                               f.additional_isolation_device_type,f.flag,f.parentfeederfedby,f.parentcircuitid,f.tempgenname,f.comments from final_circuitTable as f Full Outer Join circuits as c
-                               on c.circuitid = f.circuitid and c.source_isolation_device=f.source_isolation_device
-                                And c.source_isolation_device_type = f.source_isolation_device_type """)
-                final_circuitTable.createOrReplaceTempView("final_circuitTable")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\duplicatesremoved"
-                final_circuitTable.coalesce(1).write.option("header", "true").format("csv").mode(
-                    "overwrite").save(tempfolder)
+                final_circuitTable.cache()
                 log.info("Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file")
 
-                Expected_feederfedcircuits = spark.sql(""" SELECT timeplace_foreignkey, fireindex, circuitid, circuitname, substationname, transmissionimpact,division,
+                # Get Duplicate records which match from Circuits list and feederfedcircuits list
+                duplicaterecords = spark.sql("""SELECT f.timeplace_foreignkey, f.fireindex, f.circuitid, f.circuitname, 
+                                f.substationname, f.transmissionimpact, f.division, f.source_min_branch,f.source_max_branch,
+                                f.source_order_num,f.source_treelevel,f.additional_max_branch,f.additional_min_branch,
+                                f.additional_order_num,f.additional_treelevel,f.source_isolation_device,
+                                f.additional_isolation_device,f.source_isolation_device_type,f.additional_isolation_device_type,
+                                f.flag,f.parentfeederfedby,f.parentcircuitid,f.tempgenname,f.comments from 
+                                final_circuitTable as f Inner Join circuits as c on c.circuitid = f.circuitid and 
+                                c.source_isolation_device=f.source_isolation_device and c.source_isolation_device_type = 
+                                f.source_isolation_device_type """)
+                duplicaterecords.createOrReplaceTempView("duplicaterecords")
+                # tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\duplicaterecords"
+                # duplicaterecords.coalesce(1).write.option("header", "true").format("csv").mode(
+                #     "overwrite").save(tempfolder)
+                duplicaterecords.cache()
+
+                # Remove Duplicate records and get Expected Feeder fed by circuits list
+                Expected_feederfedcircuits = spark.sql("""Select timeplace_foreignkey, circuitid, circuitname, substationname, transmissionimpact, division,
                                source_min_branch,source_max_branch,source_order_num,source_treelevel,additional_max_branch,additional_min_branch,
                                additional_order_num,additional_treelevel,source_isolation_device,additional_isolation_device,source_isolation_device_type,
-                               additional_isolation_device_type,flag,parentfeederfedby,parentcircuitid,tempgenname,comments FROM final_circuitTable""")
+                               additional_isolation_device_type,flag,parentfeederfedby,parentcircuitid,tempgenname,comments from final_circuitTable
+                                EXCEPT
+                                Select timeplace_foreignkey, circuitid, circuitname, substationname, transmissionimpact, division,
+                               source_min_branch,source_max_branch,source_order_num,source_treelevel,additional_max_branch,additional_min_branch,
+                               additional_order_num,additional_treelevel,source_isolation_device,additional_isolation_device,source_isolation_device_type,
+                               additional_isolation_device_type,flag,parentfeederfedby,parentcircuitid,tempgenname,comments from duplicaterecords """)
                 Expected_feederfedcircuits.createOrReplaceTempView("Expected_feederfedcircuits")
                 tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Expected_feederfedcircuits"
                 Expected_feederfedcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
-                log.info("Expected Feeder fed by circuits are stored in 'Expected_feederfedcircuits.csv' file")
+                log.info("Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file")
 
                 df_mismatched = spark.sql(
                     """ SELECT * FROM Expected_feederfedcircuits EXCEPT SELECT * FROM Actual_feederfedcircuits""")
