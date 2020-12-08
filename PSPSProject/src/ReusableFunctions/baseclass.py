@@ -2,8 +2,9 @@ import inspect
 import logging
 import os
 import sys
-from pathlib import Path
 import pytest
+from pathlib import Path
+
 
 from PSPSProject.src.ReusableFunctions.commonfunctions import getRowCount, readData
 

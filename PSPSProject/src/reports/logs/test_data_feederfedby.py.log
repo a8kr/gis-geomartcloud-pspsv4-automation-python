@@ -336,3 +336,4 @@
 2020-12-07 23:29:06,642 :INFO : test_feederfedby :Actual and Expected feederfed by circuits matched
 2020-12-07 23:29:06,657 :INFO : test_feederfedby :Dropped all temp tables
 2020-12-07 23:29:08,532 :INFO : test_feederfedby :Spark Session closed
+2020-12-08 10:48:22,406 :INFO : test_feederfedby :Starting Validation
