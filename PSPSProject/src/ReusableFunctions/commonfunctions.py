@@ -1,3 +1,4 @@
+
 import datetime
 import glob
 import os
@@ -149,7 +150,7 @@ def wait_tillfiledownloads():
     time.sleep(3)
 
 def getCurrentTime():
-    var_now = datetime.datetime.now()
+    var_now = datetime.now()
     return (str(var_now.strftime("%Y%m%d_%H%M%S")))
 
 
