@@ -9,7 +9,6 @@ from configparser import ConfigParser
 
 from PSPSProject.src.ReusableFunctions.baseclass import testEnvironment
 
-
 sys.path.append(os.path.join(os.path.dirname(__file__), "...", "..."))
 
 p = Path(os.getcwd())
@@ -190,5 +189,3 @@ def APIconfig(filename='apiconfig.ini'):
     else:
         raise Exception('Section {0} not found in the {1} file'.format(section, filename))
     return s3
-
-

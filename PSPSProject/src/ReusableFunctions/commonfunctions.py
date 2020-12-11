@@ -151,8 +151,9 @@ def wait_tillfiledownloads():
                 time.sleep(3)
     time.sleep(3)
 
+
 def getCurrentTime():
-    var_now = datetime.datetime.now()
+    var_now = datetime.now()
     return (str(var_now.strftime("%Y%m%d_%H%M%S")))
 
 
@@ -191,11 +192,13 @@ def comparedf(df1, df2):
         return pd.DataFrame({'from': changed_from, 'to': changed_to},
                             index=changed.index)
 
+
 def timezoneconversion_utc(df_datecolumn):
     columns = []
     for date_str in df_datecolumn:
         columns.append(convert_datetime(date_str))
     return columns
+
 
 def convert_datetime(x):
     """This function is convert the time to PST & then UTC time zone
@@ -207,9 +210,9 @@ def convert_datetime(x):
     """
     try:
         pst = pytz.timezone('US/Pacific')
-        dt=datetime.strptime(x, '%Y-%m-%d %H:%M:%S')
+        dt = datetime.strptime(x, '%Y-%m-%d %H:%M:%S')
         dt_pst = pst.localize(dt)
-        dt_utc=datetime.fromtimestamp(dt_pst.timestamp(), timezone.utc)
+        dt_utc = datetime.fromtimestamp(dt_pst.timestamp(), timezone.utc)
         return 'T'.join(str(datetime.strptime(str(dt_utc).split('+')[0], '%Y-%m-%d %H:%M:%S')).split(' '))
     except:
         return None

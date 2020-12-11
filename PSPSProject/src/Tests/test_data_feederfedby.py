@@ -18,7 +18,7 @@ from PSPSProject.src.Repository.dbqueries import queries
 from PSPSProject.src.ReusableFunctions.awsfunctions import download_file_from_S3, download_dir_from_S3
 from PSPSProject.src.ReusableFunctions.baseclass import BaseClass, exceptionRowCount
 from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, downloadsfolderPath, readData, \
-    deleteFolder, create_folder
+    deleteFolder, create_folder, getCurrentTime
 from PSPSProject.src.ReusableFunctions.databasefunctions import queryresults_get_alldata
 
 from PSPSProject.src.Tests.conftest import downloadsfolder, testDatafilePath, s3config, dirctorypath
@@ -54,14 +54,13 @@ class TestFeederFedBy(BaseClass):
             print("Version should take from UI")
         else:
             var_tp_array.append(timeplace)
-
+        '''
         # Download all the required data files from S3- PSPSDataSync folder
         s3 = boto3.client('s3')
         s3_resource = boto3.resource("s3")
         s3_bucketname = s3config()['pspsdatabucketname']
         BUCKET_PATH = s3config()['pspsdatasyncpath']
         profilename = s3config()['profile_name']
-        '''
         # Download feederNetwork_priugconductor parquet file
         filename = "feederNetwork_priugconductor.parquet"
         localpath = downloadsfolderPath + "\\feedernetwork_ugdata" + "\\" + filename
@@ -90,7 +89,7 @@ class TestFeederFedBy(BaseClass):
         # Get Timeplace UID and Timeplace ID for the required timeplace
         i = 0
         for each in var_tp_array:
-
+            '''
             get_timeplace_db = queries.get_timeplace % each
             lst_tp_details = queryresults_get_alldata(get_timeplace_db)
             var_tp_uid = lst_tp_details[0][0]
@@ -98,7 +97,7 @@ class TestFeederFedBy(BaseClass):
             log.info("Timeplace UID for timeplace: " + str(each) + " is: " + str(var_tp_uid))
             log.info("Timeplace ID for timeplace: " + str(each) + " is: " + str(var_tp_id))
             log.info("-----------------------------------------------------------------------------------------------")
-            '''
+
             # Download circuits file for the timeplace from S3 bucket
             filename = str(var_tp_id) + "/" + str(var_tp_uid) + "/circuits/circuits_" + str(var_tp_uid) + "/"
             # filename = "131/151/circuits/circuits_151/"
@@ -113,8 +112,9 @@ class TestFeederFedBy(BaseClass):
             download_dir_from_S3(path, s3_bucketname, profilename, local_folder)
             log.info("Downloaded circuits parquet file from S3")
             '''
-            # var_tp_uid = "169"
-            # var_tp_id = "149"
+
+            var_tp_uid = '169'
+            var_tp_id = '149'
             spark = SparkSession.builder.appName("Timeplace-Creation") \
                 .config('spark.driver.memory', '10g') \
                 .config("spark.cores.max", "6") \
@@ -133,19 +133,20 @@ class TestFeederFedBy(BaseClass):
             tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\actualtimeplace_circuits"
             df_timeplacecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
-
+            df_timeplacecircuits.cache()
             Actual_feederfedcircuits = spark.sql("""SELECT timeplace_foreignkey, circuitid, circuitname, 
             substationname, transmissionimpact,division,source_min_branch,source_max_branch,source_order_num,
             source_treelevel,additional_max_branch,additional_min_branch,additional_order_num,additional_treelevel,
             source_isolation_device,additional_isolation_device,source_isolation_device_type,
             additional_isolation_device_type,flag,parentfeederfedby,parentcircuitid,tempgenname,comments FROM 
-            timeplace_circuits where parentfeederfedby <> '' """)
+            timeplace_circuits where parentcircuitid is not null and parentcircuitid <> '' """)
             Actual_feederfedcircuits.createOrReplaceTempView("Actual_feederfedcircuits")
             tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Actual_feederfedcircuits"
             Actual_feederfedcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
                 "overwrite").save(tempfolder)
             log.info(
                 "Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file")
+            Actual_feederfedcircuits.cache()
 
             if Actual_feederfedcircuits.count() == 0:
                 print('No feederfed by circuits found')
@@ -154,72 +155,87 @@ class TestFeederFedBy(BaseClass):
                 print('Feederfed by circuits found')
                 log.info('Feederfed by circuits found')
                 df_filteredcircuits = spark.sql(
-                    """ SELECT * from timeplace_circuits where parentfeederfedby is null or parentfeederfedby = '' """)
+                    """ SELECT * from timeplace_circuits where parentcircuitid is null or parentcircuitid = '' """)
+                # df_filteredcircuits = df_filteredcircuits.repartition("circuitid")
                 df_filteredcircuits.createOrReplaceTempView("circuits")
-                # tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\circuits"
-                # df_filteredcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\circuits"
+                df_filteredcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
 
                 # Read Feeder tables
-                feederohdataloc = downloadsfolderPath + "\\feedernetwork_ohdata" + "\\feederNetwork_priohconductor.parquet"
-                feederugdataloc = downloadsfolderPath + "\\feedernetwork_ugdata" + "\\feederNetwork_priugconductor.parquet"
-                feederdevicedataloc = downloadsfolderPath + "\\feedernetwork_devicesdata" + "\\feederNetwork_device.parquet"
+                feederohdataloc = downloadsfolderPath + "\\feedernetwork_ohdata"
+                feederugdataloc = downloadsfolderPath + "\\feedernetwork_ugdata"
+                feederdevicedataloc = downloadsfolderPath + "\\feedernetwork_devicesdata"
                 df_feederOHhconductor = spark.read.parquet(feederohdataloc)
                 df_feederOHhconductor.createOrReplaceTempView("feederOHhconductor")
                 df_feederUGconductor = spark.read.parquet(feederugdataloc)
                 df_feederUGconductor.createOrReplaceTempView("feederUGhconductor")
+                # df_feederOHhconductor = df_feederOHhconductor.repartition("feederid")
+                # df_feederUGconductor = df_feederUGconductor.repartition("feederid")
                 df_feederdevices = spark.read.parquet(feederdevicedataloc)
                 df_feederdevices.createOrReplaceTempView("feederdevices")
                 feederFull = spark.sql(
                     """SELECT * from feederUGhconductor UNION SELECT * from feederOHhconductor""")
                 feederFull.createOrReplaceTempView("feederFull")
+                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederFull"
+                feederFull.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
 
                 # Do the Downstream trace and get parent circuits
                 df_tempCircuitInfoTableName = spark.sql(""" SELECT 
-                                    c.circuitinfo_uid,
-                                    c.timeplace_foreignkey,
-                                    c.fireindex,
-                                    ff.feederid AS circuitid,
-                                    c.circuitname,
-                                    ff.substationname,
-                                    c.transmissionimpact,
-                                    c.division,
-                                    ff.min_branch AS source_min_branch,
-                                    ff.max_branch AS source_max_branch,
-                                    ff.order_num AS source_order_num,
-                                    ff.treelevel AS source_treelevel,
-                                    c.additional_max_branch,
-                                    c.additional_min_branch,
-                                    c.additional_order_num,
-                                    c.additional_treelevel,
-                                    ff.assettype AS source_isolation_device,
-                                    c.additional_isolation_device,
-                                    ff.operatingnumber AS source_isolation_device_type,
-                                    c.additional_isolation_device_type,
-                                    c.flag,
-                                    ff.feederfedby AS parentfeederfedby,
-                                    c.circuitid as parentcircuitid,
-                                    c.tempgenname,
-                                    c.comments,
-                                    ff.to_line_globalId ,
-                                    '' AS from_circuitid,
-                                    ff.TO_FEATURE_GLOBALID,
-                                    1 as parentloop
-                                FROM 
-                                    feederFull fv, 
-                                    feederFull ff, 
-                                    circuits AS c 
-                                    WHERE 
-                                        fv.feederid   = c.circuitid
-                                    AND fv.MIN_BRANCH >= c.source_min_branch
-                                    AND fv.MAX_BRANCH <= c.source_max_branch
-                                    AND fv.TREELEVEL >= c.source_treelevel
-                                    AND fv.ORDER_NUM <= c.source_order_num
-                                    AND (fv.to_line_globalid IS NOT NULL AND fv.to_line_globalid <> '') 
-                                    AND ff.to_feature_globalid = fv.to_line_globalId""")
+                                                    c.circuitinfo_uid,
+                                                    c.timeplace_foreignkey,
+                                                    c.fireindex,
+                                                    ff.FEEDERID AS circuitid,
+                                                    c.circuitname,
+                                                    ff.substationname,
+                                                    c.transmissionimpact,
+                                                    c.division,
+                                                    ff.MIN_BRANCH AS source_min_branch,
+                                                    ff.MAX_BRANCH AS source_max_branch,
+                                                    ff.ORDER_NUM AS source_order_num,
+                                                    ff.TREELEVEL AS source_treelevel,
+                                                    c.additional_max_branch,
+                                                    c.additional_min_branch,
+                                                    c.additional_order_num,
+                                                    c.additional_treelevel,
+                                                    ff.ASSETTYPE AS source_isolation_device,
+                                                    c.additional_isolation_device,
+                                                    ff.OPERATINGNUMBER AS source_isolation_device_type,
+                                                    c.additional_isolation_device_type,
+                                                    c.flag,
+                                                    ff.FEEDERFEDBY AS parentfeederfedby,
+                                                    c.circuitid as parentcircuitid,
+                                                    c.tempgenname,
+                                                    c.comments,
+                                                    ff.TO_LINE_GLOBALID,
+                                                    '' AS from_circuitid,
+                                                    ff.TO_FEATURE_GLOBALID,
+                                                    1 as parentloop
+                                                FROM 
+                                                    feederFull fv, 
+                                                    feederFull ff, 
+                                                    circuits AS c 
+                                                    WHERE 
+                                                    fv.FEEDERID = LPAD(c.circuitid,9,'0')
+                                                    AND fv.MIN_BRANCH >= c.source_min_branch
+                                                    AND fv.MAX_BRANCH <= c.source_max_branch
+                                                    AND fv.TREELEVEL >= c.source_treelevel
+                                                    AND fv.ORDER_NUM <= c.source_order_num
+                                                    AND (fv.TO_LINE_GLOBALID IS NOT NULL AND fv.TO_LINE_GLOBALID <> '') 
+                                                    AND ff.to_feature_globalid = fv.to_line_globalId""")
                 df_tempCircuitInfoTableName.createOrReplaceTempView("tempCircuitInfoTableName")
-                # Do Tracing and Get Child and grand childs (tocircuits)
+                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\downstream_parent"
+                df_tempCircuitInfoTableName.coalesce(1).write.option("header", "true").format("csv").mode(
+                    "overwrite").save(tempfolder)
+                df_tempCircuitInfoTableName.createOrReplaceTempView("tempCircuitInfoTableName")
+
+                # Do downstream tracing and get Child and grand childs (tocircuits)
                 df_tempCircuitInfoTableName = get_feedfedby_circuits(df_tempCircuitInfoTableName, spark)
                 df_tempCircuitInfoTableName.createOrReplaceTempView("tempCircuitInfoTableName")
+                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\downstream_child"
+                df_tempCircuitInfoTableName.coalesce(1).write.option("header", "true").format("csv").mode(
+                    "overwrite").save(tempfolder)
+                df_tempCircuitInfoTableName.cache()
+
                 final_circuitTable = spark.sql("""  SELECT 
                                                         ce.circuitinfo_uid,
                                                         ce.timeplace_foreignkey,
@@ -253,7 +269,7 @@ class TestFeederFedBy(BaseClass):
                                                 FROM   
                                                     tempCircuitInfoTableName  AS ce, 
                                                     feederdevices  AS fv  
-                                                WHERE   fv.feederid     =  ce.circuitid
+                                                WHERE   fv.feederid =  ce.circuitid
                                                     AND fv.MIN_BRANCH <= ce.source_min_branch  
                                                     AND fv.MAX_BRANCH >= ce.source_max_branch
                                                     AND fv.TREELEVEL <= ce.source_treelevel
@@ -261,7 +277,7 @@ class TestFeederFedBy(BaseClass):
                                                     AND fv.to_feature_fcid IN ( 1003, 1005, 998, 997 )
                                                 ORDER BY fv.TREELEVEL ASC  """)
                 final_circuitTable.createOrReplaceTempView("final_circuitTable")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederfedbycircuits"
+                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\upstreamdevices"
                 final_circuitTable.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
                 final_circuitTable.cache()
@@ -274,13 +290,12 @@ class TestFeederFedBy(BaseClass):
                                 f.additional_order_num,f.additional_treelevel,f.source_isolation_device,
                                 f.additional_isolation_device,f.source_isolation_device_type,f.additional_isolation_device_type,
                                 f.flag,f.parentfeederfedby,f.parentcircuitid,f.tempgenname,f.comments from 
-                                final_circuitTable as f Inner Join circuits as c on c.circuitid = f.circuitid and 
+                                final_circuitTable as f Inner Join circuits as c on LPAD(c.circuitid,9,'0') = LPAD(f.circuitid,9,'0') and 
                                 c.source_isolation_device=f.source_isolation_device and c.source_isolation_device_type = 
                                 f.source_isolation_device_type """)
                 duplicaterecords.createOrReplaceTempView("duplicaterecords")
-                # tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\duplicaterecords"
-                # duplicaterecords.coalesce(1).write.option("header", "true").format("csv").mode(
-                #     "overwrite").save(tempfolder)
+                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\duplicaterecords"
+                duplicaterecords.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
                 duplicaterecords.cache()
 
                 # Remove Duplicate records and get Expected Feeder fed by circuits list
@@ -297,7 +312,8 @@ class TestFeederFedBy(BaseClass):
                 tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Expected_feederfedcircuits"
                 Expected_feederfedcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
-                log.info("Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file")
+                log.info(
+                    "Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file")
 
                 df_mismatched = spark.sql(
                     """ SELECT * FROM Expected_feederfedcircuits EXCEPT SELECT * FROM Actual_feederfedcircuits""")
@@ -367,13 +383,14 @@ def get_feedfedby_circuits(df, spark):
                                                 feederFull ff, 
                                                 tempCircuitInfoTableName AS c 
                                                 WHERE 
-                                                    fv.feederid   = c.circuitid
+                                                    fv.feederid = LPAD(c.circuitid,9,'0')
                                                 AND fv.MIN_BRANCH >= c.source_min_branch
                                                 AND fv.MAX_BRANCH <= c.source_max_branch
                                                 AND fv.TREELEVEL >= c.source_treelevel
                                                 AND fv.ORDER_NUM <= c.source_order_num
                                                 AND (fv.to_line_globalid IS NOT NULL AND fv.to_line_globalid <> '') 
-                                                AND ff.to_feature_globalid = fv.to_line_globalId AND  c.parentloop = 1""")
+                                                AND ff.to_feature_globalid = fv.to_line_globalId AND c.parentloop = 1""")
+            df_tempCircuitTable.createOrReplaceTempView("tempCircuitInfoTableName1")
             df = spark.sql(""" SELECT  circuitinfo_uid,timeplace_foreignkey,fireindex,circuitid,circuitname,substationname,transmissionimpact,division,
                                source_min_branch,source_max_branch,source_order_num,source_treelevel,additional_max_branch,additional_min_branch,
                                additional_order_num,additional_treelevel,source_isolation_device,additional_isolation_device,source_isolation_device_type,

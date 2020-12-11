@@ -337,3 +337,274 @@
 2020-12-07 23:29:06,657 :INFO : test_feederfedby :Dropped all temp tables
 2020-12-07 23:29:08,532 :INFO : test_feederfedby :Spark Session closed
 2020-12-08 10:48:22,406 :INFO : test_feederfedby :Starting Validation
+2020-12-08 16:23:45,051 :INFO : test_feederfedby :Starting Validation
+2020-12-08 16:24:07,250 :INFO : test_feederfedby :Spark session connected
+2020-12-08 16:24:13,475 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 16:24:13,870 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 16:25:47,032 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-08 16:26:33,015 :INFO : test_feederfedby :Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file
+2020-12-08 16:26:34,918 :INFO : test_feederfedby :Actual and Expected feederfed by circuits matched
+2020-12-08 16:26:34,938 :INFO : test_feederfedby :Dropped all temp tables
+2020-12-08 16:26:37,730 :INFO : test_feederfedby :Spark Session closed
+2020-12-08 16:47:59,303 :INFO : test_feederfedby :Starting Validation
+2020-12-08 16:49:14,896 :INFO : test_feederfedby :Starting Validation
+2020-12-08 16:56:10,404 :INFO : test_feederfedby :Starting Validation
+2020-12-08 16:56:27,412 :INFO : test_feederfedby :Spark session connected
+2020-12-08 16:59:37,493 :INFO : test_feederfedby :Starting Validation
+2020-12-08 16:59:44,420 :INFO : test_feederfedby :Spark session connected
+2020-12-08 17:03:16,584 :INFO : test_feederfedby :Starting Validation
+2020-12-08 17:03:22,460 :INFO : test_feederfedby :Spark session connected
+2020-12-08 17:05:55,414 :INFO : test_feederfedby :Starting Validation
+2020-12-08 17:06:07,623 :INFO : test_feederfedby :Spark session connected
+2020-12-08 17:09:59,074 :INFO : test_feederfedby :Starting Validation
+2020-12-08 17:10:05,059 :INFO : test_feederfedby :Spark session connected
+2020-12-08 17:10:57,872 :INFO : test_feederfedby :Starting Validation
+2020-12-08 17:10:58,984 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-08 17:10:58,984 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-08 17:10:58,985 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-08 17:30:23,504 :INFO : test_feederfedby :Starting Validation
+2020-12-08 17:30:24,288 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-08 17:30:24,288 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-08 17:30:24,289 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-08 18:08:05,752 :INFO : test_feederfedby :Starting Validation
+2020-12-08 18:08:06,755 :INFO : test_feederfedby :Timeplace UID for timeplace: timeplacetest_central is: 169
+2020-12-08 18:08:06,755 :INFO : test_feederfedby :Timeplace ID for timeplace: timeplacetest_central is: 149
+2020-12-08 18:08:06,755 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2020-12-08 18:08:09,457 :INFO : test_feederfedby :Downloaded circuits parquet file from S3
+2020-12-08 18:08:18,952 :INFO : test_feederfedby :Spark session connected
+2020-12-08 18:08:35,698 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 18:08:36,030 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 18:10:17,992 :INFO : test_feederfedby :Starting Validation
+2020-12-08 18:10:22,889 :INFO : test_feederfedby :Spark session connected
+2020-12-08 18:10:26,832 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 18:10:27,133 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 18:13:03,456 :INFO : test_feederfedby :Starting Validation
+2020-12-08 18:13:14,481 :INFO : test_feederfedby :Downloaded feederNetwork_priugconductor parquet file from S3
+2020-12-08 18:13:38,597 :INFO : test_feederfedby :Downloaded feederNetwork_priohconductor parquet file from S3
+2020-12-08 18:13:51,733 :INFO : test_feederfedby :Downloaded feederNetwork_device parquet file from S3
+2020-12-08 18:13:56,188 :INFO : test_feederfedby :Spark session connected
+2020-12-08 18:14:00,048 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 18:14:00,333 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 18:15:19,751 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-08 18:15:57,427 :INFO : test_feederfedby :Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file
+2020-12-08 18:16:00,687 :INFO : test_feederfedby :Actual and Expected feederfed by circuits matched
+2020-12-08 18:16:00,718 :INFO : test_feederfedby :Dropped all temp tables
+2020-12-08 18:16:03,124 :INFO : test_feederfedby :Spark Session closed
+2020-12-08 18:20:59,513 :INFO : test_feederfedby :Starting Validation
+2020-12-08 18:21:04,232 :INFO : test_feederfedby :Spark session connected
+2020-12-08 18:21:28,114 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 18:21:31,223 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 18:30:14,415 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-08 18:43:44,837 :INFO : test_feederfedby :Starting Validation
+2020-12-08 18:44:24,404 :INFO : test_feederfedby :Starting Validation
+2020-12-08 18:44:29,201 :INFO : test_feederfedby :Spark session connected
+2020-12-08 18:44:33,196 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 18:44:33,519 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 19:02:24,987 :INFO : test_feederfedby :Starting Validation
+2020-12-08 19:02:30,792 :INFO : test_feederfedby :Spark session connected
+2020-12-08 19:02:35,008 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 19:02:35,356 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 19:11:45,169 :INFO : test_feederfedby :Starting Validation
+2020-12-08 19:11:50,911 :INFO : test_feederfedby :Spark session connected
+2020-12-08 19:11:55,288 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 19:11:55,643 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 19:14:45,093 :INFO : test_feederfedby :Starting Validation
+2020-12-08 19:14:50,713 :INFO : test_feederfedby :Spark session connected
+2020-12-08 19:14:55,072 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 19:14:55,398 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 19:26:24,306 :INFO : test_feederfedby :Starting Validation
+2020-12-08 19:26:39,932 :INFO : test_feederfedby :Spark session connected
+2020-12-08 19:26:44,390 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 19:26:44,749 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 20:08:32,314 :INFO : test_feederfedby :Starting Validation
+2020-12-08 20:08:38,163 :INFO : test_feederfedby :Spark session connected
+2020-12-08 20:08:42,508 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 20:08:42,866 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 20:09:56,018 :INFO : test_feederfedby :Starting Validation
+2020-12-08 20:10:01,836 :INFO : test_feederfedby :Spark session connected
+2020-12-08 20:10:06,075 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 20:10:06,435 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 20:13:24,819 :INFO : test_feederfedby :Starting Validation
+2020-12-08 20:13:30,439 :INFO : test_feederfedby :Spark session connected
+2020-12-08 20:13:34,932 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 20:13:35,374 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 20:44:09,199 :INFO : test_feederfedby :Starting Validation
+2020-12-08 20:44:14,774 :INFO : test_feederfedby :Spark session connected
+2020-12-08 20:44:34,028 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 20:51:17,390 :INFO : test_feederfedby :Starting Validation
+2020-12-08 20:51:22,928 :INFO : test_feederfedby :Spark session connected
+2020-12-08 20:55:50,001 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 21:00:40,496 :INFO : test_feederfedby :Starting Validation
+2020-12-08 21:00:46,670 :INFO : test_feederfedby :Spark session connected
+2020-12-08 21:06:05,277 :INFO : test_feederfedby :Starting Validation
+2020-12-08 21:06:10,170 :INFO : test_feederfedby :Spark session connected
+2020-12-08 21:06:27,125 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 21:07:56,695 :INFO : test_feederfedby :Starting Validation
+2020-12-08 21:08:01,579 :INFO : test_feederfedby :Spark session connected
+2020-12-08 21:11:58,989 :INFO : test_feederfedby :Starting Validation
+2020-12-08 21:12:03,931 :INFO : test_feederfedby :Spark session connected
+2020-12-08 21:17:38,686 :INFO : test_feederfedby :Starting Validation
+2020-12-08 21:17:43,429 :INFO : test_feederfedby :Spark session connected
+2020-12-08 21:17:57,427 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 21:18:00,335 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 21:19:14,416 :INFO : test_feederfedby :Starting Validation
+2020-12-08 21:19:19,159 :INFO : test_feederfedby :Spark session connected
+2020-12-08 21:19:58,787 :INFO : test_feederfedby :Starting Validation
+2020-12-08 21:20:03,538 :INFO : test_feederfedby :Spark session connected
+2020-12-08 21:20:20,963 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 21:21:24,887 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 21:26:20,356 :INFO : test_feederfedby :Starting Validation
+2020-12-08 21:26:28,895 :INFO : test_feederfedby :Spark session connected
+2020-12-08 21:26:42,833 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 21:27:09,903 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 22:43:29,399 :INFO : test_feederfedby :Starting Validation
+2020-12-08 22:43:34,227 :INFO : test_feederfedby :Spark session connected
+2020-12-08 22:44:33,158 :INFO : test_feederfedby :Starting Validation
+2020-12-08 22:44:37,915 :INFO : test_feederfedby :Spark session connected
+2020-12-08 22:44:41,984 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 22:44:42,342 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 23:13:35,768 :INFO : test_feederfedby :Starting Validation
+2020-12-08 23:14:24,623 :INFO : test_feederfedby :Starting Validation
+2020-12-08 23:16:56,519 :INFO : test_feederfedby :Starting Validation
+2020-12-08 23:17:55,649 :INFO : test_feederfedby :Starting Validation
+2020-12-08 23:18:00,614 :INFO : test_feederfedby :Spark session connected
+2020-12-08 23:18:04,610 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 23:18:04,965 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 23:40:01,113 :INFO : test_feederfedby :Starting Validation
+2020-12-08 23:40:10,104 :INFO : test_feederfedby :Spark session connected
+2020-12-08 23:40:26,177 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 23:41:31,421 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-08 23:57:32,361 :INFO : test_feederfedby :Starting Validation
+2020-12-08 23:57:37,412 :INFO : test_feederfedby :Spark session connected
+2020-12-08 23:57:41,782 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-08 23:57:42,152 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 00:13:43,788 :INFO : test_feederfedby :Starting Validation
+2020-12-09 00:13:48,708 :INFO : test_feederfedby :Spark session connected
+2020-12-09 00:13:52,748 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 00:13:53,089 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 00:16:31,211 :INFO : test_feederfedby :Starting Validation
+2020-12-09 00:16:35,936 :INFO : test_feederfedby :Spark session connected
+2020-12-09 00:16:39,997 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 00:16:40,378 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 00:23:20,734 :INFO : test_feederfedby :Starting Validation
+2020-12-09 00:23:25,523 :INFO : test_feederfedby :Spark session connected
+2020-12-09 00:23:29,634 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 00:23:29,997 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 00:27:10,042 :INFO : test_feederfedby :Starting Validation
+2020-12-09 00:27:15,149 :INFO : test_feederfedby :Spark session connected
+2020-12-09 00:27:19,236 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 00:27:19,606 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 00:37:06,698 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-09 00:42:57,457 :INFO : test_feederfedby :Starting Validation
+2020-12-09 00:43:02,393 :INFO : test_feederfedby :Spark session connected
+2020-12-09 00:43:06,555 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 00:43:06,941 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 00:57:31,733 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-09 00:57:57,815 :INFO : test_feederfedby :Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file
+2020-12-09 22:23:15,357 :INFO : test_feederfedby :Starting Validation
+2020-12-09 22:23:33,203 :INFO : test_feederfedby :Spark session connected
+2020-12-09 22:23:38,350 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 22:23:38,784 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 22:49:00,274 :INFO : test_feederfedby :Starting Validation
+2020-12-09 22:49:07,724 :INFO : test_feederfedby :Spark session connected
+2020-12-09 22:49:13,687 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 22:49:14,107 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 23:00:33,298 :INFO : test_feederfedby :Starting Validation
+2020-12-09 23:00:39,332 :INFO : test_feederfedby :Spark session connected
+2020-12-09 23:00:44,062 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 23:00:44,442 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 23:01:59,818 :INFO : test_feederfedby :Starting Validation
+2020-12-09 23:02:11,134 :INFO : test_feederfedby :Spark session connected
+2020-12-09 23:02:21,123 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 23:02:21,731 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-09 23:05:18,305 :INFO : test_feederfedby :Starting Validation
+2020-12-09 23:05:24,019 :INFO : test_feederfedby :Spark session connected
+2020-12-09 23:05:28,504 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-09 23:05:28,891 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 00:18:00,830 :INFO : test_feederfedby :Starting Validation
+2020-12-10 00:18:10,181 :INFO : test_feederfedby :Spark session connected
+2020-12-10 16:08:03,792 :INFO : test_feederfedby :Starting Validation
+2020-12-10 16:08:14,444 :INFO : test_feederfedby :Spark session connected
+2020-12-10 16:53:40,199 :INFO : test_feederfedby :Starting Validation
+2020-12-10 16:53:48,998 :INFO : test_feederfedby :Spark session connected
+2020-12-10 16:54:47,556 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 16:55:12,783 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 17:11:09,082 :INFO : test_feederfedby :Starting Validation
+2020-12-10 17:11:25,214 :INFO : test_feederfedby :Spark session connected
+2020-12-10 17:11:38,171 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 17:11:39,720 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 21:16:39,039 :INFO : test_feederfedby :Starting Validation
+2020-12-10 21:16:50,957 :INFO : test_feederfedby :Spark session connected
+2020-12-10 21:17:00,552 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 21:17:02,760 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 21:22:21,770 :INFO : test_feederfedby :Starting Validation
+2020-12-10 21:22:26,387 :INFO : test_feederfedby :Spark session connected
+2020-12-10 21:22:30,479 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 21:22:30,827 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 21:23:29,355 :INFO : test_feederfedby :Starting Validation
+2020-12-10 21:23:34,012 :INFO : test_feederfedby :Spark session connected
+2020-12-10 21:23:38,088 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 21:23:38,465 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 21:26:03,499 :INFO : test_feederfedby :Starting Validation
+2020-12-10 21:26:08,511 :INFO : test_feederfedby :Spark session connected
+2020-12-10 21:26:13,179 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 21:26:13,632 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 21:45:14,441 :INFO : test_feederfedby :Starting Validation
+2020-12-10 21:45:22,836 :INFO : test_feederfedby :Spark session connected
+2020-12-10 21:45:27,032 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 21:45:27,395 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 21:57:01,738 :INFO : test_feederfedby :Starting Validation
+2020-12-10 21:57:06,384 :INFO : test_feederfedby :Spark session connected
+2020-12-10 21:57:10,381 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 21:57:10,760 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 21:59:20,203 :INFO : test_feederfedby :Starting Validation
+2020-12-10 21:59:24,782 :INFO : test_feederfedby :Spark session connected
+2020-12-10 21:59:28,964 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 21:59:29,319 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 22:03:26,257 :INFO : test_feederfedby :Starting Validation
+2020-12-10 22:03:30,817 :INFO : test_feederfedby :Spark session connected
+2020-12-10 22:03:34,991 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 22:03:35,335 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 22:17:01,193 :INFO : test_feederfedby :Starting Validation
+2020-12-10 22:17:05,784 :INFO : test_feederfedby :Spark session connected
+2020-12-10 22:17:09,795 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 22:17:10,197 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 22:23:02,793 :INFO : test_feederfedby :Starting Validation
+2020-12-10 22:23:07,473 :INFO : test_feederfedby :Spark session connected
+2020-12-10 22:23:11,577 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 22:23:11,947 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 22:25:36,606 :INFO : test_feederfedby :Starting Validation
+2020-12-10 22:25:41,276 :INFO : test_feederfedby :Spark session connected
+2020-12-10 22:25:45,358 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 22:25:45,713 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 22:28:39,504 :INFO : test_feederfedby :Starting Validation
+2020-12-10 22:28:44,052 :INFO : test_feederfedby :Spark session connected
+2020-12-10 22:28:48,013 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 22:28:48,361 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 23:07:28,283 :INFO : test_feederfedby :Starting Validation
+2020-12-10 23:07:32,912 :INFO : test_feederfedby :Spark session connected
+2020-12-10 23:07:36,870 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 23:07:37,202 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 23:10:20,973 :INFO : test_feederfedby :Starting Validation
+2020-12-10 23:10:28,872 :INFO : test_feederfedby :Spark session connected
+2020-12-10 23:10:32,860 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 23:10:33,229 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 23:14:41,684 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-10 23:17:32,708 :INFO : test_feederfedby :Starting Validation
+2020-12-10 23:17:37,545 :INFO : test_feederfedby :Spark session connected
+2020-12-10 23:17:41,946 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 23:17:42,385 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 23:26:29,596 :INFO : test_feederfedby :Starting Validation
+2020-12-10 23:26:34,305 :INFO : test_feederfedby :Spark session connected
+2020-12-10 23:26:38,347 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 23:26:38,701 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 23:34:46,525 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-10 23:48:13,787 :INFO : test_feederfedby :Starting Validation
+2020-12-10 23:48:18,453 :INFO : test_feederfedby :Spark session connected
+2020-12-10 23:48:22,410 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2020-12-10 23:48:22,758 :INFO : test_feederfedby :Feederfed by circuits found
+2020-12-10 23:52:49,333 :INFO : test_feederfedby :Feeder fed by logic completed and circuits list stored in 'feederfedcircuits.csv' file
+2020-12-10 23:55:18,136 :INFO : test_feederfedby :Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file
+2020-12-10 23:55:52,244 :INFO : test_feederfedby :Actual and Expected feederfed by circuits matched
+2020-12-10 23:55:56,284 :INFO : test_feederfedby :Dropped all temp tables
+2020-12-10 23:55:59,472 :INFO : test_feederfedby :Spark Session closed
