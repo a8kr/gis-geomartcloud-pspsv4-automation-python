@@ -44,7 +44,8 @@ class TestDefaultManagementPositive(BaseClass):
         log.info("Select Event Management menu")
 
         var_tpgridcolumnnames = readData(testDatafilePath, "Main", var_row, 11)
-        new_tp_gridheader = eventmanagement.ValidateGridheader(var_tpgridcolumnnames,locators.new_time_place_grid_header)
+        new_tp_gridheader = eventmanagement.ValidateGridheader(var_tpgridcolumnnames,
+                                                               locators.new_time_place_grid_header)
         if new_tp_gridheader == True:
             log.info("New Time Place Grid header displayed as expected")
 
@@ -52,10 +53,10 @@ class TestDefaultManagementPositive(BaseClass):
         log.info("Clicked on View PSPS Scope button")
 
         var_view_tpgridcolumnnames = readData(testDatafilePath, "Main", var_row, 14)
-        view_tp_gridheader = eventmanagement.ValidateGridheader(var_view_tpgridcolumnnames,locators.view_psps_scope_modal_grid_header)
+        view_tp_gridheader = eventmanagement.ValidateGridheader(var_view_tpgridcolumnnames,
+                                                                locators.view_psps_scope_modal_grid_header)
         if view_tp_gridheader == True:
             log.info("View PSPS Scope grid header displayed as expected")
-
 
         if uielements.iselementEnabled(locators.view_psps_scope_modal_next_button) == False:
             log.info("Validate that Next button disabled by default")
@@ -75,13 +76,3 @@ class TestDefaultManagementPositive(BaseClass):
         log.info("Time place name: " + var_timeplace_created)
 
         log.info("*************AUTOMATION EXECUTION COMPLETED*************")
-
-
-
-
-
-
-
-
-
-

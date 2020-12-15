@@ -4,6 +4,7 @@ import os
 import shutil
 import sys
 import time
+import zipfile
 
 import numpy as np
 import openpyxl
@@ -230,3 +231,14 @@ def compare_two_columns_dataframe(df1, df2):
     except:
         assert False
     return arr_mismatchdata
+
+
+# Unzip a file to folder
+def unzip_file(filename, extract_to_directory):
+    with zipfile.ZipFile(filename, "r") as zip_ref:
+        zip_ref.extractall(extract_to_directory)
+        count = len(zip_ref.infolist())
+        print(count)
+        files = zip_ref.namelist()
+        print(files)
+    return count, files

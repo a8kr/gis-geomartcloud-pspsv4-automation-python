@@ -73,7 +73,6 @@ class TestDeviceCache(BaseClass):
         # Get Timeplace UID and Timeplace ID for the required timeplace
         i = 0
         for each in var_tp_array:
-            '''
             get_timeplace_db = queries.get_timeplace % each
             lst_tp_details = queryresults_get_alldata(get_timeplace_db)
             var_tp_uid = lst_tp_details[0][0]
@@ -100,7 +99,6 @@ class TestDeviceCache(BaseClass):
             deleteFolder(local_folder)
             download_dir_from_S3(path, s3_bucketname, profilename, local_folder)
             log.info("Downloaded circuits parquet file from S3")
-            
 
             devicecachefilename = str(var_tp_id) + "/" + str(var_tp_uid) + "/devicecache/devicecache_" + str(
                 var_tp_uid) + "/"
@@ -115,9 +113,9 @@ class TestDeviceCache(BaseClass):
             deleteFolder(local_folder)
             download_dir_from_S3(devicecachepath, s3_bucketname, profilename, local_folder)
             log.info("Downloaded devicecache circuits parquet file from S3")
-            '''
-            var_tp_uid = '163'
-            var_tp_id = '143'
+
+            # var_tp_uid = '163'
+            # var_tp_id = '143'
 
             spark = SparkSession.builder.appName("Timeplace-Creation") \
                 .config('spark.driver.memory', '10g') \
@@ -139,10 +137,60 @@ class TestDeviceCache(BaseClass):
                 tempfolder)
 
             devicecacheciruitsfilepath = os.path.join(
-                downloadsfolderPath + "\\devicecachecircuits_" + str(var_tp_uid) + "\\reports\\timeplacecreation\\" + str(
+                downloadsfolderPath + "\\devicecachecircuits_" + str(
+                    var_tp_uid) + "\\reports\\timeplacecreation\\" + str(
                     var_tp_id) + "\\" + str(var_tp_uid) + "\\devicecache\\devicecache_" + str(var_tp_uid))
             df_devicecachecircuits = spark.read.parquet(devicecacheciruitsfilepath)
             df_devicecachecircuits.createOrReplaceTempView("devicecachecircuits")
             tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\dc_devicecachecircuits"
             df_timeplacecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
+
+            # Read FeederNetwork_Transformer table
+            feedertransformerdataloc = downloadsfolderPath + "\\feederNetwork_transformer"
+            df_feedertransformerdataloc = spark.read.parquet(feedertransformerdataloc)
+            df_feedertransformerdataloc.createOrReplaceTempView("feedertransformer")
+
+            # Do the Downstream trace and get transformers
+            df_temptransformersinfo = spark.sql(""" SELECT 
+                                                                c.circuitinfo_uid,
+                                                                c.timeplace_foreignkey,
+                                                                c.fireindex,
+                                                                ff.FEEDERID AS circuitid,
+                                                                c.circuitname,
+                                                                ff.substationname,
+                                                                c.transmissionimpact,
+                                                                c.division,
+                                                                ff.MIN_BRANCH AS source_min_branch,
+                                                                ff.MAX_BRANCH AS source_max_branch,
+                                                                ff.ORDER_NUM AS source_order_num,
+                                                                ff.TREELEVEL AS source_treelevel,
+                                                                c.additional_max_branch,
+                                                                c.additional_min_branch,
+                                                                c.additional_order_num,
+                                                                c.additional_treelevel,
+                                                                ff.ASSETTYPE AS source_isolation_device,
+                                                                c.additional_isolation_device,
+                                                                ff.OPERATINGNUMBER AS source_isolation_device_type,
+                                                                c.additional_isolation_device_type,
+                                                                c.flag,
+                                                                ff.FEEDERFEDBY AS parentfeederfedby,
+                                                                c.circuitid as parentcircuitid,
+                                                                c.tempgenname,
+                                                                c.comments,
+                                                                ff.TO_LINE_GLOBALID,
+                                                                '' AS from_circuitid,
+                                                                ff.TO_FEATURE_GLOBALID,
+                                                                1 as parentloop
+                                                            FROM 
+                                                                feederFull fv, 
+                                                                feederFull ff, 
+                                                                circuits AS c 
+                                                                WHERE 
+                                                                fv.FEEDERID = LPAD(c.circuitid,9,'0')
+                                                                AND fv.MIN_BRANCH >= c.source_min_branch
+                                                                AND fv.MAX_BRANCH <= c.source_max_branch
+                                                                AND fv.TREELEVEL >= c.source_treelevel
+                                                                AND fv.ORDER_NUM <= c.source_order_num
+                                                                AND (fv.TO_LINE_GLOBALID IS NOT NULL AND fv.TO_LINE_GLOBALID <> '') 
+                                                                AND ff.to_feature_globalid = fv.to_line_globalId""")

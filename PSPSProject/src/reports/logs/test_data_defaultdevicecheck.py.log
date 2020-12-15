@@ -1,0 +1,175 @@
+2020-12-14 14:52:04,430 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 14:52:05,070 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_14_36_00.parquet
+2020-12-14 14:52:05,070 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 14:52:06,844 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 14:52:07,282 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 14:52:07,282 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 14:52:07,282 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 14:52:07,282 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 14:52:08,565 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 14:52:13,292 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 14:52:17,187 :INFO : test_defaultdevicevalidation :Read meteorology csv and convert to parquet file completed
+2020-12-14 22:00:04,026 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:00:04,809 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_16_53_17.parquet
+2020-12-14 22:00:04,809 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:00:07,192 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:00:07,633 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:00:07,633 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:00:07,633 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:00:07,634 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:00:09,174 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 22:00:16,859 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 22:00:22,284 :INFO : test_defaultdevicevalidation :Read meteorology csv and convert to parquet file completed
+2020-12-14 22:04:01,466 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:04:02,213 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_16_53_17.parquet
+2020-12-14 22:04:02,213 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:04:04,350 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:04:04,824 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:04:04,824 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:04:04,825 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:04:04,825 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:04:06,236 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 22:04:11,959 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 22:04:16,122 :INFO : test_defaultdevicevalidation :Read meteorology csv and convert to parquet file completed
+2020-12-14 22:08:24,776 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:08:25,756 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_16_53_17.parquet
+2020-12-14 22:08:25,756 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:08:28,142 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:08:28,851 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:08:28,851 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:08:28,852 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:08:28,852 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:08:30,309 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 22:08:35,611 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 22:18:16,327 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:18:17,080 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_16_53_17.parquet
+2020-12-14 22:18:17,080 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:18:19,268 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:18:19,700 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:18:19,700 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:18:19,701 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:18:19,701 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:18:46,978 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:18:47,743 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_16_53_17.parquet
+2020-12-14 22:18:47,743 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:18:49,736 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:18:50,184 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:18:50,184 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:18:50,185 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:18:50,185 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:20:14,085 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:20:14,899 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_16_53_17.parquet
+2020-12-14 22:20:14,900 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:20:17,010 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:20:17,590 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:20:17,590 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:20:17,590 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:20:17,591 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:20:19,110 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 22:20:24,864 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 22:40:15,142 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:40:15,846 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 22:40:15,846 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:40:17,720 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:40:18,153 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:40:18,153 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:40:18,153 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:40:18,153 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:40:19,527 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 22:40:24,211 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 22:41:36,385 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:41:37,113 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 22:41:37,113 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:41:38,948 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:41:39,434 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:41:39,434 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:41:39,434 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:41:39,434 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:41:40,772 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 22:41:45,451 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 22:54:44,605 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:54:45,218 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 22:54:45,218 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:54:47,153 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:54:47,570 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:54:47,570 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:54:47,570 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:54:47,570 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:55:22,776 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:55:23,340 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 22:55:23,340 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:55:25,401 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:55:26,038 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:55:26,038 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:55:26,038 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:55:26,038 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:55:27,799 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 22:55:32,473 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 22:59:35,815 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 22:59:36,391 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 22:59:36,391 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:59:38,186 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 22:59:38,653 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 22:59:38,653 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 22:59:38,653 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 22:59:38,653 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 22:59:39,843 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 22:59:44,552 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 23:05:07,618 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 23:05:08,184 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 23:05:08,184 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:05:10,227 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 23:05:10,643 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 23:05:10,643 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 23:05:10,643 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 23:05:10,643 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:05:11,923 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 23:05:20,105 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 23:08:22,506 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 23:08:23,097 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 23:08:23,097 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:08:25,369 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 23:08:26,110 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 23:08:26,110 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 23:08:26,110 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 23:08:26,110 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:08:27,977 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 23:08:32,616 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 23:31:36,524 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 23:31:37,110 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 23:31:37,110 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:31:39,041 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 23:31:39,486 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 23:31:39,486 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 23:31:39,486 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 23:31:39,486 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:31:40,703 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 23:31:45,335 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 23:41:49,126 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 23:41:49,794 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 23:41:49,794 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:41:51,305 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 23:41:51,779 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 23:41:51,779 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 23:41:51,779 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 23:41:51,779 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:42:35,106 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 23:42:35,698 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 23:42:35,698 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:42:37,506 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 23:42:37,932 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 23:42:37,932 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 23:42:37,932 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 23:42:37,932 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:42:39,183 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 23:42:43,824 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-14 23:43:51,158 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-14 23:43:51,723 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_14_2020_22_37_38.parquet
+2020-12-14 23:43:51,723 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:43:53,549 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-14 23:43:54,148 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-14 23:43:54,148 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-14 23:43:54,148 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-14 23:43:54,148 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-14 23:43:55,980 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-14 23:44:00,671 :INFO : test_defaultdevicevalidation :Spark session connected

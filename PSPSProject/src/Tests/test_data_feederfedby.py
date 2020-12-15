@@ -6,7 +6,6 @@ import io
 import os
 import time
 import pytest
-
 import zipfile
 import pandas as pd
 import boto3
@@ -20,7 +19,6 @@ from PSPSProject.src.ReusableFunctions.baseclass import BaseClass, exceptionRowC
 from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, downloadsfolderPath, readData, \
     deleteFolder, create_folder, getCurrentTime
 from PSPSProject.src.ReusableFunctions.databasefunctions import queryresults_get_alldata
-
 from PSPSProject.src.Tests.conftest import downloadsfolder, testDatafilePath, s3config, dirctorypath
 
 VAR_TESTCASENAME = os.path.basename(__file__)
@@ -64,28 +62,39 @@ class TestFeederFedBy(BaseClass):
         # Download feederNetwork_priugconductor parquet file
         filename = "feederNetwork_priugconductor.parquet"
         localpath = downloadsfolderPath + "\\feedernetwork_ugdata" + "\\" + filename
+        '''
         feedernetwork_ugdata = downloadsfolderPath + "\\feedernetwork_ugdata"
+        '''
         deleteFolder(feedernetwork_ugdata)
         create_folder(feedernetwork_ugdata)
         download_file_from_S3(s3_bucketname, BUCKET_PATH, filename, localpath, profilename)
+        '''
         log.info("Downloaded feederNetwork_priugconductor parquet file from S3")
+        '''
         # Download feederNetwork_priohconductor parquet file
         filename1 = "feederNetwork_priohconductor.parquet"
         localpath1 = downloadsfolderPath + "\\feedernetwork_ohdata" + "\\" + filename1
+        '''
         feedernetwork_ohdata = downloadsfolderPath + "\\feedernetwork_ohdata"
+        '''
         deleteFolder(feedernetwork_ohdata)
         create_folder(feedernetwork_ohdata)
         download_file_from_S3(s3_bucketname, BUCKET_PATH, filename1, localpath1, profilename)
+        '''
         log.info("Downloaded feederNetwork_priohconductor parquet file from S3")
+        '''
         # Download feederNetwork_priohconductor parquet file
         filename2 = "feederNetwork_device.parquet"
         localpath2 = downloadsfolderPath + "\\feedernetwork_devicesdata" + "\\" + filename2
+        '''
         feedernetwork_devicesdata = downloadsfolderPath + "\\feedernetwork_devicesdata"
+        '''
         deleteFolder(feedernetwork_devicesdata)
         create_folder(feedernetwork_devicesdata)
         download_file_from_S3(s3_bucketname, BUCKET_PATH, filename2, localpath2, profilename)
-        log.info("Downloaded feederNetwork_device parquet file from S3")
         '''
+        log.info("Downloaded feederNetwork_device parquet file from S3")
+
         # Get Timeplace UID and Timeplace ID for the required timeplace
         i = 0
         for each in var_tp_array:
@@ -110,8 +119,8 @@ class TestFeederFedBy(BaseClass):
             local_folder = downloadsfolderPath + "circuits_" + str(var_tp_uid)
             deleteFolder(local_folder)
             download_dir_from_S3(path, s3_bucketname, profilename, local_folder)
-            log.info("Downloaded circuits parquet file from S3")
             '''
+            log.info("Downloaded circuits parquet file from S3")
 
             var_tp_uid = '169'
             var_tp_id = '149'
@@ -159,7 +168,8 @@ class TestFeederFedBy(BaseClass):
                 # df_filteredcircuits = df_filteredcircuits.repartition("circuitid")
                 df_filteredcircuits.createOrReplaceTempView("circuits")
                 tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\circuits"
-                df_filteredcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+                df_filteredcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
+                    tempfolder)
 
                 # Read Feeder tables
                 feederohdataloc = downloadsfolderPath + "\\feedernetwork_ohdata"
@@ -173,6 +183,7 @@ class TestFeederFedBy(BaseClass):
                 # df_feederUGconductor = df_feederUGconductor.repartition("feederid")
                 df_feederdevices = spark.read.parquet(feederdevicedataloc)
                 df_feederdevices.createOrReplaceTempView("feederdevices")
+                log.info("Read all parquet files and create temp tables is completed")
                 feederFull = spark.sql(
                     """SELECT * from feederUGhconductor UNION SELECT * from feederOHhconductor""")
                 feederFull.createOrReplaceTempView("feederFull")
@@ -295,7 +306,8 @@ class TestFeederFedBy(BaseClass):
                                 f.source_isolation_device_type """)
                 duplicaterecords.createOrReplaceTempView("duplicaterecords")
                 tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\duplicaterecords"
-                duplicaterecords.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+                duplicaterecords.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
+                    tempfolder)
                 duplicaterecords.cache()
 
                 # Remove Duplicate records and get Expected Feeder fed by circuits list
@@ -312,6 +324,7 @@ class TestFeederFedBy(BaseClass):
                 tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Expected_feederfedcircuits"
                 Expected_feederfedcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
+                log.info("Remove Duplicate records which match from Circuits list and feederfedcircuits list")
                 log.info(
                     "Expected Feederfed by circuits from circuits file are stored in 'Expected_feederfedcircuits.csv' file")
 

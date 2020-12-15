@@ -1,18 +1,22 @@
-import csv
 import os
-import pandas as pd
 import pytest
+import boto3
+import pandas as pd
 import geopandas as gpd
 import numpy as np
 import arcpy
 from pathlib import Path
+
+import shapefile
+
 from PSPSProject.src.Pages.DefaultManagement import DefaultManagement
 from PSPSProject.src.Pages.HomePage import HomePage
+from PSPSProject.src.ReusableFunctions.awsfunctions import download_file_from_S3
 from PSPSProject.src.ReusableFunctions.baseclass import BaseClass, exceptionRowCount
 from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, readData, \
-    downloadsfolderPath, deleteFolder, create_folder
+    downloadsfolderPath, deleteFolder, create_folder, unzip_file
 from PSPSProject.src.ReusableFunctions.uiactions import UI_Element_Actions
-from PSPSProject.src.Tests.conftest import downloadsfolder, testDatafilePath
+from PSPSProject.src.Tests.conftest import downloadsfolder, testDatafilePath, s3config
 from PSPSProject.src.ReusableFunctions.parquetimporttool import ImportTool
 
 VAR_TESTCASENAME = os.path.basename(__file__)
@@ -45,16 +49,46 @@ class TestEPActualOutage(BaseClass):
             log.info("Successfully entered user id & password:")
             print("Successfully entered user id & pasnsword:")
 
+        # Download all the required data files from S3
+        s3 = boto3.client('s3')
+        s3_resource = boto3.resource("s3")
+        s3_bucketname = s3config()['emergwebbucketname']
+        BUCKET_PATH = s3config()['outagepath']
+        profilename = s3config()['profile_name']
+        # Download outage location.zip file
+        filename = "outage_location.zip"
+        localpath = downloadsfolderPath + "\\outages" + "\\" + filename
+        tempoutages = downloadsfolderPath + "outages"
+        deleteFolder(tempoutages)
+        create_folder(tempoutages)
+        download_file_from_S3(s3_bucketname, BUCKET_PATH, filename, localpath, profilename)
+        log.info("Downloaded outage location.zip folder from S3")
+        unzipmainfile = unzip_file(localpath, tempoutages)
+        log.info("Unzipped outage location folder")
+        # Download outage location.zip file
+        filename1 = "outage_polygon.zip"
+        localpath1 = downloadsfolderPath + "\\outages" + "\\" + filename1
+        download_file_from_S3(s3_bucketname, BUCKET_PATH, filename1, localpath1, profilename)
+        log.info("Downloaded outage polygon.zip folder from S3")
+        unzipmainfile1 = unzip_file(localpath1, tempoutages)
+        log.info("Unzipped outage location folder")
+        # Download outage location and Outage Polygon csv files
+        BUCKET_PATH1 = s3config()['outagecsvpath']
+        currentoutagesfilename = readData(testDatafilePath, "EP", var_row, 8)
+        outagedevicesfilename = readData(testDatafilePath, "EP", var_row, 9)
+        currentoutagesfile = downloadsfolderPath + "\\outages" + "\\" + currentoutagesfilename
+        download_file_from_S3(s3_bucketname, BUCKET_PATH1, currentoutagesfilename, currentoutagesfile, profilename)
+        log.info("Downloaded Current Outages file from S3")
+        outagedevicesfile = downloadsfolderPath + "\\outages" + "\\" + outagedevicesfilename
+        download_file_from_S3(s3_bucketname, BUCKET_PATH1, outagedevicesfilename, outagedevicesfile, profilename)
+        log.info("Downloaded Outage Devices file from S3")
+
         # Create temp folder to save artifacts
         actualvalidationfolder = downloadsfolderPath + "actualvalidationfolder"
         deleteFolder(actualvalidationfolder)
         create_folder(actualvalidationfolder)
-        # get filenames from testdata sheet
-        currentoutagesfilename = readData(testDatafilePath, "EP", var_row, 8)
-        outagedevicesfilename = readData(testDatafilePath, "EP", var_row, 9)
         # get csv files from downloads folder and assign output filenames with headers
         # Current Outages
-        currentoutagesfile = downloadsfolderPath + currentoutagesfilename
         currentoutagesfileop = actualvalidationfolder + '\\ff_criticalweb_current_outages_op.csv'
         currentoutagescsv = pd.read_csv(currentoutagesfile, sep="|", header=None)
         currentoutagescolumns = ["OUTAGE_ID", "OUTAGE_EXTENT", "OUTAGE_DEVICE_ID",
@@ -66,7 +100,6 @@ class TestEPActualOutage(BaseClass):
         currentoutagescsv.to_csv(currentoutagesfileop, index=False)
         currentoutagesdf = pd.read_csv(currentoutagesfileop)
         # Outage Devices
-        outagedevicesfile = downloadsfolderPath + outagedevicesfilename
         outagedevicesfileop = actualvalidationfolder + '\\ff_criticalweb_outage_devices_op.csv'
         outagedevicescsv = pd.read_csv(outagedevicesfile, sep="|", header=None)
         outagedevicescsv.columns = ["#ID", "DEVICE_ID", "DEVICE_NAME", "LATITUDE", "LONGITUDE", "CIRCUIT_ID",
@@ -76,14 +109,14 @@ class TestEPActualOutage(BaseClass):
         # get fgdb files from downloads folder and convert to csv files in temp folder
         # Outage Location
 
-        filegdb = downloadsfolderPath + '\\outage_location\\outage_location.gdb'
+        filegdb = tempoutages + '\\outage_location.gdb'
         gdf = gpd.read_file(filegdb, driver='FileGDB', layer='outage_location')
         outage_locationgdploc = actualvalidationfolder + '\\outage_locationgdp.csv'
         outage_locationgdp = gdf.to_csv(outage_locationgdploc, sep=',', encoding='utf-8')
         outage_locationgdpdf = pd.read_csv(outage_locationgdploc, sep=',')
 
         # Outage Polygon
-        filegdb1 = downloadsfolderPath + '\\outage_polygon\\outage_polygon.gdb'
+        filegdb1 = tempoutages + '\\outage_polygon.gdb'
         gdf1 = gpd.read_file(filegdb1, driver='FileGDB', layer='outage_polygon')
         outage_polygongdploc = actualvalidationfolder + '\\outage_polygongdp.csv'
         outage_polygongdp = gdf1.astype({'geometry': str}).to_csv(outage_polygongdploc, sep=',', encoding='utf-8')
@@ -159,28 +192,24 @@ class TestEPActualOutage(BaseClass):
         deleteFolder(intersectedlayerfolder)
         create_folder(intersectedlayerfolder)
         temp_transfeaturelayerpath = ImportTool().execute(params, '')
-        lyr_outage_path = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\outage_polygon\outage_polygon.gdb\outage_polygon"
-
+        log.info("Transformer table is imported and parque file to shape conversion is completed")
+        lyr_outage_path = filegdb1 + '\\outage_polygon'
+        log.info("Intersection on transformerfeaturelayer and outage_polygon started:")
         # arcpy.analysis.Intersect([lyr_outage_path, temp_transfeaturelayerpath], r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\intersectlayer\intersectlayer", "ALL")
-        arcpy.PairwiseIntersect_analysis([lyr_outage_path,temp_transfeaturelayerpath],
-                                         r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\intersectedlayer\intersectedlayer")
-
+        intersect = arcpy.PairwiseIntersect_analysis([lyr_outage_path, temp_transfeaturelayerpath], intersectedlayerfolder + '\\intersectedlayer')
+        files = os.listdir(intersectedlayerfolder)
+        # Read Intersected shape file
+        for file in files:
+            if file.endswith('shp'):
+                break
+        shapefileloc = intersectedlayerfolder + '\\' + file
+        print(shapefileloc)
+        # Read Shape file and get the attributes
+        sf = shapefile.Reader(shapefileloc)
+        shaperecords = sf.records()
+        log.info("No of records present in intersected layer are: "+str(len(shaperecords)))
+        if len(shaperecords) > 1:
+            log.info("Intersection done on transformerfeaturelayer and outage_polygon gdp")
+        else:
+            log.info("Intersection not done on transformerfeaturelayer and outage_polygon gdp")
         # geometry check within CA
-
-        # lyr_transformers = arcpy.management.MakeFeatureLayer(temp_transfeaturelayerpath, "transformerfeaturelayer").getOutput(0)
-        # lyr_outage = arcpy.management.MakeFeatureLayer(r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\outage_polygon\outage_polygon.gdb\outage_polygon", "outage_polygon").getOutput(0)
-
-        #arcpy.management.MakeFeaureLayer(lyr_transformers, lyr_outage)
-        #arcpy.analysis.Intersect(["outage_polygon", "transformerfeaturelayer"], "intersectedlayer", "ALL")
-        #df = arcpy.mapping.ListLayers("intersectedlayer").dataSource
-        #print(df)
-
-        #lyr_transformers = arcpy.management.MakeFeatureLayer(temp_transfeaturelayerpath, "transformerfeaturelayer").getOutput(0)
-        # lyr_outage_path = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\outage_polygon\outage_polygon.gdb\outage_polygon"
-        # aprx = arcpy.mp.ArcGISProject("CURRENT")
-        # aprxMap = aprx.listMaps("MainMap")[0]
-        # lyrFile_outage = arcpy.mp.LayerFile(lyr_outage_path)
-        # lyrFile_transformers = arcpy.mp.LayerFile(temp_transfeaturelayerpath)
-        # aprxMap.addLayer(lyrFile_outage)
-        # aprxMap.addLayer(lyrFile_transformers)
-        # #arcpy.management.AddLayer(lyr_transformers, lyr_outage)

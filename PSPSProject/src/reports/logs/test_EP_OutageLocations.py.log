@@ -1,0 +1,9 @@
+2020-12-14 16:04:04,901 :INFO : test_outagelocation :Starting Validation
+2020-12-14 16:04:07,388 :INFO : test_outagelocation :Downloaded outage location.zip folder from S3
+2020-12-14 16:04:07,559 :INFO : test_outagelocation :Unzipped outage location folder
+2020-12-14 16:04:08,994 :INFO : test_outagelocation :Downloaded Current Outages file from S3
+2020-12-14 16:04:18,020 :INFO : test_outagelocation :Downloaded Outage Devices file from S3
+2020-12-14 16:04:18,180 :INFO : test_outagelocation :Read csv files from downloads and assigning output filenames with headers is completed
+2020-12-14 16:04:20,107 :INFO : test_outagelocation :Converting all the time fields to utc timezone is done
+2020-12-14 16:04:20,107 :INFO : test_outagelocation :Validation between Outage location and devices data is starting
+2020-12-14 16:04:20,291 :INFO : test_outagelocation :Mismatch data between Outage location and devices is stored in downloads-->actualvalidationfolder-->outagelocation_mismatchdata.csv file
