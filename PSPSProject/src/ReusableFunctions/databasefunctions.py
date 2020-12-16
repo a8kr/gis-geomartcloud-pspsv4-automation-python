@@ -2,7 +2,7 @@ import simplejson
 import psycopg2
 
 
-from PSPSProject.src.Tests.conftest import config
+from PSPSProject.src.Tests.conftest import config, config_met
 
 global conn
 
@@ -91,6 +91,30 @@ def queryresults_get_alldata(query):
     global conn
     try:
         params = config()
+        print('Connecting to the PostgreSQL database...')
+        conn = psycopg2.connect(**params)
+        print('DB connection successful')
+        cur = conn.cursor()
+        cur.execute(query)
+        qresult = cur.fetchall()
+        result = qresult
+        print(qresult)
+        print("Query ran successfully")
+        cur.close()
+    except (Exception, psycopg2.DataError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+            print('Database connection closed')
+    return result
+
+
+def queryresults_get_alldata_met(query):
+    result = 0
+    global conn
+    try:
+        params = config_met()
         print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
         print('DB connection successful')
