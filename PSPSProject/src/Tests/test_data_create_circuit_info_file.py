@@ -1,10 +1,10 @@
+
 import arcpy
 import geopandas as gpd
+import psycopg2
 import pytest
 import os
 import pandas as pd
-from shapely import wkt
-#from shapely.geometry import Polygon
 
 from PSPSProject.src.Repository.dbqueries import queries
 #from PSPSProject.src.ReusableFunctions.baseclass import testEnvironment
@@ -51,23 +51,25 @@ class TestCircuitInfo(BaseClass):
         get_timeplace_db = queries.get_scopeversion %timeplace  #2020-11-07-V-01
         print(get_timeplace_db)
         lst_tp_details = queryresults_get_alldata_met(get_timeplace_db)
-        print(lst_tp_details)
+        #print(lst_tp_details)
         var_tp_Objectid = lst_tp_details[0][0]
         var_tp_id = lst_tp_details[0][1]
         log.info("Timeplace UID for timeplace: " + str(timeplace) + " is: " + str(var_tp_Objectid))
         log.info("Timeplace ID for timeplace: " + str(timeplace) + " is: " + str(var_tp_id))
         log.info("-----------------------------------------------------------------------------------------------")
         TimePlacedataloc = downloadsfolderPath + "\\Timeplace.csv"
-        #TimePlacedataloc_shp = downloadsfolderPath + "\\DX_MET.shp"
-        print(TimePlacedataloc)
         df_TimePlace = pd.DataFrame(lst_tp_details, columns = ['Objectid', 'time_place_id', 'shape', 'scope_version'])
-        print( df_TimePlace)
         df_TimePlace.to_csv(path_or_buf=TimePlacedataloc)
-        gdf = gpd.GeoDataFrame(queryresults_get_alldata_met(get_timeplace_db))
-        # gdf = gpd.read_file(TimePlacedataloc)
-        #print(gdf.astype())
-        newtimeplacefoler = downloadsfolderPath + "\\newtimeplace"
-        gdf.to_file(newtimeplacefoler + '\newtp.shp')
+        print("till jere")
+        con = psycopg2.connect(database=config_met()['database'], user=config_met()['user'],
+                               password=config_met()['password'], host=config_met()['host'])
+        df = gpd.GeoDataFrame.from_postgis(get_timeplace_db, con, geom_col='shape')
+        gdf = gpd.GeoDataFrame(df, geometry='shape', crs={'init': 'epsg:26910'})
+        meterologyshapeloc = downloadsfolderPath + "\\meterologyshape"
+        deleteFolder(meterologyshapeloc)
+        create_folder(meterologyshapeloc)
+        metfilename = meterologyshapeloc + "/" + "meterologyresult.shp"
+        gdf.to_file(driver='ESRI Shapefile', filename=metfilename)
 
         # df_timeplacecircuits.createOrReplaceTempView("timeplace_circuits")
         # tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\actualtimeplace_circuits"
@@ -95,11 +97,12 @@ class TestCircuitInfo(BaseClass):
         # inFeatures = [
         #     r"\\utility.pge.com\users\personal\H2MN\My Documents\ArcGIS\Projects\MyProject\MyProject.gdb\Dx_TP",
         #     r"\\utility.pge.com\users\personal\H2MN\My Documents\ArcGIS\Projects\MyProject\MyProject.gdb\HFRA_Layer"]
-        inFeatures = [r"C:\Hema_Workspace\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Timeplace", temp_hfralayerpath]
+        inFeatures = [metfilename, temp_hfralayerpath]
         #r'C:\Hema_Workspace\gis - geomartcloud - pspsv4 - automation - python\PSPSProject\downloads \Timeplace'
-        intersectOutput = intersectedlayerfolder + "HFRA_Layer_Intersect"
-        arcpy.analysis.Intersect(inFeatures, intersectOutput)
-        print("hi3")
+        intersectOutput = intersectedlayerfolder + "\\HFRA_Layer_Intersect"
+        print("hi")
+        arcpy.Intersect_analysis(inFeatures, intersectOutput)
+        print("Intersectedhfra_layer")
         #arcpy.analysis.Intersect(inFeatures, intersectOutput)
 
         # final_assert.append(False)
