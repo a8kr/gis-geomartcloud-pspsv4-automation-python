@@ -1,3 +1,4 @@
+import pandas as pd
 import simplejson
 import psycopg2
 
@@ -118,13 +119,9 @@ def queryresults_get_alldata_met(query):
         print('Connecting to the PostgreSQL database...')
         conn = psycopg2.connect(**params)
         print('DB connection successful')
-        cur = conn.cursor()
-        cur.execute(query)
-        qresult = cur.fetchall()
-        result = qresult
-        print(qresult)
+        result = pd.read_sql_query(query, con=conn)
+        print(result)
         print("Query ran successfully")
-        cur.close()
     except (Exception, psycopg2.DataError) as error:
         print(error)
     finally:
