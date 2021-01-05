@@ -1132,3 +1132,265 @@
 2020-12-16 16:00:34,852 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
 2020-12-16 22:31:01,678 :INFO : test_defaultdevicevalidation :Starting Validation
 2020-12-16 22:34:17,499 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 15:10:27,753 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 15:10:28,384 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_16_2020_10_54_47.parquet
+2020-12-17 15:10:28,384 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 15:10:28,902 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-17 15:10:28,902 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 15:10:31,180 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-17 15:10:43,163 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-17 15:10:43,999 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-17 15:10:43,999 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-17 15:10:43,999 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-17 15:10:43,999 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 15:10:45,798 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-17 15:11:00,431 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-17 15:11:04,921 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-17 15:11:06,988 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-17 15:11:08,172 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-17 15:11:11,723 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-17 15:11:14,427 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-17 15:11:14,522 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-17 15:11:23,892 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-17 15:11:38,057 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-17 15:11:54,222 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2020-12-17 15:12:47,226 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 15:12:48,281 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_16_2020_10_54_47.parquet
+2020-12-17 15:12:48,281 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 15:12:49,026 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-17 15:12:49,026 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 15:12:51,319 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-17 15:13:06,453 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-17 15:13:07,023 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-17 15:13:07,024 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-17 15:13:07,024 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-17 15:13:07,024 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 15:13:08,396 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-17 15:13:13,506 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-17 15:13:17,782 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-17 15:13:19,897 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-17 15:13:21,046 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-17 15:13:24,613 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-17 15:13:26,995 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-17 15:13:27,068 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-17 15:13:36,209 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-17 15:13:50,338 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-17 15:14:06,237 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2020-12-17 22:18:57,615 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 22:18:58,601 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_16_2020_10_54_47.parquet
+2020-12-17 22:18:58,601 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 22:18:59,038 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-17 22:18:59,038 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 22:19:01,166 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-17 22:25:14,674 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 22:25:15,466 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_16_2020_10_54_47.parquet
+2020-12-17 22:25:15,466 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 22:25:15,948 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-17 22:25:15,948 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 22:25:18,087 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-17 22:25:32,098 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-17 22:25:32,631 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-17 22:25:32,632 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-17 22:25:32,632 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-17 22:25:32,632 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-17 22:25:34,160 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-17 22:25:53,750 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-17 22:25:59,325 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-17 22:26:01,567 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-17 22:26:02,679 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-17 22:26:06,392 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-17 22:26:09,007 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-17 22:26:09,099 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-17 22:26:18,508 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-17 22:26:32,261 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-17 22:26:48,455 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2020-12-17 22:29:19,235 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 22:30:41,270 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 22:33:00,446 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 22:34:14,488 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 22:35:24,100 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 22:36:57,831 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:09:26,981 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:10:00,613 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:11:09,476 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:14:46,714 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:15:45,394 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:17:44,926 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:18:16,551 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:19:03,802 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:20:52,394 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:23:28,134 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:24:40,463 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:26:35,113 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:27:57,485 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:29:43,992 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-17 23:32:14,320 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 14:43:56,124 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 14:43:56,962 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_11_38_43.parquet
+2020-12-18 14:43:56,962 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 14:43:57,452 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-18 14:43:57,452 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 14:43:59,586 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-18 14:51:16,601 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 14:51:17,421 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_14_47_05.parquet
+2020-12-18 14:51:17,421 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 14:51:17,902 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-18 14:51:17,902 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 14:51:20,200 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-18 14:51:31,569 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-18 14:51:32,184 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Test_devicecheck is: 226
+2020-12-18 14:51:32,184 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Test_devicecheck is: 206
+2020-12-18 14:51:32,185 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/206/226/meteorology/meteorology_226
+2020-12-18 14:51:32,185 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 14:51:34,264 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-18 14:51:51,579 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-18 14:51:57,059 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-18 14:51:59,275 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-18 14:52:11,033 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-18 14:53:26,466 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-18 14:54:33,491 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-18 14:54:35,444 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-18 14:54:53,991 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-18 14:56:29,822 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-18 14:57:05,359 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2020-12-18 16:25:46,235 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 16:25:46,887 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_16_24_15.parquet
+2020-12-18 16:25:46,887 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:25:47,416 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-18 16:25:47,416 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:25:48,935 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-18 16:27:06,884 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 16:27:07,738 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_16_24_15.parquet
+2020-12-18 16:27:07,738 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:27:08,398 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-18 16:27:08,398 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:27:10,339 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-18 16:27:20,429 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-18 16:27:20,997 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: TP1Polygon_1299 is: 646
+2020-12-18 16:27:20,997 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: TP1Polygon_1299 is: 251
+2020-12-18 16:27:20,997 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/251/646/meteorology/meteorology_646
+2020-12-18 16:27:20,997 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:27:22,356 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-18 16:27:31,381 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-18 16:27:35,395 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-18 16:27:37,254 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-18 16:27:38,416 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-18 16:27:41,534 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-18 16:27:43,714 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-18 16:27:43,798 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-18 16:27:51,208 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-18 16:28:01,839 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-18 16:28:12,502 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2020-12-18 16:30:16,900 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 16:30:17,573 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_16_24_15.parquet
+2020-12-18 16:30:17,573 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:30:18,034 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-18 16:30:18,034 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:30:20,072 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-18 16:30:32,741 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-18 16:30:33,771 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: TP5polygon-1299 is: 647
+2020-12-18 16:30:33,771 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: TP5polygon-1299 is: 252
+2020-12-18 16:30:33,772 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/252/647/meteorology/meteorology_647
+2020-12-18 16:30:33,772 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:30:35,569 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-18 16:30:40,440 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-18 16:30:45,714 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-18 16:30:47,777 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-18 16:30:48,918 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-18 16:30:52,268 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-18 16:30:54,682 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-18 16:30:54,792 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-18 16:31:03,581 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-18 16:31:15,278 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-18 16:31:29,238 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2020-12-18 16:43:56,124 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 16:43:56,761 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_16_24_15.parquet
+2020-12-18 16:43:56,761 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:43:57,222 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-18 16:43:57,222 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:43:59,271 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-18 16:44:16,012 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-18 16:44:16,571 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Mergepolygon_1299 is: 648
+2020-12-18 16:44:16,571 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Mergepolygon_1299 is: 253
+2020-12-18 16:44:16,571 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/253/648/meteorology/meteorology_648
+2020-12-18 16:44:16,571 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:44:17,931 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-18 16:44:22,917 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-18 16:44:28,541 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-18 16:44:30,656 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-18 16:44:33,118 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-18 16:44:37,301 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-18 16:44:39,783 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-18 16:44:39,851 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-18 16:44:50,790 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-18 16:45:08,072 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-18 16:45:29,446 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2020-12-18 16:47:39,195 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 16:47:40,056 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_16_24_15.parquet
+2020-12-18 16:47:40,056 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:47:40,968 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-18 16:47:40,968 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:47:43,405 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-18 16:47:53,417 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-18 16:47:53,983 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: TP6polygon_1299 is: 649
+2020-12-18 16:47:53,983 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: TP6polygon_1299 is: 254
+2020-12-18 16:47:53,983 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/254/649/meteorology/meteorology_649
+2020-12-18 16:47:53,983 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:47:55,333 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-18 16:48:00,282 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-18 16:48:04,442 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-18 16:48:06,440 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-18 16:48:07,520 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-18 16:48:10,637 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-18 16:48:12,837 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-18 16:48:12,916 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-18 16:48:20,366 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-18 16:48:30,978 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-18 16:48:42,045 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2020-12-18 16:50:28,602 :INFO : test_defaultdevicevalidation :Starting Validation
+2020-12-18 16:50:29,259 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_16_24_15.parquet
+2020-12-18 16:50:29,259 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:50:29,766 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2020-12-18 16:50:29,767 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:50:31,935 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2020-12-18 16:50:45,463 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2020-12-18 16:50:46,012 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Samplepolygon_1299 is: 650
+2020-12-18 16:50:46,012 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Samplepolygon_1299 is: 255
+2020-12-18 16:50:46,012 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-dev/reports/timeplacecreation/255/650/meteorology/meteorology_650
+2020-12-18 16:50:46,012 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2020-12-18 16:50:47,364 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2020-12-18 16:50:52,411 :INFO : test_defaultdevicevalidation :Spark session connected
+2020-12-18 16:50:56,516 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2020-12-18 16:50:58,514 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2020-12-18 16:50:59,586 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv
+2020-12-18 16:51:02,342 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv
+2020-12-18 16:51:04,479 :INFO : test_defaultdevicevalidation :Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv
+2020-12-18 16:51:04,545 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2020-12-18 16:51:09,812 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv
+2020-12-18 16:51:18,583 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv
+2020-12-18 16:51:27,651 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv
+2021-01-04 13:47:51,315 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:14:57,663 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:15:56,263 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:20:36,502 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:24:56,473 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:42:43,223 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:51:48,178 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:52:24,726 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:52:53,834 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 14:54:23,341 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 15:12:50,574 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 16:24:50,721 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 16:31:19,862 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 16:44:12,066 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 16:46:47,358 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 16:51:19,875 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 16:52:30,742 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 16:57:17,193 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 16:57:56,105 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 21:08:05,535 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-04 21:08:06,492 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_18_2020_16_24_15.parquet
+2021-01-04 21:08:06,492 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-04 21:08:07,113 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_device/
+2021-01-04 21:08:07,114 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-04 21:08:09,885 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
