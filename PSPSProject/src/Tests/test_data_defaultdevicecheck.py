@@ -64,7 +64,6 @@ class TestDefaultDeviceValidation(BaseClass):
         log.info("-----------------------------------------------------------------------------------------------")
         filename = filename_defaulttable.split('/')[-1]
         print(filename)
-
         # Get the latest feeder device table filepaths from db
         get_feederdevicestable_db = queries.get_activetablename % 's3-feedernetworktrace-devices'
         lst_table_details1 = queryresults_fetchone(get_feederdevicestable_db)
@@ -113,6 +112,19 @@ class TestDefaultDeviceValidation(BaseClass):
             log.info("Output Meteorology path is : " + str(var_meteorology_path))
             log.info("-----------------------------------------------------------------------------------------------")
 
+            # Download circuits file for the timeplace from S3 bucket
+            filename = str(var_tp_id) + "/" + str(var_tp_uid) + "/circuits/circuits_" + str(var_tp_uid) + "/"
+            s3 = boto3.client('s3')
+            s3_resource = boto3.resource("s3")
+            s3_bucketname = s3config()['datastorebucketname']
+            BUCKET_PATH = s3config()['tpbucketpath']
+            path = BUCKET_PATH + filename
+            profilename = s3config()['profile_name']
+            local_folder = downloadsfolderPath + "circuits_" + str(var_tp_uid)
+            deleteFolder(local_folder)
+            download_dir_from_S3(path, s3_bucketname, profilename, local_folder)
+            log.info("Downloaded circuits parquet file from S3")
+
             # Download parent circuits file for the timeplace from S3 bucket
             filename = str(var_tp_id) + "/" + str(var_tp_uid) + "/meteorology/meteorology_" + str(var_tp_uid) + "/"
             # filename = "131/151/circuits/circuits_151/"
@@ -137,6 +149,24 @@ class TestDefaultDeviceValidation(BaseClass):
                 .getOrCreate()
             log.info("Spark session connected")
 
+            meterologyfile = downloadsfolderPath + "\\meterologyparque"
+            meterologyfile = spark.read.parquet(meterologyfile)
+            meterologyfile.createOrReplaceTempView("meterologyfile")
+            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\meterologyfile"
+            meterologyfile.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
+                tempfolder)
+
+            # Read Circuits file
+            ciruitsfilepath = os.path.join(
+                downloadsfolderPath + "\\circuits_" + str(var_tp_uid) + "\\reports\\timeplacecreation\\" + str(
+                    var_tp_id) + "\\" + str(var_tp_uid) + "\\circuits\\circuits_" + str(var_tp_uid))
+            df_timeplacecircuits = spark.read.parquet(ciruitsfilepath)
+            df_timeplacecircuits.createOrReplaceTempView("timeplace_circuits")
+            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Expected_circuits"
+            df_timeplacecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
+                tempfolder)
+            log.info("Expected Circuits file is downloaded from S3 and stored in Expected_circuits folder")
+
             # read meteorology csv and convert to parquet file
             meteorology_input = local_folder + '/' + path
             meteorology_input = os.listdir(meteorology_input)
@@ -148,9 +178,8 @@ class TestDefaultDeviceValidation(BaseClass):
 
             df_defaultmngtcircuits = spark.read.parquet(defaultmngtcircuits)
             df_defaultmngtcircuits.createOrReplaceTempView("defaultmngtcircuits")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\df_defaultmngtcircuits"
-            df_defaultmngtcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
-                "overwrite").save(tempfolder)
+            # tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\df_defaultmngtcircuits"
+            # df_defaultmngtcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
             df_defaultmngtcircuits.cache()
             df_meteorology = spark.read.parquet(downloadsfolderPath + '\\meteorologyoutput')
             df_meteorology.createOrReplaceTempView("meteorologycircuits")
@@ -168,9 +197,9 @@ class TestDefaultDeviceValidation(BaseClass):
             from meteorologycircuits as mc INNER JOIN defaultmngtcircuits as dc on mc.circuitid = dc.circuitId and mc.opnum = 
             dc.sourceIsolationDevice and mc.devicetype = dc.sourceIsolationDeviceType and mc.operable in ('Y') """)
             defaultcircuits.createOrReplaceTempView("tempdefaultcircuits")
-            tempfolder = downloadsfolderPath + '\\tempdefaultcircuits'
-            defaultcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
-            log.info("List of default devices from intersected circuits are identified and output csv is stored in tempdefaultcircuits csv")
+            # tempfolder = downloadsfolderPath + '\\tempdefaultcircuits'
+            # defaultcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+            log.info("List of default devices from intersected circuits are identified")
 
             # Remove circuits if already present in intersected circuits list
             df_defaultcircuits_intersected = spark.sql("""SELECT mc.circuit_uid, mc.fireindex, mc.circuitid, mc.opnum, 
@@ -179,20 +208,17 @@ class TestDefaultDeviceValidation(BaseClass):
             LEFT JOIN tempdefaultcircuits as tc on mc.circuitid = tc.circuitid AND mc.opnum = 
             tc.opnum AND mc.devicetype = tc.devicetype """)
             df_defaultcircuits_intersected.createOrReplaceTempView("defaultcircuits_intersected")
-            tempfolder = downloadsfolderPath + '\\defaultcircuits_intersected'
-            df_defaultcircuits_intersected.coalesce(1).write.option("header", "true").format("csv").mode(
-                "overwrite").save(tempfolder)
-            log.info(
-                "Removal of circuits if already present in intersected circuits list is done and output csv is stored in defaultcircuits_intersected csv")
+            # tempfolder = downloadsfolderPath + '\\defaultcircuits_intersected'
+            # df_defaultcircuits_intersected.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+            log.info("Removal of circuits if already present in intersected circuits list is done")
 
             # Get the Non Default devices list from above table created
             df_nondefaultdevices = spark.sql(
                 """SELECT * from  defaultcircuits_intersected where defaultdevice is null or defaultdevice = ''""")
             df_nondefaultdevices.createOrReplaceTempView("nondefaultdevices")
-            tempfolder = downloadsfolderPath + '\\temp_nondefaultcircuits'
-            df_nondefaultdevices.coalesce(1).write.option("header", "true").format("csv").mode(
-                "overwrite").save(tempfolder)
-            log.info("Non Default devices are filtered and output csv is stored in temp_nondefaultcircuits csv")
+            # tempfolder = downloadsfolderPath + '\\temp_nondefaultcircuits'
+            # df_nondefaultdevices.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+            log.info("Non Default devices are filtered")
 
             # Read Feederdevice parquet file
             df_feederdevices = spark.read.parquet(feederdevices + '/' + feederdevicesBUCKET_PATH)
@@ -210,18 +236,16 @@ class TestDefaultDeviceValidation(BaseClass):
                                             AND f.max_branch >= c.max_branch
                                             AND f.min_branch <= c.min_branch""")
             df_upstreamdevices.createOrReplaceTempView("upstreamdevices")
-            tempfolder = downloadsfolderPath + '\\temp_upstreamdevices'
-            df_upstreamdevices.coalesce(1).write.option("header", "true").format("csv").mode(
-                "overwrite").save(tempfolder)
-            log.info(
-                "Upstream Tracing and removal of non operable is done and output csv is stored in temp_upstreamdevices csv")
+            # tempfolder = downloadsfolderPath + '\\temp_upstreamdevices'
+            # df_upstreamdevices.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+            log.info("Upstream Tracing and removal of non operable is done")
 
             df_remnonoperableupstreamdevices = spark.sql(
                 """SELECT * from upstreamdevices where operable in ('M','Y')""")
             df_remnonoperableupstreamdevices.createOrReplaceTempView("remnonoperableupstreamdevices")
-            tempfolder = downloadsfolderPath + '\\df_remnonoperableupstreamdevices'
-            df_remnonoperableupstreamdevices.coalesce(1).write.option("header", "true").format("csv").mode(
-                "overwrite").save(tempfolder)
+            # tempfolder = downloadsfolderPath + '\\df_remnonoperableupstreamdevices'
+            # df_remnonoperableupstreamdevices.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+            log.info("Filtered with devices where operable is M or Y")
 
             # Join upstreamdevices with default devices csv and get default circuits
             defaultcircuits_upstream = spark.sql("""SELECT DISTINCT c.circuit_uid, c.fireindex, c.circuitid, c.opnum,
@@ -230,11 +254,9 @@ class TestDefaultDeviceValidation(BaseClass):
             from remnonoperableupstreamdevices as c INNER JOIN defaultmngtcircuits as dc on c.circuitid = dc.circuitId 
             and c.opnum = dc.sourceIsolationDevice and c.devicetype = dc.sourceIsolationDeviceType""")
             defaultcircuits_upstream.createOrReplaceTempView("tempupstreamdefaultcircuits")
-            tempfolder = downloadsfolderPath + '\\tempupstreamdefaultcircuits'
-            defaultcircuits_upstream.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
-                tempfolder)
-            log.info(
-                "List of default devices from upstream circuits are identified and output csv is stored in tempupstreamdefaultcircuits csv")
+            # tempfolder = downloadsfolderPath + '\\tempupstreamdefaultcircuits'
+            # defaultcircuits_upstream.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+            log.info("List of default devices from upstream circuits are identified")
 
             # Remove circuits if already present in upstream circuits list
             df_defaultcircuits_upstream = spark.sql("""SELECT c.circuit_uid, c.fireindex, c.circuitid, c.opnum,
@@ -245,24 +267,26 @@ class TestDefaultDeviceValidation(BaseClass):
             AND c.opnum = tc.opnum 
             AND c.devicetype = tc.devicetype """)
             df_defaultcircuits_upstream.createOrReplaceTempView("defaultcircuits_upstream")
-            tempfolder = downloadsfolderPath + '\\defaultcircuits_upstream'
-            df_defaultcircuits_upstream.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
-                tempfolder)
-            log.info(
-                "Removal of circuits if already present in upstream circuits list is done and output csv is stored in defaultcircuits_upstream csv")
+            # tempfolder = downloadsfolderPath + '\\defaultcircuits_upstream'
+            # df_defaultcircuits_upstream.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+            log.info("Removal of circuits if already present in upstream circuits list is done")
 
             # Join Default intersected and defaultcircuits_upstream
             df_defaultcircuits_union = spark.sql("""SELECT * from tempdefaultcircuits 
             UNION
             SELECT * from defaultcircuits_upstream""")
             df_defaultcircuits_union.createOrReplaceTempView("defaultcircuits_union")
+            # df_defaultcircuits_union = spark.sql("""SELECT DISTINCT * from defaultcircuits_union order by circuitid asc, order_num asc""")
             df_defaultcircuits_union = spark.sql(
-                """SELECT DISTINCT * from defaultcircuits_union order by circuitid asc, order_num asc""")
+                """SELECT DISTINCT * from defaultcircuits_union order by circuitid desc, treelevel desc, order_num asc, max_branch asc, min_branch desc""")
             df_defaultcircuits_union.createOrReplaceTempView("defaultcircuits_union")
             tempfolder = downloadsfolderPath + '\\defaultcircuits_union'
             df_defaultcircuits_union.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
+            log.info(
+                "Join Default intersected and defaultcircuits_upstream and orderby order_num asc is done and csv is stored in defaultcircuits_union folder")
 
+            '''
             # Order by circuits
             df_defaultcircuits_order = spark.sql(
                 """SELECT DISTINCT * from defaultcircuits_union order by circuitid desc, treelevel desc, order_num asc, max_branch asc, min_branch desc""")
@@ -270,26 +294,26 @@ class TestDefaultDeviceValidation(BaseClass):
             tempfolder = downloadsfolderPath + '\\defaultcircuits_order'
             df_defaultcircuits_order.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
+            log.info(
+                "Order by circuitid desc, treelevel desc, order_num asc, max_branch asc, min_branch desc is done and csv is stored in defaultcircuits_order folder")
+            '''
 
             # Store Defaultcircuits_order csv to dataframe
-            tempfolder = downloadsfolderPath + '\\defaultcircuits_order'
+            tempfolder = downloadsfolderPath + '\\defaultcircuits_union'
             defaultcircuits_order = os.listdir(tempfolder)
             for file in defaultcircuits_order:
                 if file.endswith('csv'):
                     break
-            defaultcircuits_order_csv = downloadsfolderPath + '\\defaultcircuits_order' + '/' + file
+            defaultcircuits_order_csv = downloadsfolderPath + '\\defaultcircuits_union' + '/' + file
             defaultcircuits_order = pd.read_csv(defaultcircuits_order_csv)
             defaultcircuits_order = defaultcircuits_order.loc[
                 ~defaultcircuits_order['action'].isin(['intersectedcircuit'])]
             final_circuits = []
             for i, grouped_values in defaultcircuits_order.groupby('circuit_uid'):
-
-                # grouped_values = grouped_values.sort_values(['treelevel', 'order_num', 'max_branch', 'min_branch'],
-                #                    ascending=[False, True, True, False])
+                grouped_values = grouped_values.sort_values(['treelevel', 'order_num', 'max_branch', 'min_branch'],ascending=[False, True, True, False])
                 if len(grouped_values) == 1:
                     for index, rows in grouped_values.iterrows():
                         final_circuits.append(rows)
-
                 else:
                     j = 0
                     for index, k in grouped_values.iterrows():
@@ -309,4 +333,8 @@ class TestDefaultDeviceValidation(BaseClass):
                         j = j + 1
                     final_circuits.append(temp_circuit)
             final_circuits1 = pd.DataFrame(final_circuits)
-            final_circuits1.to_csv(downloadsfolderPath + '\\finaldefaultcircuits.csv', index=False)
+            intersectedcircuits = pd.read_csv(defaultcircuits_order_csv)
+            intersectedcircuits = intersectedcircuits.loc[
+                intersectedcircuits['action'].isin(['intersectedcircuit'])]
+            finalcircuitslist = pd.concat([final_circuits1, intersectedcircuits], axis=0)
+            finalcircuitslist.to_csv(downloadsfolderPath + '\\finaldefaultcircuits.csv', index=False)
