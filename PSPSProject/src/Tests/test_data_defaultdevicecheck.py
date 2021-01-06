@@ -97,7 +97,7 @@ class TestDefaultDeviceValidation(BaseClass):
         create_folder(feederdevices)
         download_dir_from_S3(feederdevicesBUCKET_PATH, s3_bucketname, profilename, feederdevices)
         log.info("Downloaded feederdevices parquet file from S3")
-
+        
         # Get Timeplace UID and Timeplace ID for the required timeplace
         i = 0
         for each in var_tp_array:
@@ -149,13 +149,21 @@ class TestDefaultDeviceValidation(BaseClass):
                 .getOrCreate()
             log.info("Spark session connected")
 
+            '''
+            feederfile = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederdevices\dev\data\pspsdatasync-v4\parquet\1214_0140\feederNetwork_device"
+            feederfile = spark.read.parquet(feederfile)
+            feederfile.createOrReplaceTempView("feederfile")
+            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederfile"
+            feederfile.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
+                tempfolder)
+            
             meterologyfile = downloadsfolderPath + "\\meterologyparque"
             meterologyfile = spark.read.parquet(meterologyfile)
             meterologyfile.createOrReplaceTempView("meterologyfile")
             tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\meterologyfile"
             meterologyfile.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
-
+            '''
             # Read Circuits file
             ciruitsfilepath = os.path.join(
                 downloadsfolderPath + "\\circuits_" + str(var_tp_uid) + "\\reports\\timeplacecreation\\" + str(
@@ -337,4 +345,7 @@ class TestDefaultDeviceValidation(BaseClass):
             intersectedcircuits = intersectedcircuits.loc[
                 intersectedcircuits['action'].isin(['intersectedcircuit'])]
             finalcircuitslist = pd.concat([final_circuits1, intersectedcircuits], axis=0)
+            finalcircuitslist = finalcircuitslist.drop_duplicates(subset=['circuitid', 'opnum', 'devicetype'], keep='first')
             finalcircuitslist.to_csv(downloadsfolderPath + '\\finaldefaultcircuits.csv', index=False)
+
+
