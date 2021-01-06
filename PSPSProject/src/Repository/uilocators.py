@@ -68,7 +68,7 @@ class locators:
     new_event_grid_2nd_checkbox = "//div[2]/div[1]/div/span/span[1]/input"
     new_event_total_timeplaces = "//*[@id='root']/div[1]/div/div[3]/div/div[3]/div/div/div[2]/div/text()"
     new_event_status_message = "//*[@id='root']/div[1]/div/div[3]/div/div[4]/div/div/p"
-    view_psps_scope_modal_create_button = "//span[contains(text(),'NEXT')]"
+    new_event_next_button = "//span[contains(text(),'NEXT')]"
 
     #"//*[@id='root']/div[1]/div[2]/div[3]/div/div/p"
 
