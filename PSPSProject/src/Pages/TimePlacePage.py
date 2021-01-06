@@ -54,6 +54,22 @@ class TimePlacePage:
             print(var_create_status)
             print("'Time place creation in progress' status validated")
 
+        while True:
+            try:
+                var_create_status = uielements.getValue(locators.view_psps_scope_modal_status_message)
+                if textMessage.create_time_place_message in var_create_status:
+                    continue
+                else:
+                    break
+            except:
+                break
+
+
+
+        if textMessage.create_time_place_message in var_create_status:
+            print(var_create_status)
+            print("'Time place creation in progress' status validated")
+
         if uielements.iselementEnabled(locators.view_psps_scope_modal_create_button) == False:
             print("Validate that Create button disabled after click on Create time place")
 
