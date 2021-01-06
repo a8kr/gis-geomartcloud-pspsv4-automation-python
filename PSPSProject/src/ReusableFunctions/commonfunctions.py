@@ -4,8 +4,6 @@ import os
 import shutil
 import sys
 import time
-import zipfile
-
 import numpy as np
 import openpyxl
 import pandas as pd

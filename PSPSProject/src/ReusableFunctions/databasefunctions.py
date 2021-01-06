@@ -108,3 +108,4 @@ def queryresults_get_alldata(query):
             conn.close()
             print('Database connection closed')
     return result
+

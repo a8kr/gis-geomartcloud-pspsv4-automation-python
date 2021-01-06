@@ -20,6 +20,8 @@ class locators:
     dm_close_uploadpopup = "/html/body/div[2]/div[3]/div/div[1]/button/span[1]"
     dm_validationlink = "/html/body/div[2]/div[3]/div/div[3]/span[5]/span/p/a"
     dm_search_input = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div/div/div/input"
+    dm_validationlink_bottom = "//*[@id='root']/div[1]/div[2]/div[3]/div/div/p[2]/a"
+    dm_status_message = "//*[@id='root']/div[1]/div[2]/div[3]/div/div/p"
 
 
     # New time place tab
@@ -48,5 +50,31 @@ class locators:
     view_psps_scope_modal_create_button = "//span[contains(text(),'CREATE')]"
     view_psps_scope_modal_back_button = "//span[contains(text(),'BACK')]"
     view_psps_scope_modal_status_message = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[2]/div/div/p"
+
+    # New Event tab
+    new_event_tab = "//span[contains(text(),'New Event')]"
+    new_event_search = "//input[@class='MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd']"
+    new_event_search_clear ="//button[@class='MuiButtonBase-root MuiIconButton-root']"
+    new_event_name = "//input[@class='MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense']"
+    new_event_fields_list = "//div[@class='MuiSelect-root MuiSelect-select MuiSelect-selectMenu MuiInputBase-input MuiInput-input']"
+    new_event_fields_list_all_fields = "//*[@id='menu-']/div[3]/ul/li[2]"
+    new_event_fields_list_time_places = "//*[@id='menu-']/div[3]/ul/li[3]"
+    new_event_fields_list_stage = "//*[@id='menu-']/div[3]/ul/li[4]"
+    new_event_fields_list_status = "//*[@id='menu-']/div[3]/ul/li[5]"
+    new_event_fields_list_tied_to_event = "//*[@id='menu-']/div[3]/ul/li[6]"
+    new_event_fields_list_created_by = "//*[@id='menu-']/div[3]/ul/li[7]"
+    new_event_fields_list_last_modified = "//*[@id='menu-']/div[3]/ul/li[8]"
+    new_event_fields_list_external_name = "//*[@id='menu-']/div[3]/ul/li[9]"
+    new_event_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div[3]/div/div/div[1]/div/div[2]/div/div[1]/div/div[1]"
+    new_event_grid_1st_checkbox = "//div[1]/div[1]/div/span/span[1]/input"
+    new_event_grid_2nd_checkbox = "//div[2]/div[1]/div/span/span[1]/input"
+    new_event_total_timeplaces = "//*[@id='root']/div[1]/div/div[3]/div/div[3]/div/div/div[2]/div/text()"
+    new_event_status_message = "//*[@id='root']/div[1]/div/div[3]/div/div[4]/div/div/p"
+    new_event_next_button = "//span[contains(text(),'NEXT')]"
+
+    #"//*[@id='root']/div[1]/div[2]/div[3]/div/div/p"
+
+
+
 
 

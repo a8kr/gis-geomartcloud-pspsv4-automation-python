@@ -64,7 +64,7 @@ def setup(request):
     if TESTENV[0].upper() == "QA":
         URL = ""
     elif TESTENV[0].upper() == "TEST":
-        URL = "https://pspsviewer4tst.nonprod.pge.com/"
+        URL = "https://pspsviewer4tst.nonprod.pge.com"
     elif TESTENV[0].upper() == "PROD":
         URL = ""
     elif TESTENV[0].upper() == "DEV":
@@ -189,3 +189,7 @@ def APIconfig(filename='apiconfig.ini'):
     else:
         raise Exception('Section {0} not found in the {1} file'.format(section, filename))
     return s3
+
+
+
+
