@@ -6,6 +6,7 @@ import pytest
 from PSPSProject.src.Pages.DefaultManagement import DefaultManagement
 from PSPSProject.src.Pages.TimePlacePage import TimePlacePage
 from PSPSProject.src.Pages.HomePage import HomePage
+from PSPSProject.src.Pages.EventPage import EventPage
 from PSPSProject.src.Repository.uilocators import locators
 from PSPSProject.src.ReusableFunctions.baseclass import BaseClass, exceptionRowCount
 from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, readData, getCSVrowCount
@@ -45,6 +46,11 @@ class TestDefaultManagementPositive(BaseClass):
 
         uielements.Click(locators.new_event_tab)
         log.info("Clicked New Event tab")
+
+        var_event_name = "Event_automation"
+        var_timeplace = "TP1_Automation"
+
+        EventPage.createEvent_bysingleVersion(var_event_name, var_timeplace)
 
         while True:
             try:
