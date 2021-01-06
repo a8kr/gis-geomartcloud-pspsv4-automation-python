@@ -55,21 +55,21 @@ class TestDefaultManagementPositive(BaseClass):
             log.info("Successfully entered user id & password:")
             print("Successfully entered user id & password:")
 
-        # filename = "s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_04_2020_11_54_12.parquet"
-        # var_tp_uid = "169"
+        filename = "s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_04_2020_11_54_12.parquet"
+        var_tp_uid = "169"
 
-        # s3 = boto3.client('s3')
-        # s3_resource = boto3.resource("s3")
-        # s3_bucketname = s3config()['datastorebucketname']
-        # #BUCKET_PATH = s3config()['tpbucketpath']
-        # #path = BUCKET_PATH + filename
-        # path = s3_bucketname + filename
-        # profilename = s3config()['profile_name']
-        # local_folder = downloadsfolderPath + "circuits_" + str(var_tp_uid)
-        # deleteFolder(local_folder)
-        # var_res = download_dir_from_S3(path, s3_bucketname, profilename, local_folder)
-        # print (var_res)
-        # log.info("Downloaded circuits parquet file from S3")
+        s3 = boto3.client('s3')
+        s3_resource = boto3.resource("s3")
+        s3_bucketname = s3config()['datastorebucketname']
+        #BUCKET_PATH = s3config()['tpbucketpath']
+        #path = BUCKET_PATH + filename
+        path = s3_bucketname + filename
+        profilename = s3config()['profile_name']
+        local_folder = downloadsfolderPath + "circuits_" + str(var_tp_uid)
+        deleteFolder(local_folder)
+        var_res = download_dir_from_S3(path, s3_bucketname, profilename, local_folder)
+        print (var_res)
+        log.info("Downloaded circuits parquet file from S3")
 
         homepage.navigate_defaultManagement()
         uielements.Click(locators.dm_uplaodfile)
