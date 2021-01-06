@@ -347,5 +347,3 @@ class TestDefaultDeviceValidation(BaseClass):
             finalcircuitslist = pd.concat([final_circuits1, intersectedcircuits], axis=0)
             finalcircuitslist = finalcircuitslist.drop_duplicates(subset=['circuitid', 'opnum', 'devicetype'], keep='first')
             finalcircuitslist.to_csv(downloadsfolderPath + '\\finaldefaultcircuits.csv', index=False)
-
-
