@@ -65,7 +65,7 @@ def setup(request):
     if TESTENV[0].upper() == "QA":
         URL = ""
     elif TESTENV[0].upper() == "TEST":
-        URL = ""
+        URL = "https://pspsviewer4tst.nonprod.pge.com"
     elif TESTENV[0].upper() == "PROD":
         URL = ""
     elif TESTENV[0].upper() == "DEV":
