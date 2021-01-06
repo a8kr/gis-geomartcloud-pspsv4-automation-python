@@ -8,9 +8,30 @@ from PSPSProject.src.ReusableFunctions.commonfunctions import *
 
 
 
-class TimePlacePage:
+class EventPage:
     def __init__(self, driver):
         self.driver = driver
+
+
+
+    def createEvent_bysingleVersion(self, Event, timeplace):
+        uielements = UI_Element_Actions(self.driver)
+        time.sleep(2)
+        uielements.Click(locators.new_event_tab)
+        time.sleep(5)
+        uielements.setText(Event, locators.new_event_name)
+        time.sleep(0.15)
+        uielements.setText(timeplace, locators.new_event_search)
+        uielements.Click(locators.new_event_grid_1st_checkbox)
+        #uielements.Click(locators.clearSearch_xpath)
+        time.sleep(0.15)
+        # varflag = isElementChecked(self, locators.versionName_checkbox_xpath)
+        # if not varflag:
+        #     assert False, "Version name checkbox is NOT Selected after clicking on select checkbox"
+        uielements.Click(locators.new_event_n)
+        #varEventCreationList = self.ClickOn_Event_SaveButton()
+        #return varEventCreationList
+        return True
 
     def new_tp_gridheader(self, var_gridColumnNames):
         val = self.driver.find_elements_by_xpath(locators.new_time_place_grid_header)
@@ -50,22 +71,6 @@ class TimePlacePage:
             uielements.Click(locators.view_psps_scope_modal_create_button)
 
         var_create_status = uielements.getValue(locators.view_psps_scope_modal_status_message)
-        if textMessage.create_time_place_message in var_create_status:
-            print(var_create_status)
-            print("'Time place creation in progress' status validated")
-
-        while True:
-            try:
-                var_create_status = uielements.getValue(locators.view_psps_scope_modal_status_message)
-                if textMessage.create_time_place_message in var_create_status:
-                    continue
-                else:
-                    break
-            except:
-                break
-
-
-
         if textMessage.create_time_place_message in var_create_status:
             print(var_create_status)
             print("'Time place creation in progress' status validated")

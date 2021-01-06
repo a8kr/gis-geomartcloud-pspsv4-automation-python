@@ -4,7 +4,6 @@ import os
 import shutil
 import sys
 import time
-
 import numpy as np
 import openpyxl
 import pandas as pd
@@ -152,7 +151,7 @@ def wait_tillfiledownloads():
     time.sleep(3)
 
 def getCurrentTime():
-    var_now = datetime.datetime.now()
+    var_now = datetime.now()
     return (str(var_now.strftime("%Y%m%d_%H%M%S")))
 
 
