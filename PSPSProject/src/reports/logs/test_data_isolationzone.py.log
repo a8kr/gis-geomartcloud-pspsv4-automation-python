@@ -1,0 +1,79 @@
+2021-01-12 19:32:30,322 :INFO : test_isolationzone :Starting Validation
+2021-01-12 19:32:30,789 :INFO : test_isolationzone :default circuits are fetched from system
+2021-01-12 19:34:58,411 :INFO : test_isolationzone :Starting Validation
+2021-01-12 19:34:59,459 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-12 19:34:59,459 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 19:35:26,778 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-12 19:35:27,293 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210112_120532 is: 98
+2021-01-12 19:35:27,293 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210112_120532 is: 72
+2021-01-12 19:35:27,293 :INFO : test_isolationzone :Output Devicecache path is : s3://psps-datastore-tst/reports/timeplacecreation/72/98/devicecache/devicecache_98
+2021-01-12 19:35:27,293 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 19:35:29,251 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-12 19:35:34,592 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-12 19:35:50,970 :INFO : test_isolationzone :Spark session connected
+2021-01-12 21:17:33,235 :INFO : test_isolationzone :Starting Validation
+2021-01-12 21:17:34,343 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-12 21:17:34,344 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:17:58,073 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-12 21:17:58,920 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210112_120532 is: 98
+2021-01-12 21:17:58,921 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210112_120532 is: 72
+2021-01-12 21:17:58,921 :INFO : test_isolationzone :Output Devicecache path is : s3://psps-datastore-tst/reports/timeplacecreation/72/98/devicecache/devicecache_98
+2021-01-12 21:17:58,922 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:18:01,484 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-12 21:18:06,362 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-12 21:18:22,008 :INFO : test_isolationzone :Spark session connected
+2021-01-12 21:19:05,553 :INFO : test_isolationzone :Starting Validation
+2021-01-12 21:19:06,489 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-12 21:19:06,490 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:19:37,072 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-12 21:19:37,566 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210112_120532 is: 98
+2021-01-12 21:19:37,566 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210112_120532 is: 72
+2021-01-12 21:19:37,567 :INFO : test_isolationzone :Output Devicecache path is : s3://psps-datastore-tst/reports/timeplacecreation/72/98/devicecache/devicecache_98
+2021-01-12 21:19:37,567 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:19:39,146 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-12 21:19:42,634 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-12 21:19:48,324 :INFO : test_isolationzone :Spark session connected
+2021-01-12 21:22:54,578 :INFO : test_isolationzone :Starting Validation
+2021-01-12 21:22:55,542 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-12 21:22:55,543 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:23:24,210 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-12 21:23:24,869 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210112_120532 is: 98
+2021-01-12 21:23:24,869 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210112_120532 is: 72
+2021-01-12 21:23:24,869 :INFO : test_isolationzone :Output Devicecache path is : s3://psps-datastore-tst/reports/timeplacecreation/72/98/devicecache/devicecache_98
+2021-01-12 21:23:24,869 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:23:27,101 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-12 21:23:33,038 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-12 21:23:38,657 :INFO : test_isolationzone :Spark session connected
+2021-01-12 21:33:10,079 :INFO : test_isolationzone :Starting Validation
+2021-01-12 21:33:11,018 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-12 21:33:11,018 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:33:39,716 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-12 21:33:40,299 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210112_120532 is: 98
+2021-01-12 21:33:40,299 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210112_120532 is: 72
+2021-01-12 21:33:40,299 :INFO : test_isolationzone :Output Devicecache path is : s3://psps-datastore-tst/reports/timeplacecreation/72/98/devicecache/devicecache_98
+2021-01-12 21:33:40,299 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:33:41,828 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-12 21:33:46,532 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-12 21:33:52,185 :INFO : test_isolationzone :Spark session connected
+2021-01-12 21:50:02,523 :INFO : test_isolationzone :Starting Validation
+2021-01-12 21:50:03,476 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-12 21:50:03,476 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:50:31,199 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-12 21:50:31,998 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210112_120532 is: 98
+2021-01-12 21:50:31,999 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210112_120532 is: 72
+2021-01-12 21:50:31,999 :INFO : test_isolationzone :Output Devicecache path is : s3://psps-datastore-tst/reports/timeplacecreation/72/98/devicecache/devicecache_98
+2021-01-12 21:50:31,999 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:50:35,855 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-12 21:50:39,822 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-12 21:51:01,385 :INFO : test_isolationzone :Spark session connected
+2021-01-12 21:52:15,603 :INFO : test_isolationzone :Starting Validation
+2021-01-12 21:52:16,301 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-12 21:52:16,301 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:52:50,940 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-12 21:52:51,458 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210112_120532 is: 98
+2021-01-12 21:52:51,459 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210112_120532 is: 72
+2021-01-12 21:52:51,459 :INFO : test_isolationzone :Output Devicecache path is : s3://psps-datastore-tst/reports/timeplacecreation/72/98/devicecache/devicecache_98
+2021-01-12 21:52:51,459 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-12 21:52:52,967 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-12 21:52:59,535 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-12 21:53:05,301 :INFO : test_isolationzone :Spark session connected

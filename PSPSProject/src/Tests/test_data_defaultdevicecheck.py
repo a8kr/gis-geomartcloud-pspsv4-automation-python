@@ -15,12 +15,17 @@ import pyarrow.csv as pv
 import pyarrow.parquet as pq
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import udf
+
+from PSPSProject.src.Pages.DefaultManagement import DefaultManagement
+from PSPSProject.src.Pages.HomePage import HomePage
+from PSPSProject.src.Pages.TimePlacePage import TimePlacePage
 from PSPSProject.src.Repository.dbqueries import queries
 from PSPSProject.src.ReusableFunctions.awsfunctions import download_file_from_S3, download_dir_from_S3
 from PSPSProject.src.ReusableFunctions.baseclass import BaseClass, exceptionRowCount
 from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, downloadsfolderPath, readData, \
     deleteFolder, create_folder
-from PSPSProject.src.ReusableFunctions.databasefunctions import queryresults_get_alldata, queryresults_fetchone
+from PSPSProject.src.ReusableFunctions.databasefunctions import queryresults_get_alldata, queryresults_fetchone, \
+    queryresults_get_data
 
 from PSPSProject.src.Tests.conftest import downloadsfolder, testDatafilePath, s3config, dirctorypath
 
@@ -42,6 +47,9 @@ class TestDefaultDeviceValidation(BaseClass):
             exceptionrow = exceptionRowCount()
             var_row = exceptionrow
         log = self.getLogger(logfilepath, VAR_TESTCASENAME)
+        defmanagement = DefaultManagement(self.driver)
+        eventmanagement = TimePlacePage(self.driver)
+        homepage = HomePage(self.driver)
         deleteFiles(downloadsfolder, ".csv")
         var_tp_array = []
         var_execution_flag = ''
@@ -50,11 +58,33 @@ class TestDefaultDeviceValidation(BaseClass):
 
         var_nooftps = readData(testDatafilePath, "Data", var_row, 6)
         timeplace = readData(testDatafilePath, "Data", var_row, 7)
+        var_dmfile = readData(testDatafilePath, "Data", var_row, 9)
+        scopetpname = readData(testDatafilePath, "Data", var_row, 10)
 
-        if timeplace is None or timeplace == "":
-            print("Version should take from UI")
+        if var_dmfile is None or var_dmfile == "":
+            status = defmanagement.dm_uploadfile(var_dmfile)
+            log.info("Default circuits are uploaded from UI and status of upload is: " + status)
         else:
-            var_tp_array.append(timeplace)
+            log.info("default circuits are fetched from system")
+
+        for i in range(var_nooftps):
+            if i > 0:
+                self.driver.refresh()
+                time.sleep(3)
+            if timeplace is None or timeplace == "":
+                homepage.navigate_eventManagement()
+                var_tpcreation = eventmanagement.TimePlaceCreation(scopetpname)
+                timeplace = var_tpcreation[1]
+                get_status = queries.get_tp_status % timeplace
+                status = queryresults_get_data(get_status)
+                if status == "Failed":
+                    log.error("Timeplace creation Failed")
+                elif status == "Completed":
+                    log.info("Timeplace creation is successful and status is: " + status)
+                log.info("Timeplace creation is successful and timeplacename is: " + var_tpcreation[1])
+                var_tp_array.append(timeplace)
+            else:
+                var_tp_array.append(timeplace)
 
         # Get the latest table filepaths from db
         get_defaulttable_db = queries.get_activetablename % 's3-defaultmanagement-circuits'
@@ -70,7 +100,7 @@ class TestDefaultDeviceValidation(BaseClass):
         filename_feederdevicestable = lst_table_details1
         log.info("Filename for Feeder Network Trace - Devices active table is : " + str(filename_feederdevicestable))
         log.info("-----------------------------------------------------------------------------------------------")
-        feederdevicestablefilename = filename_feederdevicestable.split(s3config()['devpath'])[-1]
+        feederdevicestablefilename = filename_feederdevicestable.split(s3config()['envpath'])[-1]
         print(feederdevicestablefilename)
 
         # Download Default Circuits parquet file
@@ -97,11 +127,10 @@ class TestDefaultDeviceValidation(BaseClass):
         create_folder(feederdevices)
         download_dir_from_S3(feederdevicesBUCKET_PATH, s3_bucketname, profilename, feederdevices)
         log.info("Downloaded feederdevices parquet file from S3")
-        
+
         # Get Timeplace UID and Timeplace ID for the required timeplace
         i = 0
         for each in var_tp_array:
-
             get_timeplace_db = queries.get_timeplace % each
             lst_tp_details = queryresults_get_alldata(get_timeplace_db)
             var_tp_uid = lst_tp_details[0][0]
@@ -149,21 +178,20 @@ class TestDefaultDeviceValidation(BaseClass):
                 .getOrCreate()
             log.info("Spark session connected")
 
-            '''
-            feederfile = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederdevices\dev\data\pspsdatasync-v4\parquet\1214_0140\feederNetwork_device"
-            feederfile = spark.read.parquet(feederfile)
-            feederfile.createOrReplaceTempView("feederfile")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederfile"
-            feederfile.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
-                tempfolder)
-            
-            meterologyfile = downloadsfolderPath + "\\meterologyparque"
-            meterologyfile = spark.read.parquet(meterologyfile)
-            meterologyfile.createOrReplaceTempView("meterologyfile")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\meterologyfile"
-            meterologyfile.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
-                tempfolder)
-            '''
+            # feederfile = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederdevices\dev\data\pspsdatasync-v4\parquet\1214_0140\feederNetwork_device"
+            # feederfile = spark.read.parquet(feederfile)
+            # feederfile.createOrReplaceTempView("feederfile")
+            # tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederfile"
+            # feederfile.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
+            #     tempfolder)
+            # 
+            # meterologyfile = downloadsfolderPath + "\\meterologyparque"
+            # meterologyfile = spark.read.parquet(meterologyfile)
+            # meterologyfile.createOrReplaceTempView("meterologyfile")
+            # tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\meterologyfile"
+            # meterologyfile.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
+            #     tempfolder)
+
             # Read Circuits file
             ciruitsfilepath = os.path.join(
                 downloadsfolderPath + "\\circuits_" + str(var_tp_uid) + "\\reports\\timeplacecreation\\" + str(
@@ -294,17 +322,16 @@ class TestDefaultDeviceValidation(BaseClass):
             log.info(
                 "Join Default intersected and defaultcircuits_upstream and orderby order_num asc is done and csv is stored in defaultcircuits_union folder")
 
-            '''
-            # Order by circuits
-            df_defaultcircuits_order = spark.sql(
-                """SELECT DISTINCT * from defaultcircuits_union order by circuitid desc, treelevel desc, order_num asc, max_branch asc, min_branch desc""")
-            df_defaultcircuits_order.createOrReplaceTempView("defaultcircuits_order")
-            tempfolder = downloadsfolderPath + '\\defaultcircuits_order'
-            df_defaultcircuits_order.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
-                tempfolder)
-            log.info(
-                "Order by circuitid desc, treelevel desc, order_num asc, max_branch asc, min_branch desc is done and csv is stored in defaultcircuits_order folder")
-            '''
+            #  Order by circuits
+            # df_defaultcircuits_order = spark.sql(
+            #     """SELECT DISTINCT * from defaultcircuits_union order by circuitid desc, treelevel desc, order_num asc, max_branch asc, min_branch desc""")
+            # df_defaultcircuits_order.createOrReplaceTempView("defaultcircuits_order")
+            # tempfolder = downloadsfolderPath + '\\defaultcircuits_order'
+            # df_defaultcircuits_order.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
+            #     tempfolder)
+            # log.info(
+            #     "Order by circuitid desc, treelevel desc, order_num asc, max_branch asc, min_branch desc is done and csv is stored in defaultcircuits_order folder")
+            # 
 
             # Store Defaultcircuits_order csv to dataframe
             tempfolder = downloadsfolderPath + '\\defaultcircuits_union'
@@ -318,7 +345,8 @@ class TestDefaultDeviceValidation(BaseClass):
                 ~defaultcircuits_order['action'].isin(['intersectedcircuit'])]
             final_circuits = []
             for i, grouped_values in defaultcircuits_order.groupby('circuit_uid'):
-                grouped_values = grouped_values.sort_values(['treelevel', 'order_num', 'max_branch', 'min_branch'],ascending=[False, True, True, False])
+                grouped_values = grouped_values.sort_values(['treelevel', 'order_num', 'max_branch', 'min_branch'],
+                                                            ascending=[False, True, True, False])
                 if len(grouped_values) == 1:
                     for index, rows in grouped_values.iterrows():
                         final_circuits.append(rows)
@@ -345,5 +373,6 @@ class TestDefaultDeviceValidation(BaseClass):
             intersectedcircuits = intersectedcircuits.loc[
                 intersectedcircuits['action'].isin(['intersectedcircuit'])]
             finalcircuitslist = pd.concat([final_circuits1, intersectedcircuits], axis=0)
-            finalcircuitslist = finalcircuitslist.drop_duplicates(subset=['circuitid', 'opnum', 'devicetype'], keep='first')
+            finalcircuitslist = finalcircuitslist.drop_duplicates(subset=['circuitid', 'opnum', 'devicetype'],
+                                                                  keep='first')
             finalcircuitslist.to_csv(downloadsfolderPath + '\\finaldefaultcircuits.csv', index=False)

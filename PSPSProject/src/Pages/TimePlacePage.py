@@ -29,7 +29,6 @@ class TimePlacePage:
         return True
 
     def CreateTimePlace(self):
-
         uielements = UI_Element_Actions(self.driver)
         time.sleep(0.5)
         if uielements.iselementEnabled(locators.view_psps_scope_modal_expand_icon) == False:
@@ -64,8 +63,6 @@ class TimePlacePage:
             except:
                 break
 
-
-
         if textMessage.create_time_place_message in var_create_status:
             print(var_create_status)
             print("'Time place creation in progress' status validated")
@@ -75,10 +72,38 @@ class TimePlacePage:
 
         if uielements.iselementEnabled(locators.view_psps_scope_modal_back_button) == False:
             print("Validate that Back button disabled after click on Create time place")
-
-
         return var_timeplace
 
-
-
-
+    def TimePlaceCreation(self, scopename):
+        uielements = UI_Element_Actions(self.driver)
+        time.sleep(0.5)
+        var_Timestamp = getCurrentTime()
+        var_timeplace = "Auto_TP_" + var_Timestamp
+        uielements.Click(locators.new_time_place_view_psps_scope_button)
+        time.sleep(8)
+        if scopename is None or scopename == "":
+            uielements.Click(locators.view_psps_scope_modal_grid_1st_checkbox)
+            assert True, "Scope 1st checkbox selected"
+        else:
+            uielements.setText(scopename, locators.view_psps_scope_modal_search)
+            uielements.Click(locators.view_psps_scope_modal_grid_1st_checkbox)
+            assert True, "Scope 1st checkbox selected"
+        uielements.Click(locators.view_psps_scope_modal_next_button)
+        uielements.Click(locators.view_psps_scope_modal_expand_icon)
+        uielements.setText(var_timeplace, locators.view_psps_scope_modal_internal_time_place_name)
+        time.sleep(0.5)
+        var_Timestamp = getCurrentTime()
+        var_extname = "Ext_" + var_Timestamp
+        uielements.setText(var_extname, locators.view_psps_scope_modal_external_time_place_name)
+        uielements.Click(locators.view_psps_scope_modal_create_button)
+        while True:
+            try:
+                var_create_status = uielements.getValue(locators.view_psps_scope_modal_status_message)
+                if textMessage.create_time_place_message in var_create_status:
+                    # continue
+                    break
+                else:
+                    assert False, "Timeplace creation failed"
+            except:
+                break
+        return var_create_status, var_timeplace

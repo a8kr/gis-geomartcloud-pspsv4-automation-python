@@ -1,8 +1,12 @@
 import os
 import time
 
+from PSPSProject.src.Pages.HomePage import HomePage
+from PSPSProject.src.Repository.statictext import textMessage
 from PSPSProject.src.Repository.uilocators import locators
+from PSPSProject.src.ReusableFunctions.commonfunctions import readData, getCSVrowCount
 from PSPSProject.src.ReusableFunctions.uiactions import UI_Element_Actions
+from PSPSProject.src.Tests.conftest import testDatafilePath, testDatafolderPath
 
 
 class DefaultManagement:
@@ -62,5 +66,39 @@ class DefaultManagement:
             return message
         except:
             assert False
+
+    def dm_uploadfile(self, filename):
+        time.sleep(0.5)
+        uielements = UI_Element_Actions(self.driver)
+        homepage = HomePage(self.driver)
+        homepage.navigate_defaultManagement()
+        uielements.Click(locators.dm_uplaodfile)
+        var_totalcircuits = getCSVrowCount(testDatafolderPath, filename)
+        var_uploadsuccess = self.dm_fileupload(testDatafolderPath, filename)
+        if var_uploadsuccess == 'Validation success':
+            print("Successfully uploaded circuits: " + var_uploadsuccess)
+        else:
+            print("Upload circuits failed: " + var_uploadsuccess)
+        self.driver.find_element_by_xpath(locators.dm_upload_btn).click()
+        time.sleep(0.5)
+        uielements.Click(locators.dm_save_btn)
+        while True:
+            try:
+                var_message = uielements.getValue(locators.dm_status_message)
+                if var_message in textMessage.upload_file_in_progress_message:
+                    continue
+                else:
+                    break
+            except:
+                break
+        var_message = uielements.getValue(locators.dm_status_message)
+        if var_message in textMessage.upload_file_successfully:
+            assert True, "Message 'Default devices data uploaded successfully' validation passed"
+        else:
+            assert False, "Message 'Default devices data uploaded successfully' validation failed"
+        return var_message
+
+
+
 
 

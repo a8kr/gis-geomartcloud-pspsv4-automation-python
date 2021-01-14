@@ -1,3 +1,5 @@
+import time
+
 import simplejson
 import psycopg2
 
@@ -109,3 +111,35 @@ def queryresults_get_alldata(query):
             print('Database connection closed')
     return result
 
+
+# <Method>:
+# <input Param> :
+# returns :
+def queryresults_get_data(query):
+    result = 0
+    global conn
+    try:
+        params = config()
+        print('Connecting to the PostgreSQL database...')
+        conn = psycopg2.connect(**params)
+        print('DB connection successful')
+        cur = conn.cursor()
+        while True:
+            cur.execute(query)
+            qresult = cur.fetchone()
+            result = qresult[0]
+            if result == "Completed":
+                break
+            elif result == "Failed":
+                break
+            elif result == "In Queue" or "In Progress":
+                time.sleep(2)
+        print("Query ran successfully")
+        cur.close()
+    except (Exception, psycopg2.DataError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+            print('Database connection closed')
+    return result

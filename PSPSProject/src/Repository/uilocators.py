@@ -32,6 +32,7 @@ class locators:
     new_time_place_edit_event_tab = "//span[contains(text(),'View & Edit Event')]"
     new_time_place_view_psps_scope_button = "//span[@class='MuiChip-label MuiChip-labelSmall' and contains(text(),'View PSPS scope')]"
     new_time_place_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div/div[5]/div/div/div[1]/div/div[2]/div/div[1]/div/div[1]"
+    new_timeplace_records = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[1]/div/div/div[3]/div/span/text()[1]"
 
     # New time place modal
     view_psps_scope_modal_search = "//input[@class='MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd']"
