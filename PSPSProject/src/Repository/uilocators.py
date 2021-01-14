@@ -6,6 +6,9 @@ class locators:
 
     # Home Page
     PSPS_Dropdown_menu = "//*[@id='root']/header/div/button"
+    PSPS_List_Select_Home = "/html/body/div[2]/div[3]/div[2]/ul/div[1]/div[2]"
+    home_event_dropdown = "//*[@id='root']/div[1]/div/div[1]/div/div[1]/div/div/div"
+
 
     # DefaultManagement
     PSPS_List_Select_DefaultManagement = "/html/body/div[2]/div[3]/div[2]/ul/div[3]/div[2]/span"
@@ -71,8 +74,19 @@ class locators:
     new_event_total_timeplaces = "//*[@id='root']/div[1]/div/div[3]/div/div[3]/div/div/div[2]/div/text()"
     new_event_status_message = "//*[@id='root']/div[1]/div/div[3]/div/div[4]/div/div/p"
     new_event_next_button = "//span[contains(text(),'NEXT')]"
+    new_event_metadata_modal_comment = "//textarea[@class='MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense']"
+    new_event_metadata_modal_external_name = "/html/body/div[2]/div[3]/div/div[2]/div/div[2]/div/div/div/input"
+    new_event_metadata_back_button = "//span[contains(text(),'BACK')]"
+    new_event_metadata_back_save = "//span[contains(text(),'SAVE')]"
 
-    #"//*[@id='root']/div[1]/div[2]/div[3]/div/div/p"
+    # Edit Event
+    edit_event_tab = "//span[contains(text(),'View & Edit Event')]"
+    edit_event_search = "//input[@class='MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd']"
+    edit_event_search_clear = "//button[@class='MuiButtonBase-root MuiIconButton-root']"
+    edit_event_grid_cell_1st = "//*[@id='root']/div[1]/div/div[3]/div/div[1]/div/div/div[1]/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div[2]/div/button"
+
+
+
 
 
 
