@@ -35,7 +35,7 @@ class TimePlacePage:
         if uielements.iselementEnabled(locators.view_psps_scope_modal_expand_icon) == False:
             print("Validate that Create button disabled by default")
         var_Timestamp = getCurrentTime()
-        var_timeplace = "Timeplace_" + var_Timestamp
+        var_timeplace = "Auto_TP_" + var_Timestamp
         uielements.Click(locators.view_psps_scope_modal_expand_icon)
         uielements.setText(var_timeplace, locators.view_psps_scope_modal_internal_time_place_name)
         time.sleep(0.5)
@@ -78,6 +78,44 @@ class TimePlacePage:
 
 
         return var_timeplace
+
+    def TimePlaceCreation(self, scopename):
+        uielements = UI_Element_Actions(self.driver)
+        time.sleep(0.5)
+        uielements.Click(locators.new_time_place_new_tab)
+        var_Timestamp = getCurrentTime()
+        var_timeplace = "Auto_TP_" + var_Timestamp
+        uielements.Click(locators.new_time_place_view_psps_scope_button)
+        time.sleep(8)
+        if scopename is None or scopename == "":
+            uielements.Click(locators.view_psps_scope_modal_grid_1st_checkbox)
+            assert True, "Scope 1st checkbox selected"
+        else:
+            uielements.setText(scopename, locators.view_psps_scope_modal_search)
+            uielements.Click(locators.view_psps_scope_modal_grid_1st_checkbox)
+            assert True, "Scope 1st checkbox selected"
+        uielements.Click(locators.view_psps_scope_modal_next_button)
+        uielements.Click(locators.view_psps_scope_modal_expand_icon)
+        uielements.setText(var_timeplace, locators.view_psps_scope_modal_internal_time_place_name)
+        time.sleep(0.5)
+        var_Timestamp = getCurrentTime()
+        var_extname = "Ext_" + var_Timestamp
+        uielements.setText(var_extname, locators.view_psps_scope_modal_external_time_place_name)
+        uielements.Click(locators.view_psps_scope_modal_create_button)
+        while True:
+            try:
+                var_create_status = uielements.getValue(locators.view_psps_scope_modal_status_message)
+                if var_create_status in "Time place creation in progress.": #textMessage.create_time_place_message:#"Time place creation in progress.":#textMessage.create_time_place_message:
+                    continue
+                    #break
+                else:
+                    assert False, "Time place creation failed"
+            except:
+                break
+
+        return var_create_status, var_timeplace
+
+
 
 
 

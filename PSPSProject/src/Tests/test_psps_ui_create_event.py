@@ -56,7 +56,7 @@ class TestDefaultManagementPositive(BaseClass):
         uielements.Click(locators.new_event_tab)
         log.info("Clicked New Event tab")
 
-        var_timeplace = "test-1-12-7"
+        var_timeplace = "Timeplace_20210113_145743"
         log.info("Event time place: " + var_timeplace)
 
         var_event_comment = "Automation event"
@@ -92,9 +92,39 @@ class TestDefaultManagementPositive(BaseClass):
         uielements.Click(locators.new_event_grid_2nd_checkbox)
         log.info("Select 2nd check box in New event time places grid")
 
+        # Navigate to Edit event tab
+        uielements.Click(locators.edit_event_tab)
+        time.sleep(3)
+        var_edit_event_gridcolumnnames = readData(testDatafilePath, "Main", var_row, 12)
+        view_tp_gridheader = eventmanagement.ValidateGridheader(var_edit_event_gridcolumnnames,
+                                                                locators.edit_event_grid_header)
+        if view_tp_gridheader == True:
+            log.info("Edit Event grid header displayed as expected")
+
+        # Verify Edit button status
+        if uielements.iselementDisplayed(locators.edit_event_edit_button) == True:
+            log.info("Validate that Edit button disabled by default")
+        uielements.Click(locators.edit_event_grid_cell_top)
+        if uielements.iselementEnabled(locators.edit_event_edit_button) == True:
+            log.info("Validate that Edit button enabled after selecting check box")
+
+        var_event_total = uielements.getValue(locators.edit_event_total)
+        if "1 selected of" in var_event_total:
+            log.info("Validate text for total events")
+
+
+
+        # Create new time place
+        scopetpname = readData(testDatafilePath, "Data", var_row, 7)
+        var_tpcreation = eventmanagement.TimePlaceCreation(scopetpname)
+        var_timeplace = var_tpcreation[1]
+        log.info("Event time place: " + var_timeplace)
+
         var_event_create = eventpage.createEvent_single_tp(var_event_name, var_timeplace, var_event_external_name, var_event_comment)
         if var_event_create == True:
             log.info("New event created successfully")
+
+
 
         log.info("*************AUTOMATION EXECUTION COMPLETED*************")
 
