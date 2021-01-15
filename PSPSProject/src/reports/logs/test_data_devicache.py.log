@@ -1486,3 +1486,491 @@
 165342                NaN  ...  right_only
 
 [869 rows x 23 columns]
+2021-01-14 18:09:02,647 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:09:02,995 :INFO : test_devicecache :Timeplace details are : Ram_Dev_Test500plus_Polygon1
+2021-01-14 18:09:03,586 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:09:03,586 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:10:37,527 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:10:37,738 :INFO : test_devicecache :Timeplace details are : Ram_Dev_Test500plus_Polygon1
+2021-01-14 18:10:38,273 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:10:38,273 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:11:53,087 :INFO : test_devicecache :Downloaded feederNetwork_transformer parquet file from S3
+2021-01-14 18:11:53,613 :INFO : test_devicecache :Timeplace UID for timeplace: Ram_Dev_Test500plus_Polygon1 is: 927
+2021-01-14 18:11:53,613 :INFO : test_devicecache :Timeplace ID for timeplace: Ram_Dev_Test500plus_Polygon1 is: 394
+2021-01-14 18:11:53,614 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:11:53,614 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/394/927/devicecache/devicecache_927
+2021-01-14 18:11:53,614 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:11:55,330 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:12:00,535 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:12:21,653 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:12:25,689 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:12:27,416 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:12:56,866 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:12:58,764 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:12:58,764 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:12:58,764 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:12:59,349 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:13:38,976 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:13:39,376 :INFO : test_devicecache :Timeplace details are : Narsing_Test500plus_Polygon1_v2
+2021-01-14 18:13:39,929 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:13:39,929 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:13:41,921 :INFO : test_devicecache :Timeplace UID for timeplace: Narsing_Test500plus_Polygon1_v2 is: 926
+2021-01-14 18:13:41,921 :INFO : test_devicecache :Timeplace ID for timeplace: Narsing_Test500plus_Polygon1_v2 is: 393
+2021-01-14 18:13:41,921 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:13:41,921 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/393/926/devicecache/devicecache_926
+2021-01-14 18:13:41,922 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:13:43,738 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:13:47,078 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:13:58,128 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:14:03,401 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:14:04,530 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:14:37,597 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:14:40,789 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:14:40,789 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:14:40,789 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:14:41,474 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:15:47,862 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:15:48,237 :INFO : test_devicecache :Timeplace details are : s4ga_3_Test500plus_Polygon1
+2021-01-14 18:15:49,246 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:15:49,246 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:15:51,112 :INFO : test_devicecache :Timeplace UID for timeplace: s4ga_3_Test500plus_Polygon1 is: 925
+2021-01-14 18:15:51,112 :INFO : test_devicecache :Timeplace ID for timeplace: s4ga_3_Test500plus_Polygon1 is: 392
+2021-01-14 18:15:51,113 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:15:51,113 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/392/925/devicecache/devicecache_925
+2021-01-14 18:15:51,113 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:15:52,959 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:15:56,281 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:16:02,546 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:16:07,050 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:16:08,647 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:16:37,900 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:16:39,910 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:16:39,910 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:16:39,910 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:16:40,644 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:17:18,180 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:17:18,356 :INFO : test_devicecache :Timeplace details are : test6_ Test500plus_Polygon1_vinni
+2021-01-14 18:17:18,880 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:17:18,880 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:17:20,320 :INFO : test_devicecache :Timeplace UID for timeplace: test6_ Test500plus_Polygon1_vinni is: 924
+2021-01-14 18:17:20,320 :INFO : test_devicecache :Timeplace ID for timeplace: test6_ Test500plus_Polygon1_vinni is: 391
+2021-01-14 18:17:20,320 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:17:20,321 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/391/924/devicecache/devicecache_924
+2021-01-14 18:17:20,321 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:17:22,462 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:17:25,954 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:17:33,509 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:17:41,323 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:17:43,300 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:18:18,454 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:18:20,310 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:18:20,311 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:18:20,311 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:18:20,794 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:18:52,160 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:18:52,537 :INFO : test_devicecache :Timeplace details are : Devi_Test500plus_Polygon1
+2021-01-14 18:18:53,092 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:18:53,092 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:18:54,943 :INFO : test_devicecache :Timeplace UID for timeplace: Devi_Test500plus_Polygon1 is: 923
+2021-01-14 18:18:54,943 :INFO : test_devicecache :Timeplace ID for timeplace: Devi_Test500plus_Polygon1 is: 390
+2021-01-14 18:18:54,943 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:18:54,943 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/390/923/devicecache/devicecache_923
+2021-01-14 18:18:54,943 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:18:56,805 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:19:01,515 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:19:12,891 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:19:20,892 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:19:22,537 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:20:03,768 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:20:07,494 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:20:07,494 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:20:07,494 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:20:08,277 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:20:37,854 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:20:38,155 :INFO : test_devicecache :Timeplace details are : test5_ Paradise_vinni
+2021-01-14 18:20:38,673 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:20:38,674 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:20:40,568 :INFO : test_devicecache :Timeplace UID for timeplace: test5_ Paradise_vinni is: 922
+2021-01-14 18:20:40,568 :INFO : test_devicecache :Timeplace ID for timeplace: test5_ Paradise_vinni is: 389
+2021-01-14 18:20:40,568 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-10-21-V-02
+2021-01-14 18:20:40,568 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/389/922/devicecache/devicecache_922
+2021-01-14 18:20:40,568 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:20:42,197 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:20:44,118 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:20:54,634 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:20:58,871 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:20:59,536 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:21:33,099 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:21:33,221 :INFO : test_devicecache :Automation file Count of records is: 7608
+2021-01-14 18:21:33,221 :INFO : test_devicecache :Dev file Count of records is: 7611
+2021-01-14 18:21:33,221 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:21:33,279 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:22:01,712 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:22:02,012 :INFO : test_devicecache :Timeplace details are : s4ga_2_Test_CentralA01
+2021-01-14 18:22:02,547 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:22:02,547 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:22:04,339 :INFO : test_devicecache :Timeplace UID for timeplace: s4ga_2_Test_CentralA01 is: 921
+2021-01-14 18:22:04,340 :INFO : test_devicecache :Timeplace ID for timeplace: s4ga_2_Test_CentralA01 is: 388
+2021-01-14 18:22:04,340 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-11-07-V-01
+2021-01-14 18:22:04,340 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/388/921/devicecache/devicecache_921
+2021-01-14 18:22:04,340 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:22:05,989 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:22:09,507 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:22:15,330 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:22:19,911 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:22:20,840 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:22:58,015 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:22:58,866 :INFO : test_devicecache :Automation file Count of records is: 65220
+2021-01-14 18:22:58,866 :INFO : test_devicecache :Dev file Count of records is: 65220
+2021-01-14 18:22:58,866 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 65220
+2021-01-14 18:22:59,144 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:23:44,280 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:23:44,703 :INFO : test_devicecache :Timeplace details are : test4_ 245Cir_Polygon_vinni
+2021-01-14 18:23:45,249 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:23:45,249 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:23:47,074 :INFO : test_devicecache :Timeplace UID for timeplace: test4_ 245Cir_Polygon_vinni is: 920
+2021-01-14 18:23:47,074 :INFO : test_devicecache :Timeplace ID for timeplace: test4_ 245Cir_Polygon_vinni is: 387
+2021-01-14 18:23:47,074 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-12-10-V-01
+2021-01-14 18:23:47,075 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/387/920/devicecache/devicecache_920
+2021-01-14 18:23:47,075 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:23:48,925 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:23:51,169 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:24:01,022 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:24:08,707 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:24:09,951 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:24:39,775 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:24:40,187 :INFO : test_devicecache :Automation file Count of records is: 33384
+2021-01-14 18:24:40,187 :INFO : test_devicecache :Dev file Count of records is: 33384
+2021-01-14 18:24:40,188 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 33384
+2021-01-14 18:24:40,277 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:25:51,262 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:25:51,577 :INFO : test_devicecache :Timeplace details are : Ram_Dev_Maglia NV
+2021-01-14 18:25:52,101 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:25:52,101 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:25:53,854 :INFO : test_devicecache :Timeplace UID for timeplace: Ram_Dev_Maglia NV is: 918
+2021-01-14 18:25:53,854 :INFO : test_devicecache :Timeplace ID for timeplace: Ram_Dev_Maglia NV is: 385
+2021-01-14 18:25:53,855 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-09-26-V-03
+2021-01-14 18:25:53,855 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/385/918/devicecache/devicecache_918
+2021-01-14 18:25:53,855 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:25:55,433 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:25:57,127 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:26:05,216 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:26:09,715 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:26:10,289 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:26:36,604 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:26:36,720 :INFO : test_devicecache :Automation file Count of records is: 7219
+2021-01-14 18:26:36,721 :INFO : test_devicecache :Dev file Count of records is: 7222
+2021-01-14 18:26:36,721 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:26:36,772 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:27:26,464 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:27:26,619 :INFO : test_devicecache :Timeplace details are : Ram_Dev_Maglia NV
+2021-01-14 18:27:27,240 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:27:27,241 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:27:28,759 :INFO : test_devicecache :Timeplace UID for timeplace: Ram_Dev_Maglia NV is: 918
+2021-01-14 18:27:28,760 :INFO : test_devicecache :Timeplace ID for timeplace: Ram_Dev_Maglia NV is: 385
+2021-01-14 18:27:28,760 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-09-26-V-03
+2021-01-14 18:27:28,760 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/385/918/devicecache/devicecache_918
+2021-01-14 18:27:28,760 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:27:30,279 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:27:31,824 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:27:40,683 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:27:48,194 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:36:14,785 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:36:15,093 :INFO : test_devicecache :Timeplace details are : Ram1_LastYearBig_Polygon
+2021-01-14 18:36:15,676 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:36:15,676 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:36:17,632 :INFO : test_devicecache :Timeplace UID for timeplace: Ram1_LastYearBig_Polygon is: 975
+2021-01-14 18:36:17,632 :INFO : test_devicecache :Timeplace ID for timeplace: Ram1_LastYearBig_Polygon is: 401
+2021-01-14 18:36:17,632 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-11-16-V-01
+2021-01-14 18:36:17,632 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/401/975/devicecache/devicecache_975
+2021-01-14 18:36:17,633 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:36:19,251 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:36:21,982 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:36:27,934 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:36:31,849 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:36:32,809 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:36:59,162 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:37:00,376 :INFO : test_devicecache :Automation file Count of records is: 97982
+2021-01-14 18:37:00,376 :INFO : test_devicecache :Dev file Count of records is: 97985
+2021-01-14 18:37:00,376 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:37:00,704 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:37:51,897 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:37:52,149 :INFO : test_devicecache :Timeplace details are : Ram1_530_Polygon
+2021-01-14 18:37:53,093 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:37:53,093 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:37:54,875 :INFO : test_devicecache :Timeplace UID for timeplace: Ram1_530_Polygon is: 974
+2021-01-14 18:37:54,875 :INFO : test_devicecache :Timeplace ID for timeplace: Ram1_530_Polygon is: 400
+2021-01-14 18:37:54,877 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-13-10-V-01
+2021-01-14 18:37:54,877 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/400/974/devicecache/devicecache_974
+2021-01-14 18:37:54,877 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:37:56,842 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:37:59,143 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:38:11,639 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:38:20,359 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:38:21,718 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:38:56,808 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:38:57,127 :INFO : test_devicecache :Automation file Count of records is: 19980
+2021-01-14 18:38:57,127 :INFO : test_devicecache :Dev file Count of records is: 19980
+2021-01-14 18:38:57,127 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 19980
+2021-01-14 18:38:57,194 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:39:26,361 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:39:26,572 :INFO : test_devicecache :Timeplace details are : vinni_500plus_retest
+2021-01-14 18:39:27,062 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:39:27,062 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:39:29,036 :INFO : test_devicecache :Timeplace UID for timeplace: vinni_500plus_retest is: 977
+2021-01-14 18:39:29,036 :INFO : test_devicecache :Timeplace ID for timeplace: vinni_500plus_retest is: 403
+2021-01-14 18:39:29,037 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:39:29,037 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/403/977/devicecache/devicecache_977
+2021-01-14 18:39:29,037 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:39:30,912 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:39:36,159 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:39:47,451 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:39:51,432 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:39:52,497 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:40:20,253 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:40:23,497 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:40:23,497 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:40:23,497 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:40:24,402 :ERROR : test_devicecache :All the transformer_primarymeterguid not matched and mismatched transformers are:         devicecache_uid_x  ...      _merge
+164474                NaN  ...  right_only
+164475                NaN  ...  right_only
+164476                NaN  ...  right_only
+164477                NaN  ...  right_only
+164478                NaN  ...  right_only
+...                   ...  ...         ...
+165420                NaN  ...  right_only
+165421                NaN  ...  right_only
+165422                NaN  ...  right_only
+165423                NaN  ...  right_only
+165424                NaN  ...  right_only
+
+[951 rows x 23 columns]
+2021-01-14 18:41:38,544 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:41:39,020 :INFO : test_devicecache :Timeplace details are : Devitest_LastYearBig_Polygon
+2021-01-14 18:41:39,550 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:41:39,550 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:41:41,377 :INFO : test_devicecache :Timeplace UID for timeplace: Devitest_LastYearBig_Polygon is: 976
+2021-01-14 18:41:41,377 :INFO : test_devicecache :Timeplace ID for timeplace: Devitest_LastYearBig_Polygon is: 402
+2021-01-14 18:41:41,377 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-11-16-V-01
+2021-01-14 18:41:41,377 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/402/976/devicecache/devicecache_976
+2021-01-14 18:41:41,377 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:41:42,971 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:41:47,360 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:42:02,727 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:42:12,938 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:42:14,281 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:42:49,872 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:42:51,407 :INFO : test_devicecache :Automation file Count of records is: 97982
+2021-01-14 18:42:51,408 :INFO : test_devicecache :Dev file Count of records is: 97985
+2021-01-14 18:42:51,408 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:42:51,853 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:43:55,785 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:43:56,313 :INFO : test_devicecache :Timeplace details are : christy_500
+2021-01-14 18:43:56,908 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:43:56,908 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:43:58,897 :INFO : test_devicecache :Timeplace UID for timeplace: christy_500 is: 982
+2021-01-14 18:43:58,897 :INFO : test_devicecache :Timeplace ID for timeplace: christy_500 is: 408
+2021-01-14 18:43:58,898 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:43:58,898 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/408/982/devicecache/devicecache_982
+2021-01-14 18:43:58,898 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:44:00,983 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:44:06,155 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:44:21,754 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:44:28,301 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:44:30,152 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:45:14,510 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:45:20,291 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:45:20,292 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:45:20,292 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:45:21,056 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:46:46,338 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:46:46,652 :INFO : test_devicecache :Timeplace details are : 530_Polygon_s4ga_1
+2021-01-14 18:46:47,211 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:46:47,213 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:46:49,326 :INFO : test_devicecache :Timeplace UID for timeplace: 530_Polygon_s4ga_1 is: 981
+2021-01-14 18:46:49,327 :INFO : test_devicecache :Timeplace ID for timeplace: 530_Polygon_s4ga_1 is: 407
+2021-01-14 18:46:49,327 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-13-10-V-01
+2021-01-14 18:46:49,328 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/407/981/devicecache/devicecache_981
+2021-01-14 18:46:49,328 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:46:51,778 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:46:54,487 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:47:07,556 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:47:14,916 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:47:15,993 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:47:57,238 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:47:57,838 :INFO : test_devicecache :Automation file Count of records is: 19980
+2021-01-14 18:47:57,838 :INFO : test_devicecache :Dev file Count of records is: 19980
+2021-01-14 18:47:57,839 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 19980
+2021-01-14 18:47:58,066 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 18:49:07,287 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:49:07,847 :INFO : test_devicecache :Timeplace details are : 530_polygon_2_s4ga
+2021-01-14 18:49:08,415 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:49:08,416 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:49:10,540 :INFO : test_devicecache :Timeplace UID for timeplace: 530_polygon_2_s4ga is: 983
+2021-01-14 18:49:10,540 :INFO : test_devicecache :Timeplace ID for timeplace: 530_polygon_2_s4ga is: 409
+2021-01-14 18:49:10,540 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-13-10-V-01
+2021-01-14 18:49:10,541 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/409/983/devicecache/devicecache_983
+2021-01-14 18:49:10,541 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:49:12,230 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:49:14,395 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:49:30,818 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:49:42,024 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:49:43,080 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:50:22,732 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:50:23,414 :INFO : test_devicecache :Automation file Count of records is: 19980
+2021-01-14 18:50:23,414 :INFO : test_devicecache :Dev file Count of records is: 19980
+2021-01-14 18:50:23,414 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 19980
+2021-01-14 18:50:23,572 :ERROR : test_devicecache :All the transformer_primarymeterguid not matched and mismatched transformers are:        devicecache_uid_x  ...      _merge
+19980                NaN  ...  right_only
+19981                NaN  ...  right_only
+19982                NaN  ...  right_only
+19983                NaN  ...  right_only
+19984                NaN  ...  right_only
+...                  ...  ...         ...
+20383                NaN  ...  right_only
+20384                NaN  ...  right_only
+20385                NaN  ...  right_only
+20386                NaN  ...  right_only
+20387                NaN  ...  right_only
+
+[408 rows x 23 columns]
+2021-01-14 18:51:28,238 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:51:28,462 :INFO : test_devicecache :Timeplace details are : Devitest_Test500plus_Polygon1
+2021-01-14 18:51:29,080 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:51:29,080 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:51:30,727 :INFO : test_devicecache :Timeplace UID for timeplace: Devitest_Test500plus_Polygon1 is: 979
+2021-01-14 18:51:30,727 :INFO : test_devicecache :Timeplace ID for timeplace: Devitest_Test500plus_Polygon1 is: 405
+2021-01-14 18:51:30,727 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:51:30,727 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/405/979/devicecache/devicecache_979
+2021-01-14 18:51:30,727 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:51:32,217 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:51:36,151 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:51:40,967 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:51:44,612 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:51:45,626 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:52:09,359 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:52:11,057 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:52:11,057 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:52:11,057 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:52:11,713 :ERROR : test_devicecache :All the transformer_primarymeterguid not matched and mismatched transformers are:         devicecache_uid_x  ...      _merge
+164474                NaN  ...  right_only
+164475                NaN  ...  right_only
+164476                NaN  ...  right_only
+164477                NaN  ...  right_only
+164478                NaN  ...  right_only
+...                   ...  ...         ...
+165392                NaN  ...  right_only
+165393                NaN  ...  right_only
+165394                NaN  ...  right_only
+165395                NaN  ...  right_only
+165396                NaN  ...  right_only
+
+[923 rows x 23 columns]
+2021-01-14 18:53:16,013 :INFO : test_devicecache :Starting Validation
+2021-01-14 18:53:16,174 :INFO : test_devicecache :Timeplace details are : Narsing_Day2_V1
+2021-01-14 18:53:16,678 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 18:53:16,678 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:53:17,975 :INFO : test_devicecache :Timeplace UID for timeplace: Narsing_Day2_V1 is: 978
+2021-01-14 18:53:17,975 :INFO : test_devicecache :Timeplace ID for timeplace: Narsing_Day2_V1 is: 404
+2021-01-14 18:53:17,975 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 18:53:17,975 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/404/978/devicecache/devicecache_978
+2021-01-14 18:53:17,975 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 18:53:19,540 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 18:53:22,366 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 18:53:27,572 :INFO : test_devicecache :Spark session connected
+2021-01-14 18:53:31,738 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 18:53:32,693 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 18:53:55,879 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 18:53:57,553 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 18:53:57,553 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 18:53:57,553 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 18:53:58,130 :ERROR : test_devicecache :All the transformer_primarymeterguid not matched and mismatched transformers are:         devicecache_uid_x  ...      _merge
+164474                NaN  ...  right_only
+164475                NaN  ...  right_only
+164476                NaN  ...  right_only
+164477                NaN  ...  right_only
+164478                NaN  ...  right_only
+...                   ...  ...         ...
+165350                NaN  ...  right_only
+165351                NaN  ...  right_only
+165352                NaN  ...  right_only
+165353                NaN  ...  right_only
+165354                NaN  ...  right_only
+
+[881 rows x 23 columns]
+2021-01-14 19:14:33,716 :INFO : test_devicecache :Starting Validation
+2021-01-14 19:14:33,910 :INFO : test_devicecache :Timeplace details are : 530_Polygon_saurabh_21
+2021-01-14 19:14:34,434 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 19:14:34,434 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 19:14:35,774 :INFO : test_devicecache :Timeplace UID for timeplace: 530_Polygon_saurabh_21 is: 1001
+2021-01-14 19:14:35,774 :INFO : test_devicecache :Timeplace ID for timeplace: 530_Polygon_saurabh_21 is: 427
+2021-01-14 19:14:35,774 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-13-10-V-01
+2021-01-14 19:14:35,774 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/427/1001/devicecache/devicecache_1001
+2021-01-14 19:14:35,774 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 19:14:37,180 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 19:14:39,497 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 19:14:44,362 :INFO : test_devicecache :Spark session connected
+2021-01-14 19:14:47,825 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 19:14:48,588 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 19:15:11,288 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 19:15:11,557 :INFO : test_devicecache :Automation file Count of records is: 19980
+2021-01-14 19:15:11,558 :INFO : test_devicecache :Dev file Count of records is: 19980
+2021-01-14 19:15:11,558 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 19980
+2021-01-14 19:15:11,631 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 19:15:53,104 :INFO : test_devicecache :Starting Validation
+2021-01-14 19:15:53,256 :INFO : test_devicecache :Timeplace details are : 530_Polygon_saurabh_12
+2021-01-14 19:15:53,762 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 19:15:53,763 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 19:15:55,143 :INFO : test_devicecache :Timeplace UID for timeplace: 530_Polygon_saurabh_12 is: 997
+2021-01-14 19:15:55,143 :INFO : test_devicecache :Timeplace ID for timeplace: 530_Polygon_saurabh_12 is: 423
+2021-01-14 19:15:55,143 :INFO : test_devicecache :Meteorology Scopeversionname is: 2020-13-10-V-01
+2021-01-14 19:15:55,143 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/423/997/devicecache/devicecache_997
+2021-01-14 19:15:55,143 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 19:15:56,558 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 19:15:58,285 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 19:16:03,247 :INFO : test_devicecache :Spark session connected
+2021-01-14 19:16:07,007 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 19:16:07,611 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 19:16:31,396 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 19:16:31,686 :INFO : test_devicecache :Automation file Count of records is: 19980
+2021-01-14 19:16:31,686 :INFO : test_devicecache :Dev file Count of records is: 19980
+2021-01-14 19:16:31,686 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 19980
+2021-01-14 19:16:31,748 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 19:17:36,098 :INFO : test_devicecache :Starting Validation
+2021-01-14 19:17:36,246 :INFO : test_devicecache :Timeplace details are : Devi_v2_Test500plus_Polygon1
+2021-01-14 19:17:36,805 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 19:17:36,805 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 19:17:38,166 :INFO : test_devicecache :Timeplace UID for timeplace: Devi_v2_Test500plus_Polygon1 is: 999
+2021-01-14 19:17:38,166 :INFO : test_devicecache :Timeplace ID for timeplace: Devi_v2_Test500plus_Polygon1 is: 425
+2021-01-14 19:17:38,166 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 19:17:38,166 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/425/999/devicecache/devicecache_999
+2021-01-14 19:17:38,166 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 19:17:39,577 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 19:17:44,098 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 19:17:48,901 :INFO : test_devicecache :Spark session connected
+2021-01-14 19:17:52,647 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 19:17:53,665 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 19:18:17,177 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 19:18:18,851 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 19:18:18,851 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 19:18:18,851 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 19:18:19,303 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-01-14 19:19:17,824 :INFO : test_devicecache :Starting Validation
+2021-01-14 19:19:17,972 :INFO : test_devicecache :Timeplace details are : christy_500_2
+2021-01-14 19:19:18,535 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/1214_0140/feederNetwork_transformer.parquet
+2021-01-14 19:19:18,536 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 19:19:19,823 :INFO : test_devicecache :Timeplace UID for timeplace: christy_500_2 is: 1003
+2021-01-14 19:19:19,823 :INFO : test_devicecache :Timeplace ID for timeplace: christy_500_2 is: 429
+2021-01-14 19:19:19,824 :INFO : test_devicecache :Meteorology Scopeversionname is: 2019-1-08-V-01
+2021-01-14 19:19:19,824 :INFO : test_devicecache :Output Devicecache path is : s3://psps-datastore-dev/reports/timeplacecreation/429/1003/devicecache/devicecache_1003
+2021-01-14 19:19:19,824 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-01-14 19:19:21,268 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-01-14 19:19:25,815 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-01-14 19:19:30,768 :INFO : test_devicecache :Spark session connected
+2021-01-14 19:19:34,767 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-01-14 19:19:35,773 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-01-14 19:19:58,463 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-01-14 19:20:00,124 :INFO : test_devicecache :Automation file Count of records is: 164471
+2021-01-14 19:20:00,124 :INFO : test_devicecache :Dev file Count of records is: 164474
+2021-01-14 19:20:00,124 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-01-14 19:20:00,611 :INFO : test_devicecache :All the transformer_primarymeterguid matched
