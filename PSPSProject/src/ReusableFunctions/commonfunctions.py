@@ -4,6 +4,8 @@ import os
 import shutil
 import sys
 import time
+import zipfile
+
 import numpy as np
 import openpyxl
 import pandas as pd
@@ -178,7 +180,7 @@ def comparedf(df1, df2):
         "Data Types are different, trying to convert"
         df2 = df2.astype(df1.dtypes)
     if df1.equals(df2):
-        return None
+        return True, "both DataFrame are equal"
     else:
         # need to account for np.nan != np.nan returning True
         diff_mask = (df1 != df2) & ~(df1.isnull() & df2.isnull())
@@ -240,3 +242,5 @@ def unzip_file(filename, extract_to_directory):
         files = zip_ref.namelist()
         print(files)
     return count, files
+
+

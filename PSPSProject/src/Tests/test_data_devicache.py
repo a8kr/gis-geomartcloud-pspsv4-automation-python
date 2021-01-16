@@ -101,10 +101,10 @@ class TestDeviceCache(BaseClass):
         feedertransformersBUCKET_PATH = feedertransformerstablefilename
         profilename = s3config()['profile_name']
         feedertransformer = downloadsfolderPath + "\\feederNetwork_transformer"
-        # deleteFolder(feedertransformer)
-        # create_folder(feedertransformer)
-        # download_dir_from_S3(feedertransformersBUCKET_PATH, s3_bucketname, profilename, feedertransformer)
-        # log.info("Downloaded feederNetwork_transformer parquet file from S3")
+        deleteFolder(feedertransformer)
+        create_folder(feedertransformer)
+        download_dir_from_S3(feedertransformersBUCKET_PATH, s3_bucketname, profilename, feedertransformer)
+        log.info("Downloaded feederNetwork_transformer parquet file from S3")
 
         # Get Timeplace UID and Timeplace ID for the required timeplace
         i = 0
@@ -260,3 +260,8 @@ class TestDeviceCache(BaseClass):
                     log.error(
                         "All the transformer_primarymeterguid not matched and mismatched transformers are: " + str(df1))
                     final_assert.append(False)
+        if var_execution_flag == 'fail':
+            log.error("Execution failed: Errors found in execution!!")
+            assert False
+        log.info("----------------------------------------------------------------------------------------------")
+        log.info("*************AUTOMATION EXECUTION COMPLETED*************")

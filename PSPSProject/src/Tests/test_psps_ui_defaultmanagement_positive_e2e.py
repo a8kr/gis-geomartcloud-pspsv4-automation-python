@@ -6,6 +6,7 @@ import pytest
 import pandas as pd
 import boto3
 
+from pyspark.sql import SparkSession
 from PSPSProject.src.Pages.DefaultManagement import DefaultManagement
 from PSPSProject.src.Pages.HomePage import HomePage
 from PSPSProject.src.Repository.uilocators import locators
@@ -14,7 +15,8 @@ from PSPSProject.src.Repository.dbqueries import queries
 from PSPSProject.src.ReusableFunctions.baseclass import BaseClass, exceptionRowCount
 from PSPSProject.src.ReusableFunctions.databasefunctions import *
 from PSPSProject.src.ReusableFunctions.awsfunctions import *
-from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, readData, getCSVrowCount, getCurrentTime
+from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, readData, getCSVrowCount, \
+    getCurrentTime
 from PSPSProject.src.ReusableFunctions.uiactions import UI_Element_Actions
 from PSPSProject.src.Tests.conftest import downloadsfolder, testDatafilePath, testDatafolderPath
 from PSPSProject.src.Tests.conftest import downloadsfolder, testDatafilePath, s3config, dirctorypath
@@ -55,22 +57,6 @@ class TestDefaultManagementPositive(BaseClass):
             homepage.SignOn()
             log.info("Successfully entered user id & password:")
             print("Successfully entered user id & password:")
-
-        filename = "s3://psps-datastore-dev/reports/defaultmanagement/defaultmanagement_circuit_12_04_2020_11_54_12.parquet"
-        var_tp_uid = "169"
-
-        s3 = boto3.client('s3')
-        s3_resource = boto3.resource("s3")
-        s3_bucketname = s3config()['datastorebucketname']
-        #BUCKET_PATH = s3config()['tpbucketpath']
-        #path = BUCKET_PATH + filename
-        path = s3_bucketname + filename
-        profilename = s3config()['profile_name']
-        local_folder = downloadsfolderPath + "circuits_" + str(var_tp_uid)
-        deleteFolder(local_folder)
-        var_res = download_dir_from_S3(path, s3_bucketname, profilename, local_folder)
-        print (var_res)
-        log.info("Downloaded circuits parquet file from S3")
 
         homepage.navigate_defaultManagement()
         uielements.Click(locators.dm_uplaodfile)
@@ -122,14 +108,32 @@ class TestDefaultManagementPositive(BaseClass):
             else:
                 log.error("Message 'Default devices data uploaded successfully' validation failed")
                 final_assert.append(False)
-
         else:
             log.error("Save button is not enabled after the valid circuit file uploaded")
             final_assert.append(False)
 
+        # Verify message retained in the Default management screen on navigating to other pages and returning back
+        homepage.navigate_eventManagement()
+        homepage.navigate_defaultManagement()
+        var_message = uielements.getValue(locators.dm_status_message)
+        if var_message in textMessage.upload_file_successfully:
+            log.info("Verify 'Default devices data uploaded successfully' message retained page on navigating to "
+                     "other pages and returning passed")
+        else:
+            log.error("Verify 'Default devices data uploaded successfully' message retained page on navigating to "
+                      "other pages and returning failed")
+            final_assert.append(False)
+        if var_execution_flag == 'fail':
+            log.error("Execution failed: Errors found in execution!!")
+            assert False
+
         # Validate database for S3 file path
-        var_s3_path_db = queryresults_get_one(queries.get_activetablename)
-        log.info("Get S3 file path from DB: " + str(var_s3_path_db))
+        # Get the latest table filepaths from db
+        get_defaulttable_db = queries.get_activetablename % 's3-defaultmanagement-circuits'
+        lst_table_details = queryresults_fetchone(get_defaulttable_db)
+        filename_defaulttable_s3 = lst_table_details
+        log.info("Filename for Default Management active table from S3 is : " + str(filename_defaulttable_s3))
+        log.info("-----------------------------------------------------------------------------------------------")
 
         var_today = str(datetime.date.today())
         var_year = var_today.split('-')[0]
@@ -138,17 +142,69 @@ class TestDefaultManagementPositive(BaseClass):
         var_date_validate = var_month + "_" + var_day + "_" + var_year
 
         # Validate that currect date present in the S3 path
-        if str(var_date_validate) in str(var_s3_path_db):
-            log.info("Validate S3 path in database passed: " + str(var_s3_path_db))
-
-        # Verify message retained in the Default management screen on navigating to other pages and returning back
-        homepage.navigate_eventManagement()
-        homepage.navigate_defaultManagement()
-        var_message = uielements.getValue(locators.dm_status_message)
-        if var_message in textMessage.upload_file_successfully:
-            log.info("Verify 'Default devices data uploaded successfully' message retained page on navigating to other pages and returning passed")
+        if str(var_date_validate) in str(filename_defaulttable_s3):
+            log.info("Validate S3 path in database passed and latest uploaded file has the current date: " + str(
+                filename_defaulttable_s3))
         else:
-            log.error("Verify 'Default devices data uploaded successfully' message retained page on navigating to other pages and returning failed")
+            log.error("Latest uploaded file doesnt have current date in the file uploaded")
+            final_assert.append(False)
+
+        # Validate if Uploaded default circuits from UI is same as in S3 bucket parquet file
+        # Download Default Circuits parquet file
+        dcfilename = filename_defaulttable_s3.split('/')[-1]
+        s3 = boto3.client('s3')
+        s3_resource = boto3.resource("s3")
+        s3_bucketname = s3config()['datastorebucketname']
+        BUCKET_PATH = s3config()['defaultmangementpath']
+        profilename = s3config()['profile_name']
+        defaultmanagementcircuitslocalpath = downloadsfolderPath + "\\defaultmanagement-circuits" + "\\" + dcfilename
+        defaultmngtcircuits = downloadsfolderPath + "\\defaultmanagement-circuits"
+        deleteFolder(defaultmngtcircuits)
+        create_folder(defaultmngtcircuits)
+        download_file_from_S3(s3_bucketname, BUCKET_PATH, dcfilename, defaultmanagementcircuitslocalpath, profilename)
+        log.info("Downloaded defaultmanagement-circuits parquet file from S3")
+
+        spark = SparkSession.builder.appName("Timeplace-Creation") \
+            .config('spark.driver.memory', '10g') \
+            .config("spark.cores.max", "6") \
+            .config('spark.yarn.appMasterEnv.ARROW_PRE_0_15_IPC_FORMAT', 1) \
+            .config('spark.executorEnv.ARROW_PRE_0_15_IPC_FORMAT', 1) \
+            .config("spark.sql.execution.arrow.enabled", "true") \
+            .config("spark.sql.catalogImplementation", "in-memory") \
+            .getOrCreate()
+        log.info("Spark session connected")
+        df_defaultmngtcircuits = spark.read.parquet(defaultmngtcircuits)
+        df_defaultmngtcircuits.createOrReplaceTempView("defaultmngtcircuits")
+        tempfolder = downloadsfolderPath + '\\df_defaultmngtcircuits'
+        df_defaultmngtcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
+
+        # Store Defaultcircuits csv to dataframe
+        defaultcircuits = os.listdir(tempfolder)
+        for file in defaultcircuits:
+            if file.endswith('csv'):
+                break
+        defaultcircuits_csv = downloadsfolderPath + '\\df_defaultmngtcircuits' + '/' + file
+        defaultcircuits_actual = pd.read_csv(defaultcircuits_csv)
+
+        defaultcircuitsexpected_csv = testDatafolderPath + '\\' + var_uploadfilename
+        defaultcircuits_expected = pd.read_csv(defaultcircuitsexpected_csv)
+        # Rename Columns
+        defaultcircuits_expected.rename(
+            columns={'Circuit name': 'circuitName', 'Circuit ID': 'circuitId', 'Source Is.D': 'sourceIsolationDevice',
+                     'Source Is.D Type': 'sourceIsolationDeviceType', 'Substation': 'substation'},
+            inplace=True)
+        defaultcircuits_expected['sourceIsolationDevice'] = defaultcircuits_expected['sourceIsolationDevice'].fillna('CB', inplace=False)
+
+        df1 = pd.merge(defaultcircuits_actual, defaultcircuits_expected, on=['circuitName', 'circuitId', 'sourceIsolationDevice', 'sourceIsolationDeviceType', 'substation'], how='outer', indicator=True)
+        df1 = df1[df1['_merge'] != 'both']
+        if len(df1) == 0:
+            log.info("Uploaded default circuits from UI is same as in S3 bucket parquet file")
+        else:
+            mismatchdefaultcircuits = downloadsfolderPath + "\\mismatchdefaultcircuits"
+            deleteFolder(mismatchdefaultcircuits)
+            create_folder(mismatchdefaultcircuits)
+            df1.to_csv(mismatchdefaultcircuits + '/mismatchdefaultcircuits.csv')
+            log.error("Uploaded default circuits from UI is not same as in S3 bucket parquet file: " + str(df1))
             final_assert.append(False)
         if var_execution_flag == 'fail':
             log.error("Execution failed: Errors found in execution!!")
