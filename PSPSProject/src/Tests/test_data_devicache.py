@@ -162,7 +162,7 @@ class TestDeviceCache(BaseClass):
                     var_tp_id) + "\\" + str(var_tp_uid) + "\\circuits\\circuits_" + str(var_tp_uid))
             df_timeplacecircuits = spark.read.parquet(ciruitsfilepath)
             df_timeplacecircuits.createOrReplaceTempView("timeplace_circuits")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\devfile_circuitinfo"
+            tempfolder = downloadsfolderPath + '\\devfile_circuitinfo'
             df_timeplacecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
             log.info("Fetched circuit info parquet file from S3")
@@ -173,7 +173,7 @@ class TestDeviceCache(BaseClass):
                     var_tp_id) + "\\" + str(var_tp_uid) + "\\devicecache\\devicecache_" + str(var_tp_uid))
             df_devicecachecircuits = spark.read.parquet(devicecacheciruitsfilepath)
             df_devicecachecircuits.createOrReplaceTempView("devicecachecircuits")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\devfile_devicecachecircuits"
+            tempfolder = downloadsfolderPath + '\\devfile_devicecachecircuits'
             df_devicecachecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
             log.info("Fetched devicecache parquet file from S3")
@@ -182,7 +182,7 @@ class TestDeviceCache(BaseClass):
             # feedertransformerdataloc = downloadsfolderPath + "\\feederNetwork_transformer"
             df_feedertransformerdataloc = spark.read.parquet(feedertransformer + '/' + feedertransformersBUCKET_PATH)
             df_feedertransformerdataloc.createOrReplaceTempView("feedertransformer")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\S3_feedertransformerdata"
+            tempfolder = downloadsfolderPath + '\\S3_feedertransformerdata'
             df_feedertransformerdataloc.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
 
@@ -195,7 +195,7 @@ class TestDeviceCache(BaseClass):
                                             AND ft.MIN_BRANCH >= c.source_min_branch
                                             AND ft.TO_FEATURE_FCID IN (1001,1014)""")
             df_tempdevicecachedata.createOrReplaceTempView("tempdevicecachedata")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\df_tempdevicecachedata"
+            tempfolder = downloadsfolderPath + '\\df_tempdevicecachedata'
             df_tempdevicecachedata.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
             log.info("Downstream tracing to identify transformers is completed")
