@@ -6,6 +6,7 @@ import geopandas as gpd
 import psycopg2
 import pandas as pd
 import arcpy
+import numpy as np
 import os
 
 from pyspark.sql import SparkSession
@@ -483,19 +484,48 @@ class TestCircuitInfo(BaseClass):
                                                         'max_branch', 'treelevel', 'order_num', 'substationname',
                                                         'operable', 'consider', 'OPERABLE_TRANS_PMETER_COUNT'], index= False)
 
+        log.info("Result File has all the actual final parent circuits generated")
         # compare 2 files
-        print("file comp logic")
-        df_ckt_final_file.drop(columns=['fireindex'])
-        for each in df_ckt_final_file.groupby(["circuitid"], sort=True): print(each)
+        log.info("Starting Comparing two files")
+        df_ckt_final_file = df_ckt_final_file.drop(columns=['fireindex', 'operable', 'consider'])
+        # df_ckt_final_file = df_ckt_final_file.dropna(axis=1, how='all')
+        list_unique_ckts_expected = list(df_ckt_final_file['circuitid'].unique())
+        #for each in df_ckt_final_file.groupby(["circuitid"], sort=True): print(each)
 
-        df_new_output_final_file = df_new_output_final_file.drop(columns=['ObjectID', 'OPERABLE_TRANS_PMETER_COUNT'])
-        # df_final_file_cmp = pd.DataFrame()
-        for each in df_new_output_final_file.groupby(["circuitid"], sort=True): print (each)
-             # df_final_file_cmp = df_final_file_cmp.append(each)
-             # print (df_final_file_cmp.head(5))
-        #     df_final_file_cmp = df_final_file_cmp.append(each)
-        # print (df_final_file_cmp)
-        # Remove_duplicates_df_new = pd.read_csv(verify_output_file_ND)
+        df_new_output_final_file = df_new_output_final_file.drop(columns=['ObjectID', 'consider', 'operable', 'OPERABLE_TRANS_PMETER_COUNT'])
+        list_unique_ckts_actual = list(df_new_output_final_file['circuitid'].unique())
+        #for each in df_new_output_final_file.groupby(["circuitid"], sort=True): print (each)
 
-        # log.info("----------------------------------------------------------------------------------------------")
-        # log.info("*************AUTOMATION EXECUTION COMPLETED*************")
+        mismatch_file = downloadsfolderPath + "\\MismatchFile"
+        mismatched_file = mismatch_file + "/" + "Mismatchedfile.csv"
+        deleteFolder(mismatch_file)
+        create_folder(mismatch_file)
+        Mismatched_df = pd.DataFrame()
+        # print (df_ckt_final_file.equals(df_new_output_final_file)
+
+        for y in range ((len(list_unique_ckts_expected))-1):
+            cmp_df_ckt_final_file_expected = df_ckt_final_file.loc[(df_ckt_final_file['circuitid'] == list_unique_ckts_expected[y])]
+            cmp_df_ckt_final_file_expected = cmp_df_ckt_final_file_expected.sort_values(by=['min_branch'])
+            cmp_df_new_output_final_file_actual = df_new_output_final_file.loc[(df_new_output_final_file['circuitid'] == list_unique_ckts_expected[y])]
+            cmp_df_new_output_final_file_actual = cmp_df_new_output_final_file_actual.sort_values(by=['min_branch'])
+
+            values_compare = cmp_df_ckt_final_file_expected.values == cmp_df_new_output_final_file_actual.values
+
+            if not list_unique_ckts_expected[y] in list_unique_ckts_actual:
+                # cmp_df_ckt_final_file_expected.iloc[item[0], item[1]] = ' {} --> {} '.format(cmp_df_ckt_final_file_expected.iloc[item[0], item[1]], cmp_df_new_output_final_file_actual.iloc[item[0], item[1]])
+                cmp_df_ckt_final_file_expected = cmp_df_ckt_final_file_expected.loc[(cmp_df_ckt_final_file_expected['circuitid'] == list_unique_ckts_expected[y])]
+                values = "Circuit Missing -->  " + str (list_unique_ckts_expected[y])
+                cmp_df_ckt_final_file_expected = cmp_df_ckt_final_file_expected.replace(to_replace=list_unique_ckts_expected[y], value= values)
+                Mismatched_df = Mismatched_df.append(cmp_df_ckt_final_file_expected)
+            rows, cols = np.where(values_compare == False)
+            for item in zip(rows, cols):
+                cmp_df_ckt_final_file_expected.iloc[item[0], item[1]] = ' {} --> {} '.format(cmp_df_ckt_final_file_expected.iloc[item[0], item[1]], cmp_df_new_output_final_file_actual.iloc[item[0], item[1]])
+                Mismatched_df = Mismatched_df.append(cmp_df_ckt_final_file_expected)
+
+        Mismatched_df.to_csv(mismatched_file, header=['circuitid', 'opnum', 'devicetype', 'circuitname',
+                                                'min_branch', 'max_branch', 'treelevel', 'order_num', 'substationname'], index=False)
+
+         # Remove_duplicates_df_new = pd.read_csv(verify_output_file_ND)
+        log.info("Completed Comparing two files and the mismatched data could be found in MismatchFile folder in downloads folder")
+        log.info("----------------------------------------------------------------------------------------------")
+        log.info("*************AUTOMATION EXECUTION COMPLETED*************")
