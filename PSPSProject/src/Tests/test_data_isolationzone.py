@@ -284,7 +284,7 @@ class TestIsolationZone(BaseClass):
             finaldevizcircuitsfolder = downloadsfolderPath + "\\devfile_isolationzonecircuits_remduplicates"
             deleteFolder(finaldevizcircuitsfolder)
             create_folder(finaldevizcircuitsfolder)
-            finalisolationzonecircuits_expected.to_csv(finalizcircuitsfolder + '/dev_finalisozone_actual.csv')
+            finalisolationzonecircuits_expected.to_csv(finaldevizcircuitsfolder + '/dev_finalisozone_actual.csv')
 
             actualizcount = finalisolationzonecircuits_actual.shape[0]
             log.info("Automation file Count of isolation zone records is: " + str(actualizcount))
