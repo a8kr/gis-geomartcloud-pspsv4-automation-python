@@ -131,8 +131,6 @@ class TestCircuitInfo(BaseClass):
         arcpy.Intersect_analysis([intersectedhfrafilename, temp_priohintersectedlayerfolder],
                                  hfrapriohintersectedlayerfolder + "\\intersectedlayer")
         log.info("Intersection done on Intersected HFRA Layer and PriOHConductor layer")
-
-
         time.sleep(10)
         log.info("Starting to load Feeder Network Table file")
         feedernetwork = downloadsfolderPath + "\\feedernetwork"
@@ -215,7 +213,7 @@ class TestCircuitInfo(BaseClass):
         log.info("Join function completed with active circuits")
 
         df_ckt_file = pd.read_csv(tempfolder_active_circuits + "/" + "Join_Feednwtable_Active_Ckts.csv")
-        print (df_ckt_file.nunique())
+        print(df_ckt_file.nunique())
 
         tempfolder_final_output = downloadsfolderPath + "/" + "Final_output"
         df_ckt_final_file = pd.read_csv(tempfolder_final_output + "/" + "Final_Result.csv")
@@ -514,7 +512,7 @@ class TestCircuitInfo(BaseClass):
             if not list_unique_ckts_expected[y] in list_unique_ckts_actual:
                 # cmp_df_ckt_final_file_expected.iloc[item[0], item[1]] = ' {} --> {} '.format(cmp_df_ckt_final_file_expected.iloc[item[0], item[1]], cmp_df_new_output_final_file_actual.iloc[item[0], item[1]])
                 cmp_df_ckt_final_file_expected = cmp_df_ckt_final_file_expected.loc[(cmp_df_ckt_final_file_expected['circuitid'] == list_unique_ckts_expected[y])]
-                values = "Circuit Missing -->  " + str (list_unique_ckts_expected[y])
+                values = "Circuit Missing -->  " + str(list_unique_ckts_expected[y])
                 cmp_df_ckt_final_file_expected = cmp_df_ckt_final_file_expected.replace(to_replace=list_unique_ckts_expected[y], value= values)
                 Mismatched_df = Mismatched_df.append(cmp_df_ckt_final_file_expected)
             rows, cols = np.where(values_compare == False)
@@ -523,9 +521,9 @@ class TestCircuitInfo(BaseClass):
                 Mismatched_df = Mismatched_df.append(cmp_df_ckt_final_file_expected)
 
         Mismatched_df.to_csv(mismatched_file, header=['circuitid', 'opnum', 'devicetype', 'circuitname',
-                                                'min_branch', 'max_branch', 'treelevel', 'order_num', 'substationname'], index=False)
+                                                'min_branch', 'max_branch', 'treelevel', 'order_num', 'substationname'],index=False)
 
-         # Remove_duplicates_df_new = pd.read_csv(verify_output_file_ND)
+        # Remove_duplicates_df_new = pd.read_csv(verify_output_file_ND)
         log.info("Completed Comparing two files and the mismatched data could be found in MismatchFile folder in downloads folder")
         log.info("----------------------------------------------------------------------------------------------")
         log.info("*************AUTOMATION EXECUTION COMPLETED*************")
