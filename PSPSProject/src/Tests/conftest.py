@@ -191,5 +191,30 @@ def APIconfig(filename='apiconfig.ini'):
     return s3
 
 
+def config_met(filename='database.ini'):
+    try:
+        env = testEnvironment()
+        if env[0].upper() == "QA":
+            section = 'postgresql-qa'
+        elif env[0].upper() == "TEST":
+            section = 'postgresql-metrologydb'
+        elif env[0].upper() == "DEV":
+            section = 'postgresql-metdevdb'
+        elif env[0].upper() == "PROD":
+            section = 'postgresql-prod'
+        else:
+            section = 'postgresql-test'
+    except(ValueError, Exception):
+        section = 'postgresql-test'
+    parser = ConfigParser(interpolation=None)
+    parser.read(filename)
+    db = {}
+    if parser.has_section(section):
+        params = parser.items(section)
+        for param in params:
+            db[param[0]] = param[1]
+    else:
+        raise Exception('Section {0} not found in the {1} file'.format(section, filename))
+    return db
 
 

@@ -1,10 +1,10 @@
 import time
-
+import pandas as pd
 import simplejson
 import psycopg2
 
 
-from PSPSProject.src.Tests.conftest import config
+from PSPSProject.src.Tests.conftest import config, config_met
 
 global conn
 
@@ -143,3 +143,23 @@ def queryresults_get_data(query):
             conn.close()
             print('Database connection closed')
     return result
+
+def queryresults_get_alldata_met(query):
+    result = 0
+    global conn
+    try:
+        params = config_met()
+        print('Connecting to the PostgreSQL database...')
+        conn = psycopg2.connect(**params)
+        print('DB connection successful')
+        result = pd.read_sql_query(query, con=conn)
+        print(result)
+        print("Query ran successfully")
+    except (Exception, psycopg2.DataError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+            print('Database connection closed')
+    return result
+
