@@ -6,6 +6,8 @@ class textMessage:
     upload_file_validation_error_message = "Circuit validation failed."
     upload_file_successfully = "Default devices data uploaded successfully"
     metdb_connection = "Connecting to meteorology database..."
+    event_create_status_fetching = "Fetching all completed time places."
+    event_create_status_created = "Event creation in progress."
 
 
 

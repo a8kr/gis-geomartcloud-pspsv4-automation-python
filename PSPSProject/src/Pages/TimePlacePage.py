@@ -34,7 +34,7 @@ class TimePlacePage:
         if uielements.iselementEnabled(locators.view_psps_scope_modal_expand_icon) == False:
             print("Validate that Create button disabled by default")
         var_Timestamp = getCurrentTime()
-        var_timeplace = "Timeplace_" + var_Timestamp
+        var_timeplace = "Auto_TP_" + var_Timestamp
         uielements.Click(locators.view_psps_scope_modal_expand_icon)
         uielements.setText(var_timeplace, locators.view_psps_scope_modal_internal_time_place_name)
         time.sleep(0.5)
@@ -77,6 +77,7 @@ class TimePlacePage:
     def TimePlaceCreation(self, scopename):
         uielements = UI_Element_Actions(self.driver)
         time.sleep(0.5)
+        uielements.Click(locators.new_time_place_new_tab)
         var_Timestamp = getCurrentTime()
         var_timeplace = "Auto_TP_" + var_Timestamp
         uielements.Click(locators.new_time_place_view_psps_scope_button)

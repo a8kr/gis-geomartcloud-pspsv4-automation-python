@@ -14,24 +14,51 @@ class EventPage:
 
 
 
-    def createEvent_bysingleVersion(self, Event, timeplace):
+    def createEvent_single_tp(self, Event, timeplace, externalname, comment):
         uielements = UI_Element_Actions(self.driver)
-        time.sleep(2)
         uielements.Click(locators.new_event_tab)
-        time.sleep(5)
+        while True:
+            try:
+                var_message = uielements.getValue(locators.new_event_status_message)
+                if var_message in textMessage.event_create_status_fetching:
+                    continue
+                else:
+                    break
+            except:
+                break
+
         uielements.setText(Event, locators.new_event_name)
-        time.sleep(0.15)
         uielements.setText(timeplace, locators.new_event_search)
         uielements.Click(locators.new_event_grid_1st_checkbox)
-        #uielements.Click(locators.clearSearch_xpath)
-        time.sleep(0.15)
-        # varflag = isElementChecked(self, locators.versionName_checkbox_xpath)
-        # if not varflag:
-        #     assert False, "Version name checkbox is NOT Selected after clicking on select checkbox"
-        uielements.Click(locators.new_event_n)
-        #varEventCreationList = self.ClickOn_Event_SaveButton()
-        #return varEventCreationList
-        return True
+        uielements.Click(locators.new_event_next_button)
+
+        # Enter metadata
+        print("Enter event metadata")
+        uielements.setText(comment, locators.new_event_metadata_modal_comment)
+        uielements.setText(externalname, locators.new_event_metadata_modal_external_name)
+        uielements.Click(locators.new_event_metadata_back_save)
+        print("Click Save button on metadata modal")
+
+        # Wait for Event status
+        while True:
+            try:
+                var_status = uielements.getValue(locators.new_event_status_message)
+                if var_status in textMessage.event_create_status_created:
+                    continue
+                else:
+                    break
+            except:
+                break
+
+        # Verify if just created event on Event edit page
+        uielements.setText(Event, locators.edit_event_search)
+        var_cell = uielements.getValue(locators.edit_event_grid_cell_1st)
+        print("Verify if just created event on Event edit page")
+
+        if var_cell in Event:
+            return True
+        else:
+            return False
 
     def new_tp_gridheader(self, var_gridColumnNames):
         val = self.driver.find_elements_by_xpath(locators.new_time_place_grid_header)

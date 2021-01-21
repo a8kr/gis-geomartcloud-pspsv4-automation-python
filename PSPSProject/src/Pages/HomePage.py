@@ -37,4 +37,13 @@ class HomePage:
         except:
             assert False, "Failed to navigate to Deafult Managment"
 
+    def navigate_Home(self):
+        try:
+            uielements = UI_Element_Actions(self.driver)
+            uielements.iselementDisplayed(locators.PSPS_Dropdown_menu)
+            uielements.Click(locators.PSPS_Dropdown_menu)
+            uielements.Click(locators.PSPS_List_Select_Home)
+        except:
+            assert False, "Failed to navigate to Deafult Managment"
+
 
