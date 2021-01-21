@@ -242,3 +242,66 @@
 2021-01-19 21:01:29,701 :INFO : test_isolationzone :Spark session connected
 2021-01-19 21:02:05,251 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
 2021-01-19 21:02:05,252 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************
+2021-01-20 22:03:04,093 :INFO : test_isolationzone :Starting Validation
+2021-01-20 22:03:05,027 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-20 22:03:05,027 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:03:06,621 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
+2021-01-20 22:03:07,209 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-20 22:03:07,209 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:03:07,287 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-20 22:03:07,762 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210119_121814 is: 224
+2021-01-20 22:03:07,762 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210119_121814 is: 162
+2021-01-20 22:03:07,762 :INFO : test_isolationzone :Meteorology Scopeversionname is: 2020-11-07-V-01
+2021-01-20 22:03:07,762 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:04:28,998 :INFO : test_isolationzone :Starting Validation
+2021-01-20 22:04:30,186 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-20 22:04:30,186 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:04:31,306 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
+2021-01-20 22:04:31,704 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-20 22:04:31,704 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:04:31,757 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-20 22:04:32,189 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210119_121814 is: 224
+2021-01-20 22:04:32,189 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210119_121814 is: 162
+2021-01-20 22:04:32,189 :INFO : test_isolationzone :Meteorology Scopeversionname is: 2020-11-07-V-01
+2021-01-20 22:04:32,189 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:04:34,195 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-20 22:04:37,594 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-20 22:05:02,150 :INFO : test_isolationzone :Spark session connected
+2021-01-20 22:05:20,810 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
+2021-01-20 22:05:20,811 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************
+2021-01-20 22:53:30,947 :INFO : test_isolationzone :Starting Validation
+2021-01-20 22:53:32,038 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-20 22:53:32,038 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:53:33,685 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
+2021-01-20 22:53:34,146 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-20 22:53:34,146 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:53:34,239 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-20 22:53:34,712 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210119_121814 is: 224
+2021-01-20 22:53:34,712 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210119_121814 is: 162
+2021-01-20 22:53:34,712 :INFO : test_isolationzone :Meteorology Scopeversionname is: 2020-11-07-V-01
+2021-01-20 22:53:34,713 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 22:53:36,602 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-20 22:53:43,392 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-20 22:53:54,894 :INFO : test_isolationzone :Spark session connected
+2021-01-20 22:54:31,328 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
+2021-01-20 22:54:31,328 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************
+2021-01-20 23:17:46,076 :INFO : test_isolationzone :Starting Validation
+2021-01-20 23:17:47,012 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-20 23:17:47,012 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 23:17:48,749 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
+2021-01-20 23:17:49,207 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-20 23:17:49,207 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 23:17:49,239 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-20 23:17:49,692 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210119_121814 is: 224
+2021-01-20 23:17:49,692 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210119_121814 is: 162
+2021-01-20 23:17:49,692 :INFO : test_isolationzone :Meteorology Scopeversionname is: 2020-11-07-V-01
+2021-01-20 23:17:49,696 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-20 23:17:51,502 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-20 23:17:56,007 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-20 23:18:19,122 :INFO : test_isolationzone :Spark session connected
+2021-01-20 23:18:49,713 :INFO : test_isolationzone :Automation file Count of isolation zone records is: 15963
+2021-01-20 23:18:49,713 :INFO : test_isolationzone :Dev file Count of isolation zone records is: 15963
+2021-01-20 23:18:49,713 :INFO : test_isolationzone :Total isolation zone records count matched between Actual and Expected report and count is: 15963
+2021-01-20 23:18:49,889 :INFO : test_isolationzone :All the isolationzones matched
+2021-01-20 23:18:49,889 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
+2021-01-20 23:18:49,889 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************

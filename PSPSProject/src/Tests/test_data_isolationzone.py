@@ -247,83 +247,88 @@ class TestIsolationZone(BaseClass):
             c.additional_isolation_device, c.additional_isolation_device_type, iz.isolationzone as isolationzonename, '' as flag,
             '' as transmissionimpact, '' as restorationzonename, iz.tier2ohmiles, iz.tier3ohmiles, iz.totalohmiles, iz.tier2ugmiles,
             iz.tier3ugmiles, iz.totalugmiles, iz.tier2ohpoles, iz.tier3ohpoles, iz.totalpoles, iz.shape, '' as impacttype from
-            isolationzones as c LEFT JOIN ssd_isolationzone iz
+            isolationzones as c CROSS JOIN ssd_isolationzone iz
             on iz.isolationzone = c.isolationzone""")
             df_tempisozonedata.createOrReplaceTempView("tempisolationzonedata")
             tempfolder = downloadsfolderPath + '\\df_tempisolationzonedata'
             df_tempisozonedata.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
 
-            # # Store df_tempisolationzonedata csv to dataframe
-            # tempfolder = downloadsfolderPath + '\\df_tempisolationzonedata'
-            # isolationzonecircuits = os.listdir(tempfolder)
-            # for file in isolationzonecircuits:
-            #     if file.endswith('csv'):
-            #         break
-            # finalisolationzonecircuitscsv = downloadsfolderPath + '\\df_tempisolationzonedata' + '/' + file
-            # finalisolationzonecircuits_actual = pd.read_csv(finalisolationzonecircuitscsv)
-            #
-            # # Store devfile_isolationzonecircuits csv to dataframe
-            # tempisozonedata = downloadsfolderPath + '\\devfile_isolationzonecircuits'
-            # isolationzonecircuitscsv_expected = os.listdir(tempisozonedata)
-            # for file1 in isolationzonecircuitscsv_expected:
-            #     if file1.endswith('csv'):
-            #         break
-            # finalisolationzonecircuitscsv_expected = downloadsfolderPath + '\\devfile_isolationzonecircuits' + '/' + file1
-            # finalisolationzonecircuits_expected = pd.read_csv(finalisolationzonecircuitscsv_expected)
-            #
-            # finalisolationzonecircuits_actual = finalisolationzonecircuits_actual.drop_duplicates(
-            #     subset=['circuitId', 'isolationzonename', 'tier2ohmiles', 'tier3ohmiles', 'totalohmiles',
-            #             'tier2ugmiles', 'tier3ugmiles', 'totalugmiles', 'tier2ohpoles', 'tier3ohpoles', 'totalpoles'],
-            #     keep='first')
-            # finalizcircuitsfolder = downloadsfolderPath + "\\Autofile_isolationzonecircuits"
-            # deleteFolder(finalizcircuitsfolder)
-            # create_folder(finalizcircuitsfolder)
-            # finalisolationzonecircuits_actual.to_csv(finalizcircuitsfolder + '/finalisozone_actual.csv')
-            #
-            # actualizcount = finalisolationzonecircuits_actual.shape[0]
-            # log.info("Automation file Count of isolation zone records is: " + str(actualizcount))
-            # expectedizcount = finalisolationzonecircuits_expected.shape[0]
-            # log.info("Dev file Count of isolation zone records is: " + str(expectedizcount))
-            # if str(actualizcount) == str(expectedizcount):
-            #     log.info(
-            #         "Total isolation zone records count matched between Actual and Expected report and count is: " + str(
-            #             actualizcount))
-            #     df1 = pd.merge(finalisolationzonecircuits_expected, finalisolationzonecircuits_actual,
-            #                    on=['circuitId', 'isolationzonename', 'tier2ohmiles', 'tier3ohmiles', 'totalohmiles',
-            #                        'tier2ugmiles', 'tier3ugmiles', 'totalugmiles', 'tier2ohpoles', 'tier3ohpoles',
-            #                        'totalpoles'],
-            #                    how='outer', indicator=True)
-            #     df1 = df1[df1['_merge'] != 'both']
-            #     if len(df1) == 0:
-            #         log.info("All the isolationzones matched")
-            #     else:
-            #         mismatchisolationzones = downloadsfolderPath + "\\mismatchisolationzones"
-            #         deleteFolder(mismatchisolationzones)
-            #         create_folder(mismatchisolationzones)
-            #         df1.to_csv(mismatchisolationzones + '/mismatchisolationzones.csv')
-            #         log.error(
-            #             "All the isolationzones not matched and mismatched isolationzones are: " + str(df1))
-            #         final_assert.append(False)
-            # else:
-            #     log.error("Total isolationzones count not matched between Actual and Expected report")
-            #     final_assert.append(False)
-            #     df1 = pd.merge(finalisolationzonecircuits_expected, finalisolationzonecircuits_actual,
-            #                    on=['circuitId', 'isolationzonename', 'tier2ohmiles', 'tier3ohmiles', 'totalohmiles',
-            #                        'tier2ugmiles', 'tier3ugmiles', 'totalugmiles', 'tier2ohpoles', 'tier3ohpoles',
-            #                        'totalpoles'],
-            #                    how='outer', indicator=True)
-            #     df1 = df1[df1['_merge'] != 'both']
-            #     if len(df1) == 0:
-            #         log.info("All the isolationzones matched")
-            #     else:
-            #         mismatchisolationzones = downloadsfolderPath + "\\mismatchisolationzones"
-            #         deleteFolder(mismatchisolationzones)
-            #         create_folder(mismatchisolationzones)
-            #         df1.to_csv(mismatchisolationzones + '/mismatchisolationzones.csv')
-            #         log.error(
-            #             "All the isolationzones not matched and mismatched isolationzones are: " + str(df1))
-            #         final_assert.append(False)
+            # Store df_tempisolationzonedata csv to dataframe
+            tempfolder = downloadsfolderPath + '\\df_tempisolationzonedata'
+            isolationzonecircuits = os.listdir(tempfolder)
+            for file in isolationzonecircuits:
+                if file.endswith('csv'):
+                    break
+            finalisolationzonecircuitscsv = downloadsfolderPath + '\\df_tempisolationzonedata' + '/' + file
+            finalisolationzonecircuits_actual = pd.read_csv(finalisolationzonecircuitscsv)
+            finalisolationzonecircuits_actual = finalisolationzonecircuits_actual.drop_duplicates(
+                subset=['circuitId', 'isolationzonename'],
+                keep='first')
+            finalizcircuitsfolder = downloadsfolderPath + "\\Autofile_isolationzonecircuits"
+            deleteFolder(finalizcircuitsfolder)
+            create_folder(finalizcircuitsfolder)
+            finalisolationzonecircuits_actual.to_csv(finalizcircuitsfolder + '/auto_finalisozone_actual.csv')
+
+            # Store devfile_isolationzonecircuits csv to dataframe
+            tempisozonedata = downloadsfolderPath + '\\devfile_isolationzonecircuits'
+            isolationzonecircuitscsv_expected = os.listdir(tempisozonedata)
+            for file1 in isolationzonecircuitscsv_expected:
+                if file1.endswith('csv'):
+                    break
+            finalisolationzonecircuitscsv_expected = downloadsfolderPath + '\\devfile_isolationzonecircuits' + '/' + file1
+            finalisolationzonecircuits_expected = pd.read_csv(finalisolationzonecircuitscsv_expected)
+            finalisolationzonecircuits_expected = finalisolationzonecircuits_expected.drop_duplicates(
+                subset=['circuitId', 'isolationzonename'],
+                keep='first')
+            finaldevizcircuitsfolder = downloadsfolderPath + "\\devfile_isolationzonecircuits_remduplicates"
+            deleteFolder(finaldevizcircuitsfolder)
+            create_folder(finaldevizcircuitsfolder)
+            finalisolationzonecircuits_expected.to_csv(finalizcircuitsfolder + '/dev_finalisozone_actual.csv')
+
+            actualizcount = finalisolationzonecircuits_actual.shape[0]
+            log.info("Automation file Count of isolation zone records is: " + str(actualizcount))
+            expectedizcount = finalisolationzonecircuits_expected.shape[0]
+            log.info("Dev file Count of isolation zone records is: " + str(expectedizcount))
+            if str(actualizcount) == str(expectedizcount):
+                log.info(
+                    "Total isolation zone records count matched between Actual and Expected report and count is: " + str(
+                        actualizcount))
+                df1 = pd.merge(finalisolationzonecircuits_expected, finalisolationzonecircuits_actual,
+                               on=['circuitId', 'isolationzonename', 'tier2ohmiles', 'tier3ohmiles', 'totalohmiles',
+                                   'tier2ugmiles', 'tier3ugmiles', 'totalugmiles', 'tier2ohpoles', 'tier3ohpoles',
+                                   'totalpoles'],
+                               how='outer', indicator=True)
+                df1 = df1[df1['_merge'] != 'both']
+                if len(df1) == 0:
+                    log.info("All the isolationzones matched")
+                else:
+                    mismatchisolationzones = downloadsfolderPath + "\\mismatchisolationzones"
+                    deleteFolder(mismatchisolationzones)
+                    create_folder(mismatchisolationzones)
+                    df1.to_csv(mismatchisolationzones + '/mismatchisolationzones.csv')
+                    log.error(
+                        "All the isolationzones not matched and mismatched isolationzones are: " + str(df1))
+                    final_assert.append(False)
+            else:
+                log.error("Total isolationzones count not matched between Actual and Expected report")
+                final_assert.append(False)
+                df1 = pd.merge(finalisolationzonecircuits_expected, finalisolationzonecircuits_actual,
+                               on=['circuitId', 'isolationzonename', 'tier2ohmiles', 'tier3ohmiles', 'totalohmiles',
+                                   'tier2ugmiles', 'tier3ugmiles', 'totalugmiles', 'tier2ohpoles', 'tier3ohpoles',
+                                   'totalpoles'],
+                               how='outer', indicator=True)
+                df1 = df1[df1['_merge'] != 'both']
+                if len(df1) == 0:
+                    log.info("All the isolationzones matched")
+                else:
+                    mismatchisolationzones = downloadsfolderPath + "\\mismatchisolationzones"
+                    deleteFolder(mismatchisolationzones)
+                    create_folder(mismatchisolationzones)
+                    df1.to_csv(mismatchisolationzones + '/mismatchisolationzones.csv')
+                    log.error(
+                        "All the isolationzones not matched and mismatched isolationzones are: " + str(df1))
+                    final_assert.append(False)
         if var_execution_flag == 'fail':
             log.error("Execution failed: Errors found in execution!!")
             assert False
