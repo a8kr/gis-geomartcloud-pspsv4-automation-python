@@ -109,12 +109,10 @@ class TestDeviceCache(BaseClass):
             lst_tp_details = queryresults_get_alldata(get_timeplace_db)
             var_tp_uid = lst_tp_details[0][0]
             var_tp_id = lst_tp_details[0][1]
-            var_devicecache_path = lst_tp_details[0][16]
-            var_scopeversion = lst_tp_details[0][20]
+            var_tpid = lst_tp_details[0][21]
             log.info("Timeplace UID for timeplace: " + str(each) + " is: " + str(var_tp_uid))
             log.info("Timeplace ID for timeplace: " + str(each) + " is: " + str(var_tp_id))
-            log.info("Meteorology Scopeversionname is: " + str(var_scopeversion))
-            log.info("Output Devicecache path is : " + str(var_devicecache_path))
+            log.info("Meteorology Timeplace ID is: " + str(var_tpid))
             log.info("-----------------------------------------------------------------------------------------------")
 
             # Download circuits file for the timeplace from S3 bucket

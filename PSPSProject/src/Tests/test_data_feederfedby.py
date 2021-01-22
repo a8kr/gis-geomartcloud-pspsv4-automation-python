@@ -13,12 +13,16 @@ import pyarrow.csv as pv
 import pyarrow.parquet as pq
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import udf
+
+from PSPSProject.src.Pages.DefaultManagement import DefaultManagement
+from PSPSProject.src.Pages.HomePage import HomePage
+from PSPSProject.src.Pages.TimePlacePage import TimePlacePage
 from PSPSProject.src.Repository.dbqueries import queries
 from PSPSProject.src.ReusableFunctions.awsfunctions import download_file_from_S3, download_dir_from_S3
 from PSPSProject.src.ReusableFunctions.baseclass import BaseClass, exceptionRowCount
 from PSPSProject.src.ReusableFunctions.commonfunctions import logfilepath, deleteFiles, downloadsfolderPath, readData, \
     deleteFolder, create_folder, getCurrentTime
-from PSPSProject.src.ReusableFunctions.databasefunctions import queryresults_get_alldata
+from PSPSProject.src.ReusableFunctions.databasefunctions import queryresults_get_alldata, queryresults_fetchone
 from PSPSProject.src.Tests.conftest import downloadsfolder, testDatafilePath, s3config, dirctorypath
 
 VAR_TESTCASENAME = os.path.basename(__file__)
@@ -39,6 +43,9 @@ class TestFeederFedBy(BaseClass):
             exceptionrow = exceptionRowCount()
             var_row = exceptionrow
         log = self.getLogger(logfilepath, VAR_TESTCASENAME)
+        defmanagement = DefaultManagement(self.driver)
+        eventmanagement = TimePlacePage(self.driver)
+        homepage = HomePage(self.driver)
         deleteFiles(downloadsfolder, ".csv")
         var_tp_array = []
         var_execution_flag = ''
@@ -47,69 +54,103 @@ class TestFeederFedBy(BaseClass):
 
         var_nooftps = readData(testDatafilePath, "Data", var_row, 6)
         timeplace = readData(testDatafilePath, "Data", var_row, 7)
+        var_dmfile = readData(testDatafilePath, "Data", var_row, 9)
+        tpid = readData(testDatafilePath, "Data", var_row, 10)
 
-        if timeplace is None or timeplace == "":
-            print("Version should take from UI")
-        else:
-            var_tp_array.append(timeplace)
-        '''
+        for i in range(var_nooftps):
+            if i > 0:
+                self.driver.refresh()
+                time.sleep(3)
+            if timeplace is None or timeplace == "":
+                homepage.navigate_eventManagement()
+                var_tpcreation = eventmanagement.TimePlaceCreation(tpid)
+                timeplace = var_tpcreation[3]
+                timetaken = var_tpcreation[1]
+                log.info("Timeplace creation is successful and timeplacename is: " + var_tpcreation[3])
+                log.info("Time taken to create Timeplace is: " + var_tpcreation[1])
+                var_tp_array.append(timeplace)
+            else:
+                log.info("Timeplace details are : " + timeplace)
+                var_tp_array.append(timeplace)
+
+        # Get the latest feederNetwork_priugconductor table filepath from db
+        get_feederNetwork_priugconductor_db = queries.get_activetablename % 's3-feedernetworktrace-priugconductor'
+        lst_table_details1 = queryresults_fetchone(get_feederNetwork_priugconductor_db)
+        filename_feeder_priugconductor_dbtable = lst_table_details1
+        log.info("Filename for FfeederNetwork_priugconductor active table is : " + str(filename_feeder_priugconductor_dbtable))
+        log.info("-----------------------------------------------------------------------------------------------")
+        feederNetwork_priugconductorfilename = filename_feeder_priugconductor_dbtable.split(s3config()['envpath'])[-1]
+        print(feederNetwork_priugconductorfilename)
+
         # Download all the required data files from S3- PSPSDataSync folder
         s3 = boto3.client('s3')
         s3_resource = boto3.resource("s3")
         s3_bucketname = s3config()['pspsdatabucketname']
-        BUCKET_PATH = s3config()['pspsdatasyncpath']
+        feeder_priugconductorBUCKET_PATH = feederNetwork_priugconductorfilename
         profilename = s3config()['profile_name']
-        # Download feederNetwork_priugconductor parquet file
-        filename = "feederNetwork_priugconductor.parquet"
-        localpath = downloadsfolderPath + "\\feedernetwork_ugdata" + "\\" + filename
-        '''
         feedernetwork_ugdata = downloadsfolderPath + "\\feedernetwork_ugdata"
-        '''
         deleteFolder(feedernetwork_ugdata)
         create_folder(feedernetwork_ugdata)
-        download_file_from_S3(s3_bucketname, BUCKET_PATH, filename, localpath, profilename)
-        '''
+        download_dir_from_S3(feeder_priugconductorBUCKET_PATH, s3_bucketname, profilename, feedernetwork_ugdata)
         log.info("Downloaded feederNetwork_priugconductor parquet file from S3")
-        '''
-        # Download feederNetwork_priohconductor parquet file
-        filename1 = "feederNetwork_priohconductor.parquet"
-        localpath1 = downloadsfolderPath + "\\feedernetwork_ohdata" + "\\" + filename1
-        '''
+
+        # Get the latest feederNetwork_priohconductor table filepath from db
+        get_feederNetwork_priohconductor_db = queries.get_activetablename % 's3-feedernetworktrace-priohconductor'
+        lst_table_details2 = queryresults_fetchone(get_feederNetwork_priohconductor_db)
+        filename_feeder_priohconductor_dbtable = lst_table_details2
+        log.info("Filename for FfeederNetwork_priohconductor active table is : " + str(filename_feeder_priohconductor_dbtable))
+        log.info("-----------------------------------------------------------------------------------------------")
+        feederNetwork_priohconductorfilename = filename_feeder_priohconductor_dbtable.split(s3config()['envpath'])[-1]
+        print(feederNetwork_priohconductorfilename)
+
+        # Download all the required data files from S3- PSPSDataSync folder
+        s3 = boto3.client('s3')
+        s3_resource = boto3.resource("s3")
+        s3_bucketname = s3config()['pspsdatabucketname']
+        feeder_priohconductorBUCKET_PATH = feederNetwork_priohconductorfilename
+        profilename = s3config()['profile_name']
         feedernetwork_ohdata = downloadsfolderPath + "\\feedernetwork_ohdata"
-        '''
         deleteFolder(feedernetwork_ohdata)
         create_folder(feedernetwork_ohdata)
-        download_file_from_S3(s3_bucketname, BUCKET_PATH, filename1, localpath1, profilename)
-        '''
+        download_dir_from_S3(feeder_priohconductorBUCKET_PATH, s3_bucketname, profilename, feedernetwork_ohdata)
         log.info("Downloaded feederNetwork_priohconductor parquet file from S3")
-        '''
-        # Download feederNetwork_priohconductor parquet file
-        filename2 = "feederNetwork_device.parquet"
-        localpath2 = downloadsfolderPath + "\\feedernetwork_devicesdata" + "\\" + filename2
-        '''
+
+        # Get the latest feedernetworktrace-devices table filepath from db
+        get_feederNetwork_devices_db = queries.get_activetablename % 's3-feedernetworktrace-devices'
+        lst_table_details3 = queryresults_fetchone(get_feederNetwork_devices_db)
+        filename_feeder_devices_dbtable = lst_table_details3
+        log.info("Filename for feedernetworktrace-devices active table is : " + str(filename_feeder_devices_dbtable))
+        log.info("-----------------------------------------------------------------------------------------------")
+        feederNetwork_devicesfilename = filename_feeder_devices_dbtable.split(s3config()['envpath'])[-1]
+        print(feederNetwork_devicesfilename)
+
+        # Download all the required data files from S3- PSPSDataSync folder
+        s3 = boto3.client('s3')
+        s3_resource = boto3.resource("s3")
+        s3_bucketname = s3config()['pspsdatabucketname']
+        feeder_devicesBUCKET_PATH = feederNetwork_devicesfilename
+        profilename = s3config()['profile_name']
         feedernetwork_devicesdata = downloadsfolderPath + "\\feedernetwork_devicesdata"
-        '''
         deleteFolder(feedernetwork_devicesdata)
         create_folder(feedernetwork_devicesdata)
-        download_file_from_S3(s3_bucketname, BUCKET_PATH, filename2, localpath2, profilename)
-        '''
-        log.info("Downloaded feederNetwork_device parquet file from S3")
+        download_dir_from_S3(feeder_devicesBUCKET_PATH, s3_bucketname, profilename, feedernetwork_devicesdata)
+        log.info("Downloaded feedernetworktrace-devices parquet file from S3")
 
         # Get Timeplace UID and Timeplace ID for the required timeplace
         i = 0
         for each in var_tp_array:
-            '''
             get_timeplace_db = queries.get_timeplace % each
             lst_tp_details = queryresults_get_alldata(get_timeplace_db)
             var_tp_uid = lst_tp_details[0][0]
             var_tp_id = lst_tp_details[0][1]
+            var_tpid = lst_tp_details[0][21]
             log.info("Timeplace UID for timeplace: " + str(each) + " is: " + str(var_tp_uid))
             log.info("Timeplace ID for timeplace: " + str(each) + " is: " + str(var_tp_id))
+            log.info("Meteorology Timeplace ID is: " + str(var_tpid))
             log.info("-----------------------------------------------------------------------------------------------")
 
             # Download circuits file for the timeplace from S3 bucket
             filename = str(var_tp_id) + "/" + str(var_tp_uid) + "/circuits/circuits_" + str(var_tp_uid) + "/"
-            # filename = "131/151/circuits/circuits_151/"
             s3 = boto3.client('s3')
             s3_resource = boto3.resource("s3")
             s3_bucketname = s3config()['datastorebucketname']
@@ -119,11 +160,8 @@ class TestFeederFedBy(BaseClass):
             local_folder = downloadsfolderPath + "circuits_" + str(var_tp_uid)
             deleteFolder(local_folder)
             download_dir_from_S3(path, s3_bucketname, profilename, local_folder)
-            '''
             log.info("Downloaded circuits parquet file from S3")
 
-            var_tp_uid = '169'
-            var_tp_id = '149'
             spark = SparkSession.builder.appName("Timeplace-Creation") \
                 .config('spark.driver.memory', '10g') \
                 .config("spark.cores.max", "6") \
@@ -139,9 +177,10 @@ class TestFeederFedBy(BaseClass):
                     var_tp_id) + "\\" + str(var_tp_uid) + "\\circuits\\circuits_" + str(var_tp_uid))
             df_timeplacecircuits = spark.read.parquet(ciruitsfilepath)
             df_timeplacecircuits.createOrReplaceTempView("timeplace_circuits")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\actualtimeplace_circuits"
+            tempfolder = downloadsfolderPath + '\\actualtimeplace_circuits'
             df_timeplacecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
+
             df_timeplacecircuits.cache()
             Actual_feederfedcircuits = spark.sql("""SELECT timeplace_foreignkey, circuitid, circuitname, 
             substationname, transmissionimpact,division,source_min_branch,source_max_branch,source_order_num,
@@ -150,7 +189,7 @@ class TestFeederFedBy(BaseClass):
             additional_isolation_device_type,flag,parentfeederfedby,parentcircuitid,tempgenname,comments FROM 
             timeplace_circuits where parentcircuitid is not null and parentcircuitid <> '' """)
             Actual_feederfedcircuits.createOrReplaceTempView("Actual_feederfedcircuits")
-            tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Actual_feederfedcircuits"
+            tempfolder = downloadsfolderPath + '\\Actual_feederfedcircuits'
             Actual_feederfedcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
                 "overwrite").save(tempfolder)
             log.info(
@@ -165,29 +204,24 @@ class TestFeederFedBy(BaseClass):
                 log.info('Feederfed by circuits found')
                 df_filteredcircuits = spark.sql(
                     """ SELECT * from timeplace_circuits where parentcircuitid is null or parentcircuitid = '' """)
-                # df_filteredcircuits = df_filteredcircuits.repartition("circuitid")
                 df_filteredcircuits.createOrReplaceTempView("circuits")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\circuits"
+                tempfolder = downloadsfolderPath + '\\circuits'
                 df_filteredcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                     tempfolder)
 
                 # Read Feeder tables
-                feederohdataloc = downloadsfolderPath + "\\feedernetwork_ohdata"
-                feederugdataloc = downloadsfolderPath + "\\feedernetwork_ugdata"
-                feederdevicedataloc = downloadsfolderPath + "\\feedernetwork_devicesdata"
-                df_feederOHhconductor = spark.read.parquet(feederohdataloc)
+                df_feederOHhconductor = spark.read.parquet(feedernetwork_ohdata + '/' + feeder_priohconductorBUCKET_PATH)
                 df_feederOHhconductor.createOrReplaceTempView("feederOHhconductor")
-                df_feederUGconductor = spark.read.parquet(feederugdataloc)
+                df_feederUGconductor = spark.read.parquet(feedernetwork_ugdata + '/' + feeder_priugconductorBUCKET_PATH)
                 df_feederUGconductor.createOrReplaceTempView("feederUGhconductor")
-                # df_feederOHhconductor = df_feederOHhconductor.repartition("feederid")
-                # df_feederUGconductor = df_feederUGconductor.repartition("feederid")
-                df_feederdevices = spark.read.parquet(feederdevicedataloc)
+                df_feederdevices = spark.read.parquet(feedernetwork_devicesdata + '/' + feeder_devicesBUCKET_PATH)
                 df_feederdevices.createOrReplaceTempView("feederdevices")
                 log.info("Read all parquet files and create temp tables is completed")
+
                 feederFull = spark.sql(
                     """SELECT * from feederUGhconductor UNION SELECT * from feederOHhconductor""")
                 feederFull.createOrReplaceTempView("feederFull")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\feederFull"
+                tempfolder = downloadsfolderPath + '\\feederFull'
                 feederFull.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(tempfolder)
 
                 # Do the Downstream trace and get parent circuits
@@ -234,7 +268,7 @@ class TestFeederFedBy(BaseClass):
                                                     AND (fv.TO_LINE_GLOBALID IS NOT NULL AND fv.TO_LINE_GLOBALID <> '') 
                                                     AND ff.to_feature_globalid = fv.to_line_globalId""")
                 df_tempCircuitInfoTableName.createOrReplaceTempView("tempCircuitInfoTableName")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\downstream_parent"
+                tempfolder = downloadsfolderPath + '\\downstream_parent'
                 df_tempCircuitInfoTableName.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
                 df_tempCircuitInfoTableName.createOrReplaceTempView("tempCircuitInfoTableName")
@@ -242,7 +276,7 @@ class TestFeederFedBy(BaseClass):
                 # Do downstream tracing and get Child and grand childs (tocircuits)
                 df_tempCircuitInfoTableName = get_feedfedby_circuits(df_tempCircuitInfoTableName, spark)
                 df_tempCircuitInfoTableName.createOrReplaceTempView("tempCircuitInfoTableName")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\downstream_child"
+                tempfolder = downloadsfolderPath + '\\downstream_child'
                 df_tempCircuitInfoTableName.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
                 df_tempCircuitInfoTableName.cache()
@@ -288,7 +322,7 @@ class TestFeederFedBy(BaseClass):
                                                     AND fv.to_feature_fcid IN ( 1003, 1005, 998, 997 )
                                                 ORDER BY fv.TREELEVEL ASC  """)
                 final_circuitTable.createOrReplaceTempView("final_circuitTable")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\upstreamdevices"
+                tempfolder = downloadsfolderPath + '\\upstreamdevices'
                 final_circuitTable.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
                 final_circuitTable.cache()
@@ -305,7 +339,7 @@ class TestFeederFedBy(BaseClass):
                                 c.source_isolation_device=f.source_isolation_device and c.source_isolation_device_type = 
                                 f.source_isolation_device_type """)
                 duplicaterecords.createOrReplaceTempView("duplicaterecords")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\duplicaterecords"
+                tempfolder = downloadsfolderPath + '\\duplicaterecords'
                 duplicaterecords.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                     tempfolder)
                 duplicaterecords.cache()
@@ -321,7 +355,7 @@ class TestFeederFedBy(BaseClass):
                                additional_order_num,additional_treelevel,source_isolation_device,additional_isolation_device,source_isolation_device_type,
                                additional_isolation_device_type,flag,parentfeederfedby,parentcircuitid,tempgenname,comments from duplicaterecords """)
                 Expected_feederfedcircuits.createOrReplaceTempView("Expected_feederfedcircuits")
-                tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\Expected_feederfedcircuits"
+                tempfolder = downloadsfolderPath + '\\Expected_feederfedcircuits'
                 Expected_feederfedcircuits.coalesce(1).write.option("header", "true").format("csv").mode(
                     "overwrite").save(tempfolder)
                 log.info("Remove Duplicate records which match from Circuits list and feederfedcircuits list")
@@ -335,7 +369,7 @@ class TestFeederFedBy(BaseClass):
                 else:
                     log.error('Actual and Expected feederfed by circuits not matched')
                     df_mismatched.createOrReplaceTempView("df_mismatched")
-                    tempfolder = r"C:\PSPSViewerV4.0_GIT\gis-geomartcloud-pspsv4-automation-python\PSPSProject\downloads\mismatchedcircuits"
+                    tempfolder = downloadsfolderPath + '\\mismatchedcircuits'
                     df_mismatched.coalesce(1).write.option("header", "true").format("csv").mode(
                         "overwrite").save(tempfolder)
                     log.info("Mismatch circuits are stored in 'mismatchedcircuits.csv' file")

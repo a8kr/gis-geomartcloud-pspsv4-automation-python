@@ -1,0 +1,21 @@
+2021-01-21 22:43:39,966 :INFO : test_feederfedby :Starting Validation
+2021-01-21 22:43:40,128 :INFO : test_feederfedby :Timeplace details are : Auto_TP_20210121_215623
+2021-01-21 22:43:40,719 :INFO : test_feederfedby :Filename for FfeederNetwork_priugconductor active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_priugconductor.parquet
+2021-01-21 22:43:40,720 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2021-01-21 22:43:52,030 :INFO : test_feederfedby :Downloaded feederNetwork_priugconductor parquet file from S3
+2021-01-21 22:43:52,729 :INFO : test_feederfedby :Filename for FfeederNetwork_priohconductor active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_priohconductor.parquet
+2021-01-21 22:43:52,729 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2021-01-21 22:44:16,166 :INFO : test_feederfedby :Downloaded feederNetwork_priohconductor parquet file from S3
+2021-01-21 22:44:16,730 :INFO : test_feederfedby :Filename for feedernetworktrace-devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-21 22:44:16,730 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2021-01-21 22:44:27,668 :INFO : test_feederfedby :Downloaded feedernetworktrace-devices parquet file from S3
+2021-01-21 22:44:28,235 :INFO : test_feederfedby :Timeplace UID for timeplace: Auto_TP_20210121_215623 is: 232
+2021-01-21 22:44:28,235 :INFO : test_feederfedby :Timeplace ID for timeplace: Auto_TP_20210121_215623 is: 170
+2021-01-21 22:44:28,235 :INFO : test_feederfedby :Meteorology Timeplace ID is: 2020-12-10-TP-01
+2021-01-21 22:44:28,236 :INFO : test_feederfedby :-----------------------------------------------------------------------------------------------
+2021-01-21 22:44:29,788 :INFO : test_feederfedby :Downloaded circuits parquet file from S3
+2021-01-21 22:44:34,386 :INFO : test_feederfedby :Spark session connected
+2021-01-21 22:44:38,540 :INFO : test_feederfedby :Actual Feederfed by circuits from circuits file are stored in 'Actual_feederfedcircuits.csv' file
+2021-01-21 22:44:38,927 :INFO : test_feederfedby :No feederfed by circuits found
+2021-01-21 22:44:38,964 :INFO : test_feederfedby :Dropped all temp tables
+2021-01-21 22:44:39,297 :INFO : test_feederfedby :Spark Session closed

@@ -98,9 +98,9 @@ class TestIsolationZone(BaseClass):
         feederdevicesBUCKET_PATH = feederdevicestablefilename
         profilename = s3config()['profile_name']
         feederdevices = downloadsfolderPath + "\\feederNetwork_devices"
-        # deleteFolder(feederdevices)
-        # create_folder(feederdevices)
-        # download_dir_from_S3(feederdevicesBUCKET_PATH, s3_bucketname, profilename, feederdevices)
+        deleteFolder(feederdevices)
+        create_folder(feederdevices)
+        download_dir_from_S3(feederdevicesBUCKET_PATH, s3_bucketname, profilename, feederdevices)
         log.info("Downloaded feederNetwork_devices parquet file from S3")
 
         # Get the latest ssd-isolationzone table filepath from db

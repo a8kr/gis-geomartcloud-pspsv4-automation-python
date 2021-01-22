@@ -30,7 +30,7 @@ PerformanceDatafolderPath = os.path.join(dirctorypath, performancetestdatafolder
 testDatafolderPath = os.path.join(dirctorypath, testdatafolder)
 testDatafilePath = os.path.join(testDatafolderPath, testDatafile)
 logfilepath = os.path.join(dirctorypath, logfilefolder)
-downloadsfolder = os.path.join(p.parent.parent, "downloads")
+downloadsfolder = os.path.join(p.parent.parent, "downloads/")
 downloadsfolderPath = os.path.join(dirctorypath, downloadsfolder)
 driver = None
 
