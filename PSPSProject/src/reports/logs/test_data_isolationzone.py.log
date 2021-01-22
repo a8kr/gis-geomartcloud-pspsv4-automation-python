@@ -305,3 +305,31 @@
 2021-01-20 23:18:49,889 :INFO : test_isolationzone :All the isolationzones matched
 2021-01-20 23:18:49,889 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
 2021-01-20 23:18:49,889 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************
+2021-01-21 21:56:16,636 :INFO : test_isolationzone :Starting Validation
+2021-01-21 22:04:05,253 :INFO : test_isolationzone :Timeplace creation is successful and timeplacename is: Auto_TP_20210121_215623
+2021-01-21 22:04:05,253 :INFO : test_isolationzone :Time taken to create Timeplace is: 00:07:10
+2021-01-21 22:04:06,039 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-21 22:04:06,039 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-21 22:04:06,934 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
+2021-01-21 22:04:07,718 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-21 22:04:07,718 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-21 22:04:07,727 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-21 22:04:08,444 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210121_215623 is: 232
+2021-01-21 22:04:08,444 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210121_215623 is: 170
+2021-01-21 22:04:08,444 :INFO : test_isolationzone :Meteorology Scopeversionname is: 2020-12-10-V-01
+2021-01-21 22:04:08,444 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-21 22:04:10,280 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-01-21 22:04:13,008 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-01-21 22:04:23,457 :INFO : test_isolationzone :Spark session connected
+2021-01-21 22:13:00,847 :INFO : test_isolationzone :Starting Validation
+2021-01-21 22:13:01,289 :INFO : test_isolationzone :Timeplace details are : Auto_TP_20210121_215623
+2021-01-21 22:13:01,831 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-21 22:13:01,832 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-21 22:13:02,873 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
+2021-01-21 22:13:03,410 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_isolation/
+2021-01-21 22:13:03,411 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-01-21 22:13:42,976 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-01-21 22:13:57,881 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210121_215623 is: 232
+2021-01-21 22:13:58,568 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210121_215623 is: 170
+2021-01-21 22:13:59,971 :INFO : test_isolationzone :Meteorology Timeplace ID is: 2020-12-10-TP-01
+2021-01-21 22:14:02,753 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------

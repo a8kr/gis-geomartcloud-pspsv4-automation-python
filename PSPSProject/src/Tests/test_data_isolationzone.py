@@ -58,7 +58,7 @@ class TestIsolationZone(BaseClass):
         var_nooftps = readData(testDatafilePath, "Data", var_row, 6)
         timeplace = readData(testDatafilePath, "Data", var_row, 7)
         var_dmfile = readData(testDatafilePath, "Data", var_row, 9)
-        scopetpname = readData(testDatafilePath, "Data", var_row, 10)
+        tpid = readData(testDatafilePath, "Data", var_row, 10)
 
         # if var_dmfile is None or var_dmfile == "":
         #     log.info("default circuits are fetched from system")
@@ -72,17 +72,14 @@ class TestIsolationZone(BaseClass):
                 time.sleep(3)
             if timeplace is None or timeplace == "":
                 homepage.navigate_eventManagement()
-                var_tpcreation = eventmanagement.TimePlaceCreation(scopetpname)
-                timeplace = var_tpcreation[1]
-                get_status = queries.get_tp_status % timeplace
-                status = queryresults_get_data(get_status)
-                if status == "Failed":
-                    log.error("Timeplace creation Failed")
-                elif status == "Completed":
-                    log.info("Timeplace creation is successful and status is: " + status)
-                log.info("Timeplace creation is successful and timeplacename is: " + var_tpcreation[1])
+                var_tpcreation = eventmanagement.TimePlaceCreation(tpid)
+                timeplace = var_tpcreation[3]
+                timetaken = var_tpcreation[1]
+                log.info("Timeplace creation is successful and timeplacename is: " + var_tpcreation[3])
+                log.info("Time taken to create Timeplace is: " + var_tpcreation[1])
                 var_tp_array.append(timeplace)
             else:
+                log.info("Timeplace details are : " + timeplace)
                 var_tp_array.append(timeplace)
 
         # Get the latest feeder devices table filepath from db
@@ -122,9 +119,9 @@ class TestIsolationZone(BaseClass):
         ssd_isolationzoneBUCKET_PATH = ssd_isolationzonetablefilename
         profilename = s3config()['profile_name']
         ssd_isolationzone = downloadsfolderPath + "\\ssd_isolationzone"
-        # deleteFolder(ssd_isolationzone)
-        # create_folder(ssd_isolationzone)
-        # download_dir_from_S3(ssd_isolationzoneBUCKET_PATH, s3_bucketname, profilename, ssd_isolationzone)
+        deleteFolder(ssd_isolationzone)
+        create_folder(ssd_isolationzone)
+        download_dir_from_S3(ssd_isolationzoneBUCKET_PATH, s3_bucketname, profilename, ssd_isolationzone)
         log.info("Downloaded ssd_isolationzone parquet file from S3")
 
         # Get Timeplace UID and Timeplace ID for the required timeplace
@@ -134,15 +131,14 @@ class TestIsolationZone(BaseClass):
             lst_tp_details = queryresults_get_alldata(get_timeplace_db)
             var_tp_uid = lst_tp_details[0][0]
             var_tp_id = lst_tp_details[0][1]
-            var_scopeversion = lst_tp_details[0][20]
+            var_tpid = lst_tp_details[0][21]
             log.info("Timeplace UID for timeplace: " + str(each) + " is: " + str(var_tp_uid))
             log.info("Timeplace ID for timeplace: " + str(each) + " is: " + str(var_tp_id))
-            log.info("Meteorology Scopeversionname is: " + str(var_scopeversion))
+            log.info("Meteorology Timeplace ID is: " + str(var_tpid))
             log.info("-----------------------------------------------------------------------------------------------")
 
             # Download circuits file for the timeplace from S3 bucket
             filename = str(var_tp_id) + "/" + str(var_tp_uid) + "/circuits/circuits_" + str(var_tp_uid) + "/"
-            # filename = "131/151/circuits/circuits_151/"
             s3 = boto3.client('s3')
             s3_resource = boto3.resource("s3")
             s3_bucketname = s3config()['datastorebucketname']
@@ -203,18 +199,6 @@ class TestIsolationZone(BaseClass):
             tempfolder = downloadsfolderPath + '\\ssd_isolationzonedata'
             df_ssd_isolationzonedataloc.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
-
-            # df_tempcircuits = spark.sql("""Select circuitinfo_uid, timeplace_foreignkey, circuitid, circuitname,
-            # substationname, transmissionimpact, division, circuitid || '-' || source_isolation_device ||
-            # '-' || source_isolation_device_type as isolationzonename, source_min_branch, source_max_branch,
-            # source_order_num, source_treelevel, additional_max_branch, additional_min_branch, additional_order_num,
-            # additional_treelevel, source_isolation_device, additional_isolation_device, source_isolation_device_type,
-            # additional_isolation_device_type, flag, parentfeederfedby, parentcircuitid, tempgenname, comments
-            # from timeplace_circuits""")
-            # df_tempcircuits.createOrReplaceTempView("timeplace_circuits")
-            # tempfolder = downloadsfolderPath + '\\tempcircuitsdata'
-            # df_tempcircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
-            #     tempfolder)
 
             # Read FeederNetwork_devices table
             # feedertransformerdataloc = downloadsfolderPath + "\\feederNetwork_transformer"

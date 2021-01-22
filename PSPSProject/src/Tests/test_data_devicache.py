@@ -58,7 +58,7 @@ class TestDeviceCache(BaseClass):
         var_nooftps = readData(testDatafilePath, "Data", var_row, 6)
         timeplace = readData(testDatafilePath, "Data", var_row, 7)
         var_dmfile = readData(testDatafilePath, "Data", var_row, 9)
-        scopetpname = readData(testDatafilePath, "Data", var_row, 10)
+        tpid = readData(testDatafilePath, "Data", var_row, 10)
 
         # if var_dmfile is None or var_dmfile == "":
         #     log.info("default circuits are fetched from system")
@@ -71,15 +71,11 @@ class TestDeviceCache(BaseClass):
                 time.sleep(3)
             if timeplace is None or timeplace == "":
                 homepage.navigate_eventManagement()
-                var_tpcreation = eventmanagement.TimePlaceCreation(scopetpname)
-                timeplace = var_tpcreation[1]
-                get_status = queries.get_tp_status % timeplace
-                status = queryresults_get_data(get_status)
-                if status == "Failed":
-                    log.error("Timeplace creation Failed")
-                elif status == "Completed":
-                    log.info("Timeplace creation is successful and status is: " + status)
-                log.info("Timeplace creation is successful and timeplacename is: " + var_tpcreation[1])
+                var_tpcreation = eventmanagement.TimePlaceCreation(tpid)
+                timeplace = var_tpcreation[3]
+                timetaken = var_tpcreation[1]
+                log.info("Timeplace creation is successful and timeplacename is: " + var_tpcreation[3])
+                log.info("Time taken to create Timeplace is: " + var_tpcreation[1])
                 var_tp_array.append(timeplace)
             else:
                 log.info("Timeplace details are : " + timeplace)
