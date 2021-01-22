@@ -1,118 +1,76 @@
-2020-12-17 10:29:39,542 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 10:30:03,673 :INFO : test_circuitinfo :Timeplace UID for timeplace: 2020-11-07-V-01 is: 637
-2020-12-17 10:30:04,207 :INFO : test_circuitinfo :Timeplace ID for timeplace: 2020-11-07-V-01 is: 2020-11-07-TP-01
-2020-12-17 10:30:04,813 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 11:10:55,677 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:15:32,523 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:22:18,457 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:23:23,796 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:24:43,699 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:25:21,182 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:26:28,877 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:27:49,352 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:28:46,406 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:29:28,739 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:30:06,428 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:31:51,779 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:35:02,203 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:36:18,797 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:36:54,818 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:40:09,386 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:40:44,138 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:41:57,216 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:44:42,719 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:52:12,262 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:57:42,686 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:58:48,278 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 11:59:58,041 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:03:03,518 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:04:37,080 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:06:32,837 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:16:18,483 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:17:09,083 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:18:22,375 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:18:57,290 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:20:25,471 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:22:50,828 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:24:37,428 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:25:26,539 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:26:05,793 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:26:33,282 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:36:37,360 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:36:38,326 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:36:38,391 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:36:46,408 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:36:47,132 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:37:39,910 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:44:39,107 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:44:40,067 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:44:40,127 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:44:40,694 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:44:40,694 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:44:45,043 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:46:42,163 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:46:43,108 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:46:43,163 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:46:44,002 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:46:44,002 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:46:47,712 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:49:34,204 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:49:35,271 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:49:35,334 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:49:35,914 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:49:35,915 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:49:39,365 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:50:36,666 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:50:37,665 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:50:37,730 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:50:38,304 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:50:38,304 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:50:42,727 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:52:02,963 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:52:04,152 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:52:04,228 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:52:04,804 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:52:04,805 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:52:08,270 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:53:29,004 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:53:30,019 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:53:30,081 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:53:30,658 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:53:30,658 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:53:34,336 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:56:03,579 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:56:04,661 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:56:04,723 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:56:05,286 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:56:05,286 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:56:08,762 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:57:07,614 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:57:08,639 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:57:08,696 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:57:09,267 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:57:09,267 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:57:12,706 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 12:57:51,315 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 12:57:52,317 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 12:57:52,375 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 12:57:52,919 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 12:57:52,920 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 12:57:56,100 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 13:00:08,624 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 13:00:09,710 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 13:00:09,801 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 13:00:10,472 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 13:00:10,472 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 13:00:14,344 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 13:01:27,063 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 13:01:28,036 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 13:01:28,090 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 13:01:28,637 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 13:01:28,637 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 13:01:31,954 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
-2020-12-17 13:02:49,964 :INFO : test_circuitinfo :Starting Validation
-2020-12-17 13:02:51,476 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the scope version: 2020-11-07-V-01
-2020-12-17 13:02:51,532 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
-2020-12-17 13:02:52,283 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-psps-data-dev/dev/data/pspsdatasync-v4/parquet/onetimeload/part-hfra.parquet
-2020-12-17 13:02:52,283 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
-2020-12-17 13:02:56,732 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
+2021-01-21 15:47:32,857 :INFO : test_circuitinfo :Starting Validation
+2021-01-21 15:47:34,448 :INFO : test_circuitinfo :Timeplace details are : Auto_TP_20210121_134458
+2021-01-21 15:47:35,281 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the timeplaceid: 2020-11-07-TP-01
+2021-01-21 15:47:35,369 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
+2021-01-21 15:47:35,913 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-datastore-tst/psps/data/onetimeload/part-hfra.parquet
+2021-01-21 15:47:35,914 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 15:47:40,066 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
+2021-01-21 15:47:42,067 :INFO : test_circuitinfo :Starting to load HFRA layer
+2021-01-21 15:47:50,135 :INFO : test_circuitinfo :Intersection done on Meterology tp and HFRA layer
+2021-01-21 15:47:59,903 :INFO : test_circuitinfo :Filename for priohconductor active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/part-priOHConductor.parquet
+2021-01-21 15:48:01,520 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 15:49:03,617 :INFO : test_circuitinfo :Downloaded priohconductor parquet file from S3
+2021-01-21 15:49:10,811 :INFO : test_circuitinfo :Starting to load OH Conductor file
+2021-01-21 15:51:11,668 :INFO : test_circuitinfo :Starting Validation
+2021-01-21 15:51:12,232 :INFO : test_circuitinfo :Timeplace details are : Auto_TP_20210121_134458
+2021-01-21 15:51:14,300 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the timeplaceid: 2020-11-07-TP-01
+2021-01-21 15:51:14,422 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
+2021-01-21 15:51:15,681 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-datastore-tst/psps/data/onetimeload/part-hfra.parquet
+2021-01-21 15:51:15,681 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 15:51:20,977 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
+2021-01-21 15:51:22,977 :INFO : test_circuitinfo :Starting to load HFRA layer
+2021-01-21 15:51:32,440 :INFO : test_circuitinfo :Intersection done on Meterology tp and HFRA layer
+2021-01-21 15:51:32,983 :INFO : test_circuitinfo :Filename for priohconductor active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/part-priOHConductor.parquet
+2021-01-21 15:51:32,984 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 15:51:56,033 :INFO : test_circuitinfo :Downloaded priohconductor parquet file from S3
+2021-01-21 15:52:01,033 :INFO : test_circuitinfo :Starting to load OH Conductor file
+2021-01-21 15:54:41,523 :INFO : test_circuitinfo :Starting Validation
+2021-01-21 15:54:41,938 :INFO : test_circuitinfo :Timeplace details are : Auto_TP_20210121_134458
+2021-01-21 15:54:42,766 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the timeplaceid: 2020-11-07-TP-01
+2021-01-21 15:54:42,835 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
+2021-01-21 15:54:43,380 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-datastore-tst/psps/data/onetimeload/part-hfra.parquet
+2021-01-21 15:54:43,381 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 15:54:47,204 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
+2021-01-21 15:54:49,205 :INFO : test_circuitinfo :Starting to load HFRA layer
+2021-01-21 15:54:55,189 :INFO : test_circuitinfo :Intersection done on Meterology tp and HFRA layer
+2021-01-21 15:54:55,701 :INFO : test_circuitinfo :Filename for priohconductor active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/part-priOHConductor.parquet
+2021-01-21 15:54:55,702 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 15:55:17,225 :INFO : test_circuitinfo :Downloaded priohconductor parquet file from S3
+2021-01-21 15:55:22,226 :INFO : test_circuitinfo :Starting to load OH Conductor file
+2021-01-21 16:07:24,868 :INFO : test_circuitinfo :Starting Validation
+2021-01-21 16:07:25,942 :INFO : test_circuitinfo :Timeplace details are : Auto_TP_20210121_134458
+2021-01-21 16:07:26,922 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the timeplaceid: 2020-11-07-TP-01
+2021-01-21 16:07:27,083 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
+2021-01-21 16:07:27,595 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-datastore-tst/psps/data/onetimeload/part-hfra.parquet
+2021-01-21 16:07:27,597 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 16:07:32,734 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
+2021-01-21 16:07:34,736 :INFO : test_circuitinfo :Starting to load HFRA layer
+2021-01-21 16:07:45,478 :INFO : test_circuitinfo :Intersection done on Meterology tp and HFRA layer
+2021-01-21 16:07:53,028 :INFO : test_circuitinfo :Filename for ohconductor active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_ohconductor/
+2021-01-21 16:07:53,989 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 16:08:37,422 :INFO : test_circuitinfo :Downloaded ohconductor parquet file from S3
+2021-01-21 16:08:43,817 :INFO : test_circuitinfo :Starting to load OH Conductor file
+2021-01-21 16:11:08,987 :INFO : test_circuitinfo :Starting Validation
+2021-01-21 16:11:10,309 :INFO : test_circuitinfo :Timeplace details are : Auto_TP_20210121_134458
+2021-01-21 16:11:11,207 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the timeplaceid: 2020-11-07-TP-01
+2021-01-21 16:11:11,385 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
+2021-01-21 16:11:11,907 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-datastore-tst/psps/data/onetimeload/part-hfra.parquet
+2021-01-21 16:11:11,908 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 16:11:17,254 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
+2021-01-21 16:11:19,255 :INFO : test_circuitinfo :Starting to load HFRA layer
+2021-01-21 16:11:31,219 :INFO : test_circuitinfo :Intersection done on Meterology tp and HFRA layer
+2021-01-21 16:11:31,781 :INFO : test_circuitinfo :Filename for ohconductor active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_ohconductor/
+2021-01-21 16:11:31,782 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 16:19:07,179 :INFO : test_circuitinfo :Starting Validation
+2021-01-21 16:19:07,746 :INFO : test_circuitinfo :Timeplace details are : Auto_TP_20210121_134458
+2021-01-21 16:19:08,753 :INFO : test_circuitinfo :Data from Meteorology db is retrieved for the timeplaceid: 2020-11-07-TP-01
+2021-01-21 16:19:08,958 :INFO : test_circuitinfo :Conversion of Meteorology data to shape is completed and stored in meterologyshape folder
+2021-01-21 16:19:09,475 :INFO : test_circuitinfo :Filename for HFRA active table is : s3://geomartcloud-datastore-tst/psps/data/onetimeload/part-hfra.parquet
+2021-01-21 16:19:09,476 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 16:19:13,695 :INFO : test_circuitinfo :Downloaded hfra parquet file from S3
+2021-01-21 16:19:15,698 :INFO : test_circuitinfo :Starting to load HFRA layer
+2021-01-21 16:19:26,985 :INFO : test_circuitinfo :Intersection done on Meterology tp and HFRA layer
+2021-01-21 16:19:27,544 :INFO : test_circuitinfo :Filename for ohconductor active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/ssd_ohconductor/
+2021-01-21 16:19:27,544 :INFO : test_circuitinfo :-----------------------------------------------------------------------------------------------
+2021-01-21 16:19:39,617 :INFO : test_circuitinfo :Downloaded ohconductor parquet file from S3
+2021-01-21 16:20:44,810 :INFO : test_circuitinfo :Starting to load OH Conductor file

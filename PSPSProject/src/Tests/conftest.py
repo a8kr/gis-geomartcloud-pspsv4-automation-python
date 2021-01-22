@@ -195,15 +195,15 @@ def config_met(filename='database.ini'):
     try:
         env = testEnvironment()
         if env[0].upper() == "QA":
-            section = 'postgresql-qa'
+            section = ''
         elif env[0].upper() == "TEST":
-            section = 'postgresql-metrologydb'
+            section = 'postgresql-mettstdb'
         elif env[0].upper() == "DEV":
             section = 'postgresql-metdevdb'
         elif env[0].upper() == "PROD":
-            section = 'postgresql-prod'
+            section = ''
         else:
-            section = 'postgresql-test'
+            section = 'postgresql-mettstdb'
     except(ValueError, Exception):
         section = 'postgresql-test'
     parser = ConfigParser(interpolation=None)

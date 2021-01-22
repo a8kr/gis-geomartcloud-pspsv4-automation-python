@@ -54,6 +54,8 @@ class locators:
     view_psps_scope_modal_create_button = "//span[contains(text(),'CREATE')]"
     view_psps_scope_modal_back_button = "//span[contains(text(),'BACK')]"
     view_psps_scope_modal_status_message = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[2]/div/div"
+    view_psps_scope_modal_dropdown = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[1]/div/div/div[1]/div/div[2]/div/div"
+    view_psps_scope_modal_dd_timeplaceid = "//*[@id='menu-']/div[3]/ul/li[3]"
 
     # New Event tab
     new_event_tab = "//span[contains(text(),'New Event')]"
