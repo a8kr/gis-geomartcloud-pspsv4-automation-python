@@ -59,13 +59,13 @@ class TestDefaultDeviceValidation(BaseClass):
         var_nooftps = readData(testDatafilePath, "Data", var_row, 6)
         timeplace = readData(testDatafilePath, "Data", var_row, 7)
         var_dmfile = readData(testDatafilePath, "Data", var_row, 9)
-        scopetpname = readData(testDatafilePath, "Data", var_row, 10)
+        tpid = readData(testDatafilePath, "Data", var_row, 10)
 
         if var_dmfile is None or var_dmfile == "":
+            log.info("default circuits are fetched from system")
+        else:
             status = defmanagement.dm_uploadfile(var_dmfile)
             log.info("Default circuits are uploaded from UI and status of upload is: " + status)
-        else:
-            log.info("default circuits are fetched from system")
 
         for i in range(var_nooftps):
             if i > 0:
@@ -73,17 +73,14 @@ class TestDefaultDeviceValidation(BaseClass):
                 time.sleep(3)
             if timeplace is None or timeplace == "":
                 homepage.navigate_eventManagement()
-                var_tpcreation = eventmanagement.TimePlaceCreation(scopetpname)
-                timeplace = var_tpcreation[1]
-                get_status = queries.get_tp_status % timeplace
-                status = queryresults_get_data(get_status)
-                if status == "Failed":
-                    log.error("Timeplace creation Failed")
-                elif status == "Completed":
-                    log.info("Timeplace creation is successful and status is: " + status)
-                log.info("Timeplace creation is successful and timeplacename is: " + var_tpcreation[1])
+                var_tpcreation = eventmanagement.TimePlaceCreation(tpid)
+                timeplace = var_tpcreation[3]
+                timetaken = var_tpcreation[1]
+                log.info("Timeplace creation is successful and timeplacename is: " + var_tpcreation[3])
+                log.info("Time taken to create Timeplace is: " + var_tpcreation[1])
                 var_tp_array.append(timeplace)
             else:
+                log.info("Timeplace details are : " + timeplace)
                 var_tp_array.append(timeplace)
 
         # Get the latest table filepaths from db
@@ -111,9 +108,9 @@ class TestDefaultDeviceValidation(BaseClass):
         profilename = s3config()['profile_name']
         defaultmanagementcircuitslocalpath = downloadsfolderPath + "\\defaultmanagement-circuits" + "\\" + filename
         defaultmngtcircuits = downloadsfolderPath + "\\defaultmanagement-circuits"
-        deleteFolder(defaultmngtcircuits)
-        create_folder(defaultmngtcircuits)
-        download_file_from_S3(s3_bucketname, BUCKET_PATH, filename, defaultmanagementcircuitslocalpath, profilename)
+        # deleteFolder(defaultmngtcircuits)
+        # create_folder(defaultmngtcircuits)
+        # download_file_from_S3(s3_bucketname, BUCKET_PATH, filename, defaultmanagementcircuitslocalpath, profilename)
         log.info("Downloaded defaultmanagement-circuits parquet file from S3")
 
         # Download feederdevices parquet file
@@ -123,9 +120,9 @@ class TestDefaultDeviceValidation(BaseClass):
         feederdevicesBUCKET_PATH = feederdevicestablefilename
         profilename = s3config()['profile_name']
         feederdevices = downloadsfolderPath + "\\feederdevices"
-        deleteFolder(feederdevices)
-        create_folder(feederdevices)
-        download_dir_from_S3(feederdevicesBUCKET_PATH, s3_bucketname, profilename, feederdevices)
+        # deleteFolder(feederdevices)
+        # create_folder(feederdevices)
+        # download_dir_from_S3(feederdevicesBUCKET_PATH, s3_bucketname, profilename, feederdevices)
         log.info("Downloaded feederdevices parquet file from S3")
 
         # Get Timeplace UID and Timeplace ID for the required timeplace
@@ -156,7 +153,6 @@ class TestDefaultDeviceValidation(BaseClass):
 
             # Download parent circuits file for the timeplace from S3 bucket
             filename = str(var_tp_id) + "/" + str(var_tp_uid) + "/meteorology/meteorology_" + str(var_tp_uid) + "/"
-            # filename = "131/151/circuits/circuits_151/"
             s3 = boto3.client('s3')
             s3_resource = boto3.resource("s3")
             s3_bucketname = s3config()['datastorebucketname']
@@ -376,3 +372,45 @@ class TestDefaultDeviceValidation(BaseClass):
             finalcircuitslist = finalcircuitslist.drop_duplicates(subset=['circuitid', 'opnum', 'devicetype'],
                                                                   keep='first')
             finalcircuitslist.to_csv(downloadsfolderPath + '\\finaldefaultcircuits.csv', index=False)
+            autofile = pd.read_csv(downloadsfolderPath + '\\finaldefaultcircuits.csv')
+            actualcircuitscount = autofile.shape[0]
+            log.info("Automation file Count of records is: " + str(actualcircuitscount))
+
+            dev_circuits = spark.sql("""SELECT timeplace_foreignkey, circuitid, circuitname, 
+            substationname, transmissionimpact,division,source_min_branch,source_max_branch,source_order_num,
+            source_treelevel,additional_max_branch,additional_min_branch,additional_order_num,additional_treelevel,
+            source_isolation_device,additional_isolation_device,source_isolation_device_type,
+            additional_isolation_device_type,flag,parentfeederfedby,parentcircuitid,tempgenname,comments FROM 
+            timeplace_circuits where parentcircuitid is not null and parentcircuitid <> '' """)
+            dev_circuits.createOrReplaceTempView("dev_circuits")
+            devtempfolder = downloadsfolderPath + '\\dev_circuits'
+            dev_circuits.coalesce(1).write.option("header", "true").format("csv").mode(
+                "overwrite").save(devtempfolder)
+            log.info("Dev file circuits are stored in 'dev_circuits.csv' file")
+            devcircuits = os.listdir(devtempfolder)
+            for file in devcircuits:
+                if file.endswith('csv'):
+                    break
+            devcircuitscsv = downloadsfolderPath + '\\dev_circuits' + '/' + file
+            devcircuits_exp = pd.read_csv(devcircuitscsv)
+            devcircuitscount = devcircuits_exp.shape[0]
+            log.info("Dev file Count of records is: " + str(devcircuitscount))
+            if str(actualcircuitscount) == str(devcircuitscount):
+                log.info("Total circuits count matched between Actual and Expected report and count is: " + str(actualcircuitscount))
+                df1 = pd.merge(autofile, devcircuits_exp,
+                               on=['circuitid', 'source_min_branch', 'source_max_branch', 'source_order_num', 'source_treelevel', 'source_isolation_device', 'source_isolation_device_type'], how='outer', indicator=True)
+                df1 = df1[df1['_merge'] != 'both']
+                if len(df1) == 0:
+                    log.info("All the circuit info matched")
+                else:
+                    mismatchcircuits = downloadsfolderPath + "\\mismatchcircuits"
+                    deleteFolder(mismatchcircuits)
+                    create_folder(mismatchcircuits)
+                    df1.to_csv(mismatchcircuits + '/mismatchcircuits.csv')
+                    log.error("All the circuits not matched and mismatched circuits are: " + str(df1))
+                    final_assert.append(False)
+        if var_execution_flag == 'fail':
+            log.error("Execution failed: Errors found in execution!!")
+            assert False
+        log.info("----------------------------------------------------------------------------------------------")
+        log.info("*************AUTOMATION EXECUTION COMPLETED*************")

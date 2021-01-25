@@ -1,0 +1,89 @@
+2021-01-21 22:54:06,338 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-21 22:55:43,603 :INFO : test_defaultdevicevalidation :Default circuits are uploaded from UI and status of upload is: Default devices data uploaded successfully
+2021-01-21 23:03:24,684 :INFO : test_defaultdevicevalidation :Timeplace creation is successful and timeplacename is: Auto_TP_20210121_225550
+2021-01-21 23:03:24,684 :INFO : test_defaultdevicevalidation :Time taken to create Timeplace is: 00:07:03
+2021-01-21 23:03:25,230 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-tst/reports/defaultmanagement/defaultmanagement_circuit_01_21_2021_22_55_29.parquet
+2021-01-21 23:03:25,231 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:03:25,703 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-21 23:03:25,703 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:03:27,605 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2021-01-21 23:03:42,483 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2021-01-21 23:03:43,052 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Auto_TP_20210121_225550 is: 233
+2021-01-21 23:03:43,052 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Auto_TP_20210121_225550 is: 171
+2021-01-21 23:03:43,052 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-tst/reports/timeplacecreation/171/233/meteorology/meteorology_233
+2021-01-21 23:03:43,053 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:03:44,557 :INFO : test_defaultdevicevalidation :Downloaded circuits parquet file from S3
+2021-01-21 23:03:45,947 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2021-01-21 23:03:54,622 :INFO : test_defaultdevicevalidation :Spark session connected
+2021-01-21 23:03:57,922 :INFO : test_defaultdevicevalidation :Expected Circuits file is downloaded from S3 and stored in Expected_circuits folder
+2021-01-21 23:03:59,147 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2021-01-21 23:04:00,400 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2021-01-21 23:04:00,473 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified
+2021-01-21 23:04:00,592 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done
+2021-01-21 23:04:00,643 :INFO : test_defaultdevicevalidation :Non Default devices are filtered
+2021-01-21 23:04:00,744 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2021-01-21 23:04:00,798 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done
+2021-01-21 23:04:00,834 :INFO : test_defaultdevicevalidation :Filtered with devices where operable is M or Y
+2021-01-21 23:04:00,880 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified
+2021-01-21 23:04:01,072 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done
+2021-01-21 23:04:23,620 :INFO : test_defaultdevicevalidation :Join Default intersected and defaultcircuits_upstream and orderby order_num asc is done and csv is stored in defaultcircuits_union folder
+2021-01-21 23:27:08,599 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-21 23:27:08,810 :INFO : test_defaultdevicevalidation :default circuits are fetched from system
+2021-01-21 23:27:08,810 :INFO : test_defaultdevicevalidation :Timeplace details are : Auto_TP_20210121_225550
+2021-01-21 23:27:09,637 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-tst/reports/defaultmanagement/defaultmanagement_circuit_01_21_2021_22_55_29.parquet
+2021-01-21 23:27:09,637 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:27:10,154 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-21 23:27:10,154 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:27:12,043 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2021-01-21 23:27:23,479 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2021-01-21 23:27:24,036 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Auto_TP_20210121_225550 is: 233
+2021-01-21 23:27:24,036 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Auto_TP_20210121_225550 is: 171
+2021-01-21 23:27:24,036 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-tst/reports/timeplacecreation/171/233/meteorology/meteorology_233
+2021-01-21 23:27:24,036 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:27:26,283 :INFO : test_defaultdevicevalidation :Downloaded circuits parquet file from S3
+2021-01-21 23:27:27,887 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2021-01-21 23:27:32,502 :INFO : test_defaultdevicevalidation :Spark session connected
+2021-01-21 23:27:35,848 :INFO : test_defaultdevicevalidation :Expected Circuits file is downloaded from S3 and stored in Expected_circuits folder
+2021-01-21 23:27:36,983 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2021-01-21 23:27:38,062 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2021-01-21 23:27:38,131 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified
+2021-01-21 23:27:38,247 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done
+2021-01-21 23:27:38,294 :INFO : test_defaultdevicevalidation :Non Default devices are filtered
+2021-01-21 23:27:38,379 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2021-01-21 23:27:38,432 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done
+2021-01-21 23:27:38,463 :INFO : test_defaultdevicevalidation :Filtered with devices where operable is M or Y
+2021-01-21 23:27:38,501 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified
+2021-01-21 23:27:38,755 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done
+2021-01-21 23:28:00,598 :INFO : test_defaultdevicevalidation :Join Default intersected and defaultcircuits_upstream and orderby order_num asc is done and csv is stored in defaultcircuits_union folder
+2021-01-21 23:28:00,981 :INFO : test_defaultdevicevalidation :Automation file Count of records is: 241
+2021-01-21 23:28:01,325 :INFO : test_defaultdevicevalidation :Dev file circuits are stored in 'dev_circuits.csv' file
+2021-01-21 23:32:43,205 :INFO : test_defaultdevicevalidation :Starting Validation
+2021-01-21 23:32:43,395 :INFO : test_defaultdevicevalidation :default circuits are fetched from system
+2021-01-21 23:32:43,395 :INFO : test_defaultdevicevalidation :Timeplace details are : Auto_TP_20210121_225550
+2021-01-21 23:32:43,920 :INFO : test_defaultdevicevalidation :Filename for Default Management active table is : s3://psps-datastore-tst/reports/defaultmanagement/defaultmanagement_circuit_01_21_2021_22_55_29.parquet
+2021-01-21 23:32:43,920 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:32:44,399 :INFO : test_defaultdevicevalidation :Filename for Feeder Network Trace - Devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0105_1910/feederNetwork_device/
+2021-01-21 23:32:44,399 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:32:45,142 :INFO : test_defaultdevicevalidation :Downloaded defaultmanagement-circuits parquet file from S3
+2021-01-21 23:32:45,150 :INFO : test_defaultdevicevalidation :Downloaded feederdevices parquet file from S3
+2021-01-21 23:32:45,678 :INFO : test_defaultdevicevalidation :Timeplace UID for timeplace: Auto_TP_20210121_225550 is: 233
+2021-01-21 23:32:45,678 :INFO : test_defaultdevicevalidation :Timeplace ID for timeplace: Auto_TP_20210121_225550 is: 171
+2021-01-21 23:32:45,678 :INFO : test_defaultdevicevalidation :Output Meteorology path is : s3://psps-datastore-tst/reports/timeplacecreation/171/233/meteorology/meteorology_233
+2021-01-21 23:32:45,678 :INFO : test_defaultdevicevalidation :-----------------------------------------------------------------------------------------------
+2021-01-21 23:32:47,139 :INFO : test_defaultdevicevalidation :Downloaded circuits parquet file from S3
+2021-01-21 23:32:48,486 :INFO : test_defaultdevicevalidation :Downloaded meteorology circuits(parent) parquet file from S3
+2021-01-21 23:32:53,144 :INFO : test_defaultdevicevalidation :Spark session connected
+2021-01-21 23:32:57,028 :INFO : test_defaultdevicevalidation :Expected Circuits file is downloaded from S3 and stored in Expected_circuits folder
+2021-01-21 23:33:00,338 :INFO : test_defaultdevicevalidation :Converted Intermediate meteorology csv to parquet file
+2021-01-21 23:33:03,266 :INFO : test_defaultdevicevalidation :List of meteorologycircuits after adding CircuitUID
+2021-01-21 23:33:03,496 :INFO : test_defaultdevicevalidation :List of default devices from intersected circuits are identified
+2021-01-21 23:33:03,796 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in intersected circuits list is done
+2021-01-21 23:33:03,925 :INFO : test_defaultdevicevalidation :Non Default devices are filtered
+2021-01-21 23:33:04,168 :INFO : test_defaultdevicevalidation :Read feederdevice parquet files and creating temp table is completed
+2021-01-21 23:33:04,352 :INFO : test_defaultdevicevalidation :Upstream Tracing and removal of non operable is done
+2021-01-21 23:33:04,481 :INFO : test_defaultdevicevalidation :Filtered with devices where operable is M or Y
+2021-01-21 23:33:04,608 :INFO : test_defaultdevicevalidation :List of default devices from upstream circuits are identified
+2021-01-21 23:33:05,174 :INFO : test_defaultdevicevalidation :Removal of circuits if already present in upstream circuits list is done
+2021-01-21 23:33:42,477 :INFO : test_defaultdevicevalidation :Join Default intersected and defaultcircuits_upstream and orderby order_num asc is done and csv is stored in defaultcircuits_union folder
+2021-01-21 23:33:43,715 :INFO : test_defaultdevicevalidation :Automation file Count of records is: 241
+2021-01-21 23:33:44,924 :INFO : test_defaultdevicevalidation :Dev file circuits are stored in 'dev_circuits.csv' file

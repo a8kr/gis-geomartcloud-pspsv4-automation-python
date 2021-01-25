@@ -281,6 +281,7 @@ class TestFeederFedBy(BaseClass):
                     "overwrite").save(tempfolder)
                 df_tempCircuitInfoTableName.cache()
 
+                # Do upstream tracing
                 final_circuitTable = spark.sql("""  SELECT 
                                                         ce.circuitinfo_uid,
                                                         ce.timeplace_foreignkey,
