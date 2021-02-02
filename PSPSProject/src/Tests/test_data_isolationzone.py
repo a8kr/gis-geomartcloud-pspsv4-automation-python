@@ -158,7 +158,7 @@ class TestIsolationZone(BaseClass):
             BUCKET_PATH = s3config()['tpbucketpath']
             isozonepath = BUCKET_PATH + isozonefilename
             profilename = s3config()['profile_name']
-            local_folder = downloadsfolderPath + "isolationZonecircuits_" + str(var_tp_uid)
+            local_folder = downloadsfolderPath + "\\isolationZonecircuits_" + str(var_tp_uid)
             deleteFolder(local_folder)
             download_dir_from_S3(isozonepath, s3_bucketname, profilename, local_folder)
             log.info("Downloaded isolation Zone circuits parquet file from S3")
