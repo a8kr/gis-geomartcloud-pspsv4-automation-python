@@ -364,7 +364,7 @@ class ImportTool(object):
             schema = table.schema
             for field in schema:
                 p_name = field.name
-                if p_name == "objectid":
+                if p_name == "OBJECTID":
                     a_name = f"OBJECTID_{object_id}"
                     object_id += 1
                 elif prog.match(p_name):
@@ -396,9 +396,9 @@ class ImportTool(object):
                     table = pq.read_table(f)
                     arcpy.AddMessage(f"{part} rows = {table.num_rows}")
                     pydict = table.to_pydict()
+                    pydict['globalid'] = [float(_) for _ in pydict['globalid']]
                     for i in range(table.num_rows):
                         row = [pydict[c][i] for c in pq_fields]
-                        pydict['globalid'] = [float(_) for _ in pydict['globalid']]
                         # try:
                         cursor.insertRow(row)
                         nume += 1
@@ -420,4 +420,4 @@ class ImportTool(object):
             parameters[0].symbology = str(symbology)
         parameters[0].value = fc
         return fc
-        #arcpy.ResetProgressor()
+        # arcpy.ResetProgressor()
