@@ -675,7 +675,6 @@ class TestCircuitInfo(BaseClass):
                                                       'substationname'], index=False)
 
         # Remove_duplicates_df_new = pd.read_csv(verify_output_file_ND)
-        log.info(
-            "Completed Comparing two files and the mismatched data could be found in MismatchFile folder in downloads folder")
+        log.info("Completed Comparing two files and the mismatched data could be found in MismatchFile folder in downloads folder")
         log.info("----------------------------------------------------------------------------------------------")
         log.info("*************AUTOMATION EXECUTION COMPLETED*************")

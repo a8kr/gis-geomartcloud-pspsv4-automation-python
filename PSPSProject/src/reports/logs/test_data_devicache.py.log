@@ -1,0 +1,22 @@
+2021-02-02 10:47:51,387 :INFO : test_devicecache :Starting Validation
+2021-02-02 10:55:43,919 :INFO : test_devicecache :Timeplace creation is successful and timeplacename is: Auto_TP_20210202_104759
+2021-02-02 10:55:43,919 :INFO : test_devicecache :Time taken to create Timeplace is: 00:06:56
+2021-02-02 10:55:44,461 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0128_1509/feederNetwork_transformer.parquet
+2021-02-02 10:55:44,462 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-02-02 10:56:01,673 :INFO : test_devicecache :Downloaded feederNetwork_transformer parquet file from S3
+2021-02-02 10:56:02,367 :INFO : test_devicecache :Timeplace UID for timeplace: Auto_TP_20210202_104759 is: 256
+2021-02-02 10:56:02,368 :INFO : test_devicecache :Timeplace ID for timeplace: Auto_TP_20210202_104759 is: 192
+2021-02-02 10:56:02,368 :INFO : test_devicecache :Meteorology Timeplace ID is: 2020-11-07-TP-01
+2021-02-02 10:56:02,368 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-02-02 10:56:03,944 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-02-02 10:57:08,136 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-02-02 10:57:34,627 :INFO : test_devicecache :Spark session connected
+2021-02-02 10:57:40,225 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-02-02 10:57:41,451 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-02-02 10:57:58,182 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-02-02 10:57:59,194 :INFO : test_devicecache :Automation file Count of records is: 65051
+2021-02-02 10:57:59,194 :INFO : test_devicecache :Dev file Count of records is: 65051
+2021-02-02 10:57:59,194 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 65051
+2021-02-02 10:57:59,666 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-02-02 10:57:59,667 :INFO : test_devicecache :----------------------------------------------------------------------------------------------
+2021-02-02 10:57:59,667 :INFO : test_devicecache :*************AUTOMATION EXECUTION COMPLETED*************

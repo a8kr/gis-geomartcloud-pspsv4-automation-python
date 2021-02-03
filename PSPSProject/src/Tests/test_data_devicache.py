@@ -194,6 +194,11 @@ class TestDeviceCache(BaseClass):
                 tempfolder)
             log.info("Downstream tracing to identify transformers is completed")
 
+            # stop OP Num logic:
+            # 1. circuits stop opn and min max values and again downstream
+            # 2. Remove duplicates from above steps
+            # 3. Common transformers
+
             # Store df_tempdevicecachedata csv to dataframe
             tempfolder = downloadsfolderPath + '\\df_tempdevicecachedata'
             devicecachecircuits = os.listdir(tempfolder)

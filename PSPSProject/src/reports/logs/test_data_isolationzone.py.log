@@ -1,0 +1,21 @@
+2021-02-02 12:18:18,830 :INFO : test_isolationzone :Starting Validation
+2021-02-02 12:18:18,973 :INFO : test_isolationzone :Timeplace details are : Auto_TP_20210202_104759
+2021-02-02 12:18:19,563 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0128_1509/feederNetwork_device/
+2021-02-02 12:18:19,563 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-02-02 12:18:33,662 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
+2021-02-02 12:18:34,189 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0128_1509/ssd_isolation/
+2021-02-02 12:18:34,189 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-02-02 12:18:54,957 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-02-02 12:18:55,572 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210202_104759 is: 256
+2021-02-02 12:18:55,572 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210202_104759 is: 192
+2021-02-02 12:18:55,572 :INFO : test_isolationzone :Meteorology Timeplace ID is: 2020-11-07-TP-01
+2021-02-02 12:18:55,573 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-02-02 12:18:57,149 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-02-02 12:19:03,814 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-02-02 12:19:08,232 :INFO : test_isolationzone :Spark session connected
+2021-02-02 12:19:24,490 :INFO : test_isolationzone :Automation file Count of isolation zone records is: 15967
+2021-02-02 12:19:24,490 :INFO : test_isolationzone :Dev file Count of isolation zone records is: 15967
+2021-02-02 12:19:24,490 :INFO : test_isolationzone :Total isolation zone records count matched between Actual and Expected report and count is: 15967
+2021-02-02 12:19:24,622 :INFO : test_isolationzone :All the isolationzones matched
+2021-02-02 12:19:24,623 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
+2021-02-02 12:19:24,623 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************
