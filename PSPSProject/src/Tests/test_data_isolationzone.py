@@ -188,6 +188,11 @@ class TestIsolationZone(BaseClass):
                     var_tp_id) + "\\" + str(var_tp_uid) + "\\isolationZone\\isolationZone_" + str(var_tp_uid))
             df_isozonecircuits = spark.read.parquet(isolationzonefilepath)
             df_isozonecircuits.createOrReplaceTempView("isolationzonecircuits")
+            df_isozonecircuits = spark.sql("""SELECT isolationzone_uid,concat_circuitinfo_uid,circuitinfo_uid,timeplace_foreignkey,circuitId,
+            circuitname,source_isolation_device,source_isolation_device_type,deviceoperatingnumber,devicetype,additional_isolation_device,additional_isolation_device_type,
+            isolationzonename,flag,tempgenname,transmissionimpact,restorationzonename,tier2ohmiles,tier3ohmiles,totalohmiles,tier2ugmiles,tier3ugmiles,
+            totalugmiles,tier2ohpoles,tier3ohpoles,totalpoles,impacttype from isolationzonecircuits""")
+            df_isozonecircuits.createOrReplaceTempView("isolationzonecircuits")
             tempfolder = downloadsfolderPath + '\\devfile_isolationzonecircuits'
             df_isozonecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)

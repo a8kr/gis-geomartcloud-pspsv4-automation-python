@@ -1,104 +1,28 @@
-2021-02-02 12:18:18,830 :INFO : test_isolationzone :Starting Validation
-2021-02-02 12:18:18,973 :INFO : test_isolationzone :Timeplace details are : Auto_TP_20210202_104759
-2021-02-02 12:18:19,563 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0128_1509/feederNetwork_device/
-2021-02-02 12:18:19,563 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-02 12:18:33,662 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
-2021-02-02 12:18:34,189 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0128_1509/ssd_isolation/
-2021-02-02 12:18:34,189 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-02 12:18:54,957 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
-2021-02-02 12:18:55,572 :INFO : test_isolationzone :Timeplace UID for timeplace: Auto_TP_20210202_104759 is: 256
-2021-02-02 12:18:55,572 :INFO : test_isolationzone :Timeplace ID for timeplace: Auto_TP_20210202_104759 is: 192
-2021-02-02 12:18:55,572 :INFO : test_isolationzone :Meteorology Timeplace ID is: 2020-11-07-TP-01
-2021-02-02 12:18:55,573 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-02 12:18:57,149 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
-2021-02-02 12:19:03,814 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
-2021-02-02 12:19:08,232 :INFO : test_isolationzone :Spark session connected
-2021-02-02 12:19:24,490 :INFO : test_isolationzone :Automation file Count of isolation zone records is: 15967
-2021-02-02 12:19:24,490 :INFO : test_isolationzone :Dev file Count of isolation zone records is: 15967
-2021-02-02 12:19:24,490 :INFO : test_isolationzone :Total isolation zone records count matched between Actual and Expected report and count is: 15967
-2021-02-02 12:19:24,622 :INFO : test_isolationzone :All the isolationzones matched
-2021-02-02 12:19:24,623 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
-2021-02-02 12:19:24,623 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************
-2021-02-08 16:18:06,896 :INFO : test_isolationzone :Starting Validation
-2021-02-08 16:18:07,678 :INFO : test_isolationzone :Timeplace details are : maytest01
-2021-02-08 16:18:08,356 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_device/
-2021-02-08 16:18:08,357 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 16:19:38,787 :INFO : test_isolationzone :Starting Validation
-2021-02-08 16:19:39,744 :INFO : test_isolationzone :Timeplace details are : maytest01
-2021-02-08 16:19:40,347 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_device/
-2021-02-08 16:19:40,347 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 16:19:52,836 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
-2021-02-08 16:19:53,368 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/ssd_isolation/
-2021-02-08 16:19:53,369 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 16:20:16,830 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
-2021-02-08 16:20:17,398 :INFO : test_isolationzone :Timeplace UID for timeplace: maytest01 is: 244
-2021-02-08 16:20:17,399 :INFO : test_isolationzone :Timeplace ID for timeplace: maytest01 is: 180
-2021-02-08 16:20:17,399 :INFO : test_isolationzone :Meteorology Timeplace ID is: 2020-11-04-TP-01
-2021-02-08 16:20:17,399 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 16:20:19,057 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
-2021-02-08 16:20:43,614 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
-2021-02-08 16:21:07,655 :INFO : test_isolationzone :Spark session connected
-2021-02-08 16:21:26,594 :INFO : test_isolationzone :Automation file Count of isolation zone records is: 10761
-2021-02-08 16:21:26,595 :INFO : test_isolationzone :Dev file Count of isolation zone records is: 11256
-2021-02-08 16:21:26,595 :ERROR : test_isolationzone :Total isolationzones count not matched between Actual and Expected report
-2021-02-08 16:21:26,971 :ERROR : test_isolationzone :All the isolationzones not matched and mismatched isolationzones are:        isolationzone_uid_x concat_circuitinfo_uid_x  ...  impacttype_y      _merge
-8                      9.0                       17  ...           NaN   left_only
-14                    15.0                       17  ...           NaN   left_only
-28                    29.0                        8  ...           NaN   left_only
-30                    31.0                        3  ...           NaN   left_only
-45                    46.0                       51  ...           NaN   left_only
-...                    ...                      ...  ...           ...         ...
-11947                  NaN                      NaN  ...           NaN  right_only
-11948                  NaN                      NaN  ...           NaN  right_only
-11949                  NaN                      NaN  ...           NaN  right_only
-11950                  NaN                      NaN  ...           NaN  right_only
-11951                  NaN                      NaN  ...           NaN  right_only
+2021-02-08 22:13:59,077 :INFO : test_isolationzone :Starting Validation
+2021-02-08 22:13:59,223 :INFO : test_isolationzone :Timeplace details are : 18MAYTP1_Polygon_auto
+2021-02-08 22:14:00,061 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_device/
+2021-02-08 22:14:00,061 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-02-08 22:14:09,442 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
+2021-02-08 22:14:10,086 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/ssd_isolation/
+2021-02-08 22:14:10,086 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-02-08 22:14:35,065 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
+2021-02-08 22:14:35,530 :INFO : test_isolationzone :Timeplace UID for timeplace: 18MAYTP1_Polygon_auto is: 296
+2021-02-08 22:14:35,530 :INFO : test_isolationzone :Timeplace ID for timeplace: 18MAYTP1_Polygon_auto is: 232
+2021-02-08 22:14:35,530 :INFO : test_isolationzone :Meteorology Timeplace ID is: 2020-11-04-TP-01
+2021-02-08 22:14:35,530 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
+2021-02-08 22:14:36,834 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
+2021-02-08 22:14:42,973 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
+2021-02-08 22:14:51,679 :INFO : test_isolationzone :Spark session connected
+2021-02-08 22:15:07,789 :INFO : test_isolationzone :Automation file Count of isolation zone records is: 10877
+2021-02-08 22:15:07,790 :INFO : test_isolationzone :Dev file Count of isolation zone records is: 10872
+2021-02-08 22:15:07,790 :ERROR : test_isolationzone :Total isolationzones count not matched between Actual and Expected report
+2021-02-08 22:15:07,956 :ERROR : test_isolationzone :All the isolationzones not matched and mismatched isolationzones are:        isolationzone_uid_x concat_circuitinfo_uid_x  ...  impacttype_y      _merge
+10872                  NaN                      NaN  ...           NaN  right_only
+10873                  NaN                      NaN  ...           NaN  right_only
+10874                  NaN                      NaN  ...           NaN  right_only
+10875                  NaN                      NaN  ...           NaN  right_only
+10876                  NaN                      NaN  ...           NaN  right_only
 
-[1887 rows x 42 columns]
-2021-02-08 16:21:26,972 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
-2021-02-08 16:21:26,972 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************
-2021-02-08 17:20:50,193 :INFO : test_isolationzone :Starting Validation
-2021-02-08 17:20:50,371 :INFO : test_isolationzone :Timeplace details are : 18MAYTP1_Polygon_auto
-2021-02-08 17:20:50,931 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_device/
-2021-02-08 17:20:50,931 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:21:02,349 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
-2021-02-08 17:21:02,894 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/ssd_isolation/
-2021-02-08 17:21:02,894 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:21:25,765 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
-2021-02-08 17:21:26,436 :INFO : test_isolationzone :Timeplace UID for timeplace: 18MAYTP1_Polygon_auto is: 296
-2021-02-08 17:21:26,437 :INFO : test_isolationzone :Timeplace ID for timeplace: 18MAYTP1_Polygon_auto is: 232
-2021-02-08 17:21:26,437 :INFO : test_isolationzone :Meteorology Timeplace ID is: 2020-11-04-TP-01
-2021-02-08 17:21:26,437 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:21:27,919 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
-2021-02-08 17:21:36,501 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
-2021-02-08 17:21:42,941 :INFO : test_isolationzone :Spark session connected
-2021-02-08 17:23:34,057 :INFO : test_isolationzone :Starting Validation
-2021-02-08 17:23:34,619 :INFO : test_isolationzone :Timeplace details are : 18MAYTP1_Polygon_auto
-2021-02-08 17:23:35,188 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_device/
-2021-02-08 17:23:35,189 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:23:45,342 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
-2021-02-08 17:23:45,910 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/ssd_isolation/
-2021-02-08 17:23:45,911 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:24:08,948 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
-2021-02-08 17:24:09,490 :INFO : test_isolationzone :Timeplace UID for timeplace: 18MAYTP1_Polygon_auto is: 296
-2021-02-08 17:24:09,491 :INFO : test_isolationzone :Timeplace ID for timeplace: 18MAYTP1_Polygon_auto is: 232
-2021-02-08 17:24:09,492 :INFO : test_isolationzone :Meteorology Timeplace ID is: 2020-11-04-TP-01
-2021-02-08 17:24:09,493 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:24:11,050 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
-2021-02-08 17:24:22,654 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
-2021-02-08 17:24:33,282 :INFO : test_isolationzone :Spark session connected
-2021-02-08 17:25:50,445 :INFO : test_isolationzone :Starting Validation
-2021-02-08 17:25:50,719 :INFO : test_isolationzone :Timeplace details are : 18MAYTP1_Polygon_auto
-2021-02-08 17:25:51,285 :INFO : test_isolationzone :Filename for Feeder Network - devices active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_device/
-2021-02-08 17:25:51,285 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:26:05,765 :INFO : test_isolationzone :Downloaded feederNetwork_devices parquet file from S3
-2021-02-08 17:26:06,335 :INFO : test_isolationzone :Filename for ssd-isolationzone active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/ssd_isolation/
-2021-02-08 17:26:06,335 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:26:34,019 :INFO : test_isolationzone :Downloaded ssd_isolationzone parquet file from S3
-2021-02-08 17:26:34,627 :INFO : test_isolationzone :Timeplace UID for timeplace: 18MAYTP1_Polygon_auto is: 296
-2021-02-08 17:26:34,627 :INFO : test_isolationzone :Timeplace ID for timeplace: 18MAYTP1_Polygon_auto is: 232
-2021-02-08 17:26:34,627 :INFO : test_isolationzone :Meteorology Timeplace ID is: 2020-11-04-TP-01
-2021-02-08 17:26:34,628 :INFO : test_isolationzone :-----------------------------------------------------------------------------------------------
-2021-02-08 17:26:36,102 :INFO : test_isolationzone :Downloaded circuits parquet file from S3
-2021-02-08 17:26:43,022 :INFO : test_isolationzone :Downloaded isolation Zone circuits parquet file from S3
-2021-02-08 17:27:05,273 :INFO : test_isolationzone :Spark session connected
+[5 rows x 42 columns]
+2021-02-08 22:15:07,957 :INFO : test_isolationzone :----------------------------------------------------------------------------------------------
+2021-02-08 22:15:07,957 :INFO : test_isolationzone :*************AUTOMATION EXECUTION COMPLETED*************
