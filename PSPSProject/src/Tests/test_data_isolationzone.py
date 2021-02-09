@@ -219,7 +219,8 @@ class TestIsolationZone(BaseClass):
             and f.order_num <= c.source_order_num 
             and f.treelevel >= c.source_treelevel 
             and f.ASSETTYPE in ('Breaker','DPD','Fuse','Switch') 
-            and f.DEVICESTATUS = 'close'""")
+            and f.DEVICESTATUS = 'close'
+            and f.CONSTRUCTIONSTATUS in ('In Service','Idle')""")
             df_isolationzones.createOrReplaceTempView("isolationzones")
             tempfolder = downloadsfolderPath + '\\isolationzones_feederdevices'
             df_isolationzones.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(

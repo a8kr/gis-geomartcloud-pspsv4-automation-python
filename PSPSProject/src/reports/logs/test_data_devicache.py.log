@@ -20,3 +20,92 @@
 2021-02-02 10:57:59,666 :INFO : test_devicecache :All the transformer_primarymeterguid matched
 2021-02-02 10:57:59,667 :INFO : test_devicecache :----------------------------------------------------------------------------------------------
 2021-02-02 10:57:59,667 :INFO : test_devicecache :*************AUTOMATION EXECUTION COMPLETED*************
+2021-02-08 16:53:29,393 :INFO : test_devicecache :Starting Validation
+2021-02-08 16:53:29,932 :INFO : test_devicecache :Timeplace details are : maytest01
+2021-02-08 16:53:30,524 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_transformer.parquet
+2021-02-08 16:53:30,524 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-02-08 16:53:45,735 :INFO : test_devicecache :Downloaded feederNetwork_transformer parquet file from S3
+2021-02-08 16:53:46,303 :INFO : test_devicecache :Timeplace UID for timeplace: maytest01 is: 244
+2021-02-08 16:53:46,303 :INFO : test_devicecache :Timeplace ID for timeplace: maytest01 is: 180
+2021-02-08 16:53:46,303 :INFO : test_devicecache :Meteorology Timeplace ID is: 2020-11-04-TP-01
+2021-02-08 16:53:46,304 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-02-08 16:53:48,076 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-02-08 16:53:50,781 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-02-08 16:53:57,146 :INFO : test_devicecache :Spark session connected
+2021-02-08 16:54:01,270 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-02-08 16:54:02,121 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-02-08 16:54:11,582 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-02-08 16:54:12,823 :INFO : test_devicecache :Automation file Count of records is: 55933
+2021-02-08 16:54:12,823 :INFO : test_devicecache :Dev file Count of records is: 56043
+2021-02-08 16:54:12,823 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-02-08 16:54:13,414 :ERROR : test_devicecache :All the transformer_primarymeterguid not matched and mismatched transformers are:        devicecache_uid_x  ...      _merge
+4                    5.0  ...   left_only
+310                311.0  ...   left_only
+315                316.0  ...   left_only
+323                324.0  ...   left_only
+328                329.0  ...   left_only
+...                  ...  ...         ...
+56050                NaN  ...  right_only
+56051                NaN  ...  right_only
+56052                NaN  ...  right_only
+56053                NaN  ...  right_only
+56054                NaN  ...  right_only
+
+[134 rows x 23 columns]
+2021-02-08 16:54:13,415 :INFO : test_devicecache :----------------------------------------------------------------------------------------------
+2021-02-08 16:54:13,415 :INFO : test_devicecache :*************AUTOMATION EXECUTION COMPLETED*************
+2021-02-08 17:10:12,093 :INFO : test_devicecache :Starting Validation
+2021-02-08 17:10:12,337 :INFO : test_devicecache :Timeplace details are : 18MAYTP1_Polygon_auto
+2021-02-08 17:10:12,879 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_transformer.parquet
+2021-02-08 17:10:12,879 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-02-08 17:10:28,926 :INFO : test_devicecache :Downloaded feederNetwork_transformer parquet file from S3
+2021-02-08 17:10:29,607 :INFO : test_devicecache :Timeplace UID for timeplace: 18MAYTP1_Polygon_auto is: 296
+2021-02-08 17:10:29,607 :INFO : test_devicecache :Timeplace ID for timeplace: 18MAYTP1_Polygon_auto is: 232
+2021-02-08 17:10:29,608 :INFO : test_devicecache :Meteorology Timeplace ID is: 2020-11-04-TP-01
+2021-02-08 17:10:29,608 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-02-08 17:10:31,736 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-02-08 17:10:37,100 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-02-08 17:10:43,419 :INFO : test_devicecache :Spark session connected
+2021-02-08 17:10:47,690 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-02-08 17:10:48,936 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-02-08 17:11:00,408 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-02-08 17:11:01,076 :INFO : test_devicecache :Automation file Count of records is: 56033
+2021-02-08 17:11:01,076 :INFO : test_devicecache :Dev file Count of records is: 55268
+2021-02-08 17:11:01,076 :ERROR : test_devicecache :Total transformers count not matched between Actual and Expected Device cache report
+2021-02-08 17:11:01,379 :ERROR : test_devicecache :All the transformer_primarymeterguid not matched and mismatched transformers are:        devicecache_uid_x  ...      _merge
+55268                NaN  ...  right_only
+55269                NaN  ...  right_only
+55270                NaN  ...  right_only
+55271                NaN  ...  right_only
+55272                NaN  ...  right_only
+...                  ...  ...         ...
+56028                NaN  ...  right_only
+56029                NaN  ...  right_only
+56030                NaN  ...  right_only
+56031                NaN  ...  right_only
+56032                NaN  ...  right_only
+
+[765 rows x 25 columns]
+2021-02-08 17:11:01,379 :INFO : test_devicecache :----------------------------------------------------------------------------------------------
+2021-02-08 17:11:01,379 :INFO : test_devicecache :*************AUTOMATION EXECUTION COMPLETED*************
+2021-02-08 17:18:41,164 :INFO : test_devicecache :Starting Validation
+2021-02-08 17:18:41,635 :INFO : test_devicecache :Timeplace details are : 18MAYTP1_Polygon_auto
+2021-02-08 17:18:42,209 :INFO : test_devicecache :Filename for Feeder Network - transformers active table is : s3://geomartcloud-datastore-tst/psps/data/pspsdatasync/parquet/0206_1358/feederNetwork_transformer.parquet
+2021-02-08 17:18:42,209 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-02-08 17:18:58,999 :INFO : test_devicecache :Downloaded feederNetwork_transformer parquet file from S3
+2021-02-08 17:18:59,592 :INFO : test_devicecache :Timeplace UID for timeplace: 18MAYTP1_Polygon_auto is: 296
+2021-02-08 17:18:59,593 :INFO : test_devicecache :Timeplace ID for timeplace: 18MAYTP1_Polygon_auto is: 232
+2021-02-08 17:18:59,593 :INFO : test_devicecache :Meteorology Timeplace ID is: 2020-11-04-TP-01
+2021-02-08 17:18:59,593 :INFO : test_devicecache :-----------------------------------------------------------------------------------------------
+2021-02-08 17:19:01,523 :INFO : test_devicecache :Downloaded circuits parquet file from S3
+2021-02-08 17:19:06,344 :INFO : test_devicecache :Downloaded devicecache circuits parquet file from S3
+2021-02-08 17:19:14,102 :INFO : test_devicecache :Spark session connected
+2021-02-08 17:19:18,569 :INFO : test_devicecache :Fetched circuit info parquet file from S3
+2021-02-08 17:19:19,786 :INFO : test_devicecache :Fetched devicecache parquet file from S3
+2021-02-08 17:19:29,986 :INFO : test_devicecache :Downstream tracing to identify transformers is completed
+2021-02-08 17:19:30,707 :INFO : test_devicecache :Automation file Count of records is: 55268
+2021-02-08 17:19:30,707 :INFO : test_devicecache :Dev file Count of records is: 55268
+2021-02-08 17:19:30,707 :INFO : test_devicecache :Total transformers count matched between Actual and Expected Device cache report and count is: 55268
+2021-02-08 17:19:30,950 :INFO : test_devicecache :All the transformer_primarymeterguid matched
+2021-02-08 17:19:30,950 :INFO : test_devicecache :----------------------------------------------------------------------------------------------
+2021-02-08 17:19:30,950 :INFO : test_devicecache :*************AUTOMATION EXECUTION COMPLETED*************

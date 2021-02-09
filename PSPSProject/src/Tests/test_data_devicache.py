@@ -187,7 +187,8 @@ class TestDeviceCache(BaseClass):
                                             AND ft.ORDER_NUM <= c.source_order_num
                                             AND ft.MAX_BRANCH <= c.source_max_branch
                                             AND ft.MIN_BRANCH >= c.source_min_branch
-                                            AND ft.TO_FEATURE_FCID IN (1001,1014)""")
+                                            AND ft.TO_FEATURE_FCID IN (1001,1014)
+                                            AND ft.CONSTRUCTIONSTATUS IN ('In Service','Idle')""")
             df_tempdevicecachedata.createOrReplaceTempView("tempdevicecachedata")
             tempfolder = downloadsfolderPath + '\\df_tempdevicecachedata'
             df_tempdevicecachedata.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
