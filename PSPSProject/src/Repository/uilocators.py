@@ -55,7 +55,7 @@ class locators:
 
     # Time place View & Edit Tab
     view_timeplace_tab = "//*[@id='root']/div[1]/div/div[2]/div/div/div/button[2]"
-    view_timeplace_search = "//*[@id=/root/]/div[1]/div/div[3]/div/div/div[1]/div/div/div[1]/div/div/div[1]/div/div[1]/div/div/div/input"
+    view_timeplace_search = "//div[1]/div/div/div[1]/div/div[1]/div/div/div/input"
     view_time_place_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div/div[1]/div/div/div[1]/div/div/div[2]/div/div[1]/div/div[1]"
     view_time_place_upload_file_tab = "//span[contains(text(),'UPLOAD A FILE')]"
     view_time_place_view_scope_tab = "//span[contains(text(),'VIEW PSPS SCOPE')]"
