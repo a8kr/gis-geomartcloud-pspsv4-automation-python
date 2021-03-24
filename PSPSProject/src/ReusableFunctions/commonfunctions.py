@@ -246,33 +246,33 @@ def unzip_file(filename, extract_to_directory):
         print(files)
     return count, files
 
-def metaData_modal_Reports_with_flag_and_calender(self):
-    try:
-        date_value_today = getcurrentTimevalue()
-        date_value = getTimeAddedvalue(day_count)
-        self.Click(locators.md_estshutoffstarttime_date_txt)
-
-        self.setText(getTimeAddedvalue(day_count), locators.md_estshutoffstarttime_date_txt)
-        print("Clicked Estimated Shut Off Start Time")
-        self.Click(locators.md_estshutoffendtime_date_txt)
-        self.setText(getTimeAddedvalue(day_count, 1), locators.md_estshutoffendtime_date_txt)
-        print("Clicked Estimated Shut Off end Time")
-        self.Click(locators.md_allclear_date_txt)
-        self.setText(getTimeAddedvalue(day_count, 2), locators.md_allclear_date_txt)
-        print("Clicked All clear")
-        self.Click(locators.md_etor_date_txt)
-        self.setText(getTimeAddedvalue(day_count, 3), locators.md_etor_date_txt)
-        print("Clicked ETOR")
-        self.setText("Automation", locators.md_input_Comments)
-        print("Entered Comments:  ")
-        self.select_flag(flag_value)
-        print("Selected Flag: %s " % str(flag_value))
-        time.sleep(2)
-        self.Click(locators.md_btn_Save)
-        print("Clicked on Save meta data button")
-    except(ValueError, Exception):
-        return False
-    return True
+# def metaData_modal_Reports_with_flag_and_calender(self):
+#     try:
+#         date_value_today = getcurrentTimevalue()
+#         date_value = getTimeAddedvalue(day_count)
+#         self.Click(locators.md_estshutoffstarttime_date_txt)
+#
+#         self.setText(getTimeAddedvalue(day_count), locators.md_estshutoffstarttime_date_txt)
+#         print("Clicked Estimated Shut Off Start Time")
+#         self.Click(locators.md_estshutoffendtime_date_txt)
+#         self.setText(getTimeAddedvalue(day_count, 1), locators.md_estshutoffendtime_date_txt)
+#         print("Clicked Estimated Shut Off end Time")
+#         self.Click(locators.md_allclear_date_txt)
+#         self.setText(getTimeAddedvalue(day_count, 2), locators.md_allclear_date_txt)
+#         print("Clicked All clear")
+#         self.Click(locators.md_etor_date_txt)
+#         self.setText(getTimeAddedvalue(day_count, 3), locators.md_etor_date_txt)
+#         print("Clicked ETOR")
+#         self.setText("Automation", locators.md_input_Comments)
+#         print("Entered Comments:  ")
+#         self.select_flag(flag_value)
+#         print("Selected Flag: %s " % str(flag_value))
+#         time.sleep(2)
+#         self.Click(locators.md_btn_Save)
+#         print("Clicked on Save meta data button")
+#     except(ValueError, Exception):
+#         return False
+#     return True
 
 # Method: getCurrentTime
 # Method Desc: get current system time/ PST
