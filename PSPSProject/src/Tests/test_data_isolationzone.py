@@ -160,7 +160,10 @@ class TestIsolationZone(BaseClass):
             profilename = s3config()['profile_name']
             local_folder = downloadsfolderPath + "\\isolationZonecircuits_" + str(var_tp_uid)
             deleteFolder(local_folder)
-            download_dir_from_S3(isozonepath, s3_bucketname, profilename, local_folder)
+            create_folder(local_folder)
+
+            # ------------- Download File -------------------------
+            #download_dir_from_S3(isozonepath, s3_bucketname, profilename, local_folder)
             log.info("Downloaded isolation Zone circuits parquet file from S3")
 
             spark = SparkSession.builder.appName("Timeplace-Creation") \
@@ -182,6 +185,7 @@ class TestIsolationZone(BaseClass):
             df_timeplacecircuits.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
 
+            #isolationzonefilepath = "C:\\Users\\k8my\\Documents\\GitHub\\gis-geomartcloud-pspsv4-automation-python\\PSPSProject\\downloads\\isolationZonecircuits_307\\reports\\timeplacecreation\\243\\307\\isolationZone\\isolationZone_307"
             isolationzonefilepath = os.path.join(
                 downloadsfolderPath + "\\isolationZonecircuits_" + str(
                     var_tp_uid) + "\\reports\\timeplacecreation\\" + str(
