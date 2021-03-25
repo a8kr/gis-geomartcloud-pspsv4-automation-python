@@ -138,7 +138,9 @@ class TestDeviceCache(BaseClass):
             profilename = s3config()['profile_name']
             local_folder = downloadsfolderPath + "devicecachecircuits_" + str(var_tp_uid)
             deleteFolder(local_folder)
-            download_dir_from_S3(devicecachepath, s3_bucketname, profilename, local_folder)
+            create_folder(local_folder)
+            # --------------- Download file -----------------
+            #download_dir_from_S3(devicecachepath, s3_bucketname, profilename, local_folder)
             log.info("Downloaded devicecache circuits parquet file from S3")
 
             spark = SparkSession.builder.appName("Timeplace-Creation") \
@@ -180,7 +182,10 @@ class TestDeviceCache(BaseClass):
             df_feedertransformerdataloc.coalesce(1).write.option("header", "true").format("csv").mode("overwrite").save(
                 tempfolder)
 
-            df_tempdevicecachedata = spark.sql("""SELECT DISTINCT '' as devicecache_uid, c.timeplace_foreignkey, ft.FEEDERID as circuitId, ft.TO_FEATURE_GLOBALID as transformer_primarymeterguid, '' as flag, ft.CGC12, c.source_isolation_device, c.source_isolation_device_type, c.additional_isolation_device, c.additional_isolation_device_type, c.circuitinfo_uid, '' as concat_circuitinfo_uid
+            #Querying Device Cache Parquet file
+            df_tempdevicecachedata = spark.sql("""SELECT DISTINCT '' as devicecache_uid, c.timeplace_foreignkey, 
+            ft.FEEDERID as circuitId, ft.TO_FEATURE_GLOBALID as transformer_primarymeterguid, '' as flag, ft.CGC12, c.source_isolation_device,
+             c.source_isolation_device_type, c.additional_isolation_device, c.additional_isolation_device_type, c.circuitinfo_uid, '' as concat_circuitinfo_uid
             from timeplace_circuits as c inner join feedertransformer ft
                                             on ft.FEEDERID = LPAD(c.circuitid,9,'0')
                                             AND ft.TREELEVEL >= c.source_treelevel
@@ -216,7 +221,12 @@ class TestDeviceCache(BaseClass):
                 if file1.endswith('csv'):
                     break
             finaldevicecachecircuitscsv_expected = downloadsfolderPath + '\\devfile_devicecachecircuits' + '/' + file1
-            finaldevicecachecircuits_expected = pd.read_csv(finaldevicecachecircuitscsv_expected)
+            finaldevicecachecircuits_expected = pd.read_parquet(devicecacheciruitsfilepath, engine='pyarrow',
+                                                      columns=['timeplace_foreignkey', 'circuitId', 'transformer_primarymeterguid', 'flag',
+                                                             'tempgenname', 'CGC12', 'source_isolation_device', 'source_isolation_device_type',
+                                                             'additional_isolation_device', 'additional_isolation_device_type', 'circuitinfo_uid',
+                                                             'concat_circuitinfo_uid'])
+            finaldevicecachecircuits_expected = finaldevicecachecircuits_expected.astype({'circuitId': int, 'transformer_primarymeterguid': str})
             finaldevicecachecircuits_actual = finaldevicecachecircuits_actual.drop_duplicates(
                 subset=['circuitId', 'transformer_primarymeterguid'],
                 keep='first')
