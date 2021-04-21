@@ -9,14 +9,12 @@ import zipfile
 import numpy as np
 import openpyxl
 import pandas as pd
-from pandas._libs.index import timedelta
 
 import xlrd
 import pytz
 
 from pathlib import Path
-from datetime import datetime
-from datetime import timezone
+from datetime import datetime, timedelta, timezone
 
 
 
@@ -246,6 +244,13 @@ def unzip_file(filename, extract_to_directory):
         print(files)
     return count, files
 
+# Method: getCurrentTime
+# Method Desc: get current system time/ PST
+# return: Time
+def getTimeAddedvalue(day_count, hr_count):
+    d = datetime.now() + timedelta(days=int(day_count), hours=int(hr_count))
+    return (str(d.strftime("%m%d%Y%H%M")))
+
 # def metaData_modal_Reports_with_flag_and_calender(self):
 #     try:
 #         date_value_today = getcurrentTimevalue()
@@ -274,12 +279,7 @@ def unzip_file(filename, extract_to_directory):
 #         return False
 #     return True
 
-# Method: getCurrentTime
-# Method Desc: get current system time/ PST
-# return: Time
-def getTimeAddedvalue(day_count, hr_count=0):
-    d = datetime.datetime.today() + timedelta(days=int(day_count), hours=int(hr_count))
-    return (str(d.strftime("%m%d%Y%H%M")))
+
 
 
 

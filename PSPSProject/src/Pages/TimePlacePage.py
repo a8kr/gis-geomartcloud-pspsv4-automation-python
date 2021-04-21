@@ -5,6 +5,9 @@ from PSPSProject.src.Repository.uilocators import locators
 from PSPSProject.src.Repository.statictext import textMessage
 from PSPSProject.src.ReusableFunctions.uiactions import UI_Element_Actions
 from PSPSProject.src.ReusableFunctions.commonfunctions import *
+from PSPSProject.src.Repository.dbqueries import queries
+from PSPSProject.src.ReusableFunctions.databasefunctions import *
+from PSPSProject.src.ReusableFunctions.uiactions import UI_Element_Actions
 
 
 class TimePlacePage:
@@ -123,3 +126,70 @@ class TimePlacePage:
             except:
                 assert False
 
+    def metaData_add(self, day_count):
+        uielements = UI_Element_Actions(self.driver)
+        try:
+
+            #date_value_today = getcurrentTimevalue()
+            #date_value = getTimeAddedvalue(day_count)
+            uielements.Click(locators.md_estshutoffstarttime_date_txt)
+            print("testing failed")
+            uielements.setText(getTimeAddedvalue(day_count), locators.md_estshutoffstarttime_date_txt)
+            print("Clicked Estimated Shut Off Start Time")
+            uielements.Click(locators.md_estshutoffendtime_date_txt)
+            uielements.setText(getTimeAddedvalue(day_count, 1), locators.md_estshutoffendtime_date_txt)
+            print("Clicked Estimated Shut Off end Time")
+            uielements.Click(locators.md_allclear_date_txt)
+            uielements.setText(getTimeAddedvalue(day_count, 2), locators.md_allclear_date_txt)
+            print("Clicked All clear")
+            uielements.Click(locators.md_etor_date_txt)
+            uielements.setText(getTimeAddedvalue(day_count, 3), locators.md_etor_date_txt)
+            print("Clicked ETOR")
+            uielements.setText("Automation", locators.md_input_Comments)
+            print("Entered Comments:  ")
+
+            time.sleep(2)
+            self.Click(locators.md_btn_Save)
+            print("Clicked on Save meta data button")
+
+        except(ValueError, Exception):
+            return False
+        return True
+
+    # def CreateTimePlace(file):
+    #     uielements = UI_Element_Actions(self.driver)
+    #
+    #     # var_uploadFileName = "em_Valid_Circuits.csv"
+    #     var_error_message = "Validation success."
+    #     eventpage.tp_validatefile_message(testDatafolderPath, var_upload_file, var_error_message)
+    #
+    #
+    #     var_Timestamp = getCurrentTime()
+    #     var_tp_name_internal = "Auto_TP_" + var_Timestamp
+    #     var_tp_name_external = "Ext_Auto_TP_" + var_Timestamp
+    #
+    #     # Enter TP names
+    #     uielements.setText(var_tp_name_internal, locators.new_timeplace_internal_name)
+    #     uielements.setText(var_tp_name_external, locators.new_timeplace_external_name)
+    #
+    #
+    #     uielements.Click(locators.new_timeplace_create_button)
+    #     time.sleep(5)
+    #     while True:
+    #         try:
+    #             var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
+    #             if var_status_message in "Time place creation in progress.":
+    #                 continue
+    #             else:
+    #                 break
+    #         except:
+    #             break
+    #
+    #     assert uielements.iselementDisplayed(locators.view_time_place_grid_header) == True
+    #
+    #
+    #     # Get TP DB UID
+    #     get_new_tp_db = queries.get_timeplace % var_tp_name_internal
+    #     lst_table_details = queryresults_fetchone(get_new_tp_db)
+    #     if lst_table_details:
+    #             log.info("TP record created in DB: uid is " + str(lst_table_details))

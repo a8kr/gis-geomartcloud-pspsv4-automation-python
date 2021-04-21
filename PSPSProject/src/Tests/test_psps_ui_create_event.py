@@ -56,7 +56,7 @@ class TestDefaultManagementPositive(BaseClass):
         uielements.Click(locators.new_event_tab)
         log.info("Clicked New Event tab")
 
-        var_timeplace = "Timeplace_20210113_145743"
+        var_timeplace = "Auto_TP_20210406_124608"
         log.info("Event time place: " + var_timeplace)
 
         var_event_comment = "Automation event"
@@ -65,7 +65,7 @@ class TestDefaultManagementPositive(BaseClass):
         while True:
             try:
                 var_message = uielements.getValue(locators.new_event_status_message)
-                if var_message in "Fetching all completed time places.":#textMessa""ge.upload_file_in_progress_message:
+                if var_message in "Fetching all completed time places.":
                     continue
                 else:
                     break
@@ -83,47 +83,53 @@ class TestDefaultManagementPositive(BaseClass):
         uielements.setText(var_event_name, locators.new_event_name)
         log.info("Enter event name to validate Next button status")
 
+        uielements.setText(var_timeplace, locators.new_event_search)
+        log.info("Enter TP in search text field: " + var_timeplace)
+
+        time.sleep(3)
+
         uielements.Click(locators.new_event_grid_1st_checkbox)
         log.info("Select 1st check box in event time places grid")
 
-        if uielements.iselementEnabled(locators.view_psps_scope_modal_next_button) == True:
+        if uielements.iselementEnabled(locators.new_event_next_button) == True:
             log.info("Validate that Next button enable after selecting time place")
+            uielements.Click(locators.new_event_next_button)
+            log.info("Click Next button")
 
-        uielements.Click(locators.new_event_grid_2nd_checkbox)
-        log.info("Select 2nd check box in New event time places grid")
+        if uielements.iselementEnabled(locators.new_event_metadata_modal_comment) == True:
+            log.info("Validate metadata modal comment displayed")
+            uielements.setText("Test automation event", locators.new_event_metadata_modal_comment)
+            log.info("Enter event comment into text area")
 
-        # Navigate to Edit event tab
-        uielements.Click(locators.edit_event_tab)
-        time.sleep(3)
-        var_edit_event_gridcolumnnames = readData(testDatafilePath, "Main", var_row, 12)
-        view_tp_gridheader = eventmanagement.ValidateGridheader(var_edit_event_gridcolumnnames,
-                                                                locators.edit_event_grid_header)
+            uielements.setText(var_event_external_name, locators.new_event_metadata_modal_external_name)
+            log.info("Enter event external name: " + var_event_external_name)
+            uielements.Click(locators.new_event_metadata_save_button)
+            log.info("Click Save button")
+
+        while True:
+            try:
+                var_message = uielements.getValue(locators.new_event_status_message)
+                if var_message in "Event creation in progress.":
+                    continue
+                else:
+                    break
+            except:
+                break
+
+        log.info("Event status 'Event creation in progress. validated")
+
+        var_edit_event_gridcolumnnames = readData(testDatafilePath, "Main", var_row, 11)
+        view_tp_gridheader = eventmanagement.ValidateGridheader(var_edit_event_gridcolumnnames,locators.edit_event_grid_header)
         if view_tp_gridheader == True:
             log.info("Edit Event grid header displayed as expected")
 
+        uielements.setText(var_event_external_name, locators.edit_event_search)
+        log.info("Enter just create event name in search field: " + var_event_external_name)
+
+        time.sleep(5)
         # Verify Edit button status
-        if uielements.iselementDisplayed(locators.edit_event_edit_button) == True:
-            log.info("Validate that Edit button disabled by default")
-        uielements.Click(locators.edit_event_grid_cell_top)
-        if uielements.iselementEnabled(locators.edit_event_edit_button) == True:
-            log.info("Validate that Edit button enabled after selecting check box")
-
-        var_event_total = uielements.getValue(locators.edit_event_total)
-        if "1 selected of" in var_event_total:
-            log.info("Validate text for total events")
-
-
-
-        # Create new time place
-        scopetpname = readData(testDatafilePath, "Data", var_row, 7)
-        var_tpcreation = eventmanagement.TimePlaceCreation(scopetpname)
-        var_timeplace = var_tpcreation[1]
-        log.info("Event time place: " + var_timeplace)
-
-        var_event_create = eventpage.createEvent_single_tp(var_event_name, var_timeplace, var_event_external_name, var_event_comment)
-        if var_event_create == True:
-            log.info("New event created successfully")
-
+        if uielements.iselementDisplayed(locators.edit_event_grid_cell_1st) == True:
+            log.info("Validate that Edit button is present for just created event")
 
 
         log.info("*************AUTOMATION EXECUTION COMPLETED*************")

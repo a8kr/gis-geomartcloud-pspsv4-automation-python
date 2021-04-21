@@ -62,11 +62,11 @@ def setup(request):
     driver.implicitly_wait(10)
     driver.maximize_window()
     if TESTENV[0].upper() == "QA":
-        URL = ""
+        URL = "https://pspsviewer4qa.nonprod.pge.com/"
     elif TESTENV[0].upper() == "TEST":
         URL = "https://pspsviewer4tst.nonprod.pge.com"
     elif TESTENV[0].upper() == "PROD":
-        URL = ""
+        URL = "https://pspsviewer4.ss.pge.com"
     elif TESTENV[0].upper() == "DEV":
         URL = "https://pspsviewer4dev.nonprod.pge.com/"
     else:

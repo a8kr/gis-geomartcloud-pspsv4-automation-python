@@ -28,7 +28,7 @@ VAR_COUNT = BaseClass().InitializeExecution(VAR_TESTCASENAME, VAR_COUNT, VAR_TES
 @pytest.mark.skipif(not VAR_COUNT, reason="Excluded from regression suite")
 @pytest.mark.regression
 class TestDefaultManagementNegative(BaseClass):
-    def test_eventmanagement_circuit_validation(self):
+    def test_eventmanagement_circuit_validation_edit(self):
         try:
             var_row = VAR_COUNT[0]
             var_os = VAR_COUNT[2]
@@ -59,6 +59,21 @@ class TestDefaultManagementNegative(BaseClass):
         else:
             log.error("Upload file button is not enabled by default")
             final_assert.append(False)
+
+        var_tp_name_internal = "Auto_TP_20210406_091441"
+        uielements.Click(locators.view_timeplace_tab)
+        # -----------------------------------------
+
+        if uielements.iselementDisplayed(locators.view_timeplace_search) == True:
+            log.info("TP created and navigated to View TP tab")
+            uielements.setText(var_tp_name_internal, locators.view_timeplace_search)
+            log.info("Search for TP :" + var_tp_name_internal)
+        time.sleep(2)
+
+        uielements.Click(locators.view_time_place_edit_icon_1)
+        log.info("Click on TP action menu icon")
+        uielements.Click(locators.view_time_place_menu_update)
+        log.info("Click on Update menu item")
 
         # # Valid Circuit validation
         # log.info("Start Circuit error validation")
@@ -117,16 +132,15 @@ class TestDefaultManagementNegative(BaseClass):
         log.info("Start files error validation")
         var_uploadFileName = "em_Valid_Invalid_Circuits_logfiles.xlsx"
         var_error_message = "Invalid File! Allowed file is either a csv or a zip file."
-        eventpage.tp_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
+        eventpage.tp_edit_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
         log.info("Validate error message for zip and cvs files only")
 
-        # Clear form
-        uielements.Click(locators.new_timeplace_clear_button)
-        uielements.Click(locators.new_timeplace_clear_modal_yes_button)
-
-        # Refresh form
-        uielements.Click(locators.new_event_tab)
-        uielements.Click(locators.new_time_place_new_tab)
+        # Press Cancel button to refresh error message and open TP to edit
+        uielements.Click(locators.view_timeplace_cancel_button)
+        uielements.setText(var_tp_name_internal, locators.view_timeplace_search)
+        uielements.Click(locators.view_time_place_edit_icon_1)
+        uielements.Click(locators.view_time_place_menu_update)
+        log.info("Press Cancel button to refresh error message and open TP to edit")
 
         for i in range(0, 24):
             log.info("Create cvs file from em_Valid_Invalid_Circuits_logfiles.xlsx file tab: " + str(i))
@@ -143,9 +157,9 @@ class TestDefaultManagementNegative(BaseClass):
 
             var_uploadFileName = "em_Valid_Invalid_Circuits_logfiles.csv"
             var_error_message = "File validation failed."
-            eventpage.tp_validatefile(testDatafolderPath, var_uploadFileName, var_error_message)
+            eventpage.tp_edit_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
             log.info("Validate File validation failed message")
-            uielements.Click(locators.new_timeplace_fileupload_error_link)
+            uielements.Click(locators.view_timeplace_fileupload_error_link)
             log.info("Click on Validation log link")
 
             # Read most recent file from download folder
@@ -159,13 +173,12 @@ class TestDefaultManagementNegative(BaseClass):
                log.error("Error message not displayed properly: " + var_file_message)
                final_assert.append(False)
 
-            # Clear form
-            uielements.Click(locators.new_timeplace_clear_button)
-            uielements.Click(locators.new_timeplace_clear_modal_yes_button)
-
-            # Refresh form
-            uielements.Click(locators.new_event_tab)
-            uielements.Click(locators.new_time_place_new_tab)
+            # Press Cancel button to refresh error message and open TP to edit
+            uielements.Click(locators.view_timeplace_cancel_button)
+            uielements.setText(var_tp_name_internal, locators.view_timeplace_search)
+            uielements.Click(locators.view_time_place_edit_icon_1)
+            uielements.Click(locators.view_time_place_menu_update)
+            log.info("Press Cancel button to refresh error message and open TP to edit")
 
 
         # # Circuit Errors Messages Validations
@@ -185,20 +198,19 @@ class TestDefaultManagementNegative(BaseClass):
         #
         #     var_uploadFileName = "em_Valid_Invalid_Circuits_message.csv"
         #     #var_error_message = "File validation failed."
-        #     eventpage.tp_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message_file)
+        #     eventpage.tp_edit_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message_file)
         #     log.info("Validate File validation failed message")
         #
-        #     # Clear form
-        #     uielements.Click(locators.new_timeplace_clear_button)
-        #     uielements.Click(locators.new_timeplace_clear_modal_yes_button)
-        #
-        #     # Refresh form
-        #     uielements.Click(locators.new_event_tab)
-        #     uielements.Click(locators.new_time_place_new_tab)
+        #     # Press Cancel button to refresh error message and open TP to edit
+        #     uielements.Click(locators.view_timeplace_cancel_button)
+        #     uielements.setText(var_tp_name_internal, locators.view_timeplace_search)
+        #     uielements.Click(locators.view_time_place_edit_icon_1)
+        #     uielements.Click(locators.view_time_place_menu_update)
+        #     log.info("Press Cancel button to refresh error message and open TP to edit")
         #
         # # Circuit Errors Validations
         # log.info("Start Circuit error validation")
-        # for i in range(7, 9):
+        # for i in range(0, 9):
         #     log.info("Create cvs file from em_Valid_Invalid_Circuits.xlsx file tab: " + str(i))
         #     var_row_num = i
         #     var_row_num = var_row_num + 2
@@ -213,25 +225,25 @@ class TestDefaultManagementNegative(BaseClass):
         #
         #     var_uploadFileName = "em_Valid_Invalid_Circuits.csv"
         #     var_error_message = "Validation success."
-        #     eventpage.tp_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
+        #     eventpage.tp_edit_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
         #     log.info("Validate File success message")
         #
-        #     var_Timestamp = getCurrentTime()
-        #     var_tp_name_internal = "Auto_TP_" + var_Timestamp
-        #     var_tp_name_external = "Auto_TP_" + var_Timestamp
+        #     #var_Timestamp = getCurrentTime()
+        #     #var_tp_name_internal = "Auto_TP_" + var_Timestamp
+        #     #var_tp_name_external = "Auto_TP_" + var_Timestamp
         #
         #     # Enter TP names
-        #     uielements.setText(var_tp_name_internal, locators.new_timeplace_internal_name)
-        #     uielements.setText(var_tp_name_external, locators.new_timeplace_external_name)
-        #     log.info("Enter TP names")
+        #     #uielements.setText(var_tp_name_internal, locators.new_timeplace_internal_name)
+        #     #uielements.setText(var_tp_name_external, locators.new_timeplace_external_name)
+        #     #log.info("Enter TP names")
         #
-        #     uielements.Click(locators.new_timeplace_create_button)
-        #     log.info("Click on Create button")
+        #     uielements.Click(locators.view_timeplace_save_button)
+        #     log.info("Click on save button")
         #     time.sleep(5)
         #     while True:
         #         try:
-        #             var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
-        #             if var_status_message in "Time place creation in progress.":
+        #             var_status_message = uielements.getValue(locators.view_timeplace_validation_message)
+        #             if var_status_message in "Time place update in progress.":
         #                 continue
         #             else:
         #                 break
@@ -240,10 +252,10 @@ class TestDefaultManagementNegative(BaseClass):
         #     log.info("Wait for 'Time place creation in progress' completion " )
         #
         #     # Validate 'Circuit validation failed! See log for failed records.'
-        #     var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
+        #     var_status_message = uielements.getValue(locators.view_timeplace_validation_message)
         #     if var_status_message in "Circuit validation failed! See log for failed records.":
         #         log.info("Validate 'Circuit validation failed' message exists")
-        #         uielements.Click(locators.new_timeplace_validation_error_link)
+        #         uielements.Click(locators.view_timeplace_validation_error_link)
         #         log.info("Click on Validation error message")
         #
         #
@@ -258,14 +270,13 @@ class TestDefaultManagementNegative(BaseClass):
         #        log.error("Error message not displayed properly: " + var_file_message)
         #        final_assert.append(False)
         #
-        #     # Clear form
-        #     uielements.Click(locators.new_timeplace_clear_button)
-        #     uielements.Click(locators.new_timeplace_clear_modal_yes_button)
+        #     # Press Cancel button to refresh error message and open TP to edit
+        #     uielements.Click(locators.view_timeplace_cancel_button)
+        #     uielements.setText(var_tp_name_internal, locators.view_timeplace_search)
+        #     uielements.Click(locators.view_time_place_edit_icon_1)
+        #     uielements.Click(locators.view_time_place_menu_update)
+        #     log.info("Press Cancel button to refresh error message and open TP to edit")
         #
-        #     # Refresh form
-        #     uielements.Click(locators.new_event_tab)
-        #     uielements.Click(locators.new_time_place_new_tab)
-
 
         log.info("----------------------------------------------------------------------------------------------")
         log.info("*************AUTOMATION EXECUTION COMPLETED*************")

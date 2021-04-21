@@ -47,7 +47,7 @@ class TestViewEditVersion(BaseClass):
         homepage.navigate_defaultManagement()
         log.info("Starting Validation")
 
-        uielements.Click(locators.dm_search_dd)
+        #uielements.Click(locators.dm_search_dd)
         var_dm_searchdd = readData(testDatafilePath, "Main", var_row, 10)
         ddvallist = defmanagement.get_Searchddvalue(var_dm_searchdd)
         if ddvallist[0] == ddvallist[1]:

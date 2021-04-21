@@ -14,21 +14,31 @@ class locators:
     PSPS_List_Select_DefaultManagement = "/html/body/div[2]/div[3]/div[2]/ul/div[3]/div[2]/span"
     dm_uplaodfile = "//*[@id='root']/div[1]/div[2]/div[1]/div[1]/span[1]"
     dm_save_btn = "//*[@id='root']/div[1]/div[2]/div[3]/div/button[2]"
-    dm_upload_validation = "/html/body/div[2]/div[3]/div/div[3]/span[4]"
-    dm_upload_btn = "/html/body/div[2]/div[3]/div/div[3]/span[2]/button/span[1]"
+    dm_upload_validation = "/html/body/div[3]/div[3]/div/div[3]/span[4]"
+    dm_upload_btn = "/html/body/div[3]/div[3]/div/div[3]/span[2]/button"
     grid_totalcircuits = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[2]/div/span[2]"
     uploadFile_id = "FileInput"
-    dm_grid_headers = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[1]/div/div[2]/div/div[1]/div/div[1]"
+    dm_grid_headers = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[1]/div/div/div[2]/div/div[1]/div/div[1]"
     dm_search_dd = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[1]/div/div[1]/div/div[2]/div/div/div"
-    dm_close_uploadpopup = "/html/body/div[2]/div[3]/div/div[1]/button/span[1]"
-    dm_validationlink = "/html/body/div[2]/div[3]/div/div[3]/span[5]/span/p/a"
+    dm_close_uploadpopup = "/html/body/div[3]/div[3]/div/div[1]/button"
+    dm_validationlink = "/html/body/div[3]/div[3]/div/div[3]/span[5]/span/p/a"
     dm_search_input = "//*[@id='root']/div[1]/div[2]/div[2]/div/div/div[1]/div/div[1]/div/div[1]/div/div/div/input"
     dm_validationlink_bottom = "//*[@id='root']/div[1]/div[2]/div[3]/div/div/p[2]/a"
     dm_status_message = "//*[@id='root']/div[1]/div[2]/div[3]/div/div/p"
 
+    # PSPS scope
+    psps_scope_tab = "//span[contains(text(),'VIEW PSPS SCOPE')]"
+    psps_scope_search = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div/div/div/input"
+    psps_scope_checkbox_1 = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div[2]/div/div[1]/div[1]/div/span"
+    psps_scope_next_button = "//span[contains(text(),'NEXT')]"
+    psps_scope_edit_icon = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div[2]/div/table/tbody/tr[1]/td[8]/button"
+    psps_scope_tp_name_field = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div[2]/div/table/tbody/tr[2]/td/div/div/div/div/div/div[1]/div/div/div/input"
+    psps_scope_tp_external_name_field = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div/div[1]/div/div/div[2]/div/table/tbody/tr[2]/td/div/div/div/div/div/div[2]/div/div/div/input"
+    psps_scope_status = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div/div[2]/div/div/p"
+
 
     # New time place tab
-    PSPS_List_Select_EventManagement = "/html/body/div[2]/div[3]/div[2]/ul/div[2]/div[2]/span"
+    PSPS_List_Select_EventManagement = "//div[3]/div[2]/ul/div[2]/div[2]"
     new_time_place_new_tab = "//span[contains(text(),'NEW TIME PLACE')]"
     new_time_place_edit_tab = "//span[contains(text(),'VIEW & EDIT TIME PLACES')]"
     new_time_place_new_event_tab = "//span[contains(text(),'New Event')]"
@@ -51,6 +61,20 @@ class locators:
     new_timeplace_internal_name = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/div/div/input"
     new_timeplace_external_name = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/input"
 
+    new_timeplace_radio_watch = "//div/div[2]/div/div/div[2]/div/div[3]/fieldset/div/label[1]/span[1]"
+    new_timeplace_radio_warning = "//div/div[2]/div/div/div[2]/div/div[3]/fieldset/div/label[2]/span[1]"
+
+    new_timeplace_md_start_time = "//div/div[2]/div/div/div[2]/div/div[4]/div/div[1]/div/div/div/input"
+    new_timeplace_md_end_time = "//div/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div/div/input"
+    new_timeplace_md_etor = "//div/div[2]/div/div/div[2]/div/div[5]/div/div[2]/div/div/div/input"
+    new_timeplace_md_all_clear = "//div/div[2]/div/div/div[2]/div/div[5]/div/div[1]/div/div/div/input"
+    new_timeplace_md_comment = "//div/div[2]/div/div/div[2]/div/div[6]/div/div/div/div/textarea"
+
+    new_timeplace_cancel_button = "//span[contains(text(),'CANCEL')]"
+    new_timeplace_save_button = "//span[contains(text(),'SAVE')]"
+
+    new_timeplace_md_end_time_message = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[2]/div/div/div[2]/div/div[4]/div/div[2]/div/div/p"
+
 
 
     # Time place View & Edit Tab
@@ -66,6 +90,7 @@ class locators:
     view_time_place_name = "//div/div[3]/div/div[2]/div/div[1]/div/div/div/input"
     view_time_place_file_input ="//div/div[3]/div/div[2]/div/div[2]/div/div[1]/div/div/div/input"
     view_time_place_file_browse = "//div/div[2]/div/div[2]/div/div[2]/div/label/span"
+    view_time_place_fileupload_error = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[2]/div/div[2]/div/p"
     view_timeplace_internal_name = "//div/div[2]/div/div[3]/div/div/div[2]/div/div[1]/div/div/div/input"
     view_timeplace_external_name = "//div/div[2]/div/div[3]/div/div/div[2]/div/div[2]/div/div/div/input"
     view_timeplace_radio_watch = "//div/div[2]/div/div[3]/div/div/div[2]/div/div[3]/fieldset/div/label[1]/span[1]"
@@ -77,6 +102,10 @@ class locators:
     view_timeplace_md_comment = "//div/div[2]/div/div[3]/div/div/div[2]/div/div[6]/div/div/div/div/textarea"
     view_timeplace_cancel_button = "//span[contains(text(),'CANCEL')]"
     view_timeplace_save_button = "//span[contains(text(),'SAVE')]"
+    view_timeplace_update_button = "//span[contains(text(),'UPDATE')]"
+    view_timeplace_fileupload_error_link ="//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[2]/div/div[2]/div/p[2]"
+    view_timeplace_validation_message = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[4]/div/div/p"
+    view_timeplace_validation_error_link = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[4]/div/div/p[2]/a"
 
 
     # New time place modal
@@ -113,30 +142,31 @@ class locators:
     new_event_fields_list_created_by = "//*[@id='menu-']/div[3]/ul/li[7]"
     new_event_fields_list_last_modified = "//*[@id='menu-']/div[3]/ul/li[8]"
     new_event_fields_list_external_name = "//*[@id='menu-']/div[3]/ul/li[9]"
-    new_event_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div[3]/div/div/div[1]/div/div[2]/div/div[1]/div/div[1]"
+    new_event_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div[3]/div/div/div[1]/div/div/div[2]/div/div[1]/div/div[1]"
     new_event_grid_1st_checkbox = "//div[1]/div[1]/div/span/span[1]/input"
     new_event_grid_2nd_checkbox = "//div[2]/div[1]/div/span/span[1]/input"
     new_event_total_timeplaces = "//*[@id='root']/div[1]/div/div[3]/div/div[3]/div/div/div[2]/div/text()"
     new_event_status_message = "//*[@id='root']/div[1]/div/div[3]/div/div[4]/div/div/p"
     new_event_next_button = "//span[contains(text(),'NEXT')]"
     new_event_metadata_modal_comment = "//textarea[@class='MuiInputBase-input MuiFilledInput-input MuiInputBase-inputMultiline MuiFilledInput-inputMultiline MuiInputBase-inputMarginDense MuiFilledInput-inputMarginDense']"
-    new_event_metadata_modal_external_name = "/html/body/div[2]/div[3]/div/div[2]/div/div[2]/div/div/div/input"
+    new_event_metadata_modal_external_name = "/html/body/div[3]/div[3]/div/div[2]/div/div[2]/div/div/div/input"
     new_event_metadata_back_button = "//span[contains(text(),'BACK')]"
-    new_event_metadata_back_save = "//span[contains(text(),'SAVE')]"
+    new_event_metadata_save_button = "//span[contains(text(),'SAVE')]"
+
 
     # Edit Event
     edit_event_tab = "//span[contains(text(),'View & Edit Event')]"
     edit_event_search = "//input[@class='MuiInputBase-input MuiInput-input MuiInputBase-inputAdornedStart MuiInputBase-inputAdornedEnd']"
     edit_event_search_clear = "//button[@class='MuiButtonBase-root MuiIconButton-root']"
-    edit_event_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div[1]/div/div/div[1]/div/div[2]/div/div[1]/div/div[1]"
-    edit_event_grid_cell_1st = "//*[@id='root']/div[1]/div/div[3]/div/div[1]/div/div/div[1]/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div[2]/div/button"
+    edit_event_grid_header = "//*[@id='root']/div[1]/div/div[3]/div/div[3]/div/div/div[1]/div/div/div[2]/div/div[1]/div/div[1]"
+    edit_event_grid_cell_1st = "//*[@id='root']/div[1]/div/div[3]/div/div[1]/div/div/div[1]/div/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div[1]/div/button"
     edit_event_grid_cell_top = "//*[@id='root']/div[1]/div/div[3]/div/div[1]/div/div/div[1]/div/div[2]/div/div[1]/div/div[2]/div/div[1]/div[1]/div/span/span[1]/input"
     edit_event_edit_button = "//*[@id='root']/div[1]/div/div[3]/div/div[1]/div/div/div[2]/div/div[1]/span[1]"
 
     edit_event_total = "//*[@id='root']/div[1]/div/div[3]/div/div[1]/div/div/div[2]/div/span[2]"
 
-
-
-
+    # External Portal
+    PSPS_List_Select_ExternalPortal = "/html/body/div[2]/div[3]/div[2]/ul/div[4]/div[2]/span"
+    ep_publish_tab = "//*[@id='root']/div[1]/div/div[2]/div/div/div/button/span[1]"
 
 

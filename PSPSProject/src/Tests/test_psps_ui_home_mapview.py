@@ -37,7 +37,9 @@ class TestDefaultManagementPositive(BaseClass):
         eventmanagement = TimePlacePage(self.driver)
         uielements = UI_Element_Actions(self.driver)
         deleteFiles(downloadsfolder, ".csv")
-        log.info("Starting Validation")
+
+        log.info("----------------------------------------------------------------------------------------------")
+        log.info("*************Starting Validation*************")
         if var_os == "MAC-OS":
             homepage.SignOn()
             log.info("Successfully entered user id & password:")
@@ -62,11 +64,17 @@ class TestDefaultManagementPositive(BaseClass):
         homepage.navigate_eventManagement()
         log.info("Successfully Navigated to Event Management screen")
 
-        var_tpgridcolumnnames = readData(testDatafilePath, "Main", var_row, 11)
-        new_tp_gridheader = eventmanagement.ValidateGridheader(var_tpgridcolumnnames,
-                                                               locators.new_time_place_grid_header)
-        if new_tp_gridheader == True:
-            log.info("New Time Place Grid header displayed as expected")
+        #var_tpgridcolumnnames = readData(testDatafilePath, "Main", var_row, 11)
+        #new_tp_gridheader = eventmanagement.ValidateGridheader(var_tpgridcolumnnames,locators.new_time_place_grid_header)
+        #if new_tp_gridheader == True:
+        #    log.info("New Time Place Grid header displayed as expected")
+
+        var_new_tp_upload = uielements.iselementDisplayed(locators.view_timeplace_tab)
+        if var_new_tp_upload:
+            log.info("New TP page displayed as expected")
+        else:
+            log.error("New TP page not displayed as expected")
+            final_assert.append(False)
 
         homepage.navigate_Home()
         log.info("Successfully Navigated to Home screen")
@@ -78,6 +86,17 @@ class TestDefaultManagementPositive(BaseClass):
             log.error("Home page event dropdown not displayed as expected")
             final_assert.append(False)
 
+        homepage.navigate_ExternalPortal()
+        log.info("Successfully Navigated to External Portal screen")
+
+        var_ep_tab = uielements.iselementDisplayed(locators.ep_publish_tab)
+        if var_ep_tab:
+            log.info("External Portal page displayed as expected")
+        else:
+            log.error("External Portal page not displayed as expected")
+            final_assert.append(False)
+
+        log.info("----------------------------------------------------------------------------------------------")
         log.info("*************AUTOMATION EXECUTION COMPLETED*************")
 
 

@@ -54,281 +54,15 @@ class TestDefaultManagementNegative(BaseClass):
             log.info("Successfully entered user id & password:")
             print("Successfully entered user id & password:")
 
-        var_nooftps = readData(testDatafilePath, "Main", var_row, 6)
-        timeplace = readData(testDatafilePath, "Main", var_row, 7)
-        var_upload_file = readData(testDatafilePath, "Main", var_row, 8)
-        tpid = readData(testDatafilePath, "Main", var_row, 10)
-        var_tp_array = []
-
-        # if var_dmfile is None or var_dmfile == "":
-        #     log.info("default circuits are fetched from system")
-        # else:
-        #     status = defmanagement.dm_uploadfile(var_dmfile)
-        #     log.info("Default circuits are uploaded from UI and status of upload is: " + status)
-
         homepage.navigate_eventManagement()
-        for i in range(var_nooftps):
-            if i > 0:
-                self.driver.refresh()
-                time.sleep(3)
-            if timeplace is None or timeplace == "":
-                #homepage.navigate_eventManagement()
 
-                log.info("Select Event Management menu")
-                var_flag = uielements.iselementEnabled(locators.new_timeplace_browse_button)
-                if var_flag:
-                    log.info("Upload file button is enabled by default")
-                else:
-                    log.error("Upload file button is not enabled by default")
-                    final_assert.append(False)
-
-                # Valid Circuit validation
-                log.info("Start Circuit error validation")
-                # var_uploadFileName = "em_Valid_Circuits.csv"
-                var_error_message = "Validation success."
-                eventpage.tp_validatefile_message(testDatafolderPath, var_upload_file, var_error_message)
-                log.info("Validate File success message")
-
-                var_Timestamp = getCurrentTime()
-                var_tp_name_internal = "Auto_TP_" + var_Timestamp
-                var_tp_name_external = "Ext_Auto_TP_" + var_Timestamp
-                log.info("TP name: " + var_tp_name_internal)
-
-                # Enter TP names
-                uielements.setText(var_tp_name_internal, locators.new_timeplace_internal_name)
-                uielements.setText(var_tp_name_external, locators.new_timeplace_external_name)
-                log.info("Enter TP names")
-
-
-                #Metadata validations
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                uielements.Click(locators.new_timeplace_create_button)
-                log.info("Click on Create button")
-                time.sleep(5)
-                while True:
-                    try:
-                        var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
-                        if var_status_message in "Time place creation in progress.":
-                            continue
-                        else:
-                            break
-                    except:
-                        break
-                log.info("Wait for 'Time place creation in progress' completion ")
-
-                if uielements.iselementDisplayed(locators.view_time_place_grid_header) == True:
-                    log.info("TP created and navigated to View TP tab")
-
-                # Get TP DB UID
-                get_new_tp_db = queries.get_timeplace % var_tp_name_internal
-                lst_table_details = queryresults_fetchone(get_new_tp_db)
-                if lst_table_details:
-                    log.info("TP record created in DB: uid is " + str(lst_table_details))
-
-                # var_tpcreation = timeplacepage.TimePlaceCreation(tpid)
-                # timeplace = var_tpcreation[3]
-                # timetaken = var_tpcreation[1]
-                log.info("Timeplace creation is successful and timeplacename is: " + var_tp_name_internal)
-                #log.info("Time taken to create Timeplace is: " + var_tpcreation[1])
-                var_tp_array.append(var_tp_name_internal)
-            else:
-                log.info("Timeplace details are : " + timeplace)
-                var_tp_array.append(timeplace)
-
-        uielements.Click(locators.view_timeplace_tab)
-        time.sleep(3)
-        if uielements.iselementDisplayed(locators.view_timeplace_search) == True:
-            uielements.setText(timeplace, locators.view_timeplace_search)
-            log.info("Search for just create TP")
-
-        uielements.Click(locators.view_time_place_edit_icon_1)
-        uielements.Click(locators.view_time_place_menu_update)
-
-
-
-
-
-
-
-
-        # Upload invalid files -- apart from csv
-        var_filename = readData(testDatafilePath, "Main", var_row, 9)
-        var_filename = var_filename.split(',')
-        nooffiles = len(var_filename)
-
-        uielements.Click(locators.new_time_place_new_tab)
-
-        # File Errors Validations
-        log.info("Start files error validation")
-        for i in range(0, 24):
-            log.info("Create cvs file from em_Valid_Invalid_Circuits_logfiles.xlsx file tab: " + str(i))
-            var_row_num = i
-            var_row_num = var_row_num + 2
-            filePath = os.path.join(testDatafolderPath, "em_Valid_Invalid_Circuits_logfiles.xlsx")
-            var_error_message_file = readData(filePath, "Error_Message", var_row_num, 1)
-            log.info("Validate error message in the log file: " + var_error_message_file)
-            print(i)
-            convertExcelToTextIndex(testDatafolderPath + '/em_Valid_Invalid_Circuits_logfiles.xlsx', i,
-                           testDatafolderPath + '/em_Valid_Invalid_Circuits_logfiles.txt')
-            convertTexttoCSV(testDatafolderPath + '/em_Valid_Invalid_Circuits_logfiles.txt',
-                         testDatafolderPath + '/em_Valid_Invalid_Circuits_logfiles.csv')
-
-            var_uploadFileName = "em_Valid_Invalid_Circuits_logfiles.csv"
-            var_error_message = "File validation failed."
-            eventpage.tp_validatefile(testDatafolderPath, var_uploadFileName, var_error_message)
-            log.info("Validate File validation failed message")
-            uielements.Click(locators.new_timeplace_fileupload_error_link)
-            log.info("Click on Validation log link")
-
-            # Read most recent file from download folder
-            var_error_log = getMostRecent_downloaded_File()
-            # Get the Error message from file
-            col_list = ["Error message"]
-            var_file_message = pd.read_csv(var_error_log, usecols=col_list)
-            if open(var_error_log).read().find(var_error_message_file):
-               print("Error message for verified for failed file tab:  " + str(i) + "message: " + var_file_message)
-            else:
-               log.error("Error message not displayed properly: " + var_file_message)
-               final_assert.append(False)
-
-            # Clear form
-            uielements.Click(locators.new_timeplace_clear_button)
-            uielements.Click(locators.new_timeplace_clear_modal_yes_button)
-
-            # Refresh form
-            uielements.Click(locators.new_event_tab)
-            uielements.Click(locators.new_time_place_new_tab)
-
-
-        # Circuit Errors Messages Validations
-        log.info("Start Circuit messages error validation")
-        for i in range(0, 7):
-            log.info("Create cvs file from em_Valid_Invalid_Circuits_message.xlsx file tab: " + str(i))
-            var_row_num = i
-            var_row_num = var_row_num + 2
-            filePath = os.path.join(testDatafolderPath, "em_Valid_Invalid_Circuits_message.xlsx")
-            var_error_message_file = readData(filePath, "Error_Message", var_row_num, 1)
-            log.info("Validate error message in the log file: " + var_error_message_file)
-            print(i)
-            convertExcelToTextIndex(testDatafolderPath + '/em_Valid_Invalid_Circuits_message.xlsx', i,
-                           testDatafolderPath + '/em_Valid_Invalid_Circuits_message.txt')
-            convertTexttoCSV(testDatafolderPath + '/em_Valid_Invalid_Circuits_message.txt',
-                         testDatafolderPath + '/em_Valid_Invalid_Circuits_message.csv')
-
-            var_uploadFileName = "em_Valid_Invalid_Circuits_message.csv"
-            #var_error_message = "File validation failed."
-            eventpage.tp_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message_file)
-            log.info("Validate File validation failed message")
-
-            # Clear form
-            uielements.Click(locators.new_timeplace_clear_button)
-            uielements.Click(locators.new_timeplace_clear_modal_yes_button)
-
-            # Refresh form
-            uielements.Click(locators.new_event_tab)
-            uielements.Click(locators.new_time_place_new_tab)
-
-        # Circuit Errors Validations
-        log.info("Start Circuit error validation")
-        for i in range(0, 9):
-            log.info("Create cvs file from em_Valid_Invalid_Circuits.xlsx file tab: " + str(i))
-            var_row_num = i
-            var_row_num = var_row_num + 2
-            filePath = os.path.join(testDatafolderPath, "em_Valid_Invalid_Circuits.xlsx")
-            var_error_message_file = readData(filePath, "Error_Message", var_row_num, 1)
-            log.info("Validate error message in the log file: " + var_error_message_file)
-            print(i)
-            convertExcelToTextIndex(testDatafolderPath + '/em_Valid_Invalid_Circuits.xlsx', i,
-                           testDatafolderPath + '/em_Valid_Invalid_Circuits.txt')
-            convertTexttoCSV(testDatafolderPath + '/em_Valid_Invalid_Circuits.txt',
-                         testDatafolderPath + '/em_Valid_Invalid_Circuits.csv')
-
-            var_uploadFileName = "em_Valid_Invalid_Circuits.csv"
-            var_error_message = "Validation success."
-            eventpage.tp_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
-            log.info("Validate File success message")
-
-            var_Timestamp = getCurrentTime()
-            var_tp_name_internal = "Auto_TP_" + var_Timestamp
-            var_tp_name_external = "Auto_TP_" + var_Timestamp
-
-            # Enter TP names
-            uielements.setText(var_tp_name_internal, locators.new_timeplace_internal_name)
-            uielements.setText(var_tp_name_external, locators.new_timeplace_external_name)
-            log.info("Enter TP names")
-
-            uielements.Click(locators.new_timeplace_create_button)
-            log.info("Click on Create button")
-            time.sleep(5)
-            while True:
-                try:
-                    var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
-                    if var_status_message in "Time place creation in progress.":
-                        continue
-                    else:
-                        break
-                except:
-                    break
-            log.info("Wait for 'Time place creation in progress' completion " )
-
-            # Validate 'Circuit validation failed! See log for failed records.'
-            var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
-            if var_status_message in "Circuit validation failed! See log for failed records.":
-                log.info("Validate 'Circuit validation failed' message exists")
-                uielements.Click(locators.new_timeplace_validation_error_link)
-                log.info("Click on Validation error message")
-
-
-            # Read most recent file from download folder
-            var_error_log = getMostRecent_downloaded_File()
-            # Get the Error message from file
-            col_list = ["error message"]
-            var_file_message = pd.read_csv(var_error_log, usecols=col_list)
-            if open(var_error_log).read().find(var_error_message_file):
-               print("Error message for verified for failed file tab:  " + str(i) + "message: " + var_file_message)
-            else:
-               log.error("Error message not displayed properly: " + var_file_message)
-               final_assert.append(False)
-
-            # Clear form
-            uielements.Click(locators.new_timeplace_clear_button)
-            uielements.Click(locators.new_timeplace_clear_modal_yes_button)
-            log.error("Clear form")
-
-            # Refresh form
-            uielements.Click(locators.new_event_tab)
-            uielements.Click(locators.new_time_place_new_tab)
-
+        log.info("Select Event Management menu")
+        var_flag = uielements.iselementEnabled(locators.new_timeplace_browse_button)
+        if var_flag:
+            log.info("Upload file button is enabled by default")
+        else:
+            log.error("Upload file button is not enabled by default")
+            final_assert.append(False)
 
         # Valid Circuit validation
         log.info("Start Circuit error validation")
@@ -339,12 +73,45 @@ class TestDefaultManagementNegative(BaseClass):
 
         var_Timestamp = getCurrentTime()
         var_tp_name_internal = "Auto_TP_" + var_Timestamp
-        var_tp_name_external = "Auto_TP_" + var_Timestamp
+        var_tp_name_external = "Ext_Auto_TP_" + var_Timestamp
+        log.info("TP name: " + var_tp_name_internal)
 
         # Enter TP names
         uielements.setText(var_tp_name_internal, locators.new_timeplace_internal_name)
         uielements.setText(var_tp_name_external, locators.new_timeplace_external_name)
         log.info("Enter TP names")
+
+        # Metadata validations
+        var_date_current = getTimeAddedvalue(0, 0)
+
+        uielements.Click(locators.new_timeplace_md_start_time)
+        uielements.setText(var_date_current, locators.new_timeplace_md_start_time)
+        log.info("Enter Estimated Shut Off Start Time")
+
+        uielements.Click(locators.new_timeplace_md_end_time)
+        uielements.setText(getTimeAddedvalue(0, -1), locators.new_timeplace_md_end_time)
+        log.info("Enter incorrect Estimated Shut Off end Time")
+        var_md_end_time_error = uielements.getValue(locators.new_timeplace_md_end_time_message)
+        if "End date/time cannot be before start time" in var_md_end_time_error:
+            log.info("Validate error message 'End date/time cannot be before start time'")
+        else:
+            log.error("Validate error message 'End date/time cannot be before start time'")
+
+        uielements.Click(locators.new_timeplace_md_etor)
+        uielements.Click(locators.new_timeplace_md_end_time)
+        uielements.setText(getTimeAddedvalue(0, 1), locators.new_timeplace_md_end_time)
+        log.info("Enter Estimated Shut Off end Time")
+
+        uielements.Click(locators.new_timeplace_md_all_clear)
+        uielements.setText(getTimeAddedvalue(0, 2), locators.new_timeplace_md_all_clear)
+        log.info("Enter All clear time")
+
+        uielements.Click(locators.new_timeplace_md_etor)
+        uielements.setText(getTimeAddedvalue(0, 4), locators.new_timeplace_md_etor)
+        log.info("Enter etor time")
+
+        uielements.setText("Test Automation Time place", locators.new_timeplace_md_comment)
+        log.info("Enter metadata comment ")
 
         uielements.Click(locators.new_timeplace_create_button)
         log.info("Click on Create button")
@@ -358,27 +125,113 @@ class TestDefaultManagementNegative(BaseClass):
                     break
             except:
                 break
-        log.info("Wait for 'Time place creation in progress' completion " )
+        log.info("Wait for 'Time place creation in progress' completion ")
 
-        # Validate 'Circuit validation failed! See log for failed records.'
-        var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
-        if var_status_message in "Circuit validation failed! See log for failed records.":
-            log.info("Validate 'Circuit validation failed' message exists")
-            uielements.Click(locators.new_timeplace_validation_error_link)
-            log.info("Click on Validation error message")
+        # # ---- for existing TP
+        # var_tp_name_internal = "Auto_TP_20210329_232226_Updated"
+        # var_tp_name_external = "Ext_Auto_TP_20210329_232226_Updated"
+        # uielements.Click(locators.view_timeplace_tab)
+        # # -----------------------------------------
 
-        # # Verify error message retained in the Default management screen on navigating to other pages and returning back
-        # homepage.navigate_eventManagement()
-        # homepage.navigate_defaultManagement()
-        # var_message = uielements.getValue(locators.dm_status_message)
-        # if var_message in textMessage.upload_file_validation_error_message:
-        #     log.info("Verify error message retained page on navigating to other pages and returning passed")
+        if uielements.iselementDisplayed(locators.view_timeplace_search) == True:
+            log.info("TP created and navigated to View TP tab")
+            uielements.setText(var_tp_name_internal, locators.view_timeplace_search)
+            log.info("Search for TP :" + var_tp_name_internal)
+        time.sleep(2)
+
+        uielements.Click(locators.view_time_place_edit_icon_1)
+        log.info("Click on TP action menu icon")
+        uielements.Click(locators.view_time_place_menu_update)
+        log.info("Click on Update menu item")
+
+        if uielements.iselementDisplayed(locators.view_time_place_file_browse) == True:
+            log.info("Navigate to Edit TP - Upload file tab")
+
+        var_uploadFileName = "em_Valid_Circuits.csv"
+        var_error_message = "Validation success."
+        eventpage.tp_edit_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
+        log.info("Validate File success message")
+
+
+        # var_Timestamp = getCurrentTime()
+        var_tp_name_internal_updated = var_tp_name_internal + "_Updated"
+        var_tp_name_external_updated = var_tp_name_external + "_Updated"
+        log.info("Updated TP name: " + var_tp_name_internal_updated)
+
+        # Enter Updated TP names
+        uielements.setText(var_tp_name_internal_updated, locators.view_timeplace_internal_name)
+        uielements.setText(var_tp_name_external_updated, locators.view_timeplace_external_name)
+        log.info("Enter Updated TP names")
+
+
+        # Metadata validations
+
+        uielements.Click(locators.view_timeplace_md_start_time)
+        uielements.setText(getTimeAddedvalue(0, 0), locators.view_timeplace_md_start_time)
+        log.info("Enter Estimated Shut Off Start Time")
+
+        uielements.Click(locators.view_timeplace_md_end_time)
+        uielements.setText(getTimeAddedvalue(0, -1), locators.view_timeplace_md_end_time)
+        log.info("Enter incorrect Estimated Shut Off end Time")
+        # var_md_end_time_error = uielements.getValue(locators.view_timeplace_md_end_time_message)
+        # if "End date/time cannot be before start time" in var_md_end_time_error:
+        #     log.info("Validate error message 'End date/time cannot be before start time'")
         # else:
-        #     log.error("Verify error message retained page on navigating to other pages and returning failed")
-        #     final_assert.append(False)
+        #     log.error("Validate error message 'End date/time cannot be before start time'")
+
+        uielements.Click(locators.view_timeplace_md_etor)
+        uielements.Click(locators.view_timeplace_md_end_time)
+        uielements.setText(getTimeAddedvalue(0, 1), locators.view_timeplace_md_end_time)
+        log.info("Enter Estimated Shut Off end Time")
+
+        uielements.Click(locators.view_timeplace_md_all_clear)
+        uielements.setText(getTimeAddedvalue(0, 2), locators.view_timeplace_md_all_clear)
+        log.info("Enter All clear time")
+
+        uielements.Click(locators.view_timeplace_md_etor)
+        uielements.setText(getTimeAddedvalue(0, 4), locators.view_timeplace_md_etor)
+        log.info("Enter etor time")
+
+        uielements.setText("Updated comment for Test Automation Time place", locators.view_timeplace_md_comment)
+        log.info("Enter metadata comment ")
+
+        uielements.Click(locators.view_timeplace_update_button)
+        log.info("Click on Update button")
+        time.sleep(5)
+        while True:
+            try:
+                var_status_message = uielements.getValue(locators.view_timeplace_validation_message)
+                if var_status_message in "Time place update in progress.":
+                    continue
+                else:
+                    break
+            except:
+                break
+        log.info("Wait for 'Time place update in progress' completion ")
+
+        time.sleep(5)
+
+        if uielements.iselementDisplayed(locators.view_timeplace_search) == True:
+            log.info("TP created and navigated to View TP tab")
+            uielements.setText(var_tp_name_internal_updated, locators.view_timeplace_search)
+            log.info("Search for Updated TP :" + var_tp_name_internal_updated)
+
+        if uielements.iselementDisplayed(locators.view_time_place_edit_icon_1) == True:
+            log.info("TP update passed: " + var_tp_name_internal_updated)
+        else:
+            log.error("TP update failed: " + var_tp_name_internal_updated)
+
+
+        # var_browser = self.driver.current_url
+        # newbrowserURL = "window.open(" + "'" + var_browser + "','new window')"
+        # self.driver.execute_script(newbrowserURL)
+        # varhandles = self.driver.window_handles
+        # self.driver.switch_to.window(varhandles[1])
+        # homepage.navigate_eventManagement()
         #
-        # if var_execution_flag == 'fail':
-        #     log.error("Execution failed: Errors found in execution!!")
-        #     assert False
+        # self.driver.switch_to.window(varhandles[0])
+
+
+
         log.info("----------------------------------------------------------------------------------------------")
         log.info("*************AUTOMATION EXECUTION COMPLETED*************")
