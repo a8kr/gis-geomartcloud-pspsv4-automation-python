@@ -56,7 +56,7 @@ class TestDefaultManagementPositive(BaseClass):
         uielements.Click(locators.new_event_tab)
         log.info("Clicked New Event tab")
 
-        var_timeplace = "Auto_TP_20210406_124608"
+        var_timeplace = "Auto_TP_20210504_111141"
         log.info("Event time place: " + var_timeplace)
 
         var_event_comment = "Automation event"
@@ -117,6 +117,8 @@ class TestDefaultManagementPositive(BaseClass):
                 break
 
         log.info("Event status 'Event creation in progress. validated")
+
+        time.sleep(3)
 
         var_edit_event_gridcolumnnames = readData(testDatafilePath, "Main", var_row, 11)
         view_tp_gridheader = eventmanagement.ValidateGridheader(var_edit_event_gridcolumnnames,locators.edit_event_grid_header)
