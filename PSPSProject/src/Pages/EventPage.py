@@ -157,7 +157,7 @@ class EventPage:
             time.sleep(0.5)
             message = self.driver.find_element_by_xpath(locators.new_timeplace_fileupload_error).get_attribute(
                 'innerHTML')
-            assert ErrorMessage == message
+            assert str(ErrorMessage) in str(message)
             print("Error message displayed properly")
             time.sleep(0.5)
             return message
