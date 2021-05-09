@@ -54,6 +54,7 @@ class TestDefaultManagementNegative(BaseClass):
             log.info("Successfully entered user id & password:")
             print("Successfully entered user id & password:")
 
+
         homepage.navigate_eventManagement()
 
         log.info("Select Event Management menu")

@@ -1,5 +1,5 @@
-﻿FIA,Circuit name,Circuit ID,source_isolation_device,source_isolation_device_type,additional_isolation_device,additional_isolation_device_type,Flag,substationname,transmissionimpact,tempgenname,comments
-500,ALTO 2105,83692105,11377,Switch,,,,ALTO 60KV,Y,,Comment1
-500,ALTO 2105,83692105,12474,DPD,90835,Switch,MG-T,ALTO 60KV,N,,Comment2
-500,ALTO 2105,83692105,295,Switch,2714,Switch,DG-N,ALTO 60KV,N,,Comment3
-500,ALTO 2105,83692105,6133,Fuse,3267,Switch,AB-Y,ALTO 60KV,N,,Comment4
+﻿FIA,Circuit name,Circuit ID,source_isolation_device,source_isolation_device_type,additional_isolation_device,additional_isolation_device_type,Flag,inc,substationname,transmissionimpact,tempgenname,comments
+500,ALTO 2105,83692105,11377,Switch,,,,,ALTO 60KV,Y,,Comment1
+500,ALTO 2105,83692105,12474,DPD,90835,Switch,MG-T,,ALTO 60KV,N,,Comment2
+500,ALTO 2105,83692105,295,Switch,2714,Switch,DG-N,,ALTO 60KV,N,,Comment3
+500,ALTO 2105,83692105,6133,Fuse,3267,Switch,AB-Y,,ALTO 60KV,N,,Comment4

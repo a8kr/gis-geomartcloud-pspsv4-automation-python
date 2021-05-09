@@ -128,7 +128,7 @@ class TestDefaultManagementNegative(BaseClass):
         uielements.Click(locators.new_event_tab)
         uielements.Click(locators.new_time_place_new_tab)
 
-        for i in range(0, 24):
+        for i in range(23, 27):
             log.info("Create cvs file from em_Valid_Invalid_Circuits_logfiles.xlsx file tab: " + str(i))
             var_row_num = i
             var_row_num = var_row_num + 2
@@ -151,7 +151,7 @@ class TestDefaultManagementNegative(BaseClass):
             # Read most recent file from download folder
             var_error_log = getMostRecent_downloaded_File()
             # Get the Error message from file
-            col_list = ["Error message"]
+            col_list = ["error message"]
             var_file_message = pd.read_csv(var_error_log, usecols=col_list)
             if open(var_error_log).read().find(var_error_message_file):
                print("Error message for verified for failed file tab:  " + str(i) + "message: " + var_file_message)
@@ -184,7 +184,7 @@ class TestDefaultManagementNegative(BaseClass):
         #                  testDatafolderPath + '/em_Valid_Invalid_Circuits_message.csv')
         #
         #     var_uploadFileName = "em_Valid_Invalid_Circuits_message.csv"
-        #     #var_error_message = "File validation failed."
+        #     var_error_message = "One or more columns are missing in the file. Expected column names are: FIA, Circuit ID, Circuit name, source_isolation_device, source_isolation_device_type, additional_isolation_device, additional_isolation_device_type, Flag, tempgenname, inc, substationname, transmissionimpact, Comments (note: column names are not case sensitive)"
         #     eventpage.tp_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message_file)
         #     log.info("Validate File validation failed message")
         #
@@ -195,76 +195,76 @@ class TestDefaultManagementNegative(BaseClass):
         #     # Refresh form
         #     uielements.Click(locators.new_event_tab)
         #     uielements.Click(locators.new_time_place_new_tab)
-        #
-        # # Circuit Errors Validations
-        # log.info("Start Circuit error validation")
-        # for i in range(7, 9):
-        #     log.info("Create cvs file from em_Valid_Invalid_Circuits.xlsx file tab: " + str(i))
-        #     var_row_num = i
-        #     var_row_num = var_row_num + 2
-        #     filePath = os.path.join(testDatafolderPath, "em_Valid_Invalid_Circuits.xlsx")
-        #     var_error_message_file = readData(filePath, "Error_Message", var_row_num, 1)
-        #     log.info("Validate error message in the log file: " + var_error_message_file)
-        #     print(i)
-        #     convertExcelToTextIndex(testDatafolderPath + '/em_Valid_Invalid_Circuits.xlsx', i,
-        #                    testDatafolderPath + '/em_Valid_Invalid_Circuits.txt')
-        #     convertTexttoCSV(testDatafolderPath + '/em_Valid_Invalid_Circuits.txt',
-        #                  testDatafolderPath + '/em_Valid_Invalid_Circuits.csv')
-        #
-        #     var_uploadFileName = "em_Valid_Invalid_Circuits.csv"
-        #     var_error_message = "Validation success."
-        #     eventpage.tp_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
-        #     log.info("Validate File success message")
-        #
-        #     var_Timestamp = getCurrentTime()
-        #     var_tp_name_internal = "Auto_TP_" + var_Timestamp
-        #     var_tp_name_external = "Auto_TP_" + var_Timestamp
-        #
-        #     # Enter TP names
-        #     uielements.setText(var_tp_name_internal, locators.new_timeplace_internal_name)
-        #     uielements.setText(var_tp_name_external, locators.new_timeplace_external_name)
-        #     log.info("Enter TP names")
-        #
-        #     uielements.Click(locators.new_timeplace_create_button)
-        #     log.info("Click on Create button")
-        #     time.sleep(5)
-        #     while True:
-        #         try:
-        #             var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
-        #             if var_status_message in "Time place creation in progress.":
-        #                 continue
-        #             else:
-        #                 break
-        #         except:
-        #             break
-        #     log.info("Wait for 'Time place creation in progress' completion " )
-        #
-        #     # Validate 'Circuit validation failed! See log for failed records.'
-        #     var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
-        #     if var_status_message in "Circuit validation failed! See log for failed records.":
-        #         log.info("Validate 'Circuit validation failed' message exists")
-        #         uielements.Click(locators.new_timeplace_validation_error_link)
-        #         log.info("Click on Validation error message")
-        #
-        #
-        #     # Read most recent file from download folder
-        #     var_error_log = getMostRecent_downloaded_File()
-        #     # Get the Error message from file
-        #     col_list = ["error message"]
-        #     var_file_message = pd.read_csv(var_error_log, usecols=col_list)
-        #     if open(var_error_log).read().find(var_error_message_file):
-        #        print("Error message for verified for failed file tab:  " + str(i) + "message: " + var_file_message)
-        #     else:
-        #        log.error("Error message not displayed properly: " + var_file_message)
-        #        final_assert.append(False)
-        #
-        #     # Clear form
-        #     uielements.Click(locators.new_timeplace_clear_button)
-        #     uielements.Click(locators.new_timeplace_clear_modal_yes_button)
-        #
-        #     # Refresh form
-        #     uielements.Click(locators.new_event_tab)
-        #     uielements.Click(locators.new_time_place_new_tab)
+
+        # Circuit Errors Validations
+        log.info("Start Circuit error validation")
+        for i in range(5, 8):
+            log.info("Create cvs file from em_Valid_Invalid_Circuits.xlsx file tab: " + str(i))
+            var_row_num = i
+            var_row_num = var_row_num + 2
+            filePath = os.path.join(testDatafolderPath, "em_Valid_Invalid_Circuits.xlsx")
+            var_error_message_file = readData(filePath, "Error_Message", var_row_num, 1)
+            log.info("Validate error message in the log file: " + var_error_message_file)
+            print(i)
+            convertExcelToTextIndex(testDatafolderPath + '/em_Valid_Invalid_Circuits.xlsx', i,
+                           testDatafolderPath + '/em_Valid_Invalid_Circuits.txt')
+            convertTexttoCSV(testDatafolderPath + '/em_Valid_Invalid_Circuits.txt',
+                         testDatafolderPath + '/em_Valid_Invalid_Circuits.csv')
+
+            var_uploadFileName = "em_Valid_Invalid_Circuits.csv"
+            var_error_message = "Validation success."
+            eventpage.tp_validatefile_message(testDatafolderPath, var_uploadFileName, var_error_message)
+            log.info("Validate File success message")
+
+            var_Timestamp = getCurrentTime()
+            var_tp_name_internal = "Auto_TP_" + var_Timestamp
+            var_tp_name_external = "Auto_TP_" + var_Timestamp
+
+            # Enter TP names
+            uielements.setText(var_tp_name_internal, locators.new_timeplace_internal_name)
+            uielements.setText(var_tp_name_external, locators.new_timeplace_external_name)
+            log.info("Enter TP names")
+
+            uielements.Click(locators.new_timeplace_create_button)
+            log.info("Click on Create button")
+            time.sleep(5)
+            while True:
+                try:
+                    var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
+                    if var_status_message in "Time place creation in progress.":
+                        continue
+                    else:
+                        break
+                except:
+                    break
+            log.info("Wait for 'Time place creation in progress' completion " )
+
+            # Validate 'Circuit validation failed! See log for failed records.'
+            var_status_message = uielements.getValue(locators.new_timeplace_validation_message)
+            if var_status_message in "Circuit validation failed! See log for failed records.":
+                log.info("Validate 'Circuit validation failed' message exists")
+                uielements.Click(locators.new_timeplace_validation_error_link)
+                log.info("Click on Validation error message")
+
+
+            # Read most recent file from download folder
+            var_error_log = getMostRecent_downloaded_File()
+            # Get the Error message from file
+            col_list = ["error message"]
+            var_file_message = pd.read_csv(var_error_log, usecols=col_list)
+            if open(var_error_log).read().find(var_error_message_file):
+               print("Error message for verified for failed file tab:  " + str(i) + "message: " + var_file_message)
+            else:
+               log.error("Error message not displayed properly: " + var_file_message)
+               final_assert.append(False)
+
+            # Clear form
+            uielements.Click(locators.new_timeplace_clear_button)
+            uielements.Click(locators.new_timeplace_clear_modal_yes_button)
+
+            # Refresh form
+            uielements.Click(locators.new_event_tab)
+            uielements.Click(locators.new_time_place_new_tab)
 
 
         log.info("----------------------------------------------------------------------------------------------")
