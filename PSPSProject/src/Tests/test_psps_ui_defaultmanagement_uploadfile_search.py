@@ -47,14 +47,14 @@ class TestViewEditVersion(BaseClass):
         homepage.navigate_defaultManagement()
         log.info("Starting Validation")
 
-        #uielements.Click(locators.dm_search_dd)
-        var_dm_searchdd = readData(testDatafilePath, "Main", var_row, 10)
-        ddvallist = defmanagement.get_Searchddvalue(var_dm_searchdd)
-        if ddvallist[0] == ddvallist[1]:
-            log.info("Successfully validated Search by dropdown & selected value:")
-        else:
-            log.error("Validation failed for Search by dropdown & selected value:")
-            final_assert.append(False)
+        # uielements.Click(locators.dm_search_dd)
+        # var_dm_searchdd = readData(testDatafilePath, "Main", var_row, 10)
+        # ddvallist = defmanagement.get_Searchddvalue(var_dm_searchdd)
+        # if ddvallist[0] == ddvallist[1]:
+        #     log.info("Successfully validated Search by dropdown & selected value:")
+        # else:
+        #     log.error("Validation failed for Search by dropdown & selected value:")
+        #     final_assert.append(False)
 
         # Positive flow
         uielements.Click(locators.dm_uplaodfile)
