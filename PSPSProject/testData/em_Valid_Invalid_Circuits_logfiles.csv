@@ -1,0 +1,2 @@
+FIA,Circuit name,Circuit ID,source_isolation_device,source_isolation_device_type,additional_isolation_device,additional_isolation_device_type,Flag,inc,substationname,transmissionimpact,tempgenname,comments
+500,ALTO 2105,83692105,11377,Switch,,,,null,ALTO 60KV,Y,,Comment1
