@@ -164,6 +164,25 @@ class EventPage:
         except:
             assert False
 
+    def tp_validate_page_message(self, filepath, filename, ErrorMessage):
+        uielements = UI_Element_Actions(self.driver)
+        time.sleep(0.5)
+        try:
+            self.filepath = filepath
+            self.file = os.path.join(filepath, filename)
+            var_textFilename = self.driver.find_element_by_id(locators.uploadFile_id).get_attribute('value')
+            assert var_textFilename == ""
+            self.driver.find_element_by_id(locators.uploadFile_id).send_keys(self.file)
+            time.sleep(0.5)
+            message = self.driver.find_element_by_xpath(locators.new_timeplace_fileupload_error).get_attribute(
+                'innerHTML')
+            assert str(ErrorMessage) in str(message)
+            print("Error message displayed properly")
+            time.sleep(0.5)
+            return message
+        except:
+            assert False
+
     def tp_edit_validatefile_message(self, filepath, filename, ErrorMessage):
         uielements = UI_Element_Actions(self.driver)
         time.sleep(0.5)
