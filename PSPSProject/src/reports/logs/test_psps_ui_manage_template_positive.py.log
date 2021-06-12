@@ -1,0 +1,29 @@
+2021-06-12 10:36:16,809 :INFO : test_create_time_place :----------------------------------------------------------------------------------------------
+2021-06-12 10:36:16,809 :INFO : test_create_time_place :-------------------------------- Starting Validation------------------------------------------
+2021-06-12 10:36:27,119 :INFO : test_create_time_place :Select Manage Template Gen menu
+2021-06-12 10:36:27,145 :INFO : test_create_time_place :Upload file button is enabled by default
+2021-06-12 10:36:27,145 :INFO : test_create_time_place :Start Circuit error validation
+2021-06-12 10:37:01,431 :INFO : test_create_time_place :Validate File success message
+2021-06-12 14:02:12,336 :INFO : test_create_time_place :----------------------------------------------------------------------------------------------
+2021-06-12 14:02:12,336 :INFO : test_create_time_place :-------------------------------- Starting Validation------------------------------------------
+2021-06-12 14:02:27,431 :INFO : test_create_time_place :Select Manage Template Gen menu
+2021-06-12 14:02:27,453 :INFO : test_create_time_place :Upload file button is enabled by default
+2021-06-12 14:02:27,454 :INFO : test_create_time_place :Start Circuit error validation
+2021-06-12 14:03:03,820 :INFO : test_create_time_place :Validate File success message
+2021-06-12 14:04:26,935 :INFO : test_create_time_place :----------------------------------------------------------------------------------------------
+2021-06-12 14:04:26,935 :INFO : test_create_time_place :-------------------------------- Starting Validation------------------------------------------
+2021-06-12 14:04:31,276 :INFO : test_create_time_place :Select Manage Template Gen menu
+2021-06-12 14:04:31,292 :INFO : test_create_time_place :Upload file button is enabled by default
+2021-06-12 14:04:31,292 :INFO : test_create_time_place :Start Circuit error validation
+2021-06-12 14:04:32,916 :INFO : test_create_time_place :Validate File success message
+2021-06-12 14:04:58,386 :INFO : test_create_time_place :----------------------------------------------------------------------------------------------
+2021-06-12 14:04:58,386 :INFO : test_create_time_place :-------------------------------- Starting Validation------------------------------------------
+2021-06-12 14:05:02,711 :INFO : test_create_time_place :Select Manage Template Gen menu
+2021-06-12 14:05:02,727 :INFO : test_create_time_place :Upload file button is enabled by default
+2021-06-12 14:05:02,727 :INFO : test_create_time_place :Start Circuit error validation
+2021-06-12 14:05:04,305 :INFO : test_create_time_place :Validate File success message
+2021-06-12 14:12:15,223 :INFO : test_create_time_place :----------------------------------------------------------------------------------------------
+2021-06-12 14:12:15,223 :INFO : test_create_time_place :-------------------------------- Starting Validation------------------------------------------
+2021-06-12 14:12:19,535 :INFO : test_create_time_place :Select Manage Template Gen menu
+2021-06-12 14:12:19,558 :INFO : test_create_time_place :Upload file button is enabled by default
+2021-06-12 14:12:32,715 :INFO : test_create_time_place :Start Circuit error validation

@@ -39,6 +39,7 @@ class locators:
 
     # New time place tab
     PSPS_List_Select_EventManagement = "//div[3]/div[2]/ul/div[2]/div[2]"
+    PSPS_List_Select_ManageTempGen = "//div[3]/div[2]/ul/div[4]/div[2]"
     new_time_place_new_tab = "//span[contains(text(),'NEW TIME PLACE')]"
     new_time_place_edit_tab = "//span[contains(text(),'VIEW & EDIT TIME PLACES')]"
     new_time_place_new_event_tab = "//span[contains(text(),'New Event')]"
@@ -51,7 +52,8 @@ class locators:
     new_timeplace_clear_button = "//span[contains(text(),'CLEAR')]"
     new_timeplace_browse_button = "//span[contains(text(),'BROWSE')]"
     new_timeplace_create_button = "//span[contains(text(),'CREATE')]"
-    new_timeplace_fileupload_error = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[1]/div/div[2]/div/p"
+    #new_timeplace_fileupload_error = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[1]/div/div[2]/div/p"
+    new_timeplace_fileupload_error = "//label[ @for='FileInput']//following::p[1]"
     new_timeplace_fileupload_error_file = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[1]/div/div[2]/div/p[1]"
     new_timeplace_fileupload_error_link = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[1]/div/div[2]/div/p[2]/a"
     new_timeplace_clear_modal_no_button = "/html/body/div[2]/div[3]/div/div[3]/button[1]"

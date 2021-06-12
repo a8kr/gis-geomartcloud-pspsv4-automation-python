@@ -1,0 +1,7 @@
+﻿FIA,Circuit ID,Circuit name,source_isolation_device,source_isolation_device_type,additional_isolation_device,Flag,tempgenname,substationname,transmissionimpact,comments,inc
+300,152031103,GRASS VALLEY 1103,,Breaker,,MG-T,temp1,GRASS VALLEY,N,,
+140,42861101,ANNAPOLIS 1101,,Breaker,,MG-T,temp2,ANNAPOLIS,N,,
+190,43021102,WOODACRE 1102,,Breaker,,MG-T,temp3,WOODACRE,N,,
+330,152181101,FORESTHILL 1101,,Breaker,,MG-T,temp_2,FORESTHILL,N,,
+350,152251101,SPAULDING 1101,,Breaker,,MG-T,temp_3,SPAULDING 60kV,Y,,
+330,152301101,BONNIE NOOK 1101,,Breaker,,MG-T,temp_1,BONNIE NOOK,N,,
