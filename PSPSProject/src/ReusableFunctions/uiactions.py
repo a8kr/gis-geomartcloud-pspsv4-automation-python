@@ -62,3 +62,6 @@ class UI_Element_Actions:
 
     def clickondropdown(self, Element):
         self.driver.find_element_by_xpath(Element).click()
+
+    def reloadPage(self):
+        self.driver.refresh()

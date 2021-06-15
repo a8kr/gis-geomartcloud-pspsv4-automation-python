@@ -52,6 +52,7 @@ class locators:
     new_timeplace_clear_button = "//span[contains(text(),'CLEAR')]"
     new_timeplace_browse_button = "//span[contains(text(),'BROWSE')]"
     new_timeplace_create_button = "//span[contains(text(),'CREATE')]"
+    new_timeplace_save_button = "// span[contains(text(), 'SAVE')]"
     #new_timeplace_fileupload_error = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[1]/div/div[2]/div/p"
     new_timeplace_fileupload_error = "//label[ @for='FileInput']//following::p[1]"
     new_timeplace_fileupload_error_file = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[1]/div/div[2]/div/p[1]"
@@ -59,7 +60,9 @@ class locators:
     new_timeplace_clear_modal_no_button = "/html/body/div[2]/div[3]/div/div[3]/button[1]"
     new_timeplace_clear_modal_yes_button = "/html/body/div[2]/div[3]/div/div[3]/button[2]"
     new_timeplace_validation_error_link = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[3]/div/div/p[2]/a"
-    new_timeplace_validation_message = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[3]/div/div/p[1]"
+    #new_timeplace_validation_message = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[3]/div/div/p[1]"
+    new_timeplace_validation_message = "//div[@role='progressbar']//following::p[1]"
+    new_timeplace_saved_message = "//*[text()='Tempgen save completed.']"
     new_timeplace_internal_name = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/div/div/input"
     new_timeplace_external_name = "//*[@id='root']/div[1]/div/div[3]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div/div/input"
 
@@ -107,7 +110,9 @@ class locators:
     view_timeplace_update_button = "//span[contains(text(),'UPDATE')]"
     view_timeplace_fileupload_error_link ="//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[2]/div/div[2]/div/p[2]"
     view_timeplace_validation_message = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[4]/div/div/p"
+    view_timeplace_validation_scope_message = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div/div[3]/div/div/p"
     view_timeplace_validation_error_link = "//*[@id='root']/div[1]/div/div[3]/div/div[2]/div/div[4]/div/div/p[2]/a"
+    view_timeplace_scope_radiobutton_1 = "//div/div[2]/div/div[1]/div[1]/div/div/label/span[1]/span[1]/input"
 
 
     # New time place modal

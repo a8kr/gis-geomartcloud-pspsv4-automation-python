@@ -64,4 +64,8 @@ class HomePage:
         except:
             assert False, "Failed to navigate to Deafult Managment"
 
+    def reload_Home(self):
+        uielements = UI_Element_Actions(self.driver)
+        uielements.reloadPage()
+
 
